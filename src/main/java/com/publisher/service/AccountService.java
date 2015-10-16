@@ -9,7 +9,7 @@ import net.bull.javamelody.MonitoredWithSpring;
 @MonitoredWithSpring
 public interface AccountService extends Service<Account> {
 
-	Account authenticate(String email, String pasword);
+	Account authenticate(String email, String password);
 	
 	Account getByEmail(String email);
 	

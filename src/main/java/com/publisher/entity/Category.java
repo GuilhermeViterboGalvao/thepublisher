@@ -54,6 +54,9 @@ public class Category implements Serializable {
         inverseJoinColumns={@JoinColumn(name="parents_id", referencedColumnName="id")}
     )	
 	private Set<Category> parents;
+    
+    @ManyToMany(mappedBy = "parents")
+    private Set<Category> childs;    
 	
     @IndexedEmbedded(includeEmbeddedObjectId=true)
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})	
@@ -105,6 +108,14 @@ public class Category implements Serializable {
 
 	public void setParents(Set<Category> parents) {
 		this.parents = parents;
+	}
+
+	public Set<Category> getChilds() {
+		return childs;
+	}
+
+	public void setChilds(Set<Category> childs) {
+		this.childs = childs;
 	}
 
 	public PermanentLink getPermanentLink() {

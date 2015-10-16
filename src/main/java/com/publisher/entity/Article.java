@@ -16,17 +16,20 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FullTextFilterDef;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
+import com.publisher.entity.search.PublishedFilter;
 
 @Entity
 @Indexed
 @Inheritance(strategy = InheritanceType.JOINED)
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@FullTextFilterDef(name = "published", impl = PublishedFilter.class)
 public class Article implements Serializable {
 
 	private static final long serialVersionUID = 1542609725463960951L;

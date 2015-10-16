@@ -1,7 +1,6 @@
 package com.publisher.service;
 
 import java.util.Collection;
-import java.util.List;
 
 public interface Service<T> {
 
@@ -13,7 +12,7 @@ public interface Service<T> {
 	
 	void delete(T entity);
 	
-	List<T> list();
+	Collection<T> list();
 	
 	Collection<T> search(String query);
 	
