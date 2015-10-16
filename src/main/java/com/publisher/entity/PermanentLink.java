@@ -25,12 +25,11 @@ public class PermanentLink implements Serializable {
 	private Long id;
 	
 	@Field
-	private String url;
+	private String uri;
 	
 	@Field
 	private String type;
 	
-	@Field
 	private Long param;
 	
 	private Date created;
@@ -45,12 +44,12 @@ public class PermanentLink implements Serializable {
 		this.id = id;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getUri() {
+		return uri;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUri(String uri) {
+		this.uri = uri;
 	}
 
 	public String getType() {

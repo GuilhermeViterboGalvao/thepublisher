@@ -11,6 +11,10 @@ import net.bull.javamelody.MonitoredWithSpring;
 @MonitoredWithSpring
 public interface PhotoService extends Service<Photo> {
 
+    void persist(Photo photo, File picture);
+
+    void update(Photo photo, File picture);	
+	
 	Collection<Photo> list(int page, int pageSize);
 	
 	Collection<Photo> list(int page, int pageSize, Date publishedUntil);

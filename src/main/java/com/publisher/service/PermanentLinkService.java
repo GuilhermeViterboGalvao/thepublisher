@@ -6,12 +6,12 @@ import net.bull.javamelody.MonitoredWithSpring;
 
 @MonitoredWithSpring
 public interface PermanentLinkService extends Service<PermanentLink> {
-
-	PermanentLink get(long id);
 	
 	PermanentLink get(String uri);
 	
-	ActionMapping getActionMapping(String url);
+	PermanentLink getPermanentLink(String uri);	
+	
+	ActionMapping getActionMapping(String uri);
 	
 	void change(PermanentLink oldPermanentLink, PermanentLink newPermanentLink);
 	
