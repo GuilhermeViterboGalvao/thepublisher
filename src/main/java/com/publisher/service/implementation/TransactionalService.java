@@ -1,4 +1,4 @@
-package com.publihser.service.implementation;
+package com.publisher.service.implementation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

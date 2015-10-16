@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<bean id="defaultMapper" class="org.apache.struts2.dispatcher.mapper.DefaultActionMapper"/>
+	<bean id="permanentLinkMapper" class="com.publisher.actionmapper.PermanentLinkActionMapper">		
+		<property name="permanentLinkService" ref="permanentLinkService"/>		
+		<property name="backupMapper" ref="defaultMapper"/>		
+	</bean>	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>	
+	<bean id="accountService" class="com.publisher.service.implementation.AccountServiceImplementation"/>	
+	<bean id="articleService" class="com.publisher.service.implementation.ArticleServiceImplementation"/>
+	<bean id="categoryService" class="com.publisher.service.implementation.CategoryServiceImplementation"/>
+	<bean id="pageService" class="com.publisher.service.implementation.PageServiceImplementation"/>
+	<bean id="permanentLinkService" class="com.publisher.service.implementation.PermanentLinkServiceImplementation"/>
+	<bean id="photoService" class="com.publisher.service.implementation.PhotoLinkServiceImplementation"/>
+	<bean id="skinService" class="com.publisher.service.implementation.SkinServiceImplementation"/>
+	<!-- Just for Threads. If you will use this service, remember to close all entityManager. -->
+	<bean id="entityManagerFactoryService" class="com.system.implementation.EntityManagerFactoryServiceImplementation"/>
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+		</property>
+		<property name="jpaProperties">
+			<props>
+			    <prop key="hibernate.dialect">com.publisher.utils.MySQL5MyISAMDialect</prop>
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<prop key="hibernate.id.new_generator_mappings">false</prop>				
+				<prop key="hibernate.search.default.worker.backend">lucene</prop>
+				<prop key="hibernate.search.default.reader.strategy">shared</prop>
+				<prop key="hibernate.search.default.directory_provider">filesystem</prop>				
+				<prop key="hibernate.search.default.indexBase">#{systemProperties.index_folder}</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- DBCP or C3P0 via JNDI Connection Pool Setting -->
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+ 		<property name="jndiName" value="java:comp/env/jdbc/system"/> 		
+	</bean>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

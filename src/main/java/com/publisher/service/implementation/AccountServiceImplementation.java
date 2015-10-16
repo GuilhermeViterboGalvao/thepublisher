@@ -1,4 +1,4 @@
-package com.publihser.service.implementation;
+package com.publisher.service.implementation;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
