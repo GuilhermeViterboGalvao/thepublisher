@@ -18,8 +18,6 @@
 	<bean id="permanentLinkService" class="com.publisher.service.implementation.PermanentLinkServiceImplementation"/>
 	<bean id="photoService" class="com.publisher.service.implementation.PhotoLinkServiceImplementation"/>
 	<bean id="skinService" class="com.publisher.service.implementation.SkinServiceImplementation"/>
-	<!-- Just for Threads. If you will use this service, remember to close all entityManager. -->
-	<bean id="entityManagerFactoryService" class="com.system.implementation.EntityManagerFactoryServiceImplementation"/>
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
@@ -44,7 +42,7 @@
 	</bean>
 	<!-- DBCP or C3P0 via JNDI Connection Pool Setting -->
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
- 		<property name="jndiName" value="java:comp/env/jdbc/system"/> 		
+ 		<property name="jndiName" value="java:comp/env/jdbc/thepublisher"/> 		
 	</bean>
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
