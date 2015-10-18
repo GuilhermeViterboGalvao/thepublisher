@@ -26,7 +26,7 @@
 		<property name="jpaProperties">
 			<props>
 			    <prop key="hibernate.dialect">com.publisher.utils.MySQL5MyISAMDialect</prop>
-				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.id.new_generator_mappings">false</prop>				
 				<prop key="hibernate.search.default.worker.backend">lucene</prop>
 				<prop key="hibernate.search.default.reader.strategy">shared</prop>
