@@ -19,10 +19,7 @@ public class ContextListener implements ServletContextListener {
 	private static Log log = LogFactory.getLog(ContextListener.class);
 	
 	@Override
-	public void contextInitialized(ServletContextEvent event) { }
-	
-	@Override
-	public void contextDestroyed(ServletContextEvent event) {
+	public void contextInitialized(ServletContextEvent event) { 
         try { 
         	readAndExport(event.getServletContext()); 
         } catch (Exception e) {
@@ -83,4 +80,7 @@ public class ContextListener implements ServletContextListener {
 		}
 		return file;
 	}
+	
+	@Override
+	public void contextDestroyed(ServletContextEvent event) { }
 }
