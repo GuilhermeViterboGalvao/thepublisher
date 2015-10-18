@@ -13,4 +13,22 @@
     <definition name="error-401" extends="default">
         <put-attribute name="content" value="/401.jsp"/>
     </definition>
+    <definition name="manager-layout" template="/manager/layout.jsp">
+        <put-attribute name="title" value="Administrativo do site Tatame"/>
+        <put-attribute name="head" value="/manager/head.jsp"/>
+        <put-attribute name="header" value="/manager/header.jsp"/>
+        <put-attribute name="menu" value="/manager/menu.jsp"/>
+        <put-attribute name="content" value="/manager/home.jsp"/>
+        <put-attribute name="footer" value="/manager/footer.jsp"/>
+    </definition>
+    <definition name="manager-login" template="/manager/loginform.jsp"/>
+    <definition name="index" extends="manager-layout">
+        <put-attribute name="content" value="/manager/index.jsp"/>
+    </definition>
+    <definition name="account-list" extends="manager-login">
+        <put-attribute name="content" value="/manager/account/list.jsp"/>
+    </definition>    
+    <definition name="account-input" extends="manager-login">
+        <put-attribute name="content" value="/manager/account/input.jsp"/>
+    </definition>    
 </tiles-definitions>
