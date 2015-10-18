@@ -7,7 +7,7 @@
 			<result-type name="json"  class="org.apache.struts2.json.JSONResult" />
 		</result-types>
 		<interceptors>
-			<interceptor name="authenticationInteceptor" class="com.system.publisher.AuthenticationInterceptor" />
+			<interceptor name="authenticationInteceptor" class="com.publisher.manager.AuthenticationInterceptor" />
 			<interceptor name="monitoring" class="net.bull.javamelody.StrutsInterceptor"/> 
 			<interceptor-stack name="secureManager">
 			    <interceptor-ref name="monitoring"/>			    
