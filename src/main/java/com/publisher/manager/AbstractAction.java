@@ -66,13 +66,13 @@ public abstract class AbstractAction<T> extends ActionSupport implements Account
 	
 	protected abstract void indexAll();
 
-	protected abstract void populateForm(T object);
+	protected abstract void populateForm(T entity);
 
-	protected abstract T updateObject(T object);
+	protected abstract T updateObject(T entity);
 
 	protected abstract T createEmptyInstance();
 
-	protected abstract void saveObject(T object, boolean isNew);
+	protected abstract void saveObject(T entity, boolean isNew);
 	
 	protected abstract Collection<T> generateList();
 	

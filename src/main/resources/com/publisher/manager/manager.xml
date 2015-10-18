@@ -15,6 +15,20 @@
 				<interceptor-ref name="paramsPrepareParamsStack"/>
 			</interceptor-stack>
 		</interceptors>
-		<default-interceptor-ref name="secureManager" />		
+		<default-interceptor-ref name="secureManager"/>
+		<global-results>
+			<result name="login" type="tiles">manager-login</result>
+		</global-results>		
+		<action name="login" class="com.publisher.manager.LoginAction">
+			<interceptor-ref name="defaultStack"/>
+			<result type="tiles">publisherLayout</result>
+			<result name="redirect" type="tiles">publisherLayout</result>
+		</action>
+		<action name="logout" class="com.publisher.manager.LogoutAction"/>		
+		<action name="account-*" class="com.publisher.manager.AccountAction" method="{1}">
+			<result type="tiles">account-list</result>
+			<result name="input" type="tiles">account-input</result>
+			<result name="redirect" type="redirectAction">account-list</result>
+		</action>
 	</package>
 </struts>

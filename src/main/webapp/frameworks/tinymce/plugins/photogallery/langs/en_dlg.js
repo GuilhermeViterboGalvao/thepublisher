@@ -1,0 +1,1 @@
+tinyMCE.addI18n('en.photogallery_dlg',{title: "Waves"});

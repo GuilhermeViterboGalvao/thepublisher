@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Galeria de fotos</title>
+		<script type="text/javascript" src="/system/js/autocomplete.js"></script>
+		<script type="text/javascript" src="/frameworks/tinymce/tiny_mce_popup.js"></script>
+		<script type="text/javascript" src="/frameworks/tinymce/plugins/photogallery/js/dialog.js"></script>
+		<style type="text/css">
+			body > div.photoselector { width: 100%; position: relative;	}
+			body > div.photoselector > input { float: left; width: 200px; }
+			body > div.photoselector > div.toolbox { clear: both; }
+			body > div.photoselector > select { float: left; margin: 4px; }
+			body > div.photoselector > label { float: left; margin: 6px 4px; }
+			body > div.photoselector > select#size { width: 110px; }
+			body > div.photoselector > select#position { width: 90px; }
+		</style>
+	</head>
+	<body>
+		<div class="photoselector" id="photoId_ACSBox">
+		<input type="text" id="photoId_ACSInput"></input>
+		<label>Tamanho:</label>
+		<select id="size">
+			<option value="210" selected="selected">Pequeno (210)</option>
+			<option value="320">Médio (320)</option>
+			<option value="360">Médio - Tatame (360)</option>
+			<option value="670">Grande (670)</option>
+		</select>
+		<label>Posição:</label>
+		<select id="position">
+			<option value="right" selected="selected">Direita</option>
+			<option value="center">Centro</option>
+			<option value="left">Esquerda</option>
+		</select>
+		</div>
+		<script type="text/javascript">
+			PhotoSelector("photoId_ACSEngine",{
+				url: "/publisher/ac-photo",
+				click: function(target) {
+					var ps = document.getElementById("position");
+					var position = ps.options[ps.selectedIndex].value;
+					var ss = document.getElementById("size");
+					var width = Number(ss.options[ss.selectedIndex].value);
+					var height = width * target.extra.height / target.extra.width;
+					var description = target.extra.description + " Foto: " + target.extra.photographer;
+					PhotoGalleryDialog.insert(
+						target.value, 
+						description,
+						position,
+						width,
+						height,
+						target.extra.width + "x" + target.extra.height
+					);
+				},
+				showToolTip: "true",		
+				imagePattern: "/img/[value]_100x70.jpg",		
+				minLength: "4",		
+				delay: "500",		
+				initialUrl: "/publisher/ac-photo",		
+				pageSize: 60,		
+				target: "photoId_ACSInput",
+				menu: "photoId_ACSBox"
+			});
+		</script>
+	</body>
+</html>

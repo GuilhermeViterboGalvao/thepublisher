@@ -1,0 +1,1 @@
+tinyMCE.addI18n('en.photogallery',{desc: "Insert picture from Gallery"});
