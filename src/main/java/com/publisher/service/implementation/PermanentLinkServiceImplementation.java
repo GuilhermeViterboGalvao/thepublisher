@@ -64,7 +64,7 @@ public class PermanentLinkServiceImplementation extends TransactionalService imp
     	long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(PermanentLink.class).get();
-        org.apache.lucene.search.Query luceneQuery = qb.keyword().onFields("url", "type").matching(query).createQuery();
+        org.apache.lucene.search.Query luceneQuery = qb.keyword().onFields("uri", "type").matching(query).createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, PermanentLink.class);
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         log.info("PAGE SEARCH=[" + luceneQuery + "] - TimeElapsed=" + (int)(System.currentTimeMillis() - t));
@@ -137,7 +137,7 @@ public class PermanentLinkServiceImplementation extends TransactionalService imp
     		}
     		return (PermanentLink)element.getObjectValue();
     	}
-        Query query = entityManager.createQuery("from PermanentLink where url=:url").setParameter("url", uri.substring(1));
+        Query query = entityManager.createQuery("from PermanentLink where uri=:uri").setParameter("uri", uri.substring(1));
 		List<PermanentLink> result = query.getResultList();    	
         if (result == null || result.isEmpty()) {
         	link = null;
