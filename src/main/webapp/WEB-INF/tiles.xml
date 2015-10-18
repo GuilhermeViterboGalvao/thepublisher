@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="default" template="/skins/selector.jsp">
+        <put-attribute name="content" value="/skins/content.jsp"/>
+    </definition>
+    <definition name="error-404" extends="default">
+        <put-attribute name="content" value="/404.jsp"/>
+    </definition>
+    <definition name="error-403" extends="default">
+        <put-attribute name="content" value="/403.jsp"/>
+    </definition>        
+    <definition name="error-401" extends="default">
+        <put-attribute name="content" value="/401.jsp"/>
+    </definition>
+</tiles-definitions>
