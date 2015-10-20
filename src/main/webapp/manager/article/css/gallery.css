@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+div.foto {
+    position: relative;
+    float: left;
+    width: 208px;
+    height: 123px;
+    padding: 4px;
+    margin: 0;
+}
+
+div.foto img {
+    margin: 0px;
+    padding: 0;
+    border: 1px solid black;
+    left: 3px;
+    top: 3px;
+}
+
+input.moveup {
+    margin: 0px;
+    padding: 0;
+    border: 1px solid black;
+    left: 108px;
+    top: 3px;
+    width: 94px;
+}
+input.delete {
+    margin: 0px;
+    padding: 0;
+    border: 1px solid black;
+    left: 108px;
+    top: 25px;
+    width: 94px;
+}
+input.movedown {
+    margin: 0px;
+    padding: 0;
+    border: 1px solid black;
+    left: 108px;
+    top: 47px;
+    width: 94px;
+}
+textarea.fotolegenda {
+    margin: 0px;
+    padding: 0;
+    border: 1px solid black;
+    left: 3px;
+    top: 78px;
+    width: 200px;
+    height: 40px;
+}
+div#photoHolder {
+    position: absolute;
+    margin-left: 750px;
+    top: 132px;
+}

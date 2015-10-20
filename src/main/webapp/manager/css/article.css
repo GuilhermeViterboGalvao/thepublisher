@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+html { background-color: #ccc; }
+body { background-color: #fff; font-family: Verdana; font-size: 14px; text-align: justify; margin: 0 91px; min-height: 595px; width: 679px; }
+div.photo { background-color: white; padding: 0px; display: table; margin-top: 0 auto; }
+div.photo img { display: block; border: 0px; margin: 0px; padding: 0px; }
+div.photo div{ background-color: #ececec; }
+div.size670,
+div.size670 div { padding: 3px; text-align: center; width: 650px; }
+div.size360,
+div.size360 div { margin-bottom: 10px; width: 339px; }
+div.size320,
+div.size320 div { margin-bottom: 10px; width: 299px; }
+div.size210,
+div.size210 div { margin-bottom: 10px; font-size: 14px; padding: 5px; width: 190px; line-height: 18px; }
+div.size210 > div,
+div.size320 > div,
+div.size360 > div,
+div.size670 > div { font-size: 14px; line-height: 20px; padding: 10px; }
+div.center { width: 99%; }
+div.center img,
+div.center div { display: table; margin: 0 auto; background-color: #ececec; }
+div.right { float: right; clear: right; margin-left: 10px; }
+div.left { float: left; clear: left; margin-right: 10px; }

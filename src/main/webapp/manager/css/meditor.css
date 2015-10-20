@@ -1,0 +1,212 @@
+div#editor {
+    clear: both;
+}
+div#editor div.slide {
+    padding: 5px;
+    width: 100%;
+    height: 110px;
+    position: relative;
+    border-bottom: 1px solid black;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
+div#editor div.slide div.nav {
+	position: absolute;
+	top: 45px;
+	left: 660px;
+}
+div#editor div.slide div.nav div {
+    background-color: #CCCCCC;
+    border: 1px solid #000000;
+    border-radius: 0.2em;
+    display: block;
+    float: left;
+    margin-left: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+}
+div#editor div.slide div.nav div:HOVER {
+	background-color: white;
+	color: #CCCCCC;
+}
+
+
+
+
+div#editor div.slide input.caption {
+    width: 765px;
+}
+div#editor div.slide img, div.article img {
+    float: left;
+    margin: 0 2px 0 0;
+}
+div#editor div.slide input.width, div#editor div.slide input.height {
+    width: 75px;
+}
+div#editor div.slide input.title {
+    width: 200px;
+}
+div.end input {
+    width: 450px;
+}
+div.slide p , div.article p{
+	margin: 0px;
+}
+div.slide p input[type=checkbox] {
+	margin-top: 3px;	
+}
+div.slide p input,
+div.slide p span,
+div.slide p a {
+	float: left;
+}
+div.slide p span,
+div.slide p a {
+	margin-left: 5px;
+}
+div.video div.box, 
+div.audio div.box {
+    position: absolute;
+    border: 1px solid black;
+    background-color: white;
+    width: 220px;
+    z-index: 200;
+}
+div.slide img {
+    cursor: pointer;
+    border: 1px solid black;
+}
+div.slide input.photos {
+    width: 20px;
+    float: left;
+}
+
+div.end div.up, 
+div.end div.down, 
+div.end div.remove, 
+div.end div.add {
+    background-color: #BDCEC8;    
+    color: white;
+    float: right;
+    text-align: center;
+    padding: 2px 8px;
+    cursor: pointer;
+    margin: 0 4px;
+    border-radius: 0.2em;
+    border: 1px solid black;
+    font-size: 14px;
+    margin-top: 25px;
+}
+div.end div.up:HOVER, 
+div.end div.down:HOVER, 
+div.end div.remove:HOVER, 
+div.end div.add:HOVER {
+	background-color: white;
+	color: #BDCEC8;
+}
+div.end {
+    width: 100%;
+}
+div.end div.article input.title {
+    width: 450px;
+}
+div.end div.article {
+    padding: 4px;
+    border-bottom: 1px solid black;
+    font-size: 10px;
+    background-color: #bdcec8;
+    margin-top: 10px;
+}
+div.video div.bt,
+div.audio div.bt {
+	float: left;
+	text-transform: lowercase;
+	background-color: blue;
+	margin-left: 10px;
+	padding: 2px;
+	color: white;
+	cursor: pointer;
+}
+div.video div.bt:HOVER,
+div.audio div.bt:HOVER {
+	background-color: white;
+	color: blue;
+}
+div.video div.box div,
+div.video div.box h1,
+div.video div.box p,
+div.audio div.box div,
+div.audio div.box h1,
+div.audio div.box p {
+	float: left;
+	width: 100%;
+	font-size: 12px;
+	line-height: 20px;
+}
+div.video div.box div.closeVideo, 
+div.audio div.box div.closeAudio {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    float: right;
+    text-align: center;
+    width: 20px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+div.video div.box div.closeVideo:HOVER, 
+div.audio div.box div.closeAudio:HOVER {
+	color: #FF0000;
+	background-color: #FFFFFF; 
+}
+div.video div.box h1,
+div.audio div.box h1 {
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    padding: 0;
+    text-align: center;
+}
+div.video div.box > p,
+div.audio div.box > p {
+	margin-top: 20px;
+}
+div.video div.box > p input.start,
+div.audio div.box > p input.start {
+	margin-right: 5px;
+}
+div.video div.box p b,
+div.audio div.box p b {
+	float: left;
+}
+div.video div.box p input.height,
+div.audio div.box p input.height {
+	float: right;
+}
+div.video div.box div.addLine,
+div.video div.box div.removeVideo,
+div.video div.box div.uploadVideo,
+div.audio div.box div.addLine,
+div.audio div.box div.removeAudio,
+div.audio div.box div.uploadAudio {
+    background-color: #BABACA;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    text-transform: lowercase;
+    cursor: pointer;
+    border: 1px solid black;
+}
+div.video div.box div.addLine:HOVER,
+div.video div.box div.removeVideo:HOVER,
+div.video div.box div.uploadVideo:HOVER,
+div.audio div.box div.addLine:HOVER,
+div.audio div.box div.removeAudio:HOVER,
+div.audio div.box div.uploadAudio:HOVER {
+	color: #BABACA;
+	background-color: #FFFFFF;	
+}
+div#editor div.slide div.video div.box div.lines p input.title,
+div#editor div.slide div.audio div.box div.lines p input.title {
+	width: 100%;
+}
