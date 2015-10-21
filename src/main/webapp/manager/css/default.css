@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 .ym-wrapper { min-width: 760px; max-width: 1024px; margin: 0 auto; padding: 0; }
-#header { background-color: gray; padding: 10px; }
-#header h2 { color: white; }
+div#header { background-color: gray; padding: 10px; }
+div#header h2 { color: white; }
 #menu { border-right: 2px solid gray; padding-top: 10px; }
 #menu .ym-cbox { padding: 0 10px 0 0; }
 #content .ym-cbox { padding: 0 0 0 0px; }

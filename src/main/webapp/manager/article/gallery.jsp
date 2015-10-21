@@ -144,10 +144,13 @@
 			</div>
 			
 			<div class="ym-grid">
-				<div class="ym-g50 ym-gl ym-fbox-button">
+				<div class="ym-g33 ym-gl ym-fbox-button">
+					<input id="btnShow" type="button" value="Selecionar fotos"/>
+				</div>						
+				<div class="ym-g33 ym-gl ym-fbox-button">
 					<input type="button" id="swfDialog" name="swfDialog" value="Subir imagens"/>
 				</div>	
-				<div class="ym-g50 ym-gl ym-fbox-button">
+				<div class="ym-g33 ym-gl ym-fbox-button">
 					<s:submit value="Enviar" />
 				</div>			
 			</div>
