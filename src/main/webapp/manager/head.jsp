@@ -7,3 +7,4 @@
 <link rel="stylesheet" type="text/css" href="/frameworks/yaml/navigation/hlist.css"/>
 <link rel="stylesheet" type="text/css" href="/frameworks/yaml/navigation/vlist.css"/>
 <link rel="stylesheet" type="text/css" href="/frameworks/yaml/screen/typography.css"/>
+<link rel="stylesheet" type="text/css" href="/manager/css/default.css"/>

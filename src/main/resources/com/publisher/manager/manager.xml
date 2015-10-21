@@ -21,8 +21,8 @@
 		</global-results>		
 		<action name="login" class="com.publisher.manager.LoginAction">
 			<interceptor-ref name="defaultStack"/>
-			<result type="tiles">publisherLayout</result>
-			<result name="redirect" type="tiles">publisherLayout</result>
+			<result type="tiles">manager-index</result>
+			<result name="redirect" type="tiles">manager-index</result>
 		</action>
 		<action name="logout" class="com.publisher.manager.LogoutAction"/>		
 		<action name="account-*" class="com.publisher.manager.AccountAction" method="{1}">

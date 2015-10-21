@@ -22,13 +22,13 @@
         <put-attribute name="footer" value="/manager/footer.jsp"/>
     </definition>
     <definition name="manager-login" template="/manager/loginform.jsp"/>
-    <definition name="index" extends="manager-layout">
+    <definition name="manager-index" extends="manager-layout">
         <put-attribute name="content" value="/manager/index.jsp"/>
     </definition>
-    <definition name="account-list" extends="manager-login">
+    <definition name="account-list" extends="manager-layout">
         <put-attribute name="content" value="/manager/account/list.jsp"/>
     </definition>    
-    <definition name="account-input" extends="manager-login">
+    <definition name="account-input" extends="manager-layout">
         <put-attribute name="content" value="/manager/account/input.jsp"/>
     </definition>    
 </tiles-definitions>

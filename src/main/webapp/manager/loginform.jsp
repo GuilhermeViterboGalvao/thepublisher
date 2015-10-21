@@ -5,21 +5,24 @@
 		<link rel="stylesheet" type="text/css" href="/frameworks/yaml/core/base.min.css" />
 		<link rel="stylesheet" type="text/css" href="/frameworks/yaml/forms/gray-theme.css" />
 		<link rel="stylesheet" type="text/css" href="/frameworks/yaml/screen/typography.css" />
-		<link rel="stylesheet" type="text/css" href="/system/publisher/css/default.css" />
-		<style type="text/css">.login { top: 50%; left: 50%; margin-top: -135px; margin-left: -215px; height: 270px; width: 430px; position: absolute; }</style>
+		<link rel="stylesheet" type="text/css" href="/manager/css/default.css" />
+		<style type="text/css">
+			.login { top: 50%; left: 50%; margin-top: -135px; margin-left: -215px; height: 270px; width: 430px; position: absolute; }
+			.login > h2 { padding-left: 10px; }
+		</style>
 	</head>
 	<body>
-		<s:form action="login" namespace="/publisher" cssClass="ym-form ym-g25 login" >
-			<h2 style="padding-left: 10px;">Identifique-se</h2>
+		<form action="/manager/login" method="post" class="ym-form ym-g25 login">
+			<h2>Identifique-se</h2>
 			<div class="ym-fbox-text" >
 				<label for="email">Email</label>	    
-				<s:textfield name="email"/>	    
+				<input type="email" name="email"/>	    
 				<label for="password">Senha</label>
-				<s:password name="password"/>			
+				<input type="password" name="password"/>						
 				<div class="ym-fbox-button">
-					<s:submit value="Enviar" cssClass="ym-button"/>
+					<input type="submit" value="Enviar" class="ym-button"/>
 				</div>    	
-			</div>
-		</s:form>
+			</div>		
+		</form>
 	</body>
 </html>
