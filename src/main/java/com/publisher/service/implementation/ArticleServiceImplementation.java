@@ -17,6 +17,7 @@ import org.hibernate.search.jpa.Search;
 import org.hibernate.search.query.dsl.MustJunction;
 import com.publisher.entity.Article;
 import com.publisher.entity.Category;
+import com.publisher.entity.PermanentLink;
 import com.publisher.service.ArticleService;
 import com.publisher.utils.ResultList;
 
@@ -89,6 +90,11 @@ public class ArticleServiceImplementation extends TransactionalService implement
         	log.error(e);
             e.printStackTrace();
         }
+	}
+	
+	@Override
+	public void update(Article entity, PermanentLink oldPermanentLink) {
+		//TODO
 	}
 
 	@Override

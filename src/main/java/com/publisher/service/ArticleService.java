@@ -5,12 +5,15 @@ import java.util.Date;
 import java.util.List;
 import com.publisher.entity.Article;
 import com.publisher.entity.Category;
+import com.publisher.entity.PermanentLink;
 import com.publisher.utils.ResultList;
 
 import net.bull.javamelody.MonitoredWithSpring;
 
 @MonitoredWithSpring
 public interface ArticleService extends Service<Article> {
+	
+	void update(Article entity, PermanentLink oldPermanentLink);
 	
     List<Article> get(int page, int pageSize, Date start, Date end, Boolean publishedOnly);
     
