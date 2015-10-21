@@ -30,5 +30,32 @@
 			<result name="input" type="tiles">account-input</result>
 			<result name="redirect" type="redirectAction">account-list</result>
 		</action>
+		<action name="article-*" class="com.publisher.manager.ArticleAction" method="{1}">
+			<result type="tiles">article-list</result>
+			<result name="input" type="tiles">${input}</result>
+			<result name="reload" type="redirectAction">article-edit?id=${id}</result>			
+			<result name="redirect" type="redirectAction">article-list</result>
+		</action>
+		<action name="ac-article" class="com.publisher.utils.autocomplete.ArticleAutoCompleteAction">
+			<result name="login" type="httpheader">
+				<param name="error">401</param>
+			</result>
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>
+		<action name="article_select" class="com.publisher.manager.feed.ArticleFeedAction">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+        </action>   		
 	</package>
 </struts>

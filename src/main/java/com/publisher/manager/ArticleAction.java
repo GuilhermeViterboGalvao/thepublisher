@@ -27,7 +27,9 @@ public class ArticleAction extends AbstractAction<Article> implements ServletReq
 	private long cid = -1;
 	
 	public String getInput() {
-		if (type != null && !type.equals("")) return "article-" + type;
+		if (type != null && !type.equals("")) {
+			return "article-" + type;
+		}
 		return "article-input";
 	}
 	
