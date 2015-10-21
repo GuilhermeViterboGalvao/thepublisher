@@ -24,9 +24,9 @@
 	id="${parameters.id?default("")?html}_ACS" 
 	onclick="StrutsPS.search('${parameters.id?default("")?html}')" 
 	<#if parameters.display?? && parameters.display?contains("/0_")>
-		src="/system/publisher/img/photo_130x80.jpg"
+		src="/manager/img/photo_130x80.jpg"
 	<#else>
-		src="${parameters.display?default("/system/publisher/img/photo_130x80.jpg")?html}" 
+		src="${parameters.display?default("/manager/img/photo_130x80.jpg")?html}" 
 	</#if>
 	class="photoselector"
 />
