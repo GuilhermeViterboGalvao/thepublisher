@@ -1,13 +1,10 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
 <nav class="ym-hlist">
 	<ul>
 		<li class="active"><strong>Matérias</strong></li>
-		<li><s:a href="article-edit">Padrão</s:a></li>
-		<li><s:a href="article-edit?type=video">Vídeo</s:a></li>
-		<li><s:a href="article-edit?type=gallery">Fotos</s:a></li>
-		<li><s:a href="article-edit?type=default">Default (com Fotos e Vídeos)</s:a></li>
+		<li><a href="/manager/article-edit">Nova matéria padrão</a></li>
+		<li><a href="/manager/article-edit?type=gallery">Nova galeria de fotos</a></li>
 	</ul>
 	<form class="ym-searchform">
 		<input class="ym-searchfield" type="search" name="search" value="<s:property value="search"/>" placeholder="Procurar..." /> 
@@ -19,19 +16,19 @@
 	<thead>
 		<tr>
 			<th>
-				<a href="article-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
+				<a href="/manager/article-list?orderBy=id&orderly=<s:property value="!orderly"/>">Id</a>
 			</th>
 			<th>
-				<a href="article-list?orderBy=publishedAt&orderly=<s:property value="!orderly"/>">data</a>
+				<a href="/manager/article-list?orderBy=publishedAt&orderly=<s:property value="!orderly"/>">Data</a>
 			</th>
 			<th>
-				<a href="article-list?orderBy=header&orderly=<s:property value="!orderly"/>">chamada</a>
+				<a href="/manager/article-list?orderBy=header&orderly=<s:property value="!orderly"/>">Chamada</a>
 			</th>
 			<th>
-				<a href="article-list?orderBy=title&orderly=<s:property value="!orderly"/>">título</a>
+				<a href="/manager/article-list?orderBy=title&orderly=<s:property value="!orderly"/>">Título</a>
 			</th>
 			<th>
-				<a href="article-list?orderBy=published&orderly=<s:property value="!orderly"/>">publicado</a>
+				<a href="/manager/article-list?orderBy=published&orderly=<s:property value="!orderly"/>">Publicado</a>
 			</th>					
 			<th></th>
 		</tr>
@@ -53,10 +50,10 @@
 				</td>
 				<td>
 					<s:if test="published">
-						<img src="/system/publisher/img/on.png" alt="Publicado"/>
+						<img src="/manager/img/on.png" alt="Publicado"/>
 					</s:if>
 					<s:else>
-						<img src="/system/publisher/img/off.png" alt="Despublicado"/>
+						<img src="/manager/img/off.png" alt="Despublicado"/>
 					</s:else>
 				</td>		
 				<s:url id="url" action="article-edit">
@@ -102,7 +99,7 @@
 	    </s:bean>
 	    <s:iterator value="counter" >
 	        <s:if test="top == currentPage">
-	        		<s:property value="currentPage"/>
+	        	<s:property value="currentPage"/>
 	        </s:if>
 	        <s:else>
 	            <s:url id="url" action="article-list">
