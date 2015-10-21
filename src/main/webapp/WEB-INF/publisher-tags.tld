@@ -93,7 +93,7 @@
 	
 	<tag>
 		<description><![CDATA[Seletor de matérias]]></description>
-		<name>articleSelectorDialog</name>
+		<name>articleselectordialog</name>
 		<tag-class>com.publisher.tags.ArticleSelectorDialogTag</tag-class>
 		<body-content>JSP</body-content>
 	    <attribute>
@@ -157,11 +157,10 @@
 			<rtexprvalue>false</rtexprvalue>
 		</attribute>														
 		<dynamic-attributes>true</dynamic-attributes>
-	</tag>	
-		
+	</tag>		
   <tag>
     <description><![CDATA[Coloca campo de edição auto completável]]></description>
-    <name>autoComplete</name>
+    <name>autocomplete</name>
     <tag-class>com.publisher.tags.AutoCompleteTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
@@ -471,11 +470,10 @@
       <rtexprvalue>false</rtexprvalue>
     </attribute>
     <dynamic-attributes>true</dynamic-attributes>
-  </tag>
-  
+  </tag>  
   <tag>
     <description><![CDATA[Coloca campo de edição auto completável]]></description>
-    <name>photoSelector</name>
+    <name>photoselector</name>
     <tag-class>com.publisher.tags.PhotoSelectorTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>

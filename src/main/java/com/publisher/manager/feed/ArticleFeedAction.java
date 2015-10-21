@@ -55,8 +55,16 @@ public class ArticleFeedAction extends ActionSupport implements AccountAware {
         return SUCCESS;
 	}
 	
+	private Account account;
+	
 	@Override
-	public void setAccount(Account account) { }
+	public void setAccount(Account account) { 
+		this.account = account;		
+	}
+	
+	public Account getAccount() {
+		return account;
+	}
 	
 	//POJO
 	

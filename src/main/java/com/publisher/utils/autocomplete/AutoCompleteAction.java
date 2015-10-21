@@ -12,6 +12,7 @@ public abstract class AutoCompleteAction implements Action, AccountAware {
 	private Integer page;
 	private Integer pagesize;
 	private Collection<LabelValue> result;
+	private Account account;
 	
 	public String execute() {
 		populate();
@@ -28,7 +29,13 @@ public abstract class AutoCompleteAction implements Action, AccountAware {
 		this.result = result;
 	}
 	
-	public void setAccount(Account account) {}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	
+	public Account getAccount() {
+		return account;
+	}
 
 	public String getTerm() {
 		return term;

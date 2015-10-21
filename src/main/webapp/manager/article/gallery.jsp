@@ -37,7 +37,7 @@
 		<div class="ym-fbox-text fields">		
 			<s:hidden name="id"/>
 			<s:hidden name="type"/>
-			<p:photoSelector 
+			<p:photoselector 
 				name="photoId" 
 				cssStyle="float: left;"
 				display="'/img/'+photoId+'_150x100.jpg'"
@@ -60,7 +60,7 @@
 			<label class="categoryName">Categoria:</label>
 			<s:hidden name="categoryName"/>			
 			<s:if test="categoryName.equals('')">
-				<p:autoComplete 
+				<p:autocomplete 
 					name="categoryId" 
 					display="-vazio-" 
 					url="manager/ac-category" 
@@ -68,7 +68,7 @@
 				/>			
 			</s:if>
 			<s:else>
-				<p:autoComplete 
+				<p:autocomplete 
 					name="categoryId" 
 					display="%{categoryName}" 
 					url="manager/ac-category" 
@@ -79,7 +79,7 @@
 			<label>Autor:</label>			
 			<s:hidden id="createdByDescription" name="createdByDescription"/>
 			<s:if test="createdByDescription.equals('')">
-				<p:autoComplete 
+				<p:autocomplete 
 					id="createdById" 
 					name="createdById" 
 					display="-vazio-" 
@@ -88,7 +88,7 @@
 				/>
 			</s:if>
 			<s:else>
-				<p:autoComplete 
+				<p:autocomplete 
 					id="createdById" 
 					name="createdById" 
 					display="%{createdByDescription}" 
@@ -110,7 +110,7 @@
 			<label>Template Padrão:</label>
 			<s:hidden name="templateDescription"/>
 			<s:if test="templateDescription.equals('')">
-				<p:autoComplete 
+				<p:autocomplete 
 					name="templateId" 
 					display="-vazio-"	
 					url="manager/ac-skin"  
@@ -118,7 +118,7 @@
 				/>
 			</s:if>
 			<s:else>
-				<p:autoComplete 
+				<p:autocomplete 
 					name="templateId" 
 					display="%{templateDescription}"	
 					url="manager/ac-skin"  

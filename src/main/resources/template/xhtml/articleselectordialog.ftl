@@ -21,5 +21,5 @@
  */
 -->
 <#include "/${parameters.templateDir}/${parameters.theme}/controlheader.ftl" />
-<#include "/${parameters.templateDir}/simple/photoSelector.ftl" />
+<#include "/${parameters.templateDir}/simple/articleselectordialog.ftl" />
 <#include "/${parameters.templateDir}/xhtml/controlfooter.ftl" />

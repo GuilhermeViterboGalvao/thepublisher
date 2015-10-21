@@ -27,9 +27,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	
 	@Override
 	public String execute() throws Exception {
-		Account account = null;
 		Object obj = session.get("account");
 		if (obj != null && obj instanceof Account) {
+			account = (Account)obj;
 			return SUCCESS;
 		}
 		if (email != null && !email.isEmpty() && password != null && !password.isEmpty()) {
@@ -40,6 +40,14 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			}
 		}
 		return LOGIN;
+	}
+	
+	//Action properties
+	
+	private Account account;
+	
+	public Account getAccount() {
+		return account;
 	}
 	
 	//POJO

@@ -21,5 +21,5 @@
  */
 -->
 <#include "/${parameters.templateDir}/${parameters.theme}/controlheader.ftl" />
-<#include "/${parameters.templateDir}/simple/autoComplete.ftl" />
+<#include "/${parameters.templateDir}/simple/photoselector.ftl" />
 <#include "/${parameters.templateDir}/xhtml/controlfooter.ftl" />

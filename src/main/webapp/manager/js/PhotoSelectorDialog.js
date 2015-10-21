@@ -377,7 +377,7 @@
 						.addClass('d-photo')
 					).append(
 						$('<img>')
-						.attr('src','/system/publisher/img/close.gif')
+						.attr('src','/manager/img/close.gif')
 						.attr('id','close'+id)
 						.addClass('d-photo-nav')
 						.click(function(){ referencePhotoSelectorDialog.remove(this.parentNode); })
