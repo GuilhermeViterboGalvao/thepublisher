@@ -45,5 +45,11 @@
     </definition>
     <definition name="category-input" extends="manager-layout">
         <put-attribute name="content" value="/manager/category/input.jsp"/>
-    </definition>    
+    </definition>
+    <definition name="page-list" extends="manager-layout">
+        <put-attribute name="content" value="/manager/page/list.jsp"/>
+    </definition>
+    <definition name="page-input" extends="manager-layout">
+        <put-attribute name="content" value="/manager/page/input.jsp"/>
+    </definition>     
 </tiles-definitions>

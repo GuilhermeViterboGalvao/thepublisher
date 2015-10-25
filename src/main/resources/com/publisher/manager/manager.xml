@@ -73,6 +73,11 @@
 				<param name="root">result</param>
 				<param name="enableGZIP">true</param>
 			</result>
-		</action>        		
+		</action>
+		<action name="page-*" class="com.publisher.manager.PageAction" method="{1}">
+			<result type="tiles">page-list</result>
+			<result name="input" type="tiles">page-input</result>
+			<result name="redirect" type="redirectAction">page-list</result>
+		</action>		     		
 	</package>
 </struts>
