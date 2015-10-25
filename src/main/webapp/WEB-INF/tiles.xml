@@ -39,5 +39,11 @@
     </definition>
     <definition name="article-gallery" extends="manager-layout">
         <put-attribute name="content" value="/manager/article/gallery.jsp"/>
-    </definition>   
+    </definition>
+    <definition name="category-list" extends="manager-layout">
+        <put-attribute name="content" value="/manager/category/list.jsp"/>
+    </definition>
+    <definition name="category-input" extends="manager-layout">
+        <put-attribute name="content" value="/manager/category/input.jsp"/>
+    </definition>    
 </tiles-definitions>

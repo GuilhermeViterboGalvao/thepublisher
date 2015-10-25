@@ -56,6 +56,23 @@
 				<param name="root">result</param>
 				<param name="enableGZIP">true</param>
 			</result>
-        </action>   		
+        </action>
+		<action name="category-*" class="com.publisher.manager.CategoryAction" method="{1}">
+			<result type="tiles">category-list</result>
+			<result name="input" type="tiles">category-input</result>
+			<result name="redirect" type="redirectAction">category-list</result>
+		</action>
+		<action name="ac-category" class="com.publisher.utils.autocomplete.CategoryAutoCompleteAction">
+			<result name="login" type="httpheader">
+				<param name="error">401</param>
+			</result>
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>        		
 	</package>
 </struts>
