@@ -36,18 +36,6 @@
 			<result name="reload" type="redirectAction">article-edit?id=${id}</result>			
 			<result name="redirect" type="redirectAction">article-list</result>
 		</action>
-		<action name="ac-article" class="com.publisher.utils.autocomplete.ArticleAutoCompleteAction">
-			<result name="login" type="httpheader">
-				<param name="error">401</param>
-			</result>
-			<result type="json">
-				<param name="excludeNullProperties">true</param>
-				<param name="callbackParameter">callback</param>
-				<param name="noCache">true</param>
-				<param name="root">result</param>
-				<param name="enableGZIP">true</param>
-			</result>
-		</action>
 		<action name="article_select" class="com.publisher.manager.feed.ArticleFeedAction">
 			<result type="json">
 				<param name="excludeNullProperties">true</param>
@@ -62,18 +50,6 @@
 			<result name="input" type="tiles">category-input</result>
 			<result name="redirect" type="redirectAction">category-list</result>
 		</action>
-		<action name="ac-category" class="com.publisher.utils.autocomplete.CategoryAutoCompleteAction">
-			<result name="login" type="httpheader">
-				<param name="error">401</param>
-			</result>
-			<result type="json">
-				<param name="excludeNullProperties">true</param>
-				<param name="callbackParameter">callback</param>
-				<param name="noCache">true</param>
-				<param name="root">result</param>
-				<param name="enableGZIP">true</param>
-			</result>
-		</action>
 		<action name="page-*" class="com.publisher.manager.PageAction" method="{1}">
 			<result type="tiles">page-list</result>
 			<result name="input" type="tiles">page-input</result>
@@ -83,18 +59,6 @@
 			<result type="tiles">photo-list</result>
 			<result name="input" type="tiles">photo-input</result>
 			<result name="redirect" type="redirectAction">photo-list</result>
-		</action>
-		<action name="ac-photo" class="com.publisher.utils.autocomplete.PhotoAutoCompleteAction">
-			<result name="login" type="httpheader">
-				<param name="error">401</param>
-			</result>		    
-			<result type="json">
-				<param name="excludeNullProperties">true</param>
-				<param name="callbackParameter">callback</param>
-				<param name="noCache">true</param>
-				<param name="root">result</param>
-				<param name="enableGZIP">true</param>
-			</result>
 		</action>
 		<action name="photo_select" class="com.publisher.manager.feed.PhotoFeedAction">
 			<result type="json">
@@ -112,6 +76,68 @@
 			<result name="input" type="tiles">skin-input</result>
 			<result name="redirect" type="redirectAction">skin-list</result>
 		</action>
+		<action name="gxml-*" method="{1}" class="com.publisher.manager.GenericXMLTileAction">
+			<result name="success" type="tiles">generic-xml</result>
+		</action>
+		<action name="photo_swf-*" class="com.publisher.utils.swf.PhotoSWFAction" method="{1}">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>
+		<action name="generic_xml_swf-*" class="com.publisher.utils.swf.PhotoSWFAction" method="{1}">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>
+		<action name="ac-article" class="com.publisher.utils.autocomplete.ArticleAutoCompleteAction">
+			<result name="login" type="httpheader">
+				<param name="error">401</param>
+			</result>
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>		
+		<action name="ac-category" class="com.publisher.utils.autocomplete.CategoryAutoCompleteAction">
+			<result name="login" type="httpheader">
+				<param name="error">401</param>
+			</result>
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>		
+		<action name="ac-photo" class="com.publisher.utils.autocomplete.PhotoAutoCompleteAction">
+			<result name="login" type="httpheader">
+				<param name="error">401</param>
+			</result>		    
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>
+		<action name="ac-permanentlink" class="com.publisher.utils.autocomplete.PermanentLinkAutoCompleteAction">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>				
 		<action name="ac-skin" class="com.publisher.utils.autocomplete.SkinAutoCompleteAction">
 			<result name="login" type="httpheader">
 				<param name="error">401</param>
@@ -123,6 +149,6 @@
 				<param name="root">result</param>
 				<param name="enableGZIP">true</param>
 			</result>
-		</action>				     		
+		</action>			     		
 	</package>
 </struts>

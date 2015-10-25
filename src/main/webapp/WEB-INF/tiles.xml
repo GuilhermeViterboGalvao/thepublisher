@@ -66,5 +66,8 @@
     </definition>
     <definition name="skin-input" extends="manager-layout">
         <put-attribute name="content" value="/manager/skin/input.jsp"/>
-    </definition>       
+    </definition>
+    <definition name="generic-xml" extends="manager-layout">
+        <put-attribute name="content" value="/manager/generic-xml/xmltile.jsp"/>
+    </definition>     
 </tiles-definitions>
