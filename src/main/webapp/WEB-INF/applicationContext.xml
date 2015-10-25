@@ -31,6 +31,7 @@
 				<prop key="hibernate.search.default.worker.backend">lucene</prop>
 				<prop key="hibernate.search.default.reader.strategy">shared</prop>
 				<prop key="hibernate.search.default.locking_strategy">simple</prop>
+				<prop key="hibernate.search.default.exclusive_index_use">false</prop>
 				<prop key="hibernate.search.default.directory_provider">filesystem</prop>				
 				<prop key="hibernate.search.default.indexBase">#{systemProperties.indexes}</prop>
 				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</prop>
