@@ -106,6 +106,23 @@
 		<action name="photomulti-*" class="com.publisher.manager.PhotoMultiUploadAction" method="{1}">
 		    <result name="input" type="tiles">photomulti-input</result>
 			<result name="redirect" type="redirectAction">photo-list</result>
-		</action>		     		
+		</action>
+		<action name="skin-*" class="com.publisher.manager.SkinAction" method="{1}">
+			<result type="tiles">skin-list</result>
+			<result name="input" type="tiles">skin-input</result>
+			<result name="redirect" type="redirectAction">skin-list</result>
+		</action>
+		<action name="ac-skin" class="com.publisher.utils.autocomplete.SkinAutoCompleteAction">
+			<result name="login" type="httpheader">
+				<param name="error">401</param>
+			</result>
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>				     		
 	</package>
 </struts>

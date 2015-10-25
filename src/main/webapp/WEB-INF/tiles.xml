@@ -60,5 +60,11 @@
     </definition>
     <definition name="photomulti-input" extends="manager-layout">
         <put-attribute name="content" value="/manager/photo/multi.jsp"/>
-    </definition>        
+    </definition>
+    <definition name="skin-list" extends="manager-layout">
+        <put-attribute name="content" value="/manager/skin/list.jsp"/>
+    </definition>
+    <definition name="skin-input" extends="manager-layout">
+        <put-attribute name="content" value="/manager/skin/input.jsp"/>
+    </definition>       
 </tiles-definitions>
