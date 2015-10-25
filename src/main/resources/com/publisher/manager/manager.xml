@@ -18,7 +18,10 @@
 		<default-interceptor-ref name="secureManager"/>
 		<global-results>
 			<result name="login" type="tiles">manager-login</result>
-		</global-results>		
+		</global-results>
+		<action name="home">
+			<result type="tiles">manager-home</result>
+		</action>		
 		<action name="login" class="com.publisher.manager.LoginAction">
 			<interceptor-ref name="defaultStack"/>
 			<result type="tiles">manager-index</result>
