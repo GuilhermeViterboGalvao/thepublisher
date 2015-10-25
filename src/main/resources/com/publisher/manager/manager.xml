@@ -78,6 +78,34 @@
 			<result type="tiles">page-list</result>
 			<result name="input" type="tiles">page-input</result>
 			<result name="redirect" type="redirectAction">page-list</result>
+		</action>
+		<action name="photo-*" class="com.publisher.manager.PhotoAction" method="{1}">
+			<result type="tiles">photo-list</result>
+			<result name="input" type="tiles">photo-input</result>
+			<result name="redirect" type="redirectAction">photo-list</result>
+		</action>
+		<action name="ac-photo" class="com.publisher.utils.autocomplete.PhotoAutoCompleteAction">
+			<result name="login" type="httpheader">
+				<param name="error">401</param>
+			</result>		    
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+		</action>
+		<action name="photo_select" class="com.publisher.manager.feed.PhotoFeedAction">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+        </action>
+		<action name="photomulti-*" class="com.publisher.manager.PhotoMultiUploadAction" method="{1}">
+		    <result name="input" type="tiles">photomulti-input</result>
+			<result name="redirect" type="redirectAction">photo-list</result>
 		</action>		     		
 	</package>
 </struts>

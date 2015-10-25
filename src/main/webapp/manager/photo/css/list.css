@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+div#photos a {
+    border: 0;
+    display: block;
+    border: 1px solid black;
+    width: 80px;
+    height: 60px;
+    float: left;
+    margin: 3px;
+}
+div#photos input {
+    float: left;
+}
+div#photos a img {
+    display: block;
+    border: 0;
+    width: 80px;
+    height: 60px;
+}

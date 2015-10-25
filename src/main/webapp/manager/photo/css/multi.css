@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+body, p, select,textarea {
+    font-family : Verdana;
+    font-size : 10px;
+    margin: 0;
+}
+body {
+    margin: 10px;
+}
+label.label {
+    width: 60px;
+}
+span#wwlbl_PhotoMultiUploadAction_useFilename label.label {
+    width: 250px;
+}

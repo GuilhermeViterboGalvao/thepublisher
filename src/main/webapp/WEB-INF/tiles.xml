@@ -51,5 +51,14 @@
     </definition>
     <definition name="page-input" extends="manager-layout">
         <put-attribute name="content" value="/manager/page/input.jsp"/>
-    </definition>     
+    </definition>
+    <definition name="photo-list" extends="manager-layout">
+        <put-attribute name="content" value="/manager/photo/list.jsp"/>
+    </definition>
+    <definition name="photo-input" extends="manager-layout">
+        <put-attribute name="content" value="/manager/photo/input.jsp"/>
+    </definition>
+    <definition name="photomulti-input" extends="manager-layout">
+        <put-attribute name="content" value="/manager/photo/multi.jsp"/>
+    </definition>        
 </tiles-definitions>
