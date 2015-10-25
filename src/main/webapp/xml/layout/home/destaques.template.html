@@ -1,0 +1,82 @@
+<div class="cat-box-first">
+    <div class="home-box-title">
+        <h2>
+            <b>
+                <a href="/tatame/noticias">Destaque</a>
+            </b>
+            <div class="home-scroll-nav box-title-more">
+                <a href="/tatame/noticias" class="more-plus"><i class="icon-plus"></i></a>
+            </div>
+        </h2>
+    </div>
+<%
+	def firstItemPhotoId = (info.item[0].photoId =~ /\d{1,999999}/)[0],
+		firstItemNote = info.item[0].note,
+		firstItemDate = info.item[0].date,
+		firstItemLink
+	if (info.item[0].link.toString().startsWith("http://") || info.item[0].link.toString().startsWith("https://")) {
+		firstItemLink = info.item[0].link.toString()
+	} else {
+		firstItemLink = "/" + info.item[0].link.toString() 
+	}		
+%>    
+	<article class="first-post">
+		<div class="post-image">
+			<a href="${firstItemLink}">
+				<img width="270" height="180" data-original="http://cdn-tatame.trrsf.com/img/${firstItemPhotoId}_270x180.jpg" class="lazy" src="http://cdn-tatame.trrsf.com/img/${firstItemPhotoId}_270x180.jpg" style="display: inline;">
+			</a>
+		</div>
+		<h2 class="post-title">
+			<b>
+				<a rel="bookmark" href="${firstItemLink}">${firstItemNote}</a>
+			</b>
+		</h2>
+		<div class="details">
+			<span class="post_meta_date">${firstItemDate}</span>
+	        <span class="widget"></span>
+		</div>
+		<div class="post-entry">
+			<div class="post-readmore">
+				<a class="btn btn-small" rel="bookmark" href="${firstItemLink}">Leia mais</a>
+			</div>
+		</div>
+	</article>
+	<div class="cat-box-first-small-posts">
+<%
+		info.item.eachWithIndex { item, index ->
+			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+		   	    link    = ""
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}
+			if (index > 0) {
+%>    
+		<div class="post-warpper">
+			<div class="post post type-post status-publish format-standard hentry post-item">
+				<div class="post-image">
+					<a href="${link}">
+						<img width="52" height="50" data-original="http://cdn-tatame.trrsf.com/img/${photoId}_52x50.jpg" class="lazy" src="http://cdn-tatame.trrsf.com/img/${photoId}_52x50.jpg" style="display: inline;">
+					</a>
+				</div>
+				<div class="post-caption">
+					<h2 class="post-title">
+						<b>
+							<a rel="bookmark" href="${link}">${item.note}</a>
+						</b>
+					</h2>
+					<div class="details">
+						<span class="meta-date"><i class="icon-time"></i>${item.date}</span>
+						<span class="widget"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<%
+		}
+	}
+%>	
+	</div>
+</div>

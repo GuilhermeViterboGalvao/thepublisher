@@ -1,0 +1,45 @@
+<div class="cat-box-video">
+    <div class="home-box-title">
+        <h2>
+            <b>V&iacute;deos</b>
+            <div class="home-scroll-nav box-title-more">
+                <a href="http://www.tatame.com.br/noticias/videos/" class="more-plus"><i class="icon-plus"></i></a>
+            </div>
+        </h2>
+    </div>
+<%
+	if (info && info.item && info.item.size() > 0) {
+		info.item.eachWithIndex { item, index ->
+			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+		   	    link    = ""
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}	
+%>
+	<article class="blog-two half-width-category">
+		<div class="post-image">
+			<a href="${link}">
+				<img width="295" height="160" data-original="http://cdn-tatame.trrsf.com/img/${photoId}_295x160.jpg" class="lazy" src="http://cdn-tatame.trrsf.com/img/${photoId}_295x160.jpg" style="display: inline;">
+			</a>
+		</div>
+		<h2 class="post-title">
+			<b>
+           		<a rel="bookmark" href="${link}">${item.note}</a>
+			</b>
+		</h2>
+		<div class="details">
+			<span class="post_meta_date">${item.date}</span>
+			<span class="widget"></span>
+		</div>
+		<div class="post-readmore">
+			<a class="btn btn-small" rel="bookmark" href="${link}">Leia mais</a>
+		</div>
+	</article>
+<%
+		}
+	}
+%>
+	<div class="clear clearfix"></div>
+</div>

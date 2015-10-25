@@ -1,0 +1,55 @@
+<div id="home-scroll-10" class="home-scroll" style="position: relative; overflow: hidden;">
+    <div class="home-box-title">
+        <h2>
+        	<b>Indica</b>
+            <div class="home-scroll-nav box-title-more">
+                <a href="#" id="home-scroll10-prev" class="prev"><i class="icon-chevron-left"></i></a>
+                <a href="#" id="home-scroll10-nxt" class="nxt"><i class="icon-chevron-right"></i></a>
+            </div>
+        </h2>
+    </div>
+    <div class="post-warpper">
+    	<div class="post-items" style="position: absolute; top: 0px; left: 0px; display: block; z-index: 3; opacity: 1; width: 620px; height: 186px;">
+<%
+	if (info && info.item && info.item.size() > 0) {
+		info.item.eachWithIndex { item, index ->
+			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+		   	    link    = ""
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}
+%>
+			<div class="post type-post status-publish format-standard hentry post-item">
+                <div class="post-image">
+                	<a class="lightbox" href="${link}" target="_blank">
+                		<img width="186" height="186" data-original="http://cdn-tatame.trrsf.com/img/${photoId}_186x186.jpg" class="lazy" src="http://cdn-tatame.trrsf.com/img/${photoId}_186x186.jpg" style="display: inline;">
+                		<span class="over">
+                			<i class="icon-play"></i>
+                		</span>
+                	</a>
+                </div>
+                <div class="post-caption" style="opacity: 1; bottom: -37px;">
+                    <div class="post-title">
+                    	<img width="18px" src="http://cdn-tatame.trrsf.com/system/skins/tatame/img/arrow-indica.jpg">
+                        <a rel="bookmark" href="${link}" target="_blank">${item.title}</a>
+                    </div>
+                    <div class="post-price">
+                       	${item.price}
+                    </div>
+                     <div class="post-description">
+                        ${item.description}
+                    </div>
+                    <div class="post-meta">
+                        <span class="meta-date"><i class="icon-time"></i>${item.date}</span>
+                    </div>
+                </div>
+            </div>
+<%
+		}
+	}
+%>
+		</div>
+	</div>
+</div>

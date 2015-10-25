@@ -1,0 +1,30 @@
+<%
+	if (info && info.item && info.item.size() > 0) {
+		info.item.eachWithIndex { item, index ->
+			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+		   	    link    = ""
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}	
+%>
+<div class="post-warpper">
+	<div class="post type-post status-publish format-standard hentry category-destaque tag-ronda-rousey post-item">
+		<div class="post-image">
+			<a href="${link}" style="width: 52px; height: 50px; background: url('http://cdn-tatame.trrsf.com/img/${photoId}_52x50.jpg') no-repeat scroll; display:inline-block;"></a>
+		</div>
+		<div class="post-caption">
+			<h3 class="post-title">
+				<a href="${link}"rel="bookmark">${item.note}</a>
+			</h3>
+			<div class="post-meta">
+				<span class="meta-date"><i class="icon-time"></i>${item.date}</span>                     
+			</div>
+		</div>
+	</div>
+</div>
+<%
+		}
+	}
+%>

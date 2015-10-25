@@ -1,0 +1,27 @@
+<div id="soliloquy-container-209696" class="soliloquy-container soliloquy-fade soliloquy-preloader" style="max-width: 620px; max-height: 413px; ">
+   <div id="soliloquy-209696" class="soliloquy">
+      <ul id="soliloquy-list-209696" class="soliloquy-slides">
+<%
+	info.item.eachWithIndex { item, index ->
+		def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+	   	    link    = ""
+		if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+			link = item.link.toString()
+		} else {
+			link = "/" + item.link.toString() 
+		}	
+%>	      
+         <li id="soliloquy-209696-item-${index+1}" class="soliloquy-item" style="display: none;">
+            <a href="${link}" title="" >
+                <img class="soliloquy-item-image" src="http://cdn-tatame.trrsf.com/img/${photoId}.jpg?${(int)(Math.random() * 10000001)}" />
+            </a>
+            <div class="soliloquy-caption">
+               <div class="soliloquy-caption-inside">${item.note}</div>
+            </div>
+         </li>
+<%
+	}
+%>	         
+		</ul>
+   </div>
+</div>

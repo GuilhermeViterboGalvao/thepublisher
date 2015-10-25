@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<items form="/home/destaques" min="1" max="7" name="Destaques" version="123456789">
+  <item>
+      <photoId></photoId>
+      <note></note>
+      <date></date>
+      <link></link>
+  </item>
+</items>

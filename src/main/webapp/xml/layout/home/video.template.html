@@ -1,0 +1,14 @@
+<%
+	if (info && info.item && info.item.size() > 0) {
+		info.item.eachWithIndex { item, index ->
+%>
+<div class="home-ads">
+	${item.code}
+	<br>
+	<br>
+	<strong>${item.text}</strong>
+</div>
+<%
+		}
+	}
+%>
