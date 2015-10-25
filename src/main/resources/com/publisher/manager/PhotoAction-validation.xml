@@ -1,0 +1,13 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="description">
+        <field-validator type="requiredstring">
+            <message>Você deve entrar com uma descrição.</message>
+        </field-validator>
+    </field>
+    <field name="tags">
+        <field-validator type="requiredstring">
+            <message>Digite as palavras chave referentes à imagem.</message>
+        </field-validator>
+    </field>  
+</validators>

@@ -1,0 +1,18 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="title">
+        <field-validator type="requiredstring">
+            <message>Você deve entrar com o título da matéria.</message>
+        </field-validator>
+    </field>
+    <field name="header">
+        <field-validator type="requiredstring">
+            <message>Você deve entrar com o cabeçalho da matéria.</message>
+        </field-validator>
+    </field>
+    <field name="note">
+        <field-validator type="requiredstring">
+            <message>Você deve entrar com a resenha da matéria.</message>
+        </field-validator>
+    </field>  
+</validators>
