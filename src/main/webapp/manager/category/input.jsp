@@ -31,17 +31,18 @@
 		<label for="tags" >Palavras chave</label>
 		<s:textarea name="tags"/>
 		
-		<div class="ym-fbox-select" >
-			<label for="parents">Categoria pai</label>
-			<s:select name="parents" multiple="true" list="listCategories" listKey="id" listValue="name" size="20"/>
-		</div>
+		<s:if test="listCategories != null && listCategories.size() > 0">
+			<div class="ym-fbox-select" >
+				<label for="parents">Categoria pai</label>
+				<s:select name="parents" multiple="true" list="listCategories" listKey="id" listValue="name" size="20"/>
+			</div>		
+		</s:if>
 				
 		<div class="ym-fbox-button">
 			<s:submit value="Enviar" align="left"/>
 		</div>		
 	</div>	
 </s:form>
-
 <script type="text/javascript">
 	function checkPermanentLink() {  	
 		var name = $('input[name=name]').get(0).value;

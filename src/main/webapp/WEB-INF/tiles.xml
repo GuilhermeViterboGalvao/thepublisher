@@ -22,7 +22,9 @@
         <put-attribute name="footer" value="/manager/footer.jsp"/>
     </definition>
     <definition name="manager-login" template="/manager/loginform.jsp"/>
-    <definition name="manager-home" template="/manager/home.jsp"/>
+    <definition name="manager-home" extends="manager-layout">
+    	<put-attribute name="content" value="/manager/home.jsp"/>
+    </definition>
     <definition name="manager-index" extends="manager-layout">    
         <put-attribute name="content" value="/manager/index.jsp"/>
     </definition>

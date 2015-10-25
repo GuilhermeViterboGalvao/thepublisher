@@ -170,6 +170,10 @@ public class CategoryAction extends AbstractAction<Category> {
 		this.orderly = orderly;
 	}
 	
+	public Collection<Category> getListCategories(){
+		return categoryService.list();
+	}
+	
 	//POJO
 	
 	private Collection<Category> categories;
@@ -203,10 +207,6 @@ public class CategoryAction extends AbstractAction<Category> {
 		for (int i = 0; i < ids.length; i++) {
 			parents.add(categoryService.get(ids[i]));
 		}
-	}
-	
-	public Collection<Category> getListCategories(){
-		return categoryService.list();
 	}
 	
 	public Collection<Category> getCategories(){
