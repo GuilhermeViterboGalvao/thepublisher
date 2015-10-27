@@ -33,8 +33,8 @@
 			<div class='post-meta-info'>
 				<div class='post_meta_author'>
 					<i class='icon-user'></i>
-					<a href="/tatame/view/busca?query=${author.name}" title="${author.name}" rel="author">
-						<s:property value="author.name"/>
+					<a href="/search?query=${createdBy.name}" title="${createdBy.name}" rel="author">
+						<s:property value="createdBy.name"/>
 					</a>
 				</div>
 				<div class='post_meta_date'>
@@ -73,7 +73,7 @@
 			    </div>		    		
     		</s:if>
 			<div class="post-entry bottom40">
-				<s:property value="content2" escapeHtml="false"/>
+				<s:property value="articleContent" escapeHtml="false"/>
 			</div>
 			<div class="post-tags">
 				<b>Tags </b>
