@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+body {
+	
+}
+/* Custom Css */
+.post-adv, .post_meta_views, .sidebar .ad_300_300 .box-title,
+	.cat-box-video .post-entry, .cat-box-2col .post-entry, .post-warpper .post-cate,
+	.post-warpper .post-excerpt, .first-post .post-entry p:not (.post-readmore
+	), .single-format-gallery .post-entry .gallery {
+	display: none;
+}
+article .post-gallery {
+	width: 100%;
+	height: 350px;
+}
+.flex-caption {
+	font-size: 15px;
+	background: black;
+	color: #fff;
+	padding: 10px;
+}
+#slideshow-wrapper {
+	margin-bottom: 20px !important;
+}
+.soliloquy-container {
+	margin-bottom: 20px !important;
+}
+.soliloquy-container .soliloquy-caption {
+	width: auto !important;
+	right: 20px !important;
+	left: 120px !important;
+	bottom: 10px !important;
+}
+.soliloquy-caption-inside {
+	text-align: left !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+form input {
+	margin-bottom: 10px;
+	float: left;
+	margin-right: 5px;
+}
+form label {
+	float: left;
+	font-size: 13px;
+	margin-bottom: 2px;
+}
+.wp-caption-text {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 12px;
+}
+.article
+.post-title {
+	line-height: 29px;
+}
+.float-banner {
+	position: absolute;
+	top: 200px;
+	left: 400px;
+	padding: 5px;
+	z-index: 999
+}
+.close-float {
+	color: black;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 2px;
+	text-align: center;
+	background: lightgray;
+	width: 20px;
+	height: 20px;
+	float: right
+}
+.close-float a:visited, .close-float a {
+	text-decoration: none;
+	color: black
+}
+@media ( max-width : 770px) {
+	.home-ads, .header-adv, .widget ad_300_300 {
+		display: none;
+	}
+}
+.menu-item-203879 {
+	background: green;
+}
+.article .post-title, article .post-title {
+	font-size: 24px;
+	font-weight: bold;
+}
+.single  .post-entry {
+	color: #000000;
+}
+.home-ads, .home-scroll {
+	clear: both;
+}
+div.poll { float: left; }
+div.poll div.question { float: left; }
+div.poll div.alternatives { float: left; margin-top: 2%; width: 100%; }
+div.poll div.alternatives div.alternative { border-bottom: 1px solid #f0f0f0; float: left; margin-top: 5%; padding-bottom: 5%; width: 100%; }
+div.poll div.alternatives div.alternative input { float: left; }
+div.poll div.alternatives div.alternative span { float: left; line-height: 0.8em; margin-left: 2%; }

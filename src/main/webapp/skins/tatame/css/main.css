@@ -1,0 +1,6 @@
+.social_icon-facebook::before,
+.social_icon-twitter::before,
+.social_icon-youtube::before,
+.social_icon-instagram::before,
+.social_icon-googleplay::before,
+.social_icon-appstore::before { height: 24px; line-height: 24px; width: 24px; }

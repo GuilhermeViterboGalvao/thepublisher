@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+article.post div#video,
+article.post .video { float: left; height: 325px; margin: 15px 0; max-width: 620px; width: 100%;  }
+article.post div#video h1,
+article.post .video h1 { color: #000000; margin: 0; padding: 0; }
+article.post div#video div,
+article.post .video div { margin: 20px 0; }
+article.post div#video iframe,
+article.post .video iframe { margin: 0 auto; display: table; }
+article.post .space { margin-bottom: 30px; }

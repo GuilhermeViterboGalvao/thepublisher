@@ -1,0 +1,3 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<meta name="description" content="Tudo sobre artes marciais e as principais notícias do mundo do MMA e do Jiu-Jitsu" lang="pt-BR"/>
+<meta name="keywords" content="MMA, Jiu-Jitsu, Mundial, Brasileiro, Mixed Martial Arts, Ultimate Fighting Championship, Ultimate, UFC, Dana White, Vitor Belfort, Anderson Silva, Lyoto Machida, José Aldo, Jon Jones, Octagon, Octagon Girl, Helio Gracie, Royce Gracie, Rickson Gracie, Arte suave, Ringue, Pride, Ricardo Arona, TUF, Chael Sonnen, Rodrigo Minotauro, Wanderlei Silva, armlock, finalização, luta, arte marcial" lang="pt-BR"/>

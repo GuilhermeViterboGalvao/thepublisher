@@ -17,12 +17,12 @@ public class SearchAction extends ActionSupport implements ViewAction {
 	
 	@Override
 	public String getLayoutPath() {
-		return "/view/default/layout.jsp";
+		return "/skins/tatame/default/layout.jsp";
 	}
 
 	@Override
 	public String getContentPath() {
-		return "/view/pages/SearchArticles.jsp";
+		return "/skins/tatame/pages/SearchArticles.jsp";
 	}	
 	
 	@Override
