@@ -1,6 +1,6 @@
 $(function() {
 	$.ajax({
-		url : "/tatame/view/article-feed?pageSize=5",
+		url : "/articleFeed?pageSize=5",
 		cache : false,
 		success : function(data) {
 			if (data) {

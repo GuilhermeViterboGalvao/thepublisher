@@ -44,7 +44,7 @@ $(function() {
 });
 $(function() {
 	$.ajax({
-		url     : "/mostviewed?categoryName=Tatame&currentPage=1&pageSize=5",
+		url     : "/mostViewed?categoryId=1&currentPage=1&pageSize=5",
 		cache   : false,
 		success : function(data) {
 			var dataInOrder = [];
