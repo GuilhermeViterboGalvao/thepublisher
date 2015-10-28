@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="ehcache.xsd">
     <diskStore path="java.io.tmpdir"/>
-    <cacheManagerEventListenerFactory class="" properties=""/>
+    <cacheManagerEventListenerFactory class="" properties=""/>    
 	<defaultCache
     	maxElementsInMemory="100"
     	timeToLiveSeconds="120"        
@@ -14,6 +14,16 @@
         diskExpiryThreadIntervalSeconds="120"
         memoryStoreEvictionPolicy="LRU">
     </defaultCache>
+    <cache 
+        name="pageCache"
+        maxElementsInMemory="500"
+        timeToLiveSeconds="1800"        
+        timeToIdleSeconds="1800"        
+        overflowToDisk="false"
+        eternal="false"
+        memoryStoreEvictionPolicy="LFU">
+        <searchable/>      
+	</cache>    
     <cache 
         name="tile"
         maxElementsInMemory="100"
