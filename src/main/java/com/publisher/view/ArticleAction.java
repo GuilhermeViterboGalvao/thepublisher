@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.Preparable;
 import com.publisher.entity.Article;
 import com.publisher.entity.Photo;
 import com.publisher.service.ArticleService;
+import com.publisher.utils.ViewsListener;
 
 public class ArticleAction extends ActionSupport implements ModelDriven<Article>, Preparable, ViewAction {
 
@@ -58,6 +59,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			} else {
 				this.articleContent = model.getContent();
 			}
+			ViewsListener.getInstace().count(id);
 		}
 	}
 	

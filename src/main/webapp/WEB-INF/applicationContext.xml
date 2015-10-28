@@ -18,6 +18,8 @@
 	<bean id="permanentLinkService" class="com.publisher.service.implementation.PermanentLinkServiceImplementation"/>
 	<bean id="photoService" class="com.publisher.service.implementation.PhotoServiceImplementation"/>
 	<bean id="skinService" class="com.publisher.service.implementation.SkinServiceImplementation"/>
+	<!-- Just for Threads. If you will use this service, remember to close all entityManager. -->
+	<bean id="entityManagerFactoryService" class="com.publisher.service.implementation.EntityManagerFactoryServiceImplementation"/>
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
