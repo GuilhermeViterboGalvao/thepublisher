@@ -11,6 +11,7 @@ import org.hibernate.search.jpa.Search;
 import com.publisher.entity.Page;
 import com.publisher.entity.PermanentLink;
 import com.publisher.service.PageService;
+import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
 
 import net.sf.ehcache.Cache;
@@ -147,7 +148,7 @@ public class PageServiceImplementation extends TransactionalService implements P
     	long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Page.class).get();
-        org.apache.lucene.search.Query luceneQuery = qb.keyword().onFields("name", "contentFile").matching(query).createQuery();
+        org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contentFile").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Page.class);
         if (pageSize > 0) {
         	fullTextQuery.setMaxResults(pageSize);

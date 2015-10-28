@@ -15,6 +15,8 @@ import org.hibernate.search.jpa.Search;
 import com.publisher.entity.Page;
 import com.publisher.entity.PermanentLink;
 import com.publisher.service.PermanentLinkService;
+import com.publisher.utils.HibernateSearchUtils;
+
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
@@ -64,7 +66,7 @@ public class PermanentLinkServiceImplementation extends TransactionalService imp
     	long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(PermanentLink.class).get();
-        org.apache.lucene.search.Query luceneQuery = qb.keyword().onFields("uri", "type").matching(query).createQuery();
+        org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "uri", "type").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, PermanentLink.class);
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         log.info("PAGE SEARCH=[" + luceneQuery + "] - TimeElapsed=" + (int)(System.currentTimeMillis() - t));

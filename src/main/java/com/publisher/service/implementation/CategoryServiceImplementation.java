@@ -8,10 +8,10 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
-import org.hibernate.search.query.dsl.BooleanJunction;
 import com.publisher.entity.Category;
 import com.publisher.entity.PermanentLink;
 import com.publisher.service.CategoryService;
+import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -148,13 +148,8 @@ public class CategoryServiceImplementation extends TransactionalService implemen
 	public ResultList<Category> search(String query, int page, int pageSize) {
     	long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Category.class).get();
-		String[] matches = query != null ? query.split(" ") : new String[1];		
-		BooleanJunction<?> junction = qb.bool();
-		for (String match : matches) {
-			junction.must(qb.keyword().onFields("name").matching(match).createQuery());
-		}
-        org.apache.lucene.search.Query luceneQuery = junction.createQuery();
+		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Category.class).get();	
+        org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Category.class);        
         if (page > 0 && pageSize > 0) {
         	fullTextQuery.setMaxResults(pageSize);

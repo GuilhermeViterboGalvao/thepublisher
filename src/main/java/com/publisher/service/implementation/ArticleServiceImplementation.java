@@ -14,13 +14,13 @@ import org.apache.lucene.search.SortField;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
-import org.hibernate.search.query.dsl.MustJunction;
+import org.hibernate.search.query.dsl.BooleanJunction;
 import com.publisher.entity.Article;
 import com.publisher.entity.Category;
 import com.publisher.entity.PermanentLink;
 import com.publisher.service.ArticleService;
+import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
-
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 
@@ -305,26 +305,14 @@ public class ArticleServiceImplementation extends TransactionalService implement
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Article.class).get();				
-		MustJunction mustJunction = qb.bool().must(
-			qb.bool().should(
-				qb.phrase().onField("title").sentence(query).createQuery()
-			).should(
-				qb.phrase().onField("header").sentence(query).createQuery()
-			).should(
-				qb.phrase().onField("note").sentence(query).createQuery()
-			).should(
-				qb.phrase().onField("tags").sentence(query).createQuery()
-			).should(
-				qb.phrase().onField("createdBy.name").sentence(query).createQuery()
-			).createQuery()
-		);
+		BooleanJunction<?> junction = HibernateSearchUtils.createQuery(query, qb, "title", "header", "note", "tags", "createdBy.name");
 		if (categoryName != null && !categoryName.isEmpty()) {
-			mustJunction = mustJunction.must(
+			junction = junction.must(
 				qb.phrase().onField("category.name").sentence(categoryName).createQuery()
 			);
 		}
 		if (publishedUntil != null) {						
-			mustJunction = mustJunction.must(
+			junction = junction.must(
 				qb.range().onField("publishedAt").from(
 					DateTools.round(0l, DateTools.Resolution.DAY)
 				).to(
@@ -332,7 +320,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 				).excludeLimit().createQuery()
 			);
 		}		
-		org.apache.lucene.search.Query luceneQuery = mustJunction.createQuery();
+		org.apache.lucene.search.Query luceneQuery = junction.createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Article.class);
         if (published != null && published) {
         	fullTextQuery.enableFullTextFilter("published").setParameter("isPublished", true);

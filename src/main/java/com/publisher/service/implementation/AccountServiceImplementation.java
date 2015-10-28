@@ -10,9 +10,9 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
-import org.hibernate.search.query.dsl.BooleanJunction;
 import com.publisher.entity.Account;
 import com.publisher.service.AccountService;
+import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
 
 public class AccountServiceImplementation extends TransactionalService implements AccountService {
@@ -145,9 +145,7 @@ public class AccountServiceImplementation extends TransactionalService implement
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Account.class).get();
-		BooleanJunction<?> junction = qb.bool().should(qb.phrase().onField("name").sentence(query).createQuery());
-						   junction = junction.should(qb.phrase().onField("email").sentence(query).createQuery());		
-		org.apache.lucene.search.Query luceneQuery = junction.createQuery();
+		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "email").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Account.class);        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<Account> result = new ResultList<Account>();

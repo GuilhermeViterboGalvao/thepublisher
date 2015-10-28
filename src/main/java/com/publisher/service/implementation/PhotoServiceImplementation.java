@@ -16,13 +16,13 @@ import org.apache.lucene.search.SortField;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
-import org.hibernate.search.query.dsl.BooleanJunction;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.context.WebApplicationContext;
 import com.publisher.entity.Photo;
 import com.publisher.service.PhotoService;
+import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.PhotoUtils;
 import com.publisher.utils.ResultList;
 
@@ -184,10 +184,8 @@ public class PhotoServiceImplementation extends TransactionalService implements 
 	public ResultList<Photo> search(String query, int page, int pageSize) {
     	long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Photo.class).get();
-		BooleanJunction<?> junction = qb.bool().should(qb.phrase().onField("description").sentence(query).createQuery());
-						   junction = junction.should(qb.phrase().onField("tags").sentence(query).createQuery());		
-		org.apache.lucene.search.Query luceneQuery = junction.createQuery();
+		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Photo.class).get();		
+		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "description", "tags", "credits").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Photo.class);
         fullTextQuery.setSort(new Sort(new SortField("date", SortField.Type.LONG, true)));
         if (pageSize > 0) {

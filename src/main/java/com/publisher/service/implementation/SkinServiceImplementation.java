@@ -10,6 +10,7 @@ import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
 import com.publisher.entity.Skin;
 import com.publisher.service.SkinService;
+import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
 
 public class SkinServiceImplementation extends TransactionalService implements SkinService {
@@ -116,7 +117,7 @@ public class SkinServiceImplementation extends TransactionalService implements S
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Skin.class).get();
-        org.apache.lucene.search.Query luceneQuery = qb.keyword().onFields("name", "path").matching(query).createQuery();
+        org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "path").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Skin.class);
         if (pageSize > 0) {
         	fullTextQuery.setMaxResults(pageSize);

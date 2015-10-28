@@ -219,19 +219,21 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
     def image,
         outputFile = new File(outputFolder, "${newId}.jpg")
     println outputFile
-    def outputStream
-    try {
-        outputStream = new BufferedOutputStream(new FileOutputStream(outputFile))
-        outputStream << new URL("http://www.tatame.com.br/img/${row.id}.jpg").openStream()
-        image = ImageIO.read(outputFile)
-    } catch (Exception e) {
-        image = null
-    } finally {
-        if (outputStream != null) {
-            try {
-                outputStream.close()
-            } catch (Exception e) { }
-        }
+    if (!outputFile.exists()) {
+        def outputStream
+        try {
+            outputStream = new BufferedOutputStream(new FileOutputStream(outputFile))
+            outputStream << new URL("http://www.tatame.com.br/img/${row.id}.jpg").openStream()
+            image = ImageIO.read(outputFile)
+        } catch (Exception e) {
+            image = null
+        } finally {
+            if (outputStream != null) {
+                try {
+                    outputStream.close()
+                } catch (Exception e) { }
+            }
+        }    
     }
     println "Photo old=${row.id} new=${newId}"    
 }
