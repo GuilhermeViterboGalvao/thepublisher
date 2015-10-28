@@ -21,6 +21,9 @@ import com.publisher.entity.PermanentLink;
 import com.publisher.service.ArticleService;
 import com.publisher.utils.ResultList;
 
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+
 public class ArticleServiceImplementation extends TransactionalService implements ArticleService {
 
 	private static Log log = LogFactory.getLog(ArticleServiceImplementation.class);
@@ -41,6 +44,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	public void update(Article entity) {
 		if (entity != null) {
 			entityManager.merge(entity);
+			cleanCache(entity.getPermanentLink());
 		}
 	}
 
@@ -49,7 +53,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 		if (entity != null) {
 			entityManager.remove(entityManager.merge(entity));
 		}
-	}
+	}	
 
 	@Override
 	public Collection<Article> list() {
@@ -94,7 +98,21 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	
 	@Override
 	public void update(Article entity, PermanentLink oldPermanentLink) {
-		//TODO
+		entityManager.merge(entity);
+		cleanCache(oldPermanentLink);
+	}
+	
+	private void cleanCache(PermanentLink permanentLink) {
+		if (permanentLink != null && permanentLink.getUri() != null) {
+			try {
+				Cache cache = CacheManager.getInstance().getCache("pageCache");
+				if (cache != null) {
+					cache.remove(permanentLink.getUri());	
+				}	
+			} catch (Exception e) {
+				log.error(e);
+			}
+		}
 	}
 
 	@Override

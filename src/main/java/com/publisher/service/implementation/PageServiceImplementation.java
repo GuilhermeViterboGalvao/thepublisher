@@ -13,6 +13,9 @@ import com.publisher.entity.PermanentLink;
 import com.publisher.service.PageService;
 import com.publisher.utils.ResultList;
 
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+
 public class PageServiceImplementation extends TransactionalService implements PageService {
 
 	private static Log log = LogFactory.getLog(PageServiceImplementation.class);
@@ -33,6 +36,7 @@ public class PageServiceImplementation extends TransactionalService implements P
 	public void update(Page entity) {
 		if (entity != null) {
 			entityManager.merge(entity);
+			cleanCache(entity.getPermanentLink());
 		}
 	}
 
@@ -93,8 +97,22 @@ public class PageServiceImplementation extends TransactionalService implements P
 
 	@Override
 	public void update(Page page, PermanentLink oldPermanentLink) {
-		//TODO
+		entityManager.merge(page);
+		cleanCache(oldPermanentLink);
 	}
+	
+	private void cleanCache(PermanentLink permanentLink) {
+		if (permanentLink != null && permanentLink.getUri() != null) {
+			try {
+				Cache cache = CacheManager.getInstance().getCache("pageCache");
+				if (cache != null) {
+					cache.remove(permanentLink.getUri());	
+				}	
+			} catch (Exception e) {
+				log.error(e);
+			}
+		}
+	}	
 
 	@Override
 	public Collection<Page> list(int page, int pageSize) {
