@@ -296,6 +296,7 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
     importer.dbout.executeInsert(sql, params)
     newArticleIds.put(row.id, articleId)
     println "Article old=${row.id} new=${articleId}"
+    articleId++
 }
 
 println "***********************************************"
