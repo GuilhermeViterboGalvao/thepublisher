@@ -49,6 +49,9 @@
 				<param name="root">result</param>
 				<param name="enableGZIP">true</param>
 			</result>
-        </action>        			
+        </action>
+ 		<action name="terra-feed" class="com.publisher.view.feed.TerraFeedAction">
+			<result name="success">/skins/feed/terra-feed.jsp</result>
+        </action>                			
 	</package>
 </struts>

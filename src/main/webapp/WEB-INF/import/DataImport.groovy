@@ -1,9 +1,12 @@
 @Grapes([
-    @Grab('mysql:mysql-connector-java:5.1.12')
+    @Grab('mysql:mysql-connector-java:5.1.36')
 ])
 
 import java.lang.reflect.Array;
 import groovy.sql.Sql;
+
+//Lembrar de dar um alter table no campo "description" de Photo e
+//"content" de Article para "longtext"
 
 println new Date()
 
@@ -15,14 +18,14 @@ class Importer {
     
     Importer(params) {
         def source1 = new com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource()
-        source1.url = "jdbc:mysql://${params.server}:3307/${params.inputDB}?useUnicode=true&characterEncoding=UTF-8"
+        source1.url = "jdbc:mysql://${params.server}:3307/${params.inputDB}?useUnicode=true"
         source1.user = params.inputUser
         source1.password = params.inputPasswd
         source1.zeroDateTimeBehavior = "convertToNull"
         dbin = new Sql(source1)//SYSTEM
         
         def source2 = new com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource()
-        source2.url = "jdbc:mysql://${params.server}:3307/${params.outputDB}?useUnicode=true&characterEncoding=UTF-8"
+        source2.url = "jdbc:mysql://${params.server}:3307/${params.outputDB}?useUnicode=true"
         source2.user = params.outputUser
         source2.password = params.outputPasswd
         source2.zeroDateTimeBehavior = "convertToNull"
@@ -143,7 +146,7 @@ importer.dbin.eachRow("select * from Category where name like '%tatame%'") { row
         newPermanentLinkIds[row.permanentLink_id]
     ]
     def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newPageIds.put(row.id, newId)
+    newCategoryIds.put(row.id, newId)
     println "Category old=${row.id} new=${newId}"
 }
 
@@ -176,10 +179,21 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
         insert into Photo (tags, description, horizontalCenter, verticalCenter, width, height, credits, date, createdBy_id, created, lastModifiedBy_id, lastModified, published) 
         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
-    def credits
+    def credits = ""
     importer.dbin.eachRow("select * from Collaborator where id = ?", [ row.photographer_id ]) { row2 ->
-        credits = "${row2.name} <${row2.email}>"
+        def name = ""
+        if (row2 && row2.name) {
+            name = new String(row2.name.toString().getBytes(), "UTF-8")
+        }
+        def email = ""
+        if (row2 && row2.email) {
+            email = new String(row2.email.toString().getBytes(), "UTF-8")
+        }
+        if (name && !name.isEmpty() && email && !email.isEmpty()) {
+            credits = "${name} - ${email}"
+        }
     }
+    println credits
     def params = [
         row.tags,
         row.description,
@@ -187,7 +201,8 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
         row.verticalCenter,
         row.width,
         row.height,
-        credits,
+        new String(credits.toString().getBytes(), "UTF-8"),
+        row.date,
         newAccountIds[row.createdBy_id],
         row.created,
         newAccountIds[row.lastModifiedBy_id],
@@ -195,11 +210,31 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
         row.published
     ]
     def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newPhotoIds.put(row.id, newId)
+    newPhotoIds.put(row.id, newId)    
+    def outputFolder = new File("/Users/Guilherme/tatame-import", "${newId - newId%1000}")
+    if (!outputFolder.exists()) {
+        outputFolder.mkdirs()
+    }
+    println outputFolder    
+    def image,
+        outputFile = new File(outputFolder, "${newId}.jpg")
+    println outputFile
+    def outputStream
+    try {
+        outputStream = new BufferedOutputStream(new FileOutputStream(outputFile))
+        outputStream << new URL("http://www.tatame.com.br/img/${row.id}.jpg").openStream()
+        image = ImageIO.read(outputFile)
+    } catch (Exception e) {
+        image = null
+    } finally {
+        if (outputStream != null) {
+            try {
+                outputStream.close()
+            } catch (Exception e) { }
+        }
+    }
     println "Photo old=${row.id} new=${newId}"    
 }
-
-//TODO fazer a importação dos arquivos físicos
 
 println "******************************************"
 println "*Importando ARTICLE do SYSTEM para TATAME*"
