@@ -50,81 +50,93 @@ println "******************************************"
 println "*Importando ACCOUNT do SYSTEM para TATAME*"
 println "******************************************"
 def newAccountIds = [:]
+def accountId = 1
 importer.dbin.eachRow("select * from Account where email like '%tatame%'") { row ->
     def sql = """
-        insert into Account (name, email, hash, securityHole, active) 
-        values (?, ?, ?, ?, ?)
+        insert into Account (id, name, email, hash, securityHole, active) 
+        values (?, ?, ?, ?, ?, ?)
     """
     def params = [
+        accountId,
         row.name,
         row.email,
         row.hash,
         row.securityHole,
         row.active
     ]
-    def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newAccountIds.put(row.id, newId)
-    println "Account old=${row.id} new=${newId}"
+    importer.dbout.executeInsert(sql, params)
+    newAccountIds.put(row.id, accountId)
+    println "Account old=${row.id} new=${accountId}"
+    accountId++
 }
 
 println "***************************************"
 println "*Importando SKIN do SYSTEM para TATAME*"
 println "***************************************"
 def newSkinIds = [:]
+def skinId = 1
 importer.dbin.eachRow("select * from Skin where customContentFolder like '%tatame%'") { row ->
     def sql = """
-        insert into Skin (name, path, contentFolder) 
-        values (?, ?, ?)
+        insert into Skin (id, name, path, contentFolder) 
+        values (?, ?, ?, ?)
     """
     def params = [
+        skinId,
         row.name,
         row.path,
         row.customContentFolder
     ]
-    def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newSkinIds.put(row.id, newId)
-    println "Skin old=${row.id} new=${newId}"    
+    importer.dbout.executeInsert(sql, params)
+    newSkinIds.put(row.id, skinId)
+    println "Skin old=${row.id} new=${skinId}"    
+    skinId++
 }
 
 println "************************************************"
 println "*Importando PERMANENTLINK do SYSTEM para TATAME*"
 println "************************************************"
 def newPermanentLinkIds = [:]
+def permanentLinkId = 1
 importer.dbin.eachRow("select * from PermanentLink where url like '%tatame%'") { row ->
     def sql = """
-        insert into PermanentLink (uri, type, param, created, moved) 
-        values (?, ?, ?, ?, ?)
+        insert into PermanentLink (id, uri, type, param, created, moved) 
+        values (?, ?, ?, ?, ?, ?)
     """
     def params = [
+        permanentLinkId,
         row.url,
         row.type,
         row.param,
         row.created,
         row.moved
     ]
-    def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newPermanentLinkIds.put(row.id, newId)
-    println "PermanentLink old=${row.id} new=${newId}"    
+    importer.dbout.executeInsert(sql, params)
+    newPermanentLinkIds.put(row.id, permanentLinkId)
+    println "PermanentLink old=${row.id} new=${permanentLinkId}"
+    permanentLinkId++
 }
 
 println "***************************************"
 println "*Importando PAGE do SYSTEM para TATAME*"
 println "***************************************"
 def newPageIds = [:]
+def pageId = 1
 importer.dbin.eachRow("select * from Page where name like '%tatame%'") { row ->
     def sql = """
-        insert into Page (name, skin_id, contentFile, permanentLink_id) 
-        values (?, ?, ?, ?)
+        insert into Page (id, name, skin_id, contentFile, permanentLink_id) 
+        values (?, ?, ?, ?, ?)
     """
     def params = [
+        pageId,
         row.name,
         newSkinIds[row.skin_id],
         row.contentFile,
         newPermanentLinkIds[row.permanentLink_id]
     ]
-    def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newPageIds.put(row.id, newId)
-    println "Page old=${row.id} new=${newId}"
+    importer.dbout.executeInsert(sql, params)
+    newPageIds.put(row.id, pageId)
+    println "Page old=${row.id} new=${pageId}"
+    pageId++
 }
 
 println "*******************************************"
@@ -132,22 +144,25 @@ println "*Importando CATEGORY do SYSTEM para TATAME*"
 println "*******************************************"
 def newCategoryIds = [:]
 def oldCategoryIds = []
+def categoryId = 1
 importer.dbin.eachRow("select * from Category where name like '%tatame%'") { row ->
     oldCategoryIds.add(row.id)
     def sql = """
-        insert into Category (name, tags, folder, skin_id, permanentLink_id) 
-        values (?, ?, ?, ?, ?)
+        insert into Category (id, name, tags, folder, skin_id, permanentLink_id) 
+        values (?, ?, ?, ?, ?, ?)
     """
     def params = [
+        categoryId,
         row.name,
         row.tags,
         row.folder,
         newSkinIds[row.skin_id],
         newPermanentLinkIds[row.permanentLink_id]
     ]
-    def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newCategoryIds.put(row.id, newId)
-    println "Category old=${row.id} new=${newId}"
+    importer.dbout.executeInsert(sql, params)
+    newCategoryIds.put(row.id, categoryId)
+    println "Category old=${row.id} new=${categoryId}"
+    categoryId++
 }
 
 println "****************************************************"
@@ -174,10 +189,11 @@ println "****************************************"
 println "*Importando PHOTO do SYSTEM para TATAME*"
 println "****************************************"
 def newPhotoIds = [:]
+def photoId = 1
 importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row ->
     def sql = """
-        insert into Photo (tags, description, horizontalCenter, verticalCenter, width, height, credits, date, createdBy_id, created, lastModifiedBy_id, lastModified, published) 
-        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        insert into Photo (id, tags, description, horizontalCenter, verticalCenter, width, height, credits, date, createdBy_id, created, lastModifiedBy_id, lastModified, published) 
+        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
     def credits = ""
     importer.dbin.eachRow("select * from Collaborator where id = ?", [ row.photographer_id ]) { row2 ->
@@ -194,6 +210,7 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
         }
     }
     def params = [
+        photoId,
         row.tags,
         row.description,
         row.horizontalCenter,
@@ -208,15 +225,15 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
         row.lastModified,
         row.published
     ]
-    def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newPhotoIds.put(row.id, newId)    
-    def outputFolder = new File("/Users/Guilherme/tatame-import", "${newId - newId%1000}")
+    importer.dbout.executeInsert(sql, params)
+    newPhotoIds.put(row.id, photoId)    
+    def outputFolder = new File("/Users/Guilherme/tatame-import", "${photoId - photoId%1000}")
     if (!outputFolder.exists()) {
         outputFolder.mkdirs()
     }
     println outputFolder    
     def image,
-        outputFile = new File(outputFolder, "${newId}.jpg")
+        outputFile = new File(outputFolder, "${photoId}.jpg")
     println outputFile
     if (!outputFile.exists()) {
         def outputStream
@@ -234,13 +251,15 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
             }
         }    
     }
-    println "Photo old=${row.id} new=${newId}"    
+    println "Photo old=${row.id} new=${photoId}"
+    photoId++ 
 }
 
 println "******************************************"
 println "*Importando ARTICLE do SYSTEM para TATAME*"
 println "******************************************"
 def newArticleIds = [:]
+def articleId = 1
 def select = "select * from Article where category_id in ("
 for (def i = 0; i < oldCategoryIds.size(); i++) {
     if (i == (oldCategoryIds.size() - 1)) {
@@ -251,10 +270,11 @@ for (def i = 0; i < oldCategoryIds.size(); i++) {
 }
 importer.dbin.eachRow(select, oldCategoryIds) { row ->
     def sql = """
-        insert into Article (header, title, tags, note, content, photo_id, category_id, template_id, publishedAt, createdBy_id, created, lastModifiedBy_id, lastModified, published, forumEnabled, permanentLink_id, views) 
-        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        insert into Article (id, header, title, tags, note, content, photo_id, category_id, template_id, publishedAt, createdBy_id, created, lastModifiedBy_id, lastModified, published, forumEnabled, permanentLink_id, views) 
+        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
     def params = [
+        articleId,
         row.header,
         row.title,
         row.tags,
@@ -273,9 +293,9 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
         row.permanentLink_id > 0 ? newPermanentLinkIds[row.permanentLink_id] : 0,
         row.views
     ]      
-    def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-    newArticleIds.put(row.id, newId)
-    println "Article old=${row.id} new=${newId}"    
+    importer.dbout.executeInsert(sql, params)
+    newArticleIds.put(row.id, articleId)
+    println "Article old=${row.id} new=${articleId}"
 }
 
 println "***********************************************"
@@ -291,7 +311,6 @@ for (def i = 0; i < oldCategoryIds.size(); i++) {
         select += "?, "    
     }
 }
-println select
 importer.dbin.eachRow(select, oldCategoryIds) { row ->
     if (row && row.id) {
         oldPhotoGalleryIds.add(row.id)
