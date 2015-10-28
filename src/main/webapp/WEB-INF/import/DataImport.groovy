@@ -319,9 +319,9 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
         def params = [
             newArticleIds[row.id]
         ]
-        def newId = importer.dbout.executeInsert(sql, params)[0][0]    
-        newPhotoGalleryIds.put(row.id, newId)
-        println "PhotoGallery old=${row.id} new=${newId}"
+        importer.dbout.executeInsert(sql, params)
+        newPhotoGalleryIds.put(row.id, newArticleIds[row.id])
+        println "PhotoGallery old=${row.id} new=${newArticleIds[row.id]}"
     }
 }
 
