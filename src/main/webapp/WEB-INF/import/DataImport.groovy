@@ -193,7 +193,6 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
             credits = "${name} - ${email}"
         }
     }
-    println credits
     def params = [
         row.tags,
         row.description,
@@ -243,8 +242,8 @@ println "*Importando ARTICLE do SYSTEM para TATAME*"
 println "******************************************"
 def newArticleIds = [:]
 def select = "select * from Article where category_id in ("
-for (def i = 0; i < oldCategoryIds.length; i++) {
-    if (i == (oldCategoryIds.length - 1)) {
+for (def i = 0; i < oldCategoryIds.size(); i++) {
+    if (i == (oldCategoryIds.size() - 1)) {
         select += "?)"
     } else {
         select += "?, "    
@@ -285,13 +284,14 @@ println "***********************************************"
 def newPhotoGalleryIds = [:]
 def oldPhotoGalleryIds = []
 select = "select pg.* from PhotoGallery pg inner join Article a on pg.id = a.id where a.category_id in ("
-for (def i = 0; i < oldCategoryIds.length; i++) {
-    if (i == (oldCategoryIds.length - 1)) {
+for (def i = 0; i < oldCategoryIds.size(); i++) {
+    if (i == (oldCategoryIds.size() - 1)) {
         select += "?)"
     } else {
         select += "?, "    
     }
 }
+println select
 importer.dbin.eachRow(select, oldCategoryIds) { row ->
     if (row && row.id) {
         oldPhotoGalleryIds.add(row.id)
@@ -309,8 +309,8 @@ println "******************************************************"
 println "*Importando PHOTOGALLERY_PHOTOS do SYSTEM para TATAME*"
 println "******************************************************"
 select = "select * from PhotoGallery_photos where PhotoGallery_id in ("
-for (def i = 0; i < oldPhotoGalleryIds.length; i++) {
-    if (i == (oldPhotoGalleryIds.length - 1)) {
+for (def i = 0; i < oldPhotoGalleryIds.size(); i++) {
+    if (i == (oldPhotoGalleryIds.size() - 1)) {
         select += "?)"
     } else {
         select += "?, "    
