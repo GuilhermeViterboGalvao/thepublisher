@@ -56,7 +56,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 				String[] pages = model.getContent().split("##");
 				this.articleContent = pages[page < pages.length ? page : 0];
 				this.pages = pages.length;
-			} else {
+			} else if (model != null && model.getContent() != null) {
 				this.articleContent = model.getContent();
 			}
 			ViewsListener.getInstace().count(id);
