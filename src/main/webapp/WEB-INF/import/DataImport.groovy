@@ -226,7 +226,7 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
         row.published
     ]
     importer.dbout.executeInsert(sql, params)
-    newPhotoIds.put(row.id, photoId)    
+    newPhotoIds.put(Long.parseLong("${row.id}"), photoId)    
     def outputFolder = new File("/Users/Guilherme/tatame-import", "${photoId - photoId%1000}")
     if (!outputFolder.exists()) {
         outputFolder.mkdirs()
@@ -279,7 +279,7 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
         for (def match : matches) {
             def oldPhotoId = 0
             try {
-               oldPhotoId = Integer.parseInt(match.replaceAll("/img/", ""))
+               oldPhotoId = Long.parseLong(match.replaceAll("/img/", ""))
             } catch(Exception e) {}
             if (oldPhotoId > 0) {
                 content = content.replaceAll(match, "/img/${newPhotoIds[oldPhotoId]}")            
