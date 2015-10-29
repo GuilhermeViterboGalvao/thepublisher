@@ -64,7 +64,7 @@ SWFHandlers.addImage = function(src, id, file, objHandler) {
 	divContent.appendChild(divImg);
 	
 	var imgClose = document.createElement("img");
-	imgClose.src = "/system/publisher/img/close.gif";
+	imgClose.src = "/manager/img/close.gif";
 	imgClose.style.cssFloat = "right";
 	imgClose.onclick = function(){
 		SWFHandlers.removeThumbnail(divContent, objHandler.idDivThumbnail, id, objHandler.alternativePath, objHandler.deleteUrl);	

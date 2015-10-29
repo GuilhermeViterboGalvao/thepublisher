@@ -5,11 +5,11 @@
 <s:set var="menuPathJSP"  	value="'/skins/tatame/default/menu.jsp'" />
 <s:set var="sidePathJSP"  	value="'/skins/tatame/default/side.jsp'" />
 <s:set var="dfpPathJSP"  	value="'/skins/tatame/default/google-dfp-script.jsp'" />
-<s:if test="model instanceof com.system.entity.Page">
+<s:if test="model instanceof com.publisher.entity.Page">
 	<s:set var="bodyClasses" value="'home blog'"/>
 	<s:set var="tgmKey" value="'br.cobranded_tatame.home'"/>
 </s:if>
-<s:elseif test="model instanceof com.system.entity.Article">
+<s:elseif test="model instanceof com.publisher.entity.Article">
 	<s:set var="bodyClasses" value="'single single-post single-format-standard'"/>
 	<s:set var="tgmKey" value="'br.cobranded_tatame.articles'"/>
 </s:elseif>

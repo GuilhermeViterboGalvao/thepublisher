@@ -73,10 +73,10 @@
 <!--[if lt IE 9]>
 <script src="http://cdn-tatame.trrsf.com/skins/tatame/js/html5.js"></script>
 <![endif]-->
-<s:if test="model instanceof com.system.entity.Article">
+<s:if test="model instanceof com.publisher.entity.Article">
 	<link rel='stylesheet' id='article-main-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/ArticleMain.css' type='text/css' media='all' />
 	<script type='text/javascript' src='http://cdn-tatame.trrsf.com/skins/tatame/js/Article.js'></script>
-	<s:if test="model instanceof com.system.entity.DefaultArticle">
+	<s:if test="model instanceof com.publisher.entity.DefaultArticle">
 		<link rel='stylesheet' id='article-main-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/PhotoGallery.css' type='text/css' media='all' />
 		<link rel='stylesheet' id='article-main-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/Video.css' type='text/css' media='all' />
 		<style type="text/css">
@@ -84,15 +84,15 @@
 		</style>
 		<script type='text/javascript' src='http://cdn-tatame.trrsf.com/skins/tatame/js/PhotoGallery.js'></script>
 	</s:if>
-	<s:elseif test="model instanceof com.system.entity.PhotoGallery">
+	<s:elseif test="model instanceof com.publisher.entity.PhotoGallery">
 		<link rel='stylesheet' id='article-main-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/PhotoGallery.css' type='text/css' media='all' />
 		<script type='text/javascript' src='http://cdn-tatame.trrsf.com/skins/tatame/js/PhotoGallery.js'></script>
 	</s:elseif>
-	<s:elseif test="model instanceof com.system.entity.Video">
+	<s:elseif test="model instanceof com.publisher.entity.Video">
 		<link rel='stylesheet' id='article-main-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/Video.css' type='text/css' media='all' />
 	</s:elseif>
 </s:if>
-<s:if test="model instanceof com.system.entity.Page">
+<s:if test="model instanceof com.publisher.entity.Page">
 	<link rel='stylesheet' id='home-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/Home.css' type='text/css' media='all' />
 	<link rel='stylesheet' id='soliloquy-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/soliloquy.css' type='text/css' media='all' />	
 	<script type='text/javascript' src='http://cdn-tatame.trrsf.com/skins/tatame/js/hoverIntent-min.js'></script>

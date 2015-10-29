@@ -55,12 +55,12 @@
 			    <div class="bigphotoholder-thumbs">		    	
 			        <div class="left">		        
 			        	<a href="javascript:void(0);">
-			        		<img src="http://cdn-tatame.trrsf.com/system/skins/tatame/img/arrow-left-gray.png" alt="esquerda"/>
+			        		<img src="http://cdn-tatame.trrsf.com/skins/tatame/img/arrow-left-gray.png" alt="esquerda"/>
 			        	</a>
 			        </div>
 			        <div class="right">
 			        	<a href="javascript:void(0);">
-			        		<img src="http://cdn-tatame.trrsf.com/system/skins/tatame/img/arrow-right-gray.png" alt="direita"/>
+			        		<img src="http://cdn-tatame.trrsf.com/skins/tatame/img/arrow-right-gray.png" alt="direita"/>
 			        	</a>
 			        </div>
 			        <div class="photoholder">
