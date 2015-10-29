@@ -222,11 +222,11 @@ public class ArticleAction extends AbstractAction<Article> implements ServletReq
 			Category category = categoryService.get(cid);
 			if (category != null) {
 				setPages((int)Math.floor(1f * articleService.count(category, null, null, false) / getPageSize()) + 1);				
-				return articleService.get(category, getPageSize(), getCurrentPage(), null, null, false, orderBy, orderly ? "desc" : "asc");
+				return articleService.get(category, getCurrentPage(), getPageSize(), null, null, false, orderBy, orderly ? "desc" : "asc");
 			}
 		}
 		setPages((int)Math.floor(1f * articleService.count() / getPageSize()) + 1);		
-		return articleService.list(null, null, getPageSize(), getCurrentPage(), null, orderBy, orderly ? "desc" : "asc");
+		return articleService.list(null, null, getCurrentPage(), getPageSize(), null, orderBy, orderly ? "desc" : "asc");
 	}
 
 	public void setCid(long cid) {
