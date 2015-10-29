@@ -54,7 +54,7 @@
 	</s:else>
 	
 	<s:div cssClass="%{gridSize} ym-gl" cssStyle='text-align: %{textAlign}; margin-top 5px;'>	
-	    <s:bean name="utils.PageList" id="counter">	        
+	    <s:bean name="com.publisher.utils.PageList" id="counter">	        
 	        <s:param name="numberOfPages" value="pages"/>
 	        <s:param name="isDefault" value="isDefault"/>
 	        <s:param name="selectedPage" value="currentPage"/>	        
