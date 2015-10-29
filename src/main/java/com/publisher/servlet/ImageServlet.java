@@ -89,7 +89,11 @@ public class ImageServlet extends HttpServlet {
 			tfolder.mkdirs();
 		}		
 		String uri = request.getRequestURI();		
-		File image = getImage(uri, ifolder, tfolder);		
+		File image = getImage(uri, ifolder, tfolder);
+		if (image == null || !image.exists()) {
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+			return;
+		}
 		String path = image.getAbsolutePath().replace(homeFolder.getAbsolutePath(), "");
 		if (!path.startsWith(File.separator)) {
 			path = File.separator + path;
@@ -128,12 +132,6 @@ public class ImageServlet extends HttpServlet {
 				log.debug("Bad image name format: " + fileName);				
 				return null;
 			}
-			String complement = null;
-			if ((i != -1) && (fileName.indexOf("_", i + 1) > 0)) {
-				int j = fileName.indexOf("_", i + 1);
-				complement = fileName.substring(i + 1, j);
-				i = j;
-			}
 			String size = null;
 			if (i != -1) {
 				try {
@@ -144,16 +142,16 @@ public class ImageServlet extends HttpServlet {
 					size = null;
 				}
 				if (size == null) {
-					log.debug("Bad image name format (size not found): "+fileName);
+					log.debug("Bad image name format (size not found): " + fileName);
 					return null;
 				}
 			}
-			File customCutFile = new File(imageFolder, (folderSize > 0 ? (id - id % folderSize) + File.separator : "") + id + (complement != null ? "_" + complement : "") + ".jpg");
+			File customCutFile = new File(imageTempFolder, id + "_" + width + "x" + height + ".jpg");
 			if (customCutFile.exists()) {
 				log.debug("Using custom cut for " + fileName);
 				resizedFile = customCutFile;
 			} else {
-				File originalFile = new File(imageFolder, (folderSize > 0 ? (id - id % folderSize) + File.separator : "") + id + (complement != null ? "_" + complement : "") + ".jpg");
+				File originalFile = new File(imageFolder, (folderSize > 0 ? (id - id % folderSize) + File.separator : "") + id + ".jpg");
 				if (!originalFile.exists()) {
 					log.debug("Image does not exist (file not found) " + fileName);
 					return null;
