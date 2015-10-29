@@ -273,13 +273,26 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
         insert into Article (id, header, title, tags, note, content, photo_id, category_id, template_id, publishedAt, createdBy_id, created, lastModifiedBy_id, lastModified, published, forumEnabled, permanentLink_id, views) 
         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
+    def content = row.content
+    def matches = (content =~ /\/img\/\d{1,999999}/)
+    if (matches && matches.size() > 0) {
+        for (def match : matches) {
+            def oldPhotoId = 0
+            try {
+               oldPhotoId = Integer.parseInt(match.replaceAll("/img/", ""))
+            } catch(Exception e) {}
+            if (oldPhotoId > 0) {
+                content = content.replaceAll(match, "/img/${newPhotoIds[oldPhotoId]}")            
+            }
+        }
+    }
     def params = [
         articleId,
         row.header,
         row.title,
         row.tags,
         row.note,
-        row.content,
+        content,
         row.photo_id > 0 ? newPhotoIds[row.photo_id] : 0,
         row.category_id > 0 ? newCategoryIds[row.category_id] : 0,
         row.template_id > 0 ? newSkinIds[row.template_id] : 0,
