@@ -43,7 +43,6 @@ public class ImageServlet extends HttpServlet {
 			folderSize = Integer.parseInt(config.getInitParameter("folder-size")); 
 		} catch (Exception e) { 
 			log.error(e);
-			e.printStackTrace();
 		}
 		homeFolder = new File((String)config.getServletContext().getAttribute("home-folder"));		
 		imageFolder = new File((String)config.getServletContext().getAttribute(config.getInitParameter("image-folder")));
@@ -69,7 +68,6 @@ public class ImageServlet extends HttpServlet {
 			quality = Float.parseFloat(config.getInitParameter("quality")); 
 		} catch (Exception e) { 
 			log.error(e);
-			e.printStackTrace();
 		}		
 	}
 

@@ -24,6 +24,10 @@ public class ArticleAction extends AbstractAction<Article> implements ServletReq
 
 	private static final long serialVersionUID = -2622613201300260784L;
 	
+	public ArticleAction() {
+		setPageSize(8);
+	}
+	
 	private long cid = -1;
 	
 	public String getInput() {
