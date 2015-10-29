@@ -7,6 +7,16 @@
 		<jsp:include page="/skins/tatame/default/head.jsp"/>
 	</head>
 	<body class="${bodyClasses}">
+		<jsp:include page="/skins/tatame/default/terra-counter-head.jsp"/>
+		<s:if test="#dfpPathJSP != null">
+			<s:include value="%{dfpPathJSP}"/>
+		</s:if>
+		<s:if test="#tgmKey != null">
+			<script type="text/javascript">var tgmKey = '${tgmKey}';</script>
+			<script type="text/javascript" src="http://stf.terra.com/tagman/js/tagman.js"></script>
+		</s:if>
+		<script type="text/javascript">tgm.ShowArea('default');</script>
+		<script type="text/javascript">terra_stats_metrics();</script>	
 		<div class="cabeceira">
 			<s:if test="#headerPathJSP != null"> 
 				<s:include value="%{headerPathJSP}"/>
@@ -45,6 +55,7 @@
 			</div>
 			<div class="clear"></div>
 			<jsp:include page="/skins/tatame/default/footer.jsp"/>
-		</div>			
+		</div>
+		<s:include value="/skins/tatame/default/scripts.jsp"/>		
 	</body>
 </html>
