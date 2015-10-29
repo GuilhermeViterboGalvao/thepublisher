@@ -7,7 +7,7 @@ div#photos a {
     width: 80px;
     height: 60px;
     float: left;
-    margin: 3px;
+    margin: 3px 6px;
 }
 div#photos input {
     float: left;

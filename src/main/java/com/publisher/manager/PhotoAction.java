@@ -12,7 +12,7 @@ public class PhotoAction extends AbstractAction<Photo> {
 	private static final long serialVersionUID = -2844682879310094840L;
 	
 	public PhotoAction() {
-		setPageSize(63);
+		setPageSize(90);
 	}
 
 	private PhotoService photoService;

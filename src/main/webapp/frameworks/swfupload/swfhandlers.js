@@ -110,37 +110,6 @@ SWFHandlers.addImage = function(src, id, file, objHandler) {
 	inputTags.style.width = "145px";
 	inputTags.style.height = "25px";
 	divContent.appendChild(inputTags);
-	
-	var span = document.createElement("span");
-	span.style.cssFloat = "left";
-	span.style.clear = "both";
-	span.innerHTML = "Gatinhas";
-	divContent.appendChild(span);
-	
-	var inputGirls = document.createElement("input");
-	inputGirls.style.cssFloat = "left";	
-	inputGirls.style.maginTop = "2px";
-	inputGirls.style.maginLeft = "5px";
-	inputGirls.type = "checkbox";
-	inputGirls.id = "girls" + id;
-	inputGirls.name = "girls";
-	inputGirls.value = false;
-	inputGirls.onclick = function() {
-		var checkbox = document.getElementById(this.id);
-		if (checkbox.value == null || checkbox.value == "" || checkbox.value == "on") {
-			checkbox.value = "true";
-		} else {
-			checkbox.value = checkbox.value == "false" ? "true" : "false";
-		}
-	};
-	divContent.appendChild(inputGirls);
-	
-	document.forms[0].onsubmit = function() {
-		var checkboxs = document.getElementsByName("girls");
-		for (var i = 0; i < checkboxs.length; i++) {
-			checkboxs[i].checked = "checked";
-		}
-	};
 };
 SWFHandlers.removeThumbnail = function(thumbnail, divId, imgId, path, deleteUrl){
     var xhr;

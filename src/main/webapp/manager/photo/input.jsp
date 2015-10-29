@@ -56,37 +56,16 @@
 		    <label for="picture">Selecione a imagem:</label>
 			<s:file name="picture"/>
                         
+			<div class="ym-fbox-check">
+				<label for="published">Publicado</label>
+				<s:checkbox name="published"/>
+			</div>
+			                        
             <s:if test="id > 0">            
-            	<a href="<s:url value="/img/%{id}.jpg"/>">Download</a>
-            	
-				<label for="width">Tamanho:</label>
-				<s:hidden name="width"/>
-				<s:hidden name="height"/>
-				<s:property value="width"/>x<s:property value="height"/>				
-
-				<div class="ym-fbox-check">
-					<label for="published">Publicado</label>
-					<s:checkbox name="published"/>
-				</div>
-
-				<div class="ym-fbox-check">
-					<label for="girls">Gatinhas</label>
-					<s:checkbox name="girls"/>
-				</div>
-				
-            	<p>
-            		<label for="createdByName">Criado por:</label>
-            		<s:hidden name="createdByName"/>
-            		<s:hidden name="created"/>
-            		<s:property value="createdByName"/> em <s:property value="getText('date.format',{created})"/>
-            	</p>
-            	
-            	<p>
-            		<label for="lastModifiedByName">Modificado por:</label>
-            		<s:hidden name="lastModifiedByName"/>
-            		<s:hidden name="lastModified"/>
-            		<s:property value="lastModifiedByName"/> em <s:property value="getText('date.format',{lastModified})"/>
-            	</p>			
+            	<a href="<s:url value="/img/%{id}.jpg"/>">Download</a>            	
+				<label for="width">Tamanho: <s:property value="width"/>x<s:property value="height"/></label>
+            	<p>Criado por: <s:property value="createdByName"/> em <s:property value="getText('date.format',{created})"/></p>            	
+            	<p>Modificado por: <s:property value="lastModifiedByName"/> em <s:property value="getText('date.format',{lastModified})"/></p>			
             </s:if>
 
 			<div class="ym-fbox-button">
