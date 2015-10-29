@@ -181,7 +181,7 @@ public class PhotoMultiUploadAction extends ActionSupport implements ServletRequ
 	}
 
 	public Date getDate() {
-		return date;
+		return date == null ? new Date() : date;
 	}
 
 	public void setDate(Date date) {
