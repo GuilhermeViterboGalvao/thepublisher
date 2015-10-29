@@ -129,11 +129,12 @@ importer.dbin.eachRow("select * from Page where name like '%tatame%'") { row ->
         insert into Page (id, name, skin_id, contentFile, permanentLink_id) 
         values (?, ?, ?, ?, ?)
     """
+    def contentFile = row.contentFile.replaceAll("/system", "")
     def params = [
         pageId,
         row.name,
         newSkinIds[row.skin_id],
-        row.contentFile,
+        contentFile,
         newPermanentLinkIds[row.permanentLink_id]
     ]
     importer.dbout.executeInsert(sql, params)
