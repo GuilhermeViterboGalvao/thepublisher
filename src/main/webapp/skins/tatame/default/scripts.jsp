@@ -56,6 +56,35 @@
 	<script type='text/javascript' src='/skins/tatame/js/mordernizr-min-3.8.1.js'></script>
 	<script type='text/javascript' src='/skins/tatame/js/soliloquy-lite-1.5.2.js'></script>
 	<script type='text/javascript' src='/skins/tatame/js/Home.js'></script>
+	<script type="text/javascript">
+	$(function() {
+		$("img.lazy").lazyload({
+	   		effect : "fadeIn"
+		});
+		var block = $('.cabeceira');
+		var iframe = block.find('iframe');
+		var is_desktop = true;
+		var check_is_loaded = function(url) {
+			if (jQuery.type(iframe.attr('src')) == "undefined" && iframe.attr('src') == url) {
+				return
+			}
+		};
+		$(window).resize(function() {
+			var screen_size = $(window).width();
+			if (screen_size < 770 && !is_desktop) {
+				is_desktop = true;
+				check_is_loaded('http://s1.trrsf.com/navbar/superslim/index.html?id=1&format=superslim&itemMenu=esp')
+				block.css('height', 24).css('width', 'auto')
+				iframe.attr('src', 'http://s1.trrsf.com/navbar/superslim/index.html?id=1&format=superslim&itemMenu=esp').removeAttr('width');
+			} else if (screen_size > 770 && is_desktop) {
+				is_desktop = false;
+				check_is_loaded('http://s1.trrsf.com/navbar/superslim/index.html?id=1&format=superslim&itemMenu=esp');
+				block.css('height', 24).css('width', 1020).css('background', '#F90');
+				iframe.attr('src', 'http://s1.trrsf.com/navbar/superslim/index.html?id=1&format=superslim&itemMenu=esp').attr('width', 960).attr('height', 24);
+			}
+		}).resize();
+	});
+	</script>	
 </s:elseif>
 <!-- FB Rmkt – MMA 2x2 -->
 <script type="text/javascript">
