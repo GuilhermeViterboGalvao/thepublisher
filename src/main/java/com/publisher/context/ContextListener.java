@@ -14,6 +14,8 @@ import javax.servlet.ServletContextListener;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.publisher.utils.ViewsListener;
+
 public class ContextListener implements ServletContextListener {
 
 	private static Log log = LogFactory.getLog(ContextListener.class);
@@ -26,6 +28,7 @@ public class ContextListener implements ServletContextListener {
         	log.error(e);
         	e.printStackTrace();
         }
+        ViewsListener.start(event.getServletContext());
 	}
 	
 	private void readAndExport(ServletContext context) throws FileNotFoundException, IOException {
@@ -82,5 +85,9 @@ public class ContextListener implements ServletContextListener {
 	}
 	
 	@Override
-	public void contextDestroyed(ServletContextEvent event) { }
+	public void contextDestroyed(ServletContextEvent event) {
+		if (ViewsListener.getInstace() != null && ViewsListener.getInstace().isRunning()) {
+			ViewsListener.getInstace().finish();	
+		}
+	}
 }

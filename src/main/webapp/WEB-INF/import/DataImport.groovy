@@ -7,6 +7,7 @@ import groovy.sql.Sql;
 
 //Lembrar de dar um alter table no campo "description" de Photo e
 //"content" de Article para "longtext"
+//hash 8470d37d090fdb40a2c313d2d7c891f5
 
 println new Date()
 
@@ -80,11 +81,13 @@ importer.dbin.eachRow("select * from Skin where customContentFolder like '%tatam
         insert into Skin (id, name, path, contentFolder) 
         values (?, ?, ?, ?)
     """
+    def path = row.path.replaceAll("/system", "")
+    def customContentFolder = row.customContentFolder.replaceAll("/system", "")
     def params = [
         skinId,
         row.name,
-        row.path,
-        row.customContentFolder
+        path,
+        customContentFolder
     ]
     importer.dbout.executeInsert(sql, params)
     newSkinIds.put(row.id, skinId)
@@ -293,17 +296,17 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
         row.tags,
         row.note,
         content,
-        row.photo_id > 0 ? newPhotoIds[row.photo_id] : 0,
-        row.category_id > 0 ? newCategoryIds[row.category_id] : 0,
-        row.template_id > 0 ? newSkinIds[row.template_id] : 0,
+        row.photo_id && row.photo_id > 0 ? newPhotoIds[row.photo_id] : null,
+        row.category_id && row.category_id > 0 ? newCategoryIds[row.category_id] : null,
+        row.template_id && row.template_id > 0 ? newSkinIds[row.template_id] : null,
         row.publishedAt,
-        row.createdBy_id > 0 ? newAccountIds[row.createdBy_id] : 0,
+        row.createdBy_id && row.createdBy_id > 0 ? newAccountIds[row.createdBy_id] : null,
         row.created,
-        row.lastModifiedBy_id > 0 ? newAccountIds[row.lastModifiedBy_id] : 0,
+        row.lastModifiedBy_id && row.lastModifiedBy_id > 0 ? newAccountIds[row.lastModifiedBy_id] : null,
         row.lastModified,
         row.published,
         row.forumEnabled,
-        row.permanentLink_id > 0 ? newPermanentLinkIds[row.permanentLink_id] : 0,
+        row.permanentLink_id && row.permanentLink_id > 0 ? newPermanentLinkIds[row.permanentLink_id] : null,
         row.views
     ]      
     importer.dbout.executeInsert(sql, params)
@@ -362,6 +365,29 @@ importer.dbin.eachRow(select, oldPhotoGalleryIds) { row ->
     ]
     importer.dbout.executeInsert(sql, params)
     println "PhotoGallery_id old=${row.PhotoGallery_id} new=${newPhotoGalleryIds[row.PhotoGallery_id]}"
+}
+
+println "*****************************************"
+println "*Atualizando parâmetros do PERMANENTLINK*"
+println "*****************************************"
+importer.dbin.eachRow("select * from PermanentLink where url like '%tatame%'") { row ->
+    def newId = newPermanentLinkIds[row.id]
+    importer.dbout.eachRow("select * from PermanentLink where id = ?", [ newId ]) { row2 ->
+        def type = row2.type
+        if(type && type.equals("redirect")) {
+            importer.dbout.execute("update PermanentLink set param = ? where id = ?", [ newPermanentLinkIds[row2.param], row2.id ])
+            println "TYPE = ${type} - id=${row2.id} oldParam=${row2.param} newParam=${newPermanentLinkIds[row2.param]}"
+        } else if (type && type.equals("article")) {
+            importer.dbout.execute("update PermanentLink set param = ? where id = ?", [ newArticleIds[row2.param], row2.id ])
+            println "TYPE = ${type} - id=${row2.id} oldParam=${row2.param} newParam=${newArticleIds[row2.param]}"        
+        } else if (type && type.equals("category")) {
+            importer.dbout.execute("update PermanentLink set param = ? where id = ?", [ newCategoryIds[row2.param], row2.id ])
+            println "TYPE = ${type} - id=${row2.id} oldParam=${row2.param} newParam=${newCategoryIds[row2.param]}"
+        } else if (type && type.equals("page")) {
+            importer.dbout.execute("update PermanentLink set param = ? where id = ?", [ newPageIds[row2.param], row2.id ])
+            println "TYPE = ${type} - id=${row2.id} oldParam=${row2.param} newParam=${newPageIds[row2.param]}"
+        }
+    }
 }
 
 //TODO DefaultArticle
