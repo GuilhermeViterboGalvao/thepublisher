@@ -2,7 +2,7 @@
 	
 	var w = window;	
 	
-	function SWFDialog(sessionId, targetButton, photoType) {
+	function SWFDialog(sessionId, targetButton) {
 		if(w.swfInstances == null || w.swfInstances == undefined){
 			var head = 	document.getElementsByTagName("head")[0];
 			var link = document.createElement("link");
@@ -48,11 +48,6 @@
 		this.getTarget = function () {
 			return target;
 		};
-		
-		var _photoType = photoType;
-		this.getPhotoType = function() {
-			return _photoType;
-		};
 
 		$(w.document.body).append(
 			$('<div>').attr({
@@ -77,17 +72,6 @@
 		this.getInstanceId = function () {
 			return instanceId; 
 		};
-		
-		AutoComplete(
-			'autocomplete' + instanceId + '_ACSEngine', 
-			{
-				url: "/manager/ac-account",
-				click: function(obj) {
-					StrutsAC.update('autocomplete' + contextReference.getInstanceId(), obj, this);
-				},
-				target: 'autocomplete' + instanceId + '_ACSInput'
-			}
-		);
 
 		SWFDialog.instances[instanceId] = this;
 	}
@@ -129,9 +113,9 @@
 		} else {
 			date = $('#swf_dialog_date' + contextReference.getInstanceId()).val();
 		}
-		var photographerId = $('input[name=swf_dialog_photographerId' + contextReference.getInstanceId() + ']').val();
-		if (photographerId == undefined || photographerId == null || photographerId == "") {
-			alert('Você deve escolher o fotógrafo.');
+		var credits = $('input[name=credits' + contextReference.getInstanceId() + ']').val();
+		if (credits == undefined || credits == null || credits == "") {
+			alert('Você deve informar os créditos da foto.');
 			return;			
 		}
 		var tags = $('#swf_dialog_tags' + contextReference.getInstanceId()).val();
@@ -154,12 +138,8 @@
 			data += 'pictureTag=' + $(this).val() + '&';
 		});
 		
-		$('input[name=swf_dialog_photoType]').each(function(){
-			data += 'photoType=' + $(this).val() + '&';
-		});
-		
 		data += 'tags=' + tags + '&';
-		data += 'photographerId=' + photographerId + '&';
+		data += 'credits=' + credits + '&';
 		data += 'date=' + date + '&';
 		data += 'published=' + $('#swf_dialog_published' + contextReference.getInstanceId())[0].checked + '&';
 		data += 'useFilename=' + $('#swf_dialog_useFilename' + contextReference.getInstanceId())[0].checked;		
@@ -207,21 +187,13 @@
 			$('<br>')				
 		).append(
 			$('<label>').attr({
-				'for' : 'swf_dialog_photographerId' + this.getInstanceId()
-			}).html('Fotógrafo:')						
-		).append(
-			$('<span>').attr({
-				'id' : 'autocomplete' + this.getInstanceId() + '_ACS'						
-			}).append(
-				$('<a>').attr({
-					'href' : 'javascript:StrutsAC.search("autocomplete' + this.getInstanceId() + '");'
-				}).html('-vazio-')
-			)
+				'for' : 'credits' + this.getInstanceId()
+			}).html('Créditos da foto:')
 		).append(
 			$('<input>').attr({
-				'type' : 'hidden',
-				'id'   : 'autocomplete' + this.getInstanceId(),
-				'name' : 'swf_dialog_photographerId' + this.getInstanceId()
+				'type' : 'text',
+				'id'   : 'credits' + this.getInstanceId(),
+				'name' : 'credits' + this.getInstanceId()
 			})
 		).append(
 			$('<br>')
@@ -235,12 +207,6 @@
 			$('<br>')
 		).append(
 			$('<br>')
-		).append(
-			$("<input>").attr({
-				"type"  : "hidden",
-				"name"  : "swf_dialog_photoType",
-				"value" : this.getPhotoType() != null && this.getPhotoType() != undefined ? this.getPhotoType() : ""
-			})
 		).append(
 			$('<input>').attr({
 				'id'   : 'swf_dialog_date' + this.getInstanceId(),
