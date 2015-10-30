@@ -20,7 +20,6 @@
 <script type="text/javascript" src="/skins/tatame/js/comment-reply-min.js"></script>
 <script type="text/javascript">var promo_slider_options = { "version" : "3.3.1" };</script>
 <script type="text/javascript" src="/skins/tatame/js/promo-slider.js"></script>
-<script type="text/javascript">var bd_url = "http://www.tatame.com.br/wp-content/themes/manshet";</script>
 <!--[if lt IE 9]>
 <script src="/skins/tatame/js/html5.js"></script>
 <![endif]-->
@@ -49,8 +48,9 @@
 	<script type="text/javascript" src="/skins/tatame/js/mordernizr-min-3.8.1.js"></script>
 	<script type="text/javascript" src="/skins/tatame/js/soliloquy-lite-1.5.2.js"></script>
 	<script type="text/javascript" src="/skins/tatame/js/Home.js"></script>
-	<script type="text/javascript" src="/skins/tatame/js/lastNews.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="/skins/tatame/js/lastNews.js"></script>	
+</s:elseif>
+<script type="text/javascript">
 	$(function() {
 		$("img.lazy").lazyload({
 	   		effect : "fadeIn"
@@ -78,8 +78,7 @@
 			}
 		}).resize();
 	});
-	</script>	
-</s:elseif>
+</script>
 <!-- FB Rmkt – MMA 2x2 -->
 <script type="text/javascript">
 	(function() {

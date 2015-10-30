@@ -6,7 +6,7 @@
 	<head>
 		<jsp:include page="/skins/tatame/default/head.jsp"/>
 	</head>
-	<body class="${bodyClasses}">
+	<body class="${bodyClasses}">	
 		<jsp:include page="/skins/tatame/default/terra-counter-head.jsp"/>
 		<s:if test="#dfpPathJSP != null">
 			<s:include value="%{dfpPathJSP}"/>
