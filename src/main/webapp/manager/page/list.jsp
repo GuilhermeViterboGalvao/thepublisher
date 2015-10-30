@@ -42,7 +42,7 @@
 					<s:property value="contentFile"/>
 				</td>
 				<td class="td">
-					<s:if test="isAdmin">
+					<s:if test="isAdmin()">
 						<a href="page-edit?id=<s:property value="id"/>">Editar</a>
 					</s:if>
 					<s:else>

@@ -8,7 +8,7 @@
 		</li>
 	</ul>
 </nav>
-<s:if test="isAdmin">
+<s:if test="isAdmin()">
 	<s:form action="category-save" cssClass="ym-form" onsubmit="checkPermanentLink();">		
 		<s:hidden name="id"/>
 		<s:fielderror cssStyle="color: red;"/>	

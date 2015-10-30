@@ -42,7 +42,7 @@
 					<s:property value="path"/>
 				</td>
 				<td class="td">
-					<s:if test="isAdmin">
+					<s:if test="isAdmin()">
 						<a href="skin-edit?id=<s:property value="id"/>">Editar</a>
 					</s:if>
 					<s:else>

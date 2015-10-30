@@ -42,7 +42,7 @@
 					<s:property value="email"/>
 				</td>
 				<td class="td">
-					<s:if test="isAdmin">
+					<s:if test="isAdmin()">
 						<a href="account-edit?id=<s:property value="id"/>">Editar</a>
 					</s:if>
 					<s:else>

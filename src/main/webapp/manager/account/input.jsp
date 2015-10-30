@@ -7,7 +7,7 @@
 		</li>					
 	</ul>		
 </nav>
-<s:if test="isAdmin">
+<s:if test="isAdmin()">
 	<s:form action="account-save" cssClass="ym-form">	
 		<s:hidden name="id"/>
 		<s:fielderror cssStyle="color: red;"/>		
