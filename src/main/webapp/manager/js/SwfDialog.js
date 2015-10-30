@@ -81,7 +81,7 @@
 		AutoComplete(
 			'autocomplete' + instanceId + '_ACSEngine', 
 			{
-				url: "manager/ac-collaborator",
+				url: "/manager/ac-collaborator",
 				click: function(obj) {
 					StrutsAC.update('autocomplete' + contextReference.getInstanceId(), obj, this);
 				},
