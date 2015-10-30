@@ -50,6 +50,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return account;
 	}
 	
+	public boolean isAdmin() {
+		if (account != null && account.getSecurityHole() != null && !account.getSecurityHole().isEmpty() && account.getSecurityHole().equalsIgnoreCase("admin")) {
+			return true;
+		}
+		return false;
+	}	
+	
 	//POJO
 	
 	private String email;
