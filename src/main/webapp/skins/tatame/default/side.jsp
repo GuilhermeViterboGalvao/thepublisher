@@ -5,8 +5,8 @@
 	<div class="widget-inner video-box clearfix">
 		<div class="ads300">
 			<div class="ads-content">
-				<div id='tatame_300x100_ros' style='width:300px; height:100px;'> 
-					<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('tatame_300x100_ros');});</script> 
+				<div id="tatame_300x100_ros" style="width:300px; height:100px;"> 
+					<script type="text/javascript">googletag.cmd.push(function(){googletag.display("tatame_300x100_ros");});</script> 
 				</div>
 			</div>
 		</div>
@@ -26,13 +26,17 @@
 	<div class="widget-title box-title">
 		<h2>
 			<b class="tab-recent">Recente</b>
-			<b class="tab-read-more">Mais lidas</b>
+			<s:if test="model != null && model instanceof com.publisher.entity.Page">
+				<b class="tab-read-more">Mais lidas</b>
+			</s:if>
 		</h2>
 	</div>
 	<div class="widget-inner video-box clearfix recent">		
 		<p:tile xml="home/recente"/>
 	</div>
-	<div class="widget-inner video-box clearfix read-more"></div>	
+	<s:if test="model != null model instanceof com.publisher.entity.Page">
+		<div class="widget-inner video-box clearfix read-more"></div>
+	</s:if>
 </div>
 <div id="text-8" class="widget widget_text">
 	<div class="widget-title box-title">
@@ -47,35 +51,50 @@
 	<div class="widget-inner video-box clearfix">
 		<div class="ads300">
 			<div class="ads-content">
-				<div id='tatame_300x250_ros' style='width:300px; height:250px;'> 
-					<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('tatame_300x250_ros');});</script> 
+				<div id="tatame_300x250_ros" style="width:300px; height:250px;"> 
+					<script type="text/javascript">googletag.cmd.push(function(){googletag.display("tatame_300x250_ros");});</script> 
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div id="bd-recent-posts-2" class="widget bd-recent-posts">
-	<div class="widget-title box-title">
-		<h2><b>Últimas notícias</b></h2>
+<s:if test="model != null && model instanceof com.publisher.entity.Page">
+	<div id="bd-recent-posts-2" class="widget bd-recent-posts">
+		<div class="widget-title box-title">
+			<h2><b>Últimas notícias</b></h2>
+		</div>
+		<div class="widget-inner video-box clearfix"></div>
 	</div>
-	<div class="widget-inner video-box clearfix"></div>
-</div>
-<div id="bd-fb-likebox-3" class="widget bd-fb-likebox">
-	<div class="widget-title box-title">
-		<h2><b>Curta a TATAME</b></h2>
-	</div>
-	<div class="widget-inner video-box clearfix">
-		<script type="text/javascript">
-			$(function(){
-				var fb_box = $('.bd-fb-likebox iframe');
-				fb_box.attr('src', "//www.facebook.com/plugins/likebox.php?href=http://www.facebook.com/tatame&amp;width=250&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23e7402f&amp;stream=false&amp;header=false&amp;height=250");
-			});
-		</script>
-		<div class="like_box_footer" style='background:#FFFFFF;'>
-			<iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:250px;" allowTransparency="true"></iframe>
+	<div id="bd-fb-likebox-3" class="widget bd-fb-likebox">
+		<div class="widget-title box-title">
+			<h2><b>Curta a TATAME</b></h2>
+		</div>
+		<div class="widget-inner video-box clearfix">
+			<div id="fb-root"></div>
+			<script type="text/javascript">
+				(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) {
+					  return;
+				  }
+				  js = d.createElement(s); 
+				  js.id = id;
+				  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=312287075567167";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, "script", "facebook-jssdk"));
+			</script>
+			<div class="like_box_footer" style="background:#FFFFFF;">
+				<div class="fb-page" data-href="https://www.facebook.com/tatame" data-width="284" data-height="234" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
+					<div class="fb-xfbml-parse-ignore">
+						<blockquote cite="https://www.facebook.com/tatame">
+							<a href="https://www.facebook.com/tatame">TATAME</a>
+						</blockquote>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</s:if>
 <div id="ad_300_300-widget-6" class="widget ad_300_300">
 	<div class="widget-title box-title">
 		<h2><b></b></h2>
@@ -83,8 +102,8 @@
 	<div class="widget-inner video-box clearfix">
 		<div class="ads300">
 			<div class="ads-content">
-				<div id='tatame_300x600_ros' style='width:300px; height:600px;'> 
-					<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('tatame_300x600_ros');});</script> 
+				<div id="tatame_300x600_ros" style="width:300px; height:600px;"> 
+					<script type="text/javascript">googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});</script> 
 				</div>
 			</div>
 		</div>
