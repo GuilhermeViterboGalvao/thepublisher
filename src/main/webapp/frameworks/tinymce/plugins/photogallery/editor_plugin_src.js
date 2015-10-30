@@ -39,9 +39,9 @@
             getInfo : function() {
                 return {
                     longname  : 'PhotoGallery plugin',
-                    author    : 'Rafel Sobral',
-                    authorurl : 'http://waves.terra.com.br/',
-                    infourl   : 'http://waves.terra.com.br/',
+                    author    : 'The Publisher',
+                    authorurl : 'http://www.tatame.com.br/',
+                    infourl   : 'http://www.tatame.com.br/',
                     version   : "1.0"
                 };
             }
