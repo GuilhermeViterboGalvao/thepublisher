@@ -36,6 +36,14 @@ public abstract class AutoCompleteAction implements Action, AccountAware {
 	public Account getAccount() {
 		return account;
 	}
+	
+	@Override
+	public boolean isAdmin() {
+		if (account != null && account.getSecurityHole() != null && !account.getSecurityHole().isEmpty() && account.getSecurityHole().equalsIgnoreCase("admin")) {
+			return true;
+		}
+		return false;
+	}	
 
 	public String getTerm() {
 		return term;

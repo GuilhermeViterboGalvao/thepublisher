@@ -41,6 +41,14 @@ public class PhotoMultiUploadAction extends ActionSupport implements ServletRequ
 		return account;
 	}
 	
+	@Override
+	public boolean isAdmin() {
+		if (account != null && account.getSecurityHole() != null && !account.getSecurityHole().isEmpty() && account.getSecurityHole().equalsIgnoreCase("admin")) {
+			return true;
+		}
+		return false;
+	}	
+	
     @SkipValidation
     public String add() {
     	return INPUT;

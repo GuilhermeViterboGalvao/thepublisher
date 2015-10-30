@@ -66,6 +66,14 @@ public class ArticleFeedAction extends ActionSupport implements AccountAware {
 		return account;
 	}
 	
+	@Override
+	public boolean isAdmin() {
+		if (account != null && account.getSecurityHole() != null && !account.getSecurityHole().isEmpty() && account.getSecurityHole().equalsIgnoreCase("admin")) {
+			return true;
+		}
+		return false;
+	}	
+	
 	//POJO
 	
     private Collection<ArticleElement> articles;

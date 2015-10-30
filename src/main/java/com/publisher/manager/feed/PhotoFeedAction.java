@@ -28,6 +28,14 @@ public class PhotoFeedAction extends ActionSupport implements AccountAware {
 	@Override
 	public Account getAccount() {
 		return account;
+	}
+	
+	@Override
+	public boolean isAdmin() {
+		if (account != null && account.getSecurityHole() != null && !account.getSecurityHole().isEmpty() && account.getSecurityHole().equalsIgnoreCase("admin")) {
+			return true;
+		}
+		return false;
 	}	
 	
 	@Override

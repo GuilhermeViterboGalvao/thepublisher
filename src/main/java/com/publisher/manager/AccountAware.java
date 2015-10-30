@@ -7,4 +7,6 @@ public interface AccountAware {
 	void setAccount(Account account);
 	
 	Account getAccount();
+	
+	boolean isAdmin();
 }
