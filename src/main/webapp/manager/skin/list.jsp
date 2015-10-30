@@ -26,7 +26,7 @@
 			<th>
 				<a href="skin-list?orderBy=path&orderly=<s:property value="!orderly"/>">caminho</a>
 			</th>
-			<th></th>
+			<th></th>			
 		</tr>
 	</thead>
 	<tbody>
@@ -42,9 +42,14 @@
 					<s:property value="path"/>
 				</td>
 				<td class="td">
-					<a href="skin-edit?id=<s:property value="id"/>">Editar</a>
+					<s:if test="isAdmin">
+						<a href="skin-edit?id=<s:property value="id"/>">Editar</a>
+					</s:if>
+					<s:else>
+						<a href="skin-edit?id=<s:property value="id"/>">Ver dados</a>
+					</s:else>
 				</td>
-			</tr>
+			</tr>			
 		</s:iterator>
 	</tbody>
 </table>

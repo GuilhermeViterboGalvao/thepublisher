@@ -42,7 +42,12 @@
 					<a href="article-list?cid=<s:property value="id"/>">Matérias</a>
 				</td>
 				<td class="td">
-					<a href="category-edit?id=<s:property value="id"/>">Editar</a>
+					<s:if test="isAdmin">
+						<a href="category-edit?id=<s:property value="id"/>">Editar</a>
+					</s:if>
+					<s:else>
+						<a href="category-edit?id=<s:property value="id"/>">Ver dados</a>
+					</s:else>
 				</td>
 			</tr>
 		</s:iterator>

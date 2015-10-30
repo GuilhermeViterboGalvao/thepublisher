@@ -19,22 +19,30 @@
 	</ul>
 	<h6 class="ym-vtitle">Categoria</h6>
 	<ul>
-		<li><a href="/manager/category-edit">Nova categoria</a></li>
+		<s:if test="isAdmin">
+			<li><a href="/manager/category-edit">Nova categoria</a></li>
+		</s:if>		
 		<li><a href="/manager/category-list">Listar</a></li>
 	</ul>
 	<h6 class="ym-vtitle">Template</h6>
 	<ul>
-		<li><a href="/manager/skin-edit">Nova template</a></li>
+		<s:if test="isAdmin">
+			<li><a href="/manager/skin-edit">Nova template</a></li>
+		</s:if>
 		<li><a href="/manager/skin-list">Listar</a></li>
 	</ul>
 	<h6 class="ym-vtitle">Outras capas</h6>
 	<ul>
-		<li><a href="/manager/page-edit">Nova capa</a></li>
+		<s:if test="isAdmin">
+			<li><a href="/manager/page-edit">Nova capa</a></li>
+		</s:if>
 		<li><a href="/manager/page-list">Listar</a></li>
 	</ul>	
 	<h6 class="ym-vtitle">Usuários</h6>
 	<ul>
-		<li><a href="/manager/account-edit">Cadastrar</a></li>
+		<s:if test="isAdmin">
+			<li><a href="/manager/account-edit">Cadastrar</a></li>
+		</s:if>
 		<li><a href="/manager/account-list">Listar</a></li>
 	</ul>	
 	<h6 class="ym-vtitle">Outros</h6>

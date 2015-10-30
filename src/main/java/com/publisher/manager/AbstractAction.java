@@ -80,6 +80,13 @@ public abstract class AbstractAction<T> extends ActionSupport implements Account
 
 	protected abstract T getObject();
 	
+	public boolean isAdmin() {
+		if (account != null && account.getSecurityHole() != null && !account.getSecurityHole().isEmpty() && account.getSecurityHole().equalsIgnoreCase("admin")) {
+			return true;
+		}
+		return false;
+	}
+	
 	public Collection<T> getList() {
 		return list;
 	}
