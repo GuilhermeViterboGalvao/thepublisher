@@ -26,10 +26,10 @@
 		<label for="skinName">Template</label>
 		<s:hidden name="skinName"/>
 		<s:if test="skinName != null && !skinName.equals('')">
-			<p:autocomplete name="skinId" display="skinName" url="manager/ac-skin" />
+			<p:autocomplete name="skinId" display="skinName" url="/manager/ac-skin" />
 		</s:if>
 		<s:else>
-			<p:autocomplete name="skinId" url="manager/ac-skin" />
+			<p:autocomplete name="skinId" url="/manager/ac-skin" />
 		</s:else>
 				
 		<div class="ym-fbox-button">			

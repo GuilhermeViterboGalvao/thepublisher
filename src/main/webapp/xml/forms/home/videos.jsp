@@ -106,8 +106,8 @@
 						minLength="5" 
 						showToolTip="true"
 						display="top['photoId']"
-						url="manager/ac-photo"
-						initialUrl="manager/ac-photo"
+						url="/manager/ac-photo"
+						initialUrl="/manager/ac-photo"
 						imagePattern="/img/[value]_130x80.jpg"
 						loadingImage="/manager/img/loader.gif"
 						evaluator="function(data) { 

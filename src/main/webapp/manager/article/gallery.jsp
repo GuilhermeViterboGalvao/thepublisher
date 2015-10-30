@@ -41,14 +41,14 @@
 				name="photoId" 
 				cssStyle="float: left;"
 				display="'/img/'+photoId+'_150x100.jpg'"
-				url="manager/ac-photo"
+				url="/manager/ac-photo"
 				imagePattern="/img/[value]_150x100.jpg"
 				minLength="5" 
 				delay="500" 
 				pageSize="60" 
 				showToolTip="true"
-				initialUrl="manager/ac-photo"
-				loadingImage="../manager/img/loader.gif" 
+				initialUrl="/manager/ac-photo"
+				loadingImage="/manager/img/loader.gif" 
 			/>
 				
 			<label class="header">Cabeçalho:</label> 
@@ -63,16 +63,16 @@
 				<p:autocomplete 
 					name="categoryId" 
 					display="-vazio-" 
-					url="manager/ac-category" 
-					initial="[{label:'Tatame',value: 1094}]"
+					url="/manager/ac-category" 
+					initial="[{label:'Tatame',value: 1}]"
 				/>			
 			</s:if>
 			<s:else>
 				<p:autocomplete 
 					name="categoryId" 
 					display="%{categoryName}" 
-					url="manager/ac-category" 
-					initial="[{label:'Tatame',value: 1094}]"
+					url="/manager/ac-category" 
+					initial="[{label:'Tatame',value: 1}]"
 				/>			
 			</s:else>
 
@@ -83,8 +83,8 @@
 					id="createdById" 
 					name="createdById" 
 					display="-vazio-" 
-					url="manager/ac-collaborator" 
-					initial="[{label:'Redação Tatame',value: 12038}]"
+					url="/manager/ac-collaborator" 
+					initial="[{label:'Redação Tatame',value: 1}]"
 				/>
 			</s:if>
 			<s:else>
@@ -92,8 +92,8 @@
 					id="createdById" 
 					name="createdById" 
 					display="%{createdByDescription}" 
-					url="manager/ac-collaborator" 
-					initial="[{label:'Redação Tatame',value: 12038}]"  
+					url="/manager/ac-collaborator" 
+					initial="[{label:'Redação Tatame',value: 1}]"  
 				/>
 			</s:else>
 
@@ -113,7 +113,7 @@
 				<p:autocomplete 
 					name="templateId" 
 					display="-vazio-"	
-					url="manager/ac-skin"  
+					url="/manager/ac-skin"  
 					initial="[{label:'Tatame - Padrão',value: 214}]"
 				/>
 			</s:if>
@@ -121,7 +121,7 @@
 				<p:autocomplete 
 					name="templateId" 
 					display="%{templateDescription}"	
-					url="manager/ac-skin"  
+					url="/manager/ac-skin"  
 					initial="[{label:'Tatame - Padrão',value: 214}]"
 				/>
 			</s:else>
