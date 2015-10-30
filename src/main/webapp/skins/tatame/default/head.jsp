@@ -18,7 +18,7 @@
 	<meta property="og:description" content="<s:property value='note'/>"/>
 	<meta property="og:title" content="<s:property value='title'/>" />
 	<meta property="og:image" content="/img/<s:property value='photo.id'/>_670x418.jpg"/>
-	<meta property="og:url" content="http://www.tatame.com.br/<s:property value='permanentLink.url'/>"/>		
+	<meta property="og:url" content="http://www.tatame.com.br/<s:property value='permanentLink.uri'/>"/>		
 	<link href="/img/${photo.id}_210x140.jpg" rel="image_src" title="${photo.description}"/>
 </s:if>
 <link rel="shortcut icon" href="/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>

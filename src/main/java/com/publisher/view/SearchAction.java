@@ -41,6 +41,10 @@ public class SearchAction extends ActionSupport implements ViewAction {
 		this.query = query;
 	}
 	
+	public String getQuery() {
+		return query;
+	}
+	
 	private int currentPage = 1;
 	
 	public void setCurrentPage(int currentPage) {

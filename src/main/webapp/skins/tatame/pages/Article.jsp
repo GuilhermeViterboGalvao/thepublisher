@@ -16,7 +16,7 @@
 				<a class="crumbs-home-icon" itemprop="breadcrumb" href="http://www.tatame.com.br"><i class="icon-home"></i></a>
 				<i class="icon-angle-right"></i>
 			</li> 
-	        <a href="/${category.permanentLink.url}">${category.name}</a> 
+	        <a href="/${category.permanentLink.uri}">${category.name}</a> 
 			<i class="icon-angle-right"></i> 
 			<li class="current">
 				<s:property value="note"/>
@@ -25,7 +25,7 @@
 		<article class="post type-post status-publish format-standard hentry category-noticias tag-cris-cyborg tag-rener-gracie tag-ufc article" id="post-${id}">
 			<div class="clearfix"></div>
 			<h2 class="post-title">
-				<a href="/${permanentLink.url}" rel="bookmark" alt="${title}">
+				<a href="/${permanentLink.uri}" rel="bookmark" alt="${title}">
 					<s:property value="title"/>
 				</a>
 			</h2>
@@ -76,10 +76,10 @@
 	          			<div class="fb-like" data-width="70" data-height="30" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
 	      			</li>
 	                  <li class="twitter">
-	          			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.tatame.com.br/${permanentLink.url}" data-text="${note}" data-via="" data-lang="en">tweet</a>
+	          			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.tatame.com.br/${permanentLink.uri}" data-text="${note}" data-via="" data-lang="en">tweet</a>
 	      			</li>
 	      			<li class="google">
-	          			<div class="g-plusone" data-size="medium" data-href="http://www.tatame.com.br/${permanentLink.url}"></div>
+	          			<div class="g-plusone" data-size="medium" data-href="http://www.tatame.com.br/${permanentLink.uri}"></div>
 	      			</li>
 				</ul>
 	    	</div>
@@ -92,12 +92,12 @@
 						<s:iterator value="getLast(4)" status="st">
 							<div class="related-item">
 								<div class="post-image">
-									<a href="/${permanentLink.url}" title="${title}">
+									<a href="/${permanentLink.uri}" title="${title}">
 										<img class="lazy" data-original="/img/${photo.id}.jpg" width="270" height="180" alt="${title}"/>
 									</a>
 								</div>
 								<h4>
-									<a href="/${permanentLink.url}" title="${title}" rel="bookmark" class="related-item-title">
+									<a href="/${permanentLink.uri}" title="${title}" rel="bookmark" class="related-item-title">
 										<s:property value="title"/>
 									</a>
 								</h4>
@@ -108,7 +108,7 @@
 				</section>
 			</div>
 			<s:if test="forumEnabled">
-				<div class="fb-comments" data-href="http://www.tatame.com.br/${permanentLink.url}" data-num-posts="4" data-width="620"></div>
+				<div class="fb-comments" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="620"></div>
 			</s:if>
 		</article>
 		<div class="clear"></div>

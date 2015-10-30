@@ -52,14 +52,23 @@ public class Skin implements Serializable {
     
     public String getContentPath(String actionName) {
     	File file = null;
-    	String path = normalizePath(this.path);
-    	file = new File(ServletActionContext.getServletContext().getRealPath(path));
-    	if (file.isDirectory()) {
-    		file = new File(file, "pages/" + actionName + ".jsp");
-    		if (file.exists() && !file.isDirectory()) {
-    			return path + "/pages/" + actionName + ".jsp";
+    	if (contentFolder != null && !contentFolder.isEmpty()) {
+    		file = new File(ServletActionContext.getServletContext().getRealPath(contentFolder));
+    		if (file.exists() && file.isDirectory()) {
+    			file = new File(file, actionName + ".jsp");
+    			if (file.exists() && file.isFile()) {
+    				return contentFolder + "/" + actionName + ".jsp";
+    			}
     		}
     	}
+    	String path = normalizePath(this.path);
+    	file = new File(ServletActionContext.getServletContext().getRealPath(path));
+    	if (file.exists() && file.isDirectory()) {
+    		file = new File(file, "pages/" + actionName + ".jsp");
+    		if (file.exists() && file.isFile()) {
+    			return path + "/pages/" + actionName + ".jsp"; 
+    		}
+    	}    	
     	return null;
     }
     

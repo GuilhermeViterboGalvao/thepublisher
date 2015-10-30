@@ -51,10 +51,10 @@
 					<a href="/tatame/noticias">Notícias</a>
 				</li>
 				<li id="menu-item-166564" class="menu-item menu-item-type-custom menu-item-object-custom">
-					<a href="/tatame/view/busca?query=mma">MMA</a>
+					<a href="/search?query=mma">MMA</a>
 				</li>
 				<li id="menu-item-166563" class="menu-item menu-item-type-custom menu-item-object-custom">
-					<a href="/tatame/view/busca?query=ufc">UFC</a>
+					<a href="/search?query=ufc">UFC</a>
 				</li>
 				<li id="menu-item-166562" class="menu-item menu-item-type-custom menu-item-object-custom">
 					<a href="/tatame/jiujitsu">Jiu-Jitsu</a>

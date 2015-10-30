@@ -9,7 +9,7 @@
 			<categorystr><s:property value="category.name" escapeXml="true"/></categorystr>
 			<subtitle><s:property value="header" escapeXml="true"/></subtitle>
 			<keywords><s:property value="tags" escapeXml="true"/></keywords>
-			<url>http://www.tatame.com.br/<s:property value="permanentLink.url" escapeXml="true"/></url>
+			<url>http://www.tatame.com.br/<s:property value="permanentLink.uri" escapeXml="true"/></url>
 			<body><s:property value="content" escapeXml="true"/></body>
 			<pubdate><s:property value="publishedAt.getTime() / 1000"/></pubdate>
 			<thumburl>http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>.jpg</thumburl>
