@@ -248,6 +248,10 @@ public class GenericXMLTileAction extends ActionSupport implements ParameterAwar
 	private int max;
 	
 	private int min;
+	
+	public List<Map<String,String>> getEntries() {
+		return entries;
+	}
 
 	public String getMessage() {
 		return message;
