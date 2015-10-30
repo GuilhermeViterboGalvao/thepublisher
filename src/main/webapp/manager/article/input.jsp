@@ -79,7 +79,7 @@
 					id="createdById" 
 					name="createdById" 
 					display="-vazio-" 
-					url="/manager/ac-collaborator" 
+					url="/manager/ac-account" 
 					initial="[{label:'Redação Tatame',value: 1}]"
 				/>
 			</s:if>
@@ -88,7 +88,7 @@
 					id="createdById" 
 					name="createdById" 
 					display="%{createdByDescription}" 
-					url="/manager/ac-collaborator" 
+					url="/manager/ac-account" 
 					initial="[{label:'Redação Tatame',value: 1}]"  
 				/>
 			</s:else>
