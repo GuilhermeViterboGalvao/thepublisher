@@ -60,8 +60,7 @@ PhotoSelector("${parameters.id?default("")?html}_ACSEngine",{
 	<#if parameters.delay??>delay: "${parameters.delay}",</#if>		
 	<#if parameters.loadingImage??>loadingImage: "${parameters.loadingImage}",</#if>		
 	<#if parameters.initialUrl??>initialUrl: "${parameters.initialUrl}",</#if>		
-	<#if parameters.pageSize??>pageSize: ${parameters.pageSize},</#if>
-	<#if parameters.photoType??>photoType: "${parameters.photoType}",</#if>		
+	<#if parameters.pageSize??>pageSize: ${parameters.pageSize},</#if>		
 	target: "${parameters.id?default("")?html}_ACSInput",
 	menu: "${parameters.id?default("")?html}_ACSBox"
 });

@@ -475,13 +475,7 @@
     <description><![CDATA[Coloca campo de edição auto completável]]></description>
     <name>photoselector</name>
     <tag-class>com.publisher.tags.PhotoSelectorTag</tag-class>
-    <body-content>JSP</body-content>
-    <attribute>
-      <description><![CDATA[Set the type of list photos (Ex. Covers, Wallpapers, Spots, Advertisers)]]></description>
-      <name>photoType</name>
-      <required>false</required>
-      <rtexprvalue>false</rtexprvalue>
-    </attribute>    
+    <body-content>JSP</body-content>    
     <attribute>
       <description><![CDATA[Set the html accesskey attribute on rendered html element]]></description>
       <name>accesskey</name>

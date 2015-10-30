@@ -21,7 +21,6 @@ public class PhotoSelector extends Hidden {
 	private String minLength;
 	private String loadingImage;
 	private String evaluator;
-	private String photoType;
 
 	public PhotoSelector(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
 		super(stack, request, response);
@@ -63,9 +62,6 @@ public class PhotoSelector extends Hidden {
 		if (this.evaluator != null) {
 			addParameter("evaluator", findString(this.evaluator));
 		}
-		if (this.photoType != null) {
-			addParameter("photoType", this.photoType);
-		}		
 		if (getId()==null) {
 			addParameter("id","photoselector_"+Long.toString((long)(Math.random()*4294967296L)));
 		}
@@ -113,9 +109,5 @@ public class PhotoSelector extends Hidden {
 
 	public void setEvaluator(String evaluator) {
 		this.evaluator = evaluator;
-	}
-	
-	public void setPhotoType(String photoType) {
-		this.photoType = photoType;
 	}
 }

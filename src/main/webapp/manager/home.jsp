@@ -4,25 +4,25 @@
 	<nav class="ym-vlist">
 		<ul>
 			<li class="ym-vtitle">
-				<a href="/manager/gxml-edit?path=tatame/home/destaques">Destaques</a>
+				<a href="/manager/gxml-edit?path=home/destaques">Destaques</a>
 			</li>				
 			<li class="ym-vtitle">
-				<a href="/manager/gxml-edit?path=tatame/home/destaques-com-fotos">Destaques com fotos</a>
+				<a href="/manager/gxml-edit?path=home/destaques-com-fotos">Destaques com fotos</a>
 			</li>
 			<li class="ym-vtitle">
-				<a href="/manager/gxml-edit?path=tatame/home/jiu-jitsu">Jiu Jitsu</a>
+				<a href="/manager/gxml-edit?path=home/jiu-jitsu">Jiu Jitsu</a>
 			</li>
 			<li class="ym-vtitle">
-				<a href="/manager/gxml-edit?path=tatame/home/recente">Recente</a>
+				<a href="/manager/gxml-edit?path=home/recente">Recente</a>
 			</li>				
 			<li class="ym-vtitle">
-				<a href="/manager/gxml-edit?path=tatame/home/revista">Revista</a>
+				<a href="/manager/gxml-edit?path=home/revista">Revista</a>
 			</li>				
 			<li class="ym-vtitle">
-				<a href="/manager/gxml-edit?path=tatame/home/video">Video</a>
+				<a href="/manager/gxml-edit?path=home/video">Video</a>
 			</li>
 			<li class="ym-vtitle">
-				<a href="/manager/gxml-edit?path=tatame/home/videos">Videos</a>
+				<a href="/manager/gxml-edit?path=home/videos">Videos</a>
 			</li>				
 		</ul>
 	</nav>

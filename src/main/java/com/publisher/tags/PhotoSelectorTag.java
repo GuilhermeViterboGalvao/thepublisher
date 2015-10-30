@@ -23,7 +23,6 @@ public class PhotoSelectorTag  extends HiddenTag {
 	private String minLength;
 	private String loadingImage;
 	private String evaluator;
-	private String photoType;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res){
 		return new PhotoSelector(stack, req, res);
@@ -42,7 +41,6 @@ public class PhotoSelectorTag  extends HiddenTag {
 		photoselector.setMinLength(minLength);
 		photoselector.setLoadingImage(loadingImage);
 		photoselector.setEvaluator(evaluator);
-		photoselector.setPhotoType(photoType);
 	}
 
 	public void setDisplay(String display) {
@@ -86,9 +84,5 @@ public class PhotoSelectorTag  extends HiddenTag {
 
 	public void setEvaluator(String evaluator) {
 		this.evaluator = evaluator;
-	}
-	
-	public void setPhotoType(String photoType) {
-		this.photoType = photoType;
 	}
 }

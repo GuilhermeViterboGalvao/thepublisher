@@ -98,7 +98,6 @@
 			
 				<div class="entrie-head">
 					<p:photoselector
-						photoType="isTatame"
 						id="photoId%{#st.count}"  
 						name="photoId"
 						delay="500" 
