@@ -70,6 +70,7 @@ importer.dbin.eachRow("select * from Account where email like '%tatame%'") { row
     println "Account old=${row.id} new=${accountId}"
     accountId++
 }
+System.gc()
 
 println "***************************************"
 println "*Importando SKIN do SYSTEM para TATAME*"
@@ -94,6 +95,7 @@ importer.dbin.eachRow("select * from Skin where customContentFolder like '%tatam
     println "Skin old=${row.id} new=${skinId}"    
     skinId++
 }
+System.gc()
 
 println "************************************************"
 println "*Importando PERMANENTLINK do SYSTEM para TATAME*"
@@ -118,6 +120,7 @@ importer.dbin.eachRow("select * from PermanentLink where url like '%tatame%'") {
     println "PermanentLink old=${row.id} new=${permanentLinkId}"
     permanentLinkId++
 }
+System.gc()
 
 println "***************************************"
 println "*Importando PAGE do SYSTEM para TATAME*"
@@ -142,6 +145,7 @@ importer.dbin.eachRow("select * from Page where name like '%tatame%'") { row ->
     println "Page old=${row.id} new=${pageId}"
     pageId++
 }
+System.gc()
 
 println "*******************************************"
 println "*Importando CATEGORY do SYSTEM para TATAME*"
@@ -168,6 +172,7 @@ importer.dbin.eachRow("select * from Category where name like '%tatame%'") { row
     println "Category old=${row.id} new=${categoryId}"
     categoryId++
 }
+System.gc()
 
 println "****************************************************"
 println "*Importando CATEGORY_CATEGORY do SYSTEM para TATAME*"
@@ -188,6 +193,7 @@ importer.dbin.eachRow("select * from Category where name like '%tatame%'") { row
         }
     }
 }
+System.gc()
 
 println "****************************************"
 println "*Importando PHOTO do SYSTEM para TATAME*"
@@ -258,6 +264,7 @@ importer.dbin.eachRow("select * from Photo where isTatame = ?", [ true ]) { row 
     println "Photo old=${row.id} new=${photoId}"
     photoId++ 
 }
+System.gc()
 
 println "******************************************"
 println "*Importando ARTICLE do SYSTEM para TATAME*"
@@ -315,6 +322,7 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
     println "Article old=${row.id} new=${articleId}"
     articleId++
 }
+System.gc()
 
 println "***********************************************"
 println "*Importando PHOTOGALLERY do SYSTEM para TATAME*"
@@ -341,6 +349,7 @@ importer.dbin.eachRow(select, oldCategoryIds) { row ->
         println "PhotoGallery old=${row.id} new=${newArticleIds[row.id]}"
     }
 }
+System.gc()
 
 println "******************************************************"
 println "*Importando PHOTOGALLERY_PHOTOS do SYSTEM para TATAME*"
@@ -367,6 +376,7 @@ importer.dbin.eachRow(select, oldPhotoGalleryIds) { row ->
     importer.dbout.executeInsert(sql, params)
     println "PhotoGallery_id old=${row.PhotoGallery_id} new=${newPhotoGalleryIds[row.PhotoGallery_id]}"
 }
+System.gc()
 
 println "*****************************************"
 println "*Atualizando parâmetros do PERMANENTLINK*"
@@ -390,6 +400,7 @@ importer.dbin.eachRow("select * from PermanentLink where url like '%tatame%'") {
         }
     }
 }
+System.gc()
 
 //TODO DefaultArticle
 //TODO Videos
