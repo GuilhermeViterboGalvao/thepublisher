@@ -150,7 +150,7 @@ public class ImageServlet extends HttpServlet {
 			if (customCutFile.exists()) {
 				log.debug("Using custom cut for " + fileName);
 				resizedFile = customCutFile;
-			} else {
+			} else if (size != null && !size.isEmpty() && width > 0 && height > 0) {
 				File originalFile = new File(imageFolder, (folderSize > 0 ? (id - id % folderSize) + File.separator : "") + id + ".jpg");
 				if (!originalFile.exists()) {
 					log.debug("Image does not exist (file not found) " + fileName);
@@ -191,6 +191,13 @@ public class ImageServlet extends HttpServlet {
 					if (log.isDebugEnabled()) log.debug("Using original size "+fileName);
 					resizedFile = originalFile;
 				}
+			} else {
+				File originalFile = new File(imageFolder, (folderSize > 0 ? (id - id % folderSize) + File.separator : "") + id + ".jpg");
+				if (!originalFile.exists()) {
+					log.debug("Image does not exist (file not found) " + fileName);
+					return null;
+				}
+				resizedFile = originalFile;
 			}
 		}		
 		return resizedFile;
