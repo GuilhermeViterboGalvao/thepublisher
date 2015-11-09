@@ -53,7 +53,7 @@ def newAccountIds = ImportAccount.importAccount(importer),
 	oldCategoryIds = ImportCategory.oldCategoryIds
 ImportCategoryCategory.importCategoryCategory(importer, newCategoryIds)
 def newPhotoIds = ImportPhoto.importPhoto(importer, newAccountIds, this.args[7]),
-	newArticleIds = ImportArticle.importArticle(importer, oldCategoryIds, newPhotoIds, newCategoryIds, newSkinIds, newAccountIds, newPermanentLinkIds)
+	newArticleIds = ImportArticle.importArticle(importer, oldCategoryIds, newPhotoIds, newCategoryIds, newSkinIds, newAccountIds, newPermanentLinkIds),
 	newPhotoGalleryIds = ImportPhotoGallery.importPhotoGallery(importer, oldCategoryIds, newArticleIds),
 	oldPhotoGalleryIds = ImportPhotoGallery.oldPhotoGalleryIds
 ImportPhotoGalleryPhotos.importPhotoGalleryPhotos(importer, oldPhotoGalleryIds, newPhotoGalleryIds, newPhotoIds)

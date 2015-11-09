@@ -3,7 +3,7 @@ class ImportPhotoGalleryPhotos {
 		println "******************************************************"
 		println "*Importando PHOTOGALLERY_PHOTOS do SYSTEM para TATAME*"
 		println "******************************************************"
-		select = "select * from PhotoGallery_photos where PhotoGallery_id in ("
+		def select = "select * from PhotoGallery_photos where PhotoGallery_id in ("
 		for (def i = 0; i < oldPhotoGalleryIds.size(); i++) {
 		    if (i == (oldPhotoGalleryIds.size() - 1)) {
 		        select += "?)"

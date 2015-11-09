@@ -5,7 +5,7 @@ class ImportPhotoGallery {
 		println "*Importando PHOTOGALLERY do SYSTEM para TATAME*"
 		println "***********************************************"
 		def newPhotoGalleryIds = [:]		
-		select = "select pg.* from PhotoGallery pg inner join Article a on pg.id = a.id where a.category_id in ("
+		def select = "select pg.* from PhotoGallery pg inner join Article a on pg.id = a.id where a.category_id in ("
 		for (def i = 0; i < oldCategoryIds.size(); i++) {
 		    if (i == (oldCategoryIds.size() - 1)) {
 		        select += "?)"
