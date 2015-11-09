@@ -56,6 +56,9 @@
 			<div class="clear"></div>
 			<jsp:include page="/skins/tatame/default/footer.jsp"/>
 		</div>
-		<s:include value="/skins/tatame/default/scripts.jsp"/>		
+		<s:include value="/skins/tatame/default/scripts.jsp"/>
+		<div id='tatame_1680x912_home' style='display: none;'> 
+			<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('tatame_1680x912_home');});</script> 
+		</div>		
 	</body>
 </html>
