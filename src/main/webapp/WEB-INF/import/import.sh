@@ -1,0 +1,1 @@
+groovy DataImport.groovy 10.235.134.82 system system system thepublisher thepublisher thepublisher /u/the-publisher-files/photos >> import.log 
