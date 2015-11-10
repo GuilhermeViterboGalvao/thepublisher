@@ -19,14 +19,14 @@ class Importer {
     
     Importer(params) {
         def source1 = new com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource()
-        source1.url = "jdbc:mysql://${params.server}:3307/${params.inputDB}?useUnicode=true"
+        source1.url = "jdbc:mysql://${params.server}:3306/${params.inputDB}?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10"
         source1.user = params.inputUser
         source1.password = params.inputPasswd
         source1.zeroDateTimeBehavior = "convertToNull"
         dbin = new Sql(source1)//SYSTEM
         
         def source2 = new com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource()
-        source2.url = "jdbc:mysql://${params.server}:3307/${params.outputDB}?useUnicode=true"
+        source2.url = "jdbc:mysql://${params.server}:3306/${params.outputDB}?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10"
         source2.user = params.outputUser
         source2.password = params.outputPasswd
         source2.zeroDateTimeBehavior = "convertToNull"

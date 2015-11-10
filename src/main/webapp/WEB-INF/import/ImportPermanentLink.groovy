@@ -18,6 +18,8 @@ class ImportPermanentLink {
 		        row.created,
 		        row.moved
 		    ]
+		    println sql
+		    println params
 		    importer.dbout.executeInsert(sql, params)
 		    newPermanentLinkIds.put(row.id, permanentLinkId)
 		    println "PermanentLink old=${row.id} new=${permanentLinkId}"
