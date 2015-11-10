@@ -34,7 +34,7 @@
 	<div class="widget-inner video-box clearfix recent">		
 		<p:tile xml="home/recente"/>
 	</div>
-	<s:if test="model != null model instanceof com.publisher.entity.Page">
+	<s:if test="model != null && model instanceof com.publisher.entity.Page">
 		<div class="widget-inner video-box clearfix read-more"></div>
 	</s:if>
 </div>
