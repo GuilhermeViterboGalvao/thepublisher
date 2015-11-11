@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fontello';
-  src: url('/skins/tatame/css/fontello/fontello.eot');
-  src: url('/skins/tatame/css/fontello/fontello-iefix.eot') format('embedded-opentype'),
-  	   url('/skins/tatame/css/fontello/fontello.woff') format('woff'),
-       url('/skins/tatame/css/fontello/fontello.ttf') format('truetype'),
-       url('/skins/tatame/css/fontello/fontello.svg') format('svg');
+  src: url('http://cdn-tatame.trrsf.com/skins/tatame/css/fontello/fontello.eot');
+  src: url('http://cdn-tatame.trrsf.com/skins/tatame/css/fontello/fontello-iefix.eot') format('embedded-opentype'),
+  	   url('http://cdn-tatame.trrsf.com/skins/tatame/css/fontello/fontello.woff') format('woff'),
+       url('http://cdn-tatame.trrsf.com/skins/tatame/css/fontello/fontello.ttf') format('truetype'),
+       url('http://cdn-tatame.trrsf.com/skins/tatame/css/fontello/fontello.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
