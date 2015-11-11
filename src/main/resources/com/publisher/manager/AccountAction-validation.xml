@@ -13,9 +13,4 @@
             <message>Você deve entrar um e-mail válido</message>
         </field-validator>
     </field>
-    <field name="timezone">
-        <field-validator type="requiredstring">
-            <message>Você deve definir um fuso horário</message>
-        </field-validator>
-    </field>
 </validators>
