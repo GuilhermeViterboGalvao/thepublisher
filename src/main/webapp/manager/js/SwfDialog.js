@@ -16,7 +16,7 @@
 			head.appendChild(script);			
 			var script = document.createElement("script");
 			script.type = "text/javascript";
-			script.src = "/manager/js/swfDialogHandlers.js";
+			script.src = "/manager/js/SwfDialogHandlers.js";
 			head.appendChild(script);
 		}
 

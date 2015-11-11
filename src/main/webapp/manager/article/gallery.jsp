@@ -189,7 +189,7 @@
 <script type="text/javascript" src="/frameworks/tinymce/plugins/photogallery/editor_plugin_src.js"></script>
 <script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js"></script>
 <script type="text/javascript" src="/manager/js/PhotoSelectorDialog.js"></script>
-<script type="text/javascript" src="/manager/js/SwfDialog.js"></script>
+<script type="text/javascript" src="/manager/js/SwfDialog.js?1"></script>
 <script type="text/javascript">
 	function checkPermanentLink() {
 		var value = $('#link').val();

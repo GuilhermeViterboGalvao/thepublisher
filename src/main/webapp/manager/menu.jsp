@@ -14,7 +14,7 @@
 	<h6 class="ym-vtitle">Fotos</h6>
 	<ul>
 		<li><a href="/manager/photo-edit">Nova foto</a></li>
-		<li><a href="/manager/photomulti-add">Enviar váris fotos</a></li>
+		<li><a href="/manager/photomulti-add">Enviar várias fotos</a></li>
 		<li><a href="/manager/photo-list">Listar</a></li>
 	</ul>
 	<h6 class="ym-vtitle">Categoria</h6>
