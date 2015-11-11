@@ -28,7 +28,7 @@ public class SearchAction extends ActionSupport implements ViewAction {
 	@Override
 	public String execute() throws Exception {
 		if (query != null && !query.isEmpty()) {
-			articles = articleService.search(query, currentPage, pageSize).getResult();
+			articles = articleService.search(query, currentPage, pageSize, true).getResult();
 		}
 		return SUCCESS;
 	}
