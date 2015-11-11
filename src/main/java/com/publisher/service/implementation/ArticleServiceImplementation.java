@@ -37,6 +37,13 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	public void persist(Article entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
+	        if (entity.getPermanentLink() != null) {
+	        	entityManager.flush();
+	        	entity.getPermanentLink().setParam(entity.getId());
+	        	entity.setCreated(new Date());
+	        	entityManager.merge(entity.getPermanentLink());
+	        	entityManager.flush();
+	        }	
 		}
 	}
 

@@ -29,6 +29,12 @@ public class CategoryServiceImplementation extends TransactionalService implemen
 	public void persist(Category entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
+	        if (entity.getPermanentLink() != null) {
+	        	entityManager.flush();
+	        	entity.getPermanentLink().setParam(entity.getId());
+	        	entityManager.merge(entity.getPermanentLink());
+	        	entityManager.flush();
+	        }		
 		}
 	}
 

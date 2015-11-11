@@ -30,6 +30,12 @@ public class PageServiceImplementation extends TransactionalService implements P
 	public void persist(Page entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
+	        if (entity.getPermanentLink() != null) {
+	        	entityManager.flush();
+	        	entity.getPermanentLink().setParam(entity.getId());
+	        	entityManager.merge(entity.getPermanentLink());
+	        	entityManager.flush();
+	        }			
 		}
 	}
 
