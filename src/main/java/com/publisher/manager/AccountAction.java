@@ -149,7 +149,7 @@ public class AccountAction extends AbstractAction<Account> {
 	
 	//POJO
 
-	private Long id;
+	private Long id = 0l;
 	
 	private String name;
 	
