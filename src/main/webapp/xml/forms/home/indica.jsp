@@ -153,7 +153,7 @@
 						<div class="close">
 							<img id="del<s:property value="#st.count"/>" src="/manager/img/close.gif" onclick="_del(this);"/>
 						</div>					
-						<p:articleselectordialog category="Tatame" cssClass="button" url="article_select" text="matérias" onArticleClick="function(article){
+						<p:articleselectordialog cssClass="button" url="article_select" text="matérias" onArticleClick="function(article){
 							$('#photoId%{#st.count}_ACS').attr('src', article.photoId > 0 ? '/img/' + article.photoId + '_150x150.jpg' : '/manager/img/photo_80x60.jpg');
 							$('#photoId%{#st.count}').val(article.photoId > 0 ? '/img/' + article.photoId + '_150x150.jpg' : '/manager/img/photo_80x60.jpg');
 							$('#link%{#st.count}').val(article.url);

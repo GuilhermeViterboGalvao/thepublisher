@@ -13,9 +13,6 @@
 				<a class="ym-button" href="/manager/gxml-edit?path=home/jiu-jitsu">Jiu Jitsu</a>
 			</div>
 			<div class="ym-gbox">
-				<a class="ym-button" href="/manager/gxml-edit?path=home/jiu-jitsu">Jiu Jitsu</a>
-			</div>
-			<div class="ym-gbox">
 				<a class="ym-button" href="/manager/gxml-edit?path=home/recente">Recente</a>
 			</div>
 			<div class="ym-gbox">

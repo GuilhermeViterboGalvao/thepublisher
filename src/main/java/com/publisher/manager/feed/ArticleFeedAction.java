@@ -39,7 +39,7 @@ public class ArticleFeedAction extends ActionSupport implements AccountAware {
     			category = categories.get(0);
     		}
     	}
-        if (query.length() > 0) {
+        if (query != null && !query.isEmpty()) {
             ResultList<Article> list = category != null ? articleService.search(query, currentPage, pageSize, null, null, category.getTags()) : articleService.search(query, currentPage, pageSize);
             pages = (int) Math.floor(1f * list.getResultSize() / pageSize) + 1;
             collecion = list.getResult();
