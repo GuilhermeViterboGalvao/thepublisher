@@ -45,7 +45,7 @@ public class ArticleFeedAction extends ActionSupport implements AccountAware {
             collecion = list.getResult();
         } else {
         	pages = (int) Math.floor(1f * (category != null ? articleService.count(category) : articleService.count())  / pageSize) + 1;
-        	collecion = category != null ? articleService.get(category, currentPage, pageSize, null, null, null) : articleService.list(pageSize, currentPage);
+        	collecion = category != null ? articleService.get(category, currentPage, pageSize, null, null, null) : articleService.list(currentPage, pageSize);
         }
         articles = new ArrayList<ArticleElement>(collecion.size());
         for (Article article : collecion) {
