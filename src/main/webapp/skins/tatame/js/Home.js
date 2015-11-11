@@ -71,7 +71,7 @@ $(function() {
 								$("<a>").css({
 									"width"      : "52px",
 									"height"     : "50px",
-									"background" : "url('/img/" + article.photoId + "_52x50.jpg') no-repeat scroll",
+									"background" : "url('http://cdn-tatame.trrsf.com/img/" + article.photoId + "_52x50.jpg') no-repeat scroll",
 									"display"    : "inline-block"
 								}).attr("href", article.link)
 							)

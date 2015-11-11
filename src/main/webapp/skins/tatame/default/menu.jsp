@@ -37,7 +37,7 @@
 	<div class="logo header-logo" style="">
 	   	<h1 title="TATAME">
 	       	<a href="http://www.tatame.com.br/" title="TATAME" rel="home">
-	       		<img src='/skins/tatame/img/tatame.png' alt='TATAME' border='0' />                
+	       		<img src='http://cdn-tatame.trrsf.com/skins/tatame/img/tatame.png' alt='TATAME' border='0' />                
 	       	</a>
 	   	</h1>
 	</div>

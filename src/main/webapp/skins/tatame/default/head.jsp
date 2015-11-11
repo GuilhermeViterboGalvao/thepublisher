@@ -14,15 +14,15 @@
 	<jsp:include page="/skins/tatame/default/meta-tags.jsp"/>
 </s:else>
 <s:if test="photo != null">
-	<meta content="/img/${photo.id}_210x140.jpg" name="og:image" title="${photo.description}"/>	
+	<meta content="http://cdn-tatame.trrsf.com/img/${photo.id}_210x140.jpg" name="og:image" title="${photo.description}"/>	
 	<meta property="og:description" content="<s:property value='note'/>"/>
 	<meta property="og:title" content="<s:property value='title'/>" />
-	<meta property="og:image" content="/img/<s:property value='photo.id'/>_670x418.jpg"/>
+	<meta property="og:image" content="http://cdn-tatame.trrsf.com/img/<s:property value='photo.id'/>_670x418.jpg"/>
 	<meta property="og:url" content="http://www.tatame.com.br/<s:property value='permanentLink.uri'/>"/>		
-	<link href="/img/${photo.id}_210x140.jpg" rel="image_src" title="${photo.description}"/>
+	<link href="http://cdn-tatame.trrsf.com/img/${photo.id}_210x140.jpg" rel="image_src" title="${photo.description}"/>
 </s:if>
-<link rel="shortcut icon" href="/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>
-<link rel="apple-touch-icon-precomposed" href="/skins/tatame/img/favicon_57x57-ok.png"/>
+<link rel="shortcut icon" href="http://cdn-tatame.trrsf.com/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>
+<link rel="apple-touch-icon-precomposed" href="http://cdn-tatame.trrsf.com/skins/tatame/img/favicon_57x57-ok.png"/>
 <link rel='stylesheet' id='responsive-lightbox-nivo-front-css'  href='/skins/tatame/css/nivo-lightbox.css' type='text/css' media='all'/>
 <link rel='stylesheet' id='responsive-lightbox-nivo-front-template-css'  href='/skins/tatame/css/responsive-lightbox-default.css' type='text/css' media='all'/>
 <link rel='stylesheet' id='fancybox-css'  href='/skins/tatame/css/jquery-fancybox.css' type='text/css' media='all'/>

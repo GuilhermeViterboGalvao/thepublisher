@@ -4257,7 +4257,7 @@ html.ie.ie8 .comments-container .comment-box .avatar img {
 }
 
 .home-scroll .post-caption .post-title {
-	background-image: url(/skins/tatame/img/bg-indica-title.jpg) ;
+	background-image: url(http://cdn-tatame.trrsf.com/skins/tatame/img/bg-indica-title.jpg) ;
 	display: inline-block;
 	padding: 11px 10px 9px;
 	margin: 0;
@@ -4281,7 +4281,7 @@ html.ie.ie8 .comments-container .comment-box .avatar img {
 }
 
 .home-scroll .post-caption .post-price {
-	background-image: url(/skins/tatame/img/bg-indica-price.jpg) ;
+	background-image: url(http://cdn-tatame.trrsf.com/skins/tatame/img/bg-indica-price.jpg) ;
 	display: inline-block;
 	padding: 10px 10px 9px;
 	margin: 0;

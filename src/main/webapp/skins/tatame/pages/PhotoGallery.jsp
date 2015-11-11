@@ -46,7 +46,7 @@
     		<s:if test="photos != null && photos.size() > 0">
 			    <div class="bigphotoholder">
 			        <div class="holder">
-			        	<img class="bigphoto" src="/img/<s:property value="photos[0].photo.id"/>_<s:property value="getSize(photos[0].photo,620,420)"/>.jpg" alt="<s:property value="photos[0].description"/>"/>
+			        	<img class="bigphoto" src="http://cdn-tatame.trrsf.com/img/<s:property value="photos[0].photo.id"/>_<s:property value="getSize(photos[0].photo,620,420)"/>.jpg" alt="<s:property value="photos[0].description"/>"/>
 			        </div>
 			        <div class="bigphotonote">
 			        	<s:property value="photos[0].description"/>
@@ -55,18 +55,18 @@
 			    <div class="bigphotoholder-thumbs">		    	
 			        <div class="left">		        
 			        	<a href="javascript:void(0);">
-			        		<img src="/skins/tatame/img/arrow-left-gray.png" alt="esquerda"/>
+			        		<img src="http://cdn-tatame.trrsf.com/skins/tatame/img/arrow-left-gray.png" alt="esquerda"/>
 			        	</a>
 			        </div>
 			        <div class="right">
 			        	<a href="javascript:void(0);">
-			        		<img src="/skins/tatame/img/arrow-right-gray.png" alt="direita"/>
+			        		<img src="http://cdn-tatame.trrsf.com/skins/tatame/img/arrow-right-gray.png" alt="direita"/>
 			        	</a>
 			        </div>
 			        <div class="photoholder">
 			            <s:iterator value="photos" status="st">
 			                <a class="<s:if test="#st.count>6">hide</s:if><s:else>show</s:else>" id="<s:property value="photo.id"/>_<s:property value="getSize(photo,620,420)"/>" href="javascript:void(0);">
-			                	<img src="/img/<s:property value="photo.id"/>_91x68.jpg" alt="<s:property value="description"/>"/>
+			                	<img src="http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>_91x68.jpg" alt="<s:property value="description"/>"/>
 			                </a>
 			            </s:iterator>
 			        </div>
@@ -122,7 +122,7 @@
 							<div class="related-item">
 								<div class="post-image">
 									<a href="/${permanentLink.uri}" title="${title}">
-										<img class="lazy" data-original="/img/${photo.id}.jpg" width="270" height="180" alt="${title}"/>
+										<img class="lazy" data-original="http://cdn-tatame.trrsf.com/img/${photo.id}.jpg" width="270" height="180" alt="${title}"/>
 									</a>
 								</div>
 								<h4>

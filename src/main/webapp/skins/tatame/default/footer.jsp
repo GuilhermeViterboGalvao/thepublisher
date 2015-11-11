@@ -20,7 +20,7 @@
 				</div>
 				<div class="widget-inner video-box clearfix">
 					<div class="textwidget">
-						<img width="194" height="59" data-original="/skins/tatame/img/tatame_white.png" class="lazy" src="/skins/tatame/img/tatame_white.png" style="display: inline;">
+						<img width="194" height="59" data-original="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png" class="lazy" src="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png" style="display: inline;">
 					</div>
 				</div>
 			</div>
