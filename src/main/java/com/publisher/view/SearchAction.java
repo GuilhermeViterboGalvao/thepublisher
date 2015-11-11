@@ -51,7 +51,7 @@ public class SearchAction extends ActionSupport implements ViewAction {
 		this.currentPage = currentPage;
 	}
 	
-	private int pageSize = 16;
+	private int pageSize = 6;
 	
 	public void setPageSize(int pageSize) {
 		if (pageSize <= 31) {

@@ -73,7 +73,7 @@ public class CategoryAction extends ActionSupport implements ModelDriven<Categor
         return currentPage;
     }
     
-    private int pageSize = 31;
+    private int pageSize = 6;
     
     public void setPageSize(int pageSize) {
     	if (pageSize <= 31) {
