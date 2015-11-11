@@ -27,12 +27,12 @@
 <link rel='stylesheet' id='responsive-lightbox-nivo-front-template-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/responsive-lightbox-default.css' type='text/css' media='all'/>
 <link rel='stylesheet' id='fancybox-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/jquery-fancybox.css' type='text/css' media='all'/>
 <link rel='stylesheet' id='fancybox-thumbs-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/jquery-fancybox-thumbs.css' type='text/css' media='all' />
-<link rel='stylesheet' id='manshet-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/manshet-min-cdn.css' type='text/css' media='all' />
+<link rel='stylesheet' id='manshet-css'  href='/skins/tatame/css/manshet-min-cdn.css' type='text/css' media='all' />
 <link rel='stylesheet' id='responsive-css' href='http://cdn-tatame.trrsf.com/skins/tatame/css/manshet-responsive-min.css' type='text/css' media='all' />
 <link rel='stylesheet' id='OpenSans-css' href='http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%2C600%27+rel%3D%27stylesheet%27+type%3D%27text%2Fcss&#038;ver=3.8.1' type='text/css' media='all' />
 <link rel='stylesheet' id='Oswald-css' href='http://fonts.googleapis.com/css?family=Oswald%3A400%2C700&#038;ver=3.8.1#038&#039;rel=&#039;stylesheet&#039;type=&#039;text/css' type='text/css' media='all' />
 <link rel='stylesheet' id='promoslider_main-css' href='http://cdn-tatame.trrsf.com/skins/tatame/css/slide.css' type='text/css' media='all' />
-<link rel='stylesheet' id='fontello-css' href='http://cdn-tatame.trrsf.com/skins/tatame/css/fontello.css' type='text/css' media='all' />
+<link rel='stylesheet' id='fontello-css' href='/skins/tatame/css/fontello.css' type='text/css' media='all' />
 <link rel='stylesheet' id='main-css' href='http://cdn-tatame.trrsf.com/skins/tatame/css/main.css' type='text/css' media='all' />
 <style type="text/css"> 
 	.wp-polls 
