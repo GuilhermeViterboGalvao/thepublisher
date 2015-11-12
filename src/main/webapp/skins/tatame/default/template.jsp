@@ -57,7 +57,7 @@
 			<jsp:include page="/skins/tatame/default/footer.jsp"/>
 		</div>
 		<s:include value="/skins/tatame/default/scripts.jsp"/>
-		<s:if test="model != null && model instanceof com.publisher.entity.Page && mode.id = 1">
+		<s:if test="model != null && model instanceof com.publisher.entity.Page && mode.id == 1">
 			<div id='tatame_1680x912_home' style='display: none;'> 
 				<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('tatame_1680x912_home');});</script> 
 			</div>

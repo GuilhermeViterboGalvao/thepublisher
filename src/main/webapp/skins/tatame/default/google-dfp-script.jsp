@@ -21,7 +21,7 @@
 		googletag.defineSlot('/13554095/Tatame_300x250_Ros', [300, 250], 'tatame_300x250_ros').addService(googletag.pubads());
         googletag.defineSlot('/13554095/Tatame_300x600_Ros', [300, 600], 'tatame_300x600_ros').addService(googletag.pubads());
         googletag.defineSlot('/13554095/Tatame_1680x912_Ros', [300, 600], 'tatame_1680x912_ros').addService(googletag.pubads());        
-		<s:if test="model != null && model instanceof com.publisher.entity.Page && model.id = 1">
+		<s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 		googletag.defineSlot('/13554095/Tatame_620x90_Premium_Ros', [620, 90], 'tatame_620x90_premium_ros').addService(googletag.pubads());
 		googletag.defineSlot('/13554095/Tatame_300x100_Especial1_Home', [300, 100], 'tatame_300x100_especial1_home').addService(googletag.pubads());
 		googletag.defineSlot('/13554095/Tatame_300x100_Especial2_Home', [300, 100], 'tatame_300x100_especial2_home').addService(googletag.pubads());
