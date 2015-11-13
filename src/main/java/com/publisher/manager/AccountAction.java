@@ -36,9 +36,9 @@ public class AccountAction extends AbstractAction<Account> {
 	protected Account updateObject(Account entity) {
 		if (entity != null) {
 			setHash(entity);
+			entity.setName(name);
 			entity.setEmail(email);
 			if(isAdmin()){
-				entity.setName(name);
 				entity.setActive(active);		
 				entity.setSecurityHole(securityHole);
 			}
