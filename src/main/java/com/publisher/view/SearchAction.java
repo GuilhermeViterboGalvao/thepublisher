@@ -51,12 +51,20 @@ public class SearchAction extends ActionSupport implements ViewAction {
 		this.currentPage = currentPage;
 	}
 	
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	
 	private int pageSize = 6;
 	
 	public void setPageSize(int pageSize) {
 		if (pageSize <= 31) {
 			this.pageSize = pageSize;	
 		}
+	}
+	
+	public int getPageSize() {
+		return pageSize;
 	}
 	
 	private Collection<Article> articles;

@@ -5,9 +5,11 @@
 		<li class="active">
 			<strong>Usuários</strong>
 		</li>
-		<li>
-			<a href="account-edit">Adicionar</a>
-		</li>				
+		<s:if test="isAdmin()">
+			<li>
+				<a href="account-edit">Adicionar</a>
+			</li>
+		</s:if>
 	</ul>
 	<form class="ym-searchform">
 		<input class="ym-searchfield" type="search" name="search" value="<s:property value="search"/>" placeholder="Procurar..." /> 
