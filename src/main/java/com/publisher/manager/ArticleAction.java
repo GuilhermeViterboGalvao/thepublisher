@@ -159,13 +159,11 @@ public class ArticleAction extends AbstractAction<Article> implements ServletReq
 				oldPermanentLink = article.getPermanentLink();
 			}
 		}
-		if (article.getCreatedBy() == null) {
-			Account account = createdById > 0 ? accountService.get(createdById) : null;
-			if (account != null) {
-				article.setCreatedBy(account);	
-			} else {
-				article.setCreatedBy(getAccount());	
-			}			
+		Account account = createdById > 0 ? accountService.get(createdById) : null;
+		if (account != null) {
+			article.setCreatedBy(account);	
+		} else {
+			article.setCreatedBy(getAccount());	
 		}
 		if (article.getCreated() == null) {
 			article.setCreated(new Date());
