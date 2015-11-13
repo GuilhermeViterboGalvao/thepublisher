@@ -269,7 +269,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 				&& order != null && !order.equals("")) {
 			sql.append("	a." + orderBy + " " + order);	
 		} else {
-			sql.append("	a.id desc");	
+			sql.append("	a.publishedAt desc");	
 		}
 		Query query = entityManager.createQuery(sql.toString());
 		if (published != null) {
