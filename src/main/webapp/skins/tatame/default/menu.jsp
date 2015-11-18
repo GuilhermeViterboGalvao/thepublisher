@@ -24,12 +24,14 @@
 </div>
 <div class="container">
 	<div class="header-adv">
-		<div id='tatame_728x90_ros' style='width:728px; height:90px; float:left;'> 
+		<div id='tatame_728x90_ros' style='width:728px; height:90px; margin: 0 auto;'> 
 			<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('tatame_728x90_ros');});</script> 
 		</div>
+		<%--
 		<div id='tatame_215x90_home' style='float: right; height:90px; width:215px;'>
 			<script type='text/javascript'>googletag.cmd.push(function() { googletag.display('tatame_215x90_home'); });</script>
-		</div>
+		</div> 
+		--%>
 	</div>
 </div>
 <div class="clear"></div>
