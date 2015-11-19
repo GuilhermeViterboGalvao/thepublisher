@@ -58,7 +58,33 @@
 			.header .menu .search form input { float: left; border: none; padding: 0 0 0 4%; margin: 0; width: 96%; height: 100%; font-size: 20px; color: #fff; background-color: #2b2b2b; font-family: Metrophobic, sans-serif; background-image: url("/skins/tatame/img/search.png"); background-repeat: no-repeat; background-position: 95% 50%; background-size: 15px 15px; }
 			
 			.content { float: left; width: 100%; }
+			.page { height: auto; width: 80%; max-width: 1024px; margin: 15px 10%; float: left; }
 			
+			.box-shadow { box-shadow: 3px 3px 3px #777; }
+			
+			.margin-right-5 { margin-right: 5px; }
+			.margin-left-5 { margin-left: 5px; }
+			.margin-top-5 { margin-top: 5px; }
+			.margin-bottom-5 { margin-bottom: 5px; }
+			.margin-bottom-15 { margin-bottom: 15px; }
+			
+			.highlights { float: left; height: 595px; width: 100%; max-width: 710px; overflow: hidden; }
+			.highlights .highlight { float: left; height: 100%; width: 100%; }
+			.highlights .highlight .card-50 { float: left; width: 50%; height: 100%; max-height: 595px; max-width: 350px; position: relative; }
+			.highlights .highlight .card-50 > img { float: left; width: 100%; height: auto; }
+			.highlights .highlight .card-50 .transparence { width: 100%; background-color: #000; opacity: 0.5; height: 8.41em; position: absolute; left: 0; top: 77.4%; }
+			.highlights .highlight .card-50 .header { float: left; position: absolute; left: 5%; top: 78%; font-size: 2em; color: #fff; width: 55%; height: auto; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.highlights .highlight .card-50 .title { float: left; position: absolute; left: 5%; top: 90%; font-size: 1.2em; color: #fff; height: auto; width: 75%; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			
+			.highlights .highlight .card-50 .card-50 { height: 50%; width: 100%; }
+			.highlights .highlight .card-50 .card-50 .transparence { top: 67.1%; height: 5.63em; }
+			.highlights .highlight .card-50 .card-50 .header { top: 68%; font-size: 1.5em; }
+			.highlights .highlight .card-50 .card-50 .title { top: 85%; font-size: 1em; }
+			
+			.ads-highlights { float: left; margin-left: 10px; height: 540px; width: 300px; }
+			.ads-300-100 { float: left; margin-bottom: 15px; height: 100px; width: 300px; }
+			.ads-300-250 { float: left; height: 250px; width: 300px; }
+						
 			.footer { float: left; width: 100%; }
 		</style>
 	</head>
@@ -99,47 +125,35 @@
 		</div>
 		<div class="content">
 			<div class="page">
-				<div class="highlights">
+				<div class="highlights box-shadow">
 					<div class="highlight">
-						<div class="card-100">
-							<img alt="" src=""/>
-							<div class="header"></div>
-							<div class="title"></div>
+						<div class="card-50 margin-right-5">
+							<img alt="76774.jpg" src="http://cdn-tatame.trrsf.com/img/76774_350x595.jpg"/>
+							<div class="transparence"></div>
+							<div class="header">Chapéu da matéria</div>
+							<div class="title">Título da matéria muito longo aqui!</div>
 						</div>
-					</div>
-					<div class="highlight">
-						<div class="card-50">
-							<img alt="" src=""/>
-							<div class="header"></div>
-							<div class="title"></div>
-						</div>
-						<div class="card-50">
-							<img alt="" src=""/>
-							<div class="header"></div>
-							<div class="title"></div>
-						</div>						
-					</div>
-					<div class="highlight">
-						<div class="card-50">
-							<img alt="" src=""/>
-							<div class="header"></div>
-							<div class="title"></div>
-						</div>
-						<div class="card-50">
-							<div class="card-50">
-								<img alt="" src=""/>
-								<div class="header"></div>
-								<div class="title"></div>
+						<div class="card-50 margin-left-5">
+							<div class="card-50 margin-bottom-15">
+								<img alt="76775.jpg" src="http://cdn-tatame.trrsf.com/img/76775_350x290.jpg"/>
+								<div class="transparence"></div>
+								<div class="header">Chapéu da matéria</div>
+								<div class="title">Título da matéria muito longo aqui!</div>
 							</div>
 							<div class="card-50">
-								<img alt="" src=""/>
-								<div class="header"></div>
-								<div class="title"></div>
+								<img alt="76777.jpg" src="http://cdn-tatame.trrsf.com/img/76777_350x290.jpg"/>
+								<div class="transparence"></div>
+								<div class="header">Chapéu da matéria</div>
+								<div class="title">Título da matéria muito longo aqui!</div>
 							</div>							
 						</div>						
-					</div>											
+					</div>								
 				</div>
 				<div class="ads-highlights">
+					<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
+					<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow"></div>
+					<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow"></div>
+					<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
 				</div>
 			</div>			
 		</div>
@@ -162,10 +176,20 @@
 		<script type="text/javascript">
 			googletag.cmd.push(function() {
 				googletag.defineSlot("/13554095/Tatame_728x90_Ros", [728, 90], "tatame_728x90_ros").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x100_ros", [300, 100], "tatame_300x100_ros").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x100_especial1_home", [300, 100], "tatame_300x100_especial1_home").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x100_especial2_home", [300, 100], "tatame_300x100_especial2_home").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x250_ros", [300, 250], "tatame_300x250_ros").addService(googletag.pubads());
 				googletag.pubads().enableSingleRequest();
 				googletag.enableServices();
 			});
 		</script>
-		<script type="text/javascript">googletag.cmd.push(function(){googletag.display("tatame_728x90_ros");});</script>		
+		<script type="text/javascript">
+			googletag.cmd.push(function(){googletag.display("tatame_728x90_ros");});
+			googletag.cmd.push(function(){googletag.display("tatame_300x100_ros");});
+			googletag.cmd.push(function(){googletag.display("tatame_300x100_especial1_home");});
+			googletag.cmd.push(function(){googletag.display("tatame_300x100_especial2_home");});
+			googletag.cmd.push(function(){googletag.display("tatame_300x250_ros");});
+		</script>				
 	</body>
 </html>
