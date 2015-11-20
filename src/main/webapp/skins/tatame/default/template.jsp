@@ -40,8 +40,10 @@
 			.header { float: left; width: 100%; }
 			.header .terra-bar { float: left; width: 100%; }
 			.header .terra-bar iframe { float: left; height: 25px; width: 100%; }
+			.header #TerraAdvertising { float: left; margin: 0 auto; }
 			.header .ads { float: left; width: 100%; }
-			.header .ads #tatame_728x90_ros { width: 728px; height: 90px; margin: 15px auto; }
+			.header .ads > div { max-width: 970px; margin: 10px auto; }
+			/* .header .ads #tatame_728x90_ros { width: 728px; height: 90px; margin: 15px auto; } */
 			.header .menu { float: left; width: 98%; background-color: #2b2b2b; padding: 10px 1%; }
 			.header .menu .logo { float: left; max-height: 58px; height: auto; max-width: 194px; width: 15%; }
 			.header .menu .logo img { float: left; width: 100%; height: auto; }
@@ -61,30 +63,72 @@
 			.page { height: auto; width: 80%; max-width: 1024px; margin: 15px 10%; float: left; }
 			
 			.box-shadow { box-shadow: 3px 3px 3px #777; }
+						
+			.box-1024 { float: left; width: 1024px; }			
+			.box-714 { float: left; width: 714px; }
+			.box-507 { float: left; width: 507px; }
+			.box-300 { float: left; width: 300px; }
 			
 			.margin-right-5 { margin-right: 5px; }
+			.margin-right-10 { margin-right: 10px; }
+			.margin-right-15 { margin-right: 15px; }
 			.margin-left-5 { margin-left: 5px; }
+			.margin-left-10 { margin-left: 10px; }
+			.margin-left-15 { margin-left: 15px; }
 			.margin-top-5 { margin-top: 5px; }
+			.margin-top-10 { margin-top: 10px; }
+			.margin-top-15 { margin-top: 15px; }
 			.margin-bottom-5 { margin-bottom: 5px; }
+			.margin-bottom-10 { margin-bottom: 10px; }
 			.margin-bottom-15 { margin-bottom: 15px; }
 			
-			.highlights { float: left; height: 595px; width: 100%; max-width: 710px; overflow: hidden; }
-			.highlights .highlight { float: left; height: 100%; width: 100%; }
-			.highlights .highlight .card-50 { float: left; width: 50%; height: 100%; max-height: 595px; max-width: 350px; position: relative; }
-			.highlights .highlight .card-50 > img { float: left; width: 100%; height: auto; }
-			.highlights .highlight .card-50 .transparence { width: 100%; background-color: #000; opacity: 0.5; height: 8.41em; position: absolute; left: 0; top: 77.4%; }
-			.highlights .highlight .card-50 .header { float: left; position: absolute; left: 5%; top: 78%; font-size: 2em; color: #fff; width: 55%; height: auto; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
-			.highlights .highlight .card-50 .title { float: left; position: absolute; left: 5%; top: 90%; font-size: 1.2em; color: #fff; height: auto; width: 75%; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.highlights { float: left; height: 595px; width: 714px; overflow: hidden; }
+			.highlights .highlight { float: left; height: 595px; width: 714px; }
+			.highlights .highlight .card-50 { float: left; width: 352px; height: 595px; position: relative; }
+			.highlights .highlight .card-50 > img { float: left; width: 353px; height: auto; }
+			.highlights .highlight .card-50 .transparence { width: 352px; background-color: #000; opacity: 0.5; height: 134px; position: absolute; left: 0; top: 461px; }
+			.highlights .highlight .card-50 .header { position: absolute; left: 20px; top: 465px; font-size: 33px; color: #fff; width: 200px; height: auto; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; line-height: 38px; max-height: 76px; }
+			.highlights .highlight .card-50 .title { position: absolute; left: 20px; top: 540px; font-size: 20px; color: #fff; height: auto; width: 285px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; line-height: 27px; max-height: 54px; }			
+			.highlights .highlight .card-50 .card-50 { height: 290px; width: 352px; }
+			.highlights .highlight .card-50 .card-50 .transparence { top: 201px; height: 90px; }
+			.highlights .highlight .card-50 .card-50 .header { top: 201px; font-size: 24px; line-height: 28px; }
+			.highlights .highlight .card-50 .card-50 .title { top: 260px; font-size: 16px; line-height: 20px; }
 			
-			.highlights .highlight .card-50 .card-50 { height: 50%; width: 100%; }
-			.highlights .highlight .card-50 .card-50 .transparence { top: 67.1%; height: 5.63em; }
-			.highlights .highlight .card-50 .card-50 .header { top: 68%; font-size: 1.5em; }
-			.highlights .highlight .card-50 .card-50 .title { top: 85%; font-size: 1em; }
-			
-			.ads-highlights { float: left; margin-left: 10px; height: 540px; width: 300px; }
+			.ads-highlights { float: left; height: 595px; width: 300px; }
 			.ads-300-100 { float: left; margin-bottom: 15px; height: 100px; width: 300px; }
 			.ads-300-250 { float: left; height: 250px; width: 300px; }
-						
+			
+			.ads-1024 { float: left; width: 1024px; }
+			.ads-1024 #tatame_728x90_ros { width: 728px; height: 90px; margin: 15px auto; }
+			
+			.black-belt-highlights { float: left; background-color: #2b2b2b; height: 25px; width: 1024px; margin: 15px 0; }
+			.black-belt-highlights .dan { float: left; background-color: #a2393c; height: 25px; width: 96px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			
+			.other-highlights { float: left; width: 1024px; }
+			.other-highlights .highlight { float: left; height: 200px; width: 507px; }
+			.other-highlights .highlight img { float: left; width: 250px; border-right: 1px solid #a2393c; }
+			.other-highlights .highlight .info { float: left; width: 256px; height: 200px; background-color: #2b2b2b; }
+			.other-highlights .highlight .info .header { float: left; width: 246px; height: 90px; font-size: 34px; line-height: 45px; padding: 10px 0 0 10px; font-weight: bold; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; }
+			.other-highlights .highlight .info .title { float: left; width: 246px; height: 90px; padding: 10px 0 0 10px; font-size: 20px; line-height: 28px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; }
+				
+			.black-belt-vidoes { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
+			.black-belt-vidoes .dan { float: left; background-color: #a2393c; height: 25px; width: 60px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; } 
+				
+			.videos { float: left; height: 810px; width: 714px; }
+			.videos .video { float: left; height: 400px; width: 352px; overflow: hidden; }
+			.videos .video iframe { float: left; height: 335px; width: 352px; }
+			.videos .video .note { float: left; height: 54px; width: 342px; background-color: #2b2b2b; color: #fff; font-size: 20px; padding: 10px 0 0 10px; line-height: 24px; box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; border-top: 1px solid #a2393c; }
+			
+			.black-belt-articles { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
+			.black-belt-articles .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 75px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.articles { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
+			.articles .article { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
+			.articles .article img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
+			.articles .article .info { float: left; width: 300px; height: 70px; }
+			.articles .article .info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.articles .article .info .header { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.articles .article .info .title { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			
 			.footer { float: left; width: 100%; }
 		</style>
 	</head>
@@ -94,8 +138,9 @@
 				<iframe scrolling="no" src="http://s1.trrsf.com/navbar/superslim/index.html?id=1&amp;format=superslim&amp;itemMenu=esp"></iframe>
 			</div>
 			<div class="ads">
-				<div id="tatame_728x90_ros"></div>
-			</div>
+				<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
+				<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master1&direct=1"></script>
+			</div>			
 			<div class="menu">
 				<a href="/" class="logo">
 					<img alt="Tatame" src="/skins/tatame/img/tatame_white.png">
@@ -125,36 +170,151 @@
 		</div>
 		<div class="content">
 			<div class="page">
-				<div class="highlights box-shadow">
-					<div class="highlight">
-						<div class="card-50 margin-right-5">
-							<img alt="76774.jpg" src="http://cdn-tatame.trrsf.com/img/76774_350x595.jpg"/>
-							<div class="transparence"></div>
-							<div class="header">Chapéu da matéria</div>
-							<div class="title">Título da matéria muito longo aqui!</div>
-						</div>
-						<div class="card-50 margin-left-5">
-							<div class="card-50 margin-bottom-15">
-								<img alt="76775.jpg" src="http://cdn-tatame.trrsf.com/img/76775_350x290.jpg"/>
+				<div class="box-714 box-shadow">
+					<div class="highlights box-shadow">
+						<div class="highlight">
+							<div class="card-50 margin-right-5">
+								<img alt="76774.jpg" src="http://cdn-tatame.trrsf.com/img/76774_352x595.jpg"/>
 								<div class="transparence"></div>
 								<div class="header">Chapéu da matéria</div>
 								<div class="title">Título da matéria muito longo aqui!</div>
 							</div>
-							<div class="card-50">
-								<img alt="76777.jpg" src="http://cdn-tatame.trrsf.com/img/76777_350x290.jpg"/>
-								<div class="transparence"></div>
+							<div class="card-50 margin-left-5">
+								<div class="card-50 margin-bottom-15">
+									<img alt="76775.jpg" src="http://cdn-tatame.trrsf.com/img/76775_352x290.jpg"/>
+									<div class="transparence"></div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria muito longo aqui!</div>
+								</div>
+								<div class="card-50">
+									<img alt="76777.jpg" src="http://cdn-tatame.trrsf.com/img/76777_352x290.jpg"/>
+									<div class="transparence"></div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria muito longo aqui!</div>
+								</div>							
+							</div>						
+						</div>								
+					</div>				
+				</div>
+				<div class="box-300 margin-left-10">
+					<div class="ads-highlights">
+						<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
+						<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow"></div>
+						<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow"></div>
+						<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
+					</div>				
+				</div>				
+				<div class="black-belt-highlights box-shadow">
+					<div class="dan">Destaques</div>
+				</div>
+				<div class="box-1024">
+					<div class="other-highlights">
+						<div class="highlight box-shadow">
+							<img alt="75987_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/75987_250x200.jpg"/>
+							<div class="info">
 								<div class="header">Chapéu da matéria</div>
 								<div class="title">Título da matéria muito longo aqui!</div>
-							</div>							
-						</div>						
-					</div>								
+							</div>
+						</div>
+						<div class="highlight margin-left-10 box-shadow">
+							<img alt="73354_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/73354_250x200.jpg"/>
+							<div class="info">
+								<div class="header">Chapéu da matéria</div>
+								<div class="title">Título da matéria muito longo aqui!</div>
+							</div>
+						</div>
+						<div class="highlight margin-top-10 box-shadow">
+							<img alt="73356_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/73356_250x200.jpg"/>
+							<div class="info">
+								<div class="header">Chapéu da matéria</div>
+								<div class="title">Título da matéria muito longo aqui!</div>
+							</div>
+						</div>
+						<div class="highlight margin-top-10 margin-left-10 box-shadow">
+							<img alt="73357_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/73357_250x200.jpg"/>
+							<div class="info">
+								<div class="header">Chapéu da matéria</div>
+								<div class="title">Título da matéria muito longo aqui!</div>
+							</div>
+						</div>					
+					</div>					
 				</div>
-				<div class="ads-highlights">
-					<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
-					<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow"></div>
-					<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow"></div>
-					<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
+				<div class="ads-1024">
+					<div id="tatame_728x90_ros"></div>
 				</div>
+				<div class="box-1024">
+					<div class="box-714">
+						<div class="black-belt-vidoes box-shadow">
+							<div class="dan">Vídeos</div>
+						</div>
+						<div class="videos">
+							<div class="video box-shadow">
+								<iframe width="352" height="315" src="https://www.youtube.com/embed/stkjHfshHxg" frameborder="0"></iframe>
+								<div class="note">Texto sobre o vídeo.</div>
+							</div>
+							<div class="video box-shadow margin-left-10">
+								<iframe width="352" height="315" src="https://www.youtube.com/embed/D55fV53K9zY" frameborder="0"></iframe>
+								<div class="note">Texto sobre o vídeo.</div>
+							</div>
+							<div class="video box-shadow margin-top-10">
+								<iframe width="352" height="315" src="https://www.youtube.com/embed/ijFMwNXJOPk" frameborder="0"></iframe>
+								<div class="note">Texto sobre o vídeo.</div>
+							</div>		
+							<div class="video box-shadow margin-left-10 margin-top-10">
+								<iframe width="352" height="315" src="https://www.youtube.com/embed/AZGmqPfmurk" frameborder="0"></iframe>
+								<div class="note">Texto sobre o vídeo.</div>
+							</div>	
+						</div>
+					</div>
+					<div class="box-300 margin-left-10">
+						<div class="black-belt-articles box-shadow">
+							<div class="dan">Notícias</div>
+						</div>					
+						<div class="articles">
+							<div class="article box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76489_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="article box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76490_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="article box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76491_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="article box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76492_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="article box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76493_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>																												
+						</div>
+					</div>
+				</div>
+								
 			</div>			
 		</div>
 		<div class="footer">
