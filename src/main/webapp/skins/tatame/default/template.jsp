@@ -42,7 +42,7 @@
 			.header .terra-bar iframe { float: left; height: 25px; width: 100%; }
 			.header #TerraAdvertising { float: left; margin: 0 auto; }
 			.header .ads { float: left; width: 100%; }
-			.header .ads > div { max-width: 970px; margin: 10px auto; }
+			.header .ads > div { max-width: 970px; width: auto; margin: 10px auto; box-shadow: 3px 3px 3px #777; }
 			/* .header .ads #tatame_728x90_ros { width: 728px; height: 90px; margin: 15px auto; } */
 			.header .menu { float: left; width: 98%; background-color: #2b2b2b; padding: 10px 1%; }
 			.header .menu .logo { float: left; max-height: 58px; height: auto; max-width: 194px; width: 15%; }
@@ -99,7 +99,8 @@
 			.ads-300-250 { float: left; height: 250px; width: 300px; }
 			
 			.ads-1024 { float: left; width: 1024px; }
-			.ads-1024 #tatame_728x90_ros { width: 728px; height: 90px; margin: 15px auto; }
+			.ads-1024 #tatame_728x90_ros { width: 728px; height: 90px; margin: 15px auto; box-shadow: 3px 3px 3px #777; }
+			.ads-1024 > div { width: 728px; height: 90px; margin: 15px auto; box-shadow: 3px 3px 3px #777; }
 			
 			.black-belt-highlights { float: left; background-color: #2b2b2b; height: 25px; width: 1024px; margin: 15px 0; }
 			.black-belt-highlights .dan { float: left; background-color: #a2393c; height: 25px; width: 96px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
@@ -112,8 +113,7 @@
 			.other-highlights .highlight .info .title { float: left; width: 246px; height: 90px; padding: 10px 0 0 10px; font-size: 20px; line-height: 28px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; }
 				
 			.black-belt-vidoes { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
-			.black-belt-vidoes .dan { float: left; background-color: #a2393c; height: 25px; width: 60px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; } 
-				
+			.black-belt-vidoes .dan { float: left; background-color: #a2393c; height: 25px; width: 60px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; } 				
 			.videos { float: left; height: 810px; width: 714px; }
 			.videos .video { float: left; height: 400px; width: 352px; overflow: hidden; }
 			.videos .video iframe { float: left; height: 335px; width: 352px; }
@@ -129,10 +129,53 @@
 			.articles .article .info .header { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 			.articles .article .info .title { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 			
+			.black-belt-most-vieweds { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
+			.black-belt-most-vieweds .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 90px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.most-vieweds { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
+			.most-vieweds .most-viewed { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
+			.most-vieweds .most-viewed img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
+			.most-vieweds .most-viewed .info { float: left; width: 300px; height: 70px; }
+			.most-vieweds .most-viewed .info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.most-vieweds .most-viewed .info .header { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.most-vieweds .most-viewed .info .title { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }			
+			
+			.black-belt-jiu-jitsu { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
+			.black-belt-jiu-jitsu .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; } 				
+			.jiu-jitsu-articles { float: left; height: 810px; width: 714px; }
+			.jiu-jitsu-articles .jiu-jitsu-article { float: left; height: 400px; width: 352px; overflow: hidden; }
+			.jiu-jitsu-articles .jiu-jitsu-article img { float: left; height: 335px; width: 352px; }
+			.jiu-jitsu-articles .jiu-jitsu-article .note { float: left; height: 54px; width: 342px; background-color: #2b2b2b; color: #fff; font-size: 20px; padding: 10px 0 0 10px; line-height: 24px; box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; border-top: 1px solid #a2393c; }						
+			
+			.black-belt-big-video { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
+			.black-belt-big-video .dan { float: left; background-color: #a2393c; height: 25px; width: 112px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.big-video { float: left; height: 570px; width: 714px; }
+			.big-video iframe { float: left; height: 400px; width: 714px; }
+			.big-video .note { float: left; height: 159px; width: 704px; padding: 10px 0 0 10px; font-size: 30px; background-color: #2b2b2b; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; border-top: 1px solid #a2393c; }
+			
+			.magazine { float: left; height: 600px; width: 300px; overflow: hidden; }
+			.magazine img { float: left; height: 402px; width: 300px; }
+			.magazine .note { float: left; height: 187px; width: 300px; padding: 10px 0 0 10px; font-size: 30px; background-color: #2b2b2b; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; border-top: 1px solid #a2393c; line-height: 35px; }
+			
+			.facebook { float: left; height: 600px; width: 714px; }
+			.facebook > div { float: left; height: 600px; width: 714px; }
+			
 			.footer { float: left; width: 100%; }
 		</style>
 	</head>
 	<body>
+		<div id="fb-root"></div>
+		<script type="text/javascript">
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) {
+				  return;
+			  }
+			  js = d.createElement(s); 
+			  js.id = id;
+			  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=312287075567167";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, "script", "facebook-jssdk"));
+		</script>	
 		<div class="header">
 			<div class="terra-bar">
 				<iframe scrolling="no" src="http://s1.trrsf.com/navbar/superslim/index.html?id=1&amp;format=superslim&amp;itemMenu=esp"></iframe>
@@ -313,8 +356,119 @@
 							</div>																												
 						</div>
 					</div>
-				</div>
-								
+				</div>		
+				<div class="ads-1024">
+					<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
+					<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master2&direct=1"></script>				
+				</div>	
+				<div class="box-1024">
+					<div class="box-300">
+						<div class="black-belt-most-vieweds box-shadow">
+							<div class="dan">Mais lidas</div>
+						</div>					
+						<div class="most-vieweds">
+							<div class="most-viewed box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76489_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="most-viewed box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76490_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="most-viewed box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76491_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="most-viewed box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76492_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>
+							<div class="most-viewed box-shadow">
+								<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76493_300x180.jpg"/>
+								<div class="info">
+									<div class="date">20/12/2015</div>
+									<div class="header">Chapéu da matéria</div>
+									<div class="title">Título da matéria</div>
+								</div>
+							</div>																												
+						</div>					
+					</div>
+					<div class="box-714 margin-left-10">
+						<div class="black-belt-jiu-jitsu box-shadow">
+							<div class="dan">Jiu Jitsu</div>
+						</div>
+						<div class="jiu-jitsu-articles">
+							<div class="jiu-jitsu-article box-shadow">
+								<img alt="77204_353x315.jpg" src="http://cdn-tatame.trrsf.com/img/77204_352x335.jpg"/>
+								<div class="note">Texto sobre a matéria.</div>
+							</div>
+							<div class="jiu-jitsu-article box-shadow margin-left-10">
+								<img alt="76519_352x315.jpg" src="http://cdn-tatame.trrsf.com/img/76519_352x335.jpg"/>
+								<div class="note">Texto sobre a matéria.</div>
+							</div>
+							<div class="jiu-jitsu-article box-shadow margin-top-10">
+								<img alt="71917_352x315.jpg" src="http://cdn-tatame.trrsf.com/img/71917_352x335.jpg"/>
+								<div class="note">Texto sobre a matéria.</div>
+							</div>		
+							<div class="jiu-jitsu-article box-shadow margin-left-10 margin-top-10">
+								<img alt="77190_352x315.jpg" src="http://cdn-tatame.trrsf.com/img/77190_352x335.jpg"/>
+								<div class="note">Texto sobre a matéria.</div>
+							</div>	
+						</div>					
+					</div>					
+				</div>				
+				<div class="box-1024 margin-top-10">
+					<div class="box-714">
+						<div class="black-belt-big-video box-shadow">
+							<div class="dan">Vídeo do dia</div>
+						</div>					
+						<div class="big-video box-shadow">
+							<iframe width="714" height="400" src="https://www.youtube.com/embed/vomhIvxqulg" frameborder="0"></iframe>
+							<div class="note">Texto sobre o vídeo.</div>
+						</div>
+					</div>
+					<div class="box-300 box-shadow margin-left-10">
+						<div id="tatame_300x600_ros"></div>
+					</div>
+				</div>				
+				<div class="box-1024 margin-top-10">
+					<div class="magazine box-shadow">
+						<img alt="77168.jpg" src="http://cdn-tatame.trrsf.com/img/77168_300x402.jpg"/>
+						<div class="note">TATAME #236: Abu Dhabi Grand Slam RJ, Jiu-Jitsu global, Marcus Buchecha e mais</div>
+					</div>
+					<div class="facebook box-shadow margin-left-10">
+						<div 
+							class="fb-page" 
+							data-href="https://www.facebook.com/Tatame" 
+							data-small-header="false" 
+							data-adapt-container-width="true" 
+							data-hide-cover="false" 
+							data-show-facepile="true" 
+							data-show-posts="true">
+							<div class="fb-xfbml-parse-ignore">
+								<blockquote cite="https://www.facebook.com/Tatame">
+									<a href="https://www.facebook.com/Tatame">TATAME</a>
+								</blockquote>
+							</div>
+						</div>					
+					</div>
+				</div>				
 			</div>			
 		</div>
 		<div class="footer">
@@ -340,6 +494,7 @@
 				googletag.defineSlot("/13554095/Tatame_300x100_especial1_home", [300, 100], "tatame_300x100_especial1_home").addService(googletag.pubads());
 				googletag.defineSlot("/13554095/Tatame_300x100_especial2_home", [300, 100], "tatame_300x100_especial2_home").addService(googletag.pubads());
 				googletag.defineSlot("/13554095/Tatame_300x250_ros", [300, 250], "tatame_300x250_ros").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x600_ros", [300, 600], "tatame_300x600_ros").addService(googletag.pubads());				
 				googletag.pubads().enableSingleRequest();
 				googletag.enableServices();
 			});
@@ -350,6 +505,7 @@
 			googletag.cmd.push(function(){googletag.display("tatame_300x100_especial1_home");});
 			googletag.cmd.push(function(){googletag.display("tatame_300x100_especial2_home");});
 			googletag.cmd.push(function(){googletag.display("tatame_300x250_ros");});
-		</script>				
+			googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
+		</script>					
 	</body>
 </html>
