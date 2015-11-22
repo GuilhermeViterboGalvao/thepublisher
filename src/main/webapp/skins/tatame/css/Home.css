@@ -34,15 +34,14 @@
 .videos .video img { float: left; height: 335px; width: 352px; }
 .videos .video .note { float: left; height: 54px; width: 342px; background-color: #2b2b2b; color: #fff; font-size: 20px; padding: 10px 0 0 10px; line-height: 24px; box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; border-top: 1px solid #a2393c; }
 
-.black-belt-articles { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
-.black-belt-articles .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 75px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
-.articles { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
-.articles .article { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
-.articles .article img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
-.articles .article .info { float: left; width: 300px; height: 70px; }
-.articles .article .info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
-.articles .article .info .header { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
-.articles .article .info .title { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+.black-belt-last-news { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
+.black-belt-last-news .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 75px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+.last-news { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
+.last-news .article { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
+.last-news .article img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
+.last-news .article .info { float: left; width: 300px; height: 70px; }
+.last-news .article .info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+.last-news .article .info .note { float: left; width: 295px; height: 46px; line-height: 18px; font-size: 13px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 
 .black-belt-most-vieweds { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-most-vieweds .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 90px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }

@@ -24,51 +24,7 @@
 		<p:tile xml="home/videos"/>
 	</div>
 	<div class="box-300 margin-left-10">
-		<div class="black-belt-articles box-shadow">
-			<div class="dan">Notícias</div>
-		</div>					
-		<div class="articles">
-			<div class="article box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76489_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="article box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76490_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="article box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76491_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="article box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76492_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="article box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76493_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>																												
-		</div>
+		<p:tile xml="home/recente"/>
 	</div>
 </div>		
 <div class="ads-1024">

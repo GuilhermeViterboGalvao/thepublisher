@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="/home/recente" min="1" max="5" name="Recente" version="123456789">
+<items form="/home/recente" min="4" max="40" name="Recente" version="123456789">
   <item>
       <photoId></photoId>
       <note></note>
