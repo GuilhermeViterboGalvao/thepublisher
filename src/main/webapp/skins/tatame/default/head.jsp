@@ -5,9 +5,9 @@
 <meta http-equiv="refresh" content="1200">
 <s:if test="title != null || note != null || tags != null">
 	<title>${title}</title>	
-	<meta name="title"       content="${title}"/>
+	<meta name="title" content="${title}"/>
 	<meta name="description" content="${note}" />
-	<meta name="keywords"    content="${tags}" lang="pt-BR"/>
+	<meta name="keywords" content="${tags}" lang="pt-BR"/>
 </s:if>
 <s:else>
 	<title>${titlePage}</title>
@@ -21,35 +21,14 @@
 	<meta property="og:url" content="http://www.tatame.com.br/<s:property value='permanentLink.uri'/>"/>		
 	<link href="http://cdn-tatame.trrsf.com/img/${photo.id}_210x140.jpg" rel="image_src" title="${photo.description}"/>
 </s:if>
-<link rel="shortcut icon" href="http://cdn-tatame.trrsf.com/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>
-<link rel="apple-touch-icon-precomposed" href="http://cdn-tatame.trrsf.com/skins/tatame/img/favicon_57x57-ok.png"/>
-<link rel='stylesheet' id='responsive-lightbox-nivo-front-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/nivo-lightbox.css' type='text/css' media='all'/>
-<link rel='stylesheet' id='responsive-lightbox-nivo-front-template-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/responsive-lightbox-default.css' type='text/css' media='all'/>
-<link rel='stylesheet' id='fancybox-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/jquery-fancybox.css' type='text/css' media='all'/>
-<link rel='stylesheet' id='fancybox-thumbs-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/jquery-fancybox-thumbs.css' type='text/css' media='all' />
-<link rel='stylesheet' id='manshet-css'  href='/skins/tatame/css/manshet-min-cdn.css' type='text/css' media='all' />
-<link rel='stylesheet' id='responsive-css' href='http://cdn-tatame.trrsf.com/skins/tatame/css/manshet-responsive-min.css' type='text/css' media='all' />
-<link rel='stylesheet' id='OpenSans-css' href='http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%2C600%27+rel%3D%27stylesheet%27+type%3D%27text%2Fcss&#038;ver=3.8.1' type='text/css' media='all' />
-<link rel='stylesheet' id='Oswald-css' href='http://fonts.googleapis.com/css?family=Oswald%3A400%2C700&#038;ver=3.8.1#038&#039;rel=&#039;stylesheet&#039;type=&#039;text/css' type='text/css' media='all' />
-<link rel='stylesheet' id='promoslider_main-css' href='http://cdn-tatame.trrsf.com/skins/tatame/css/slide.css' type='text/css' media='all' />
-<link rel='stylesheet' id='fontello-css' href='/skins/tatame/css/fontello.css' type='text/css' media='all' />
-<link rel='stylesheet' id='main-css' href='http://cdn-tatame.trrsf.com/skins/tatame/css/main.css' type='text/css' media='all' />
-<style type="text/css"> 
-	.wp-polls 
-	.pollbar { margin: 1px; font-size: 8px; line-height: 10px; height: 10px; background: #900; border: 1px solid #333; } 
-</style>
-<style type="text/css">
-	.cabeceira { width: 1020px; height: 82px; background: #F90; margin: 0 auto; }
-	.cabeceira iframe { margin: 0 auto; display: block; }
-</style>
-
-<s:if test="model instanceof com.publisher.entity.Article">
-	<link rel='stylesheet' id='article-main-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/ArticleMain.css' type='text/css' media='all' />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Metrophobic" type="text/css"/>
+<link rel="stylesheet" href="/skins/tatame/css/main.css" type="text/css"/>
+<s:if test="model != null && model instanceof com.publisher.entity.Article">
+	<link rel="stylesheet" href="/skins/tatame/css/ArticleMain.css" type="text/css"/>
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">
-		<link rel='stylesheet' id='article-main-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/PhotoGallery.css' type='text/css' media='all' />		
+		<link rel="stylesheet" href="/skins/tatame/css/PhotoGallery.css" type="text/css"/>		
 	</s:if>
 </s:if>
-<s:elseif test="model instanceof com.publisher.entity.Page">
-	<link rel='stylesheet' id='home-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/Home.css' type='text/css' media='all'/>
-	<link rel='stylesheet' id='soliloquy-css'  href='http://cdn-tatame.trrsf.com/skins/tatame/css/soliloquy.css' type='text/css' media='all'/>
+<s:elseif test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
+	<link rel="stylesheet" href="/skins/tatame/css/Home.css" type="text/css" />
 </s:elseif>
