@@ -154,12 +154,20 @@
 			
 			.magazine { float: left; height: 600px; width: 300px; overflow: hidden; }
 			.magazine img { float: left; height: 402px; width: 300px; }
-			.magazine .note { float: left; height: 187px; width: 300px; padding: 10px 0 0 10px; font-size: 30px; background-color: #2b2b2b; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; border-top: 1px solid #a2393c; line-height: 35px; }
+			.magazine .note { float: left; height: 187px; width: 290px; padding: 10px 0 0 10px; font-size: 30px; background-color: #2b2b2b; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; border-top: 1px solid #a2393c; line-height: 35px; }
 			
-			.facebook { float: left; height: 600px; width: 714px; }
-			.facebook > div { float: left; height: 600px; width: 714px; }
+			.facebook { float: left; height: 600px; width: 714px; background-color: #2b2b2b; }
+			.facebook > div { height: 580px; width: 500px; margin: 10px 107px; }
 			
-			.footer { float: left; width: 100%; }
+			.footer { float: left; width: 100%; background-color: #2b2b2b; }
+			.footer .logo { float: left; width: 33.33%; }
+			.footer .logo img { max-width: 194px; height: auto; width: 46%; margin: 15% 27%; }
+			.footer .pages { float: left; width: 33.33%; }
+			.footer .pages .title { float: left; width: 96%; padding: 2% 2% 4% 2%; font-size: 20px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.footer .pages p { float: left; width: 96%; margin: 0 2% 4% 2%; border-bottom: 1px solid #a2393c; color: #fff; font-size: 16px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.footer .address { float: left; width: 33.33%; }
+			.footer .address .title { float: left; width: 96%; padding: 2% 2% 4% 2%; font-size: 20px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+			.footer .address p { float: left; width: 96%; margin: 0 2% 4% 2%; border-bottom: 1px solid #a2393c; color: #fff; font-size: 16px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 		</style>
 	</head>
 	<body>
@@ -184,9 +192,9 @@
 				<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
 				<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master1&direct=1"></script>
 			</div>			
-			<div class="menu">
+			<div class="menu box-shadow">
 				<a href="/" class="logo">
-					<img alt="Tatame" src="/skins/tatame/img/tatame_white.png">
+					<img alt="Tatame" src="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png">
 				</a>
 				<ul class="categories">
 					<li>
@@ -213,38 +221,40 @@
 		</div>
 		<div class="content">
 			<div class="page">
-				<div class="box-714 box-shadow">
-					<div class="highlights box-shadow">
-						<div class="highlight">
-							<div class="card-50 margin-right-5">
-								<img alt="76774.jpg" src="http://cdn-tatame.trrsf.com/img/76774_352x595.jpg"/>
-								<div class="transparence"></div>
-								<div class="header">Chapéu da matéria</div>
-								<div class="title">Título da matéria muito longo aqui!</div>
-							</div>
-							<div class="card-50 margin-left-5">
-								<div class="card-50 margin-bottom-15">
-									<img alt="76775.jpg" src="http://cdn-tatame.trrsf.com/img/76775_352x290.jpg"/>
+				<div class="box-1024">
+					<div class="box-714 box-shadow">
+						<div class="highlights box-shadow">
+							<div class="highlight">
+								<div class="card-50 margin-right-5">
+									<img alt="76774.jpg" src="http://cdn-tatame.trrsf.com/img/76774_352x595.jpg"/>
 									<div class="transparence"></div>
 									<div class="header">Chapéu da matéria</div>
 									<div class="title">Título da matéria muito longo aqui!</div>
 								</div>
-								<div class="card-50">
-									<img alt="76777.jpg" src="http://cdn-tatame.trrsf.com/img/76777_352x290.jpg"/>
-									<div class="transparence"></div>
-									<div class="header">Chapéu da matéria</div>
-									<div class="title">Título da matéria muito longo aqui!</div>
-								</div>							
-							</div>						
-						</div>								
-					</div>				
-				</div>
-				<div class="box-300 margin-left-10">
-					<div class="ads-highlights">
-						<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
-						<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow"></div>
-						<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow"></div>
-						<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
+								<div class="card-50 margin-left-5">
+									<div class="card-50 margin-bottom-15">
+										<img alt="76775.jpg" src="http://cdn-tatame.trrsf.com/img/76775_352x290.jpg"/>
+										<div class="transparence"></div>
+										<div class="header">Chapéu da matéria</div>
+										<div class="title">Título da matéria muito longo aqui!</div>
+									</div>
+									<div class="card-50">
+										<img alt="76777.jpg" src="http://cdn-tatame.trrsf.com/img/76777_352x290.jpg"/>
+										<div class="transparence"></div>
+										<div class="header">Chapéu da matéria</div>
+										<div class="title">Título da matéria muito longo aqui!</div>
+									</div>							
+								</div>						
+							</div>								
+						</div>				
+					</div>
+					<div class="box-300 margin-left-10">
+						<div class="ads-highlights">
+							<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
+							<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow"></div>
+							<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow"></div>
+							<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
+						</div>				
 					</div>				
 				</div>				
 				<div class="black-belt-highlights box-shadow">
@@ -456,8 +466,10 @@
 						<div 
 							class="fb-page" 
 							data-href="https://www.facebook.com/Tatame" 
+							data-width="500" 
+							data-height="580" 
 							data-small-header="false" 
-							data-adapt-container-width="true" 
+							data-adapt-container-width="true"
 							data-hide-cover="false" 
 							data-show-facepile="true" 
 							data-show-posts="true">
@@ -466,14 +478,31 @@
 									<a href="https://www.facebook.com/Tatame">TATAME</a>
 								</blockquote>
 							</div>
-						</div>					
+						</div>				
 					</div>
 				</div>				
 			</div>			
 		</div>
 		<div class="footer">
+			<div class="logo">
+				<img alt="tatame_white.png" src="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png"/>
+			</div>			
+			<div class="pages">
+				<div class="title">PÁGINAS</div>
+				<p>Assinatura</p>
+				<p>Fale Conosco</p>
+				<p>Contrato de Assinaturas</p>
+				<p>Política de Privacidade</p>
+			</div>
+			<div class="address">
+				<div class="title">EDITORA TATAME</div>
+				<p>Av. Marechal Floriano 38/307</p>
+				<p>Centro – Rio de Janeiro</p>
+				<p>Cep 20080-004</p>
+				<p>Tel: +55 (21) 2233-7755 / 2516-8595</p>
+			</div>
 		</div>
-		<script type="text/javascript" src="/skins/tatame/js/jquery-1.7.2-min.js"></script>
+		<script type="text/javascript" src="http://cdn-tatame.trrsf.com/skins/tatame/js/jquery-1.7.2-min.js"></script>
 		<script type="text/javascript">
 			var googletag = googletag || {};
 			googletag.cmd = googletag.cmd || [];
