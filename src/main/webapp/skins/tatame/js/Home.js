@@ -1,67 +1,49 @@
-//$(function() {
-//	$.ajax({
-//		url     : "/mostViewed?categoryId=1&currentPage=1&pageSize=5",
-//		cache   : false,
-//		success : function(data) {
-//			var dataInOrder = [];
-//			do {
-//				var mostViewed = data[0];
-//				var index = 0;
-//				for (var i = 0; i < data.length; i++) {
-//					if (mostViewed.views < data[i].views) {
-//						mostViewed = data[i];
-//						index = i;
-//					}
-//				}
-//				data.splice(index, 1);
-//				dataInOrder.push(mostViewed);
-//			} while (data.length > 0);
-//			data = dataInOrder;
-//			var divReadMore = $("div.read-more");
-//			for (var i = 0; i < data.length; i++) {
-//				var article = data[i];		
-//				divReadMore.append(
-//					$("<div>").addClass("post-warpper").append(
-//						$("<div>").addClass("post type-post status-publish format-standard hentry category-destaque tag-ronda-rousey post-item").append(
-//							$("<div>").addClass("post-image").append(
-//								$("<a>").css({
-//									"width"      : "52px",
-//									"height"     : "50px",
-//									"background" : "url('http://cdn-tatame.trrsf.com/img/" + article.photoId + "_52x50.jpg') no-repeat scroll",
-//									"display"    : "inline-block"
-//								}).attr("href", article.link)
-//							)
-//						).append(
-//							$("<div>").addClass("post-caption").append(
-//								$("<h3>").addClass("post-title").append(
-//									$("<a>").attr({
-//										"rel"  : "bookmark",
-//										"href" : article.link
-//									}).html(article.title)
-//								)
-//							)
-//						)							
-//					)
-//				).css("display", "none");
-//			}
-//			$("b.tab-recent").click(function() {
-//				$("b.tab-read-more").css({"opacity" : "0.6"});
-//				$("div.read-more").css({"display": "none"});
-//				$("b.tab-recent").css({"opacity" : "1"});
-//				$("div.recent").css({"display": "block"});
-//			}).css("cursor", "pointer");	
-//			$("b.tab-read-more").click(function() {
-//				$("b.tab-read-more").css({"opacity" : "1"});
-//				$("div.read-more").css({"display": "block"});
-//				$("b.tab-recent").css({"opacity" : "0.6"});
-//				$("div.recent").css({"display": "none"});			
-//			}).css({
-//				"cursor" : "pointer",
-//				"opacity" : "0.6"
-//			});
-//		}
-//	});
-//});
+$(function() {
+	$.ajax({
+		url     : "/mostViewed?categoryId=1&currentPage=1&pageSize=5",
+		cache   : false,
+		success : function(data) {
+			if (data && data.length > 0) {
+				var dataInOrder = [];
+				do {
+					var mostViewed = data[0];
+					var index = 0;
+					for (var i = 0; i < data.length; i++) {
+						if (mostViewed.views < data[i].views) {
+							mostViewed = data[i];
+							index = i;
+						}
+					}
+					data.splice(index, 1);
+					dataInOrder.push(mostViewed);
+				} while (data.length > 0);
+				data = dataInOrder;
+				var divReadMore = $("div.read-more");
+				for (var i = 0; i < data.length; i++) {
+					var article = data[i];
+					divReadMore.append(
+						$("<div>").addClass("most-viewed box-shadow").append(
+							$("<a>").attr("href", article.link).append(
+								$("<img>").attr({
+									"alt": article.photoId,
+									"src": "http://cdn-tatame.trrsf.com/img/" + article.photoId + "_300x180.jpg"
+								})								
+							)
+						).append(
+							$("<div>").addClass("info").append(
+								$("<div>").addClass("date").html(article.date)
+							).append(
+								$("<div>").addClass("header").html(article.header)
+							).append(
+								$("<div>").addClass("title").html(article.title)
+							)						
+						)
+					);
+				}				
+			}
+		}
+	});
+});
 //$(function() {
 //	$.ajax({
 //		url : "/tatame/view/poll",

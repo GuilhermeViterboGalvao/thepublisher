@@ -36,48 +36,7 @@
 		<div class="black-belt-most-vieweds box-shadow">
 			<div class="dan">Mais lidas</div>
 		</div>					
-		<div class="most-vieweds">
-			<div class="most-viewed box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76489_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="most-viewed box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76490_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="most-viewed box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76491_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="most-viewed box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76492_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>
-			<div class="most-viewed box-shadow">
-				<img alt="76489_270x180.jpg" src="http://cdn-tatame.trrsf.com/img/76493_300x180.jpg"/>
-				<div class="info">
-					<div class="date">20/12/2015</div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria</div>
-				</div>
-			</div>																												
-		</div>					
+		<div class="most-vieweds"></div>					
 	</div>
 	<div class="box-714 margin-left-10">
 		<p:tile xml="home/jiu-jitsu"/>					
@@ -92,26 +51,27 @@
 	</div>
 </div>				
 <div class="box-1024 margin-top-10">
-	<div class="magazine box-shadow">
-		<img alt="77168.jpg" src="http://cdn-tatame.trrsf.com/img/77168_300x402.jpg"/>
-		<div class="note">TATAME #236: Abu Dhabi Grand Slam RJ, Jiu-Jitsu global, Marcus Buchecha e mais</div>
+	<div class="box-300">
+		<p:tile xml="home/revista"/>
 	</div>
-	<div class="facebook box-shadow margin-left-10">
-		<div 
-			class="fb-page" 
-			data-href="https://www.facebook.com/Tatame" 
-			data-width="500" 
-			data-height="580" 
-			data-small-header="false" 
-			data-adapt-container-width="true"
-			data-hide-cover="false" 
-			data-show-facepile="true" 
-			data-show-posts="true">
-			<div class="fb-xfbml-parse-ignore">
-				<blockquote cite="https://www.facebook.com/Tatame">
-					<a href="https://www.facebook.com/Tatame">TATAME</a>
-				</blockquote>
-			</div>
-		</div>				
+	<div class="box-714 box-shadow margin-left-10">
+		<div class="facebook">
+			<div 
+				class="fb-page" 
+				data-href="https://www.facebook.com/Tatame" 
+				data-width="500" 
+				data-height="580" 
+				data-small-header="false" 
+				data-adapt-container-width="true"
+				data-hide-cover="false" 
+				data-show-facepile="true" 
+				data-show-posts="true">
+				<div class="fb-xfbml-parse-ignore">
+					<blockquote cite="https://www.facebook.com/Tatame">
+						<a href="https://www.facebook.com/Tatame">TATAME</a>
+					</blockquote>
+				</div>
+			</div>				
+		</div>	
 	</div>
 </div>
