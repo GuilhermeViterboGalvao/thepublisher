@@ -13,69 +13,15 @@
 			<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow"></div>
 			<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
 		</div>				
-	</div>				
+	</div>
 </div>				
-<div class="black-belt-highlights box-shadow">
-	<div class="dan">Destaques</div>
-</div>
-<div class="box-1024">
-	<div class="other-highlights">
-		<div class="highlight box-shadow">
-			<img alt="75987_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/75987_250x200.jpg"/>
-			<div class="info">
-				<div class="header">Chapéu da matéria</div>
-				<div class="title">Título da matéria muito longo aqui!</div>
-			</div>
-		</div>
-		<div class="highlight margin-left-10 box-shadow">
-			<img alt="73354_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/73354_250x200.jpg"/>
-			<div class="info">
-				<div class="header">Chapéu da matéria</div>
-				<div class="title">Título da matéria muito longo aqui!</div>
-			</div>
-		</div>
-		<div class="highlight margin-top-10 box-shadow">
-			<img alt="73356_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/73356_250x200.jpg"/>
-			<div class="info">
-				<div class="header">Chapéu da matéria</div>
-				<div class="title">Título da matéria muito longo aqui!</div>
-			</div>
-		</div>
-		<div class="highlight margin-top-10 margin-left-10 box-shadow">
-			<img alt="73357_250x200.jpg" src="http://cdn-tatame.trrsf.com/img/73357_250x200.jpg"/>
-			<div class="info">
-				<div class="header">Chapéu da matéria</div>
-				<div class="title">Título da matéria muito longo aqui!</div>
-			</div>
-		</div>					
-	</div>					
-</div>
+<p:tile xml="home/destaques"/>
 <div class="ads-1024">
 	<div id="tatame_728x90_ros"></div>
 </div>
 <div class="box-1024">
 	<div class="box-714">
-		<div class="black-belt-vidoes box-shadow">
-			<div class="dan">Vídeos</div>
-		</div>
-		<div class="videos">
-			<div class="video box-shadow">
-				<iframe width="352" height="315" src="https://www.youtube.com/embed/stkjHfshHxg" frameborder="0"></iframe>
-				<div class="note">Texto sobre o vídeo.</div>
-			</div>
-			<div class="video box-shadow margin-left-10">
-				<iframe width="352" height="315" src="https://www.youtube.com/embed/D55fV53K9zY" frameborder="0"></iframe>
-				<div class="note">Texto sobre o vídeo.</div>
-			</div>
-			<div class="video box-shadow margin-top-10">
-				<iframe width="352" height="315" src="https://www.youtube.com/embed/ijFMwNXJOPk" frameborder="0"></iframe>
-				<div class="note">Texto sobre o vídeo.</div>
-			</div>		
-			<div class="video box-shadow margin-left-10 margin-top-10">
-				<iframe width="352" height="315" src="https://www.youtube.com/embed/AZGmqPfmurk" frameborder="0"></iframe>
-				<div class="note">Texto sobre o vídeo.</div>
-			</div>	
-		</div>
+		<p:tile xml="home/videos"/>
 	</div>
 	<div class="box-300 margin-left-10">
 		<div class="black-belt-articles box-shadow">
