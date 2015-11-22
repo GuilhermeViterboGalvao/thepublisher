@@ -2,11 +2,12 @@
 	if (info && info.item && info.item.size() > 0) {
 		info.item.eachWithIndex { item, index ->
 %>
-<div class="home-ads">
+<div class="black-belt-big-video box-shadow">
+	<div class="dan">Vídeo do dia</div>
+</div>					
+<div class="big-video box-shadow">
 	${item.code}
-	<br>
-	<br>
-	<strong>${item.text}</strong>
+	<div class="note">${item.text}</div>
 </div>
 <%
 		}

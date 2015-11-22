@@ -24,7 +24,7 @@
 .other-highlights .highlight { float: left; height: 200px; width: 507px; }
 .other-highlights .highlight img { float: left; width: 250px; border-right: 1px solid #a2393c; }
 .other-highlights .highlight .info { float: left; width: 256px; height: 200px; background-color: #2b2b2b; }
-.other-highlights .highlight .info .note { float: left; width: 246px; height: 152px; font-size: 24px; line-height: 28px; padding: 10px 0 0 10px; font-weight: bold; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; }
+.other-highlights .highlight .info .note { float: left; width: 246px; height: 152px; font-size: 20px; line-height: 28px; padding: 10px 0 0 10px; font-weight: bold; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; }
 .other-highlights .highlight .info .date { float: left; width: 246px; height: 28px; padding: 10px 0 0 10px; font-size: 20px; line-height: 28px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; text-overflow: ellipsis; }
 	
 .black-belt-vidoes { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
@@ -32,7 +32,7 @@
 .videos { float: left; height: 810px; width: 714px; }
 .videos .video { float: left; height: 400px; width: 352px; overflow: hidden; }
 .videos .video img { float: left; height: 335px; width: 352px; }
-.videos .video .note { float: left; height: 54px; width: 342px; background-color: #2b2b2b; color: #fff; font-size: 20px; padding: 10px 0 0 10px; line-height: 24px; box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; border-top: 1px solid #a2393c; }
+.videos .video .note { float: left; height: 54px; width: 342px; background-color: #2b2b2b; color: #fff; font-size: 14px; padding: 10px 0 0 10px; line-height: 18px; box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; border-top: 1px solid #a2393c; }
 
 .black-belt-last-news { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-last-news .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 75px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
@@ -58,7 +58,7 @@
 .jiu-jitsu-articles { float: left; height: 810px; width: 714px; }
 .jiu-jitsu-articles .jiu-jitsu-article { float: left; height: 400px; width: 352px; overflow: hidden; }
 .jiu-jitsu-articles .jiu-jitsu-article img { float: left; height: 335px; width: 352px; }
-.jiu-jitsu-articles .jiu-jitsu-article .note { float: left; height: 54px; width: 342px; background-color: #2b2b2b; color: #fff; font-size: 20px; padding: 10px 0 0 10px; line-height: 24px; box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; border-top: 1px solid #a2393c; }						
+.jiu-jitsu-articles .jiu-jitsu-article .note { float: left; height: 54px; width: 342px; background-color: #2b2b2b; color: #fff; font-size: 14px; padding: 10px 0 0 10px; line-height: 18px; box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; overflow: hidden; border-top: 1px solid #a2393c; }						
 
 .black-belt-big-video { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-big-video .dan { float: left; background-color: #a2393c; height: 25px; width: 112px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }

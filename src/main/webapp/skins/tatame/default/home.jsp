@@ -80,38 +80,12 @@
 		</div>					
 	</div>
 	<div class="box-714 margin-left-10">
-		<div class="black-belt-jiu-jitsu box-shadow">
-			<div class="dan">Jiu Jitsu</div>
-		</div>
-		<div class="jiu-jitsu-articles">
-			<div class="jiu-jitsu-article box-shadow">
-				<img alt="77204_353x315.jpg" src="http://cdn-tatame.trrsf.com/img/77204_352x335.jpg"/>
-				<div class="note">Texto sobre a matéria.</div>
-			</div>
-			<div class="jiu-jitsu-article box-shadow margin-left-10">
-				<img alt="76519_352x315.jpg" src="http://cdn-tatame.trrsf.com/img/76519_352x335.jpg"/>
-				<div class="note">Texto sobre a matéria.</div>
-			</div>
-			<div class="jiu-jitsu-article box-shadow margin-top-10">
-				<img alt="71917_352x315.jpg" src="http://cdn-tatame.trrsf.com/img/71917_352x335.jpg"/>
-				<div class="note">Texto sobre a matéria.</div>
-			</div>		
-			<div class="jiu-jitsu-article box-shadow margin-left-10 margin-top-10">
-				<img alt="77190_352x315.jpg" src="http://cdn-tatame.trrsf.com/img/77190_352x335.jpg"/>
-				<div class="note">Texto sobre a matéria.</div>
-			</div>	
-		</div>					
+		<p:tile xml="home/jiu-jitsu"/>					
 	</div>					
 </div>				
 <div class="box-1024 margin-top-10">
 	<div class="box-714">
-		<div class="black-belt-big-video box-shadow">
-			<div class="dan">Vídeo do dia</div>
-		</div>					
-		<div class="big-video box-shadow">
-			<iframe width="714" height="400" src="https://www.youtube.com/embed/vomhIvxqulg" frameborder="0"></iframe>
-			<div class="note">Texto sobre o vídeo.</div>
-		</div>
+		<p:tile xml="home/video"/>
 	</div>
 	<div class="box-300 box-shadow margin-left-10">
 		<div id="tatame_300x600_ros"></div>
