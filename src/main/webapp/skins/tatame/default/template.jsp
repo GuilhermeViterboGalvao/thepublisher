@@ -5,6 +5,9 @@
 <html>
 	<head>
 		<jsp:include page="/skins/tatame/default/head.jsp"/>
+		<s:if test="#customHeadPathJSP != null">
+			<s:include value="%{customHeadPathJSP}"/>
+		</s:if>		
 	</head>
 	<body>
 		<jsp:include page="/skins/tatame/default/terra-counter-head.jsp"/>
@@ -21,12 +24,13 @@
 			  fjs.parentNode.insertBefore(js, fjs);
 			}(document, "script", "facebook-jssdk"));
 		</script>
-		<s:if test="#headerPathJSP != null"> 
-			<s:include value="%{headerPathJSP}"/>
-		</s:if>	
 		<div class="header">
-			<s:include value="/skins/tatame/default/header.jsp"/>
-			<s:include value="/skins/tatame/default/menu.jsp"/>
+			<s:if test="#headerPathJSP != null">
+				<s:include value="%{headerPathJSP}"/>
+			</s:if>
+			<s:if test="#menuPathJSP != null">
+				<s:include value="%{menuPathJSP}"/>
+			</s:if>
 		</div>
 		<div class="content">
 			<div class="page">
@@ -34,11 +38,15 @@
 			</div>			
 		</div>
 		<div class="footer">
-			<s:include value="/skins/tatame/default/footer.jsp"/>
+			<s:if test="#footerPathJSP != null">
+				<s:include value="%{footerPathJSP}"/>
+			</s:if>
 		</div>
-		<s:include value="/skins/tatame/default/scripts.jsp"/>							
+		<s:if test="#scriptsPathJSP != null">
+			<s:include value="%{scriptsPathJSP}"/>
+		</s:if>							
 		<s:if test="#dfpPathJSP != null">
 			<s:include value="%{dfpPathJSP}"/>
-		</s:if>		
+		</s:if>
 	</body>
 </html>
