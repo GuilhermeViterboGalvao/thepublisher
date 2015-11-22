@@ -1,27 +1,101 @@
-<div id="soliloquy-container-209696" class="soliloquy-container soliloquy-fade soliloquy-preloader" style="max-width: 620px; max-height: 413px; ">
-   <div id="soliloquy-209696" class="soliloquy">
-      <ul id="soliloquy-list-209696" class="soliloquy-slides">
 <%
-	info.item.eachWithIndex { item, index ->
-		def photoId = (item.photoId =~ /\d{1,999999}/)[0],
-	   	    link    = ""
-		if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
-			link = item.link.toString()
-		} else {
-			link = "/" + item.link.toString() 
-		}	
-%>	      
-         <li id="soliloquy-209696-item-${index+1}" class="soliloquy-item" style="display: none;">
-            <a href="${link}" title="" >
-                <img class="soliloquy-item-image" src="http://cdn-tatame.trrsf.com/img/${photoId}.jpg?${(int)(Math.random() * 10000001)}" />
-            </a>
-            <div class="soliloquy-caption">
-               <div class="soliloquy-caption-inside">${item.note}</div>
-            </div>
-         </li>
+	if (info && info.item && info.item.size() == 6) {
+		def item, photoId, link
+%>
+<div class="highlights box-shadow">
+	<div class="highlight">
+		<div class="card-50 margin-right-5">
+			<%
+				item = info.item[0]
+				photoId = (item.photoId =~ /\d{1,999999}/)[0]
+				if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+					link = item.link.toString()
+				} else {
+					link = "/" + item.link.toString() 
+				}				
+			%>				
+			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x595.jpg"/>
+			<div class="transparence"></div>
+			<div class="header">${item.note}</div>
+		</div>
+		<div class="card-50 margin-left-5">
+			<div class="card-50 margin-bottom-15">
+				<%
+					item = info.item[1]
+					photoId = (item.photoId =~ /\d{1,999999}/)[0]
+					if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+						link = item.link.toString()
+					} else {
+						link = "/" + item.link.toString() 
+					}					
+				%>				
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x290.jpg"/>
+				<div class="transparence"></div>
+				<div class="header">${item.note}</div>
+			</div>
+			<div class="card-50">
+				<%
+					item = info.item[2]
+					photoId = (item.photoId =~ /\d{1,999999}/)[0]
+					if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+						link = item.link.toString()
+					} else {
+						link = "/" + item.link.toString() 
+					}				
+				%>					
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x290.jpg"/>
+				<div class="transparence"></div>
+				<div class="header">${item.note}</div>
+			</div>							
+		</div>						
+	</div>
+	<div class="highlight">			
+		<div class="card-50 margin-right-5">
+			<%
+				item = info.item[3]
+				photoId = (item.photoId =~ /\d{1,999999}/)[0]
+				if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+					link = item.link.toString()
+				} else {
+					link = "/" + item.link.toString() 
+				}				
+			%>				
+			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x595.jpg"/>
+			<div class="transparence"></div>
+			<div class="header">${item.note}</div>
+		</div>
+		<div class="card-50 margin-left-5">
+			<div class="card-50 margin-bottom-15">
+				<%
+					item = info.item[4]
+					photoId = (item.photoId =~ /\d{1,999999}/)[0]
+					if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+						link = item.link.toString()
+					} else {
+						link = "/" + item.link.toString() 
+					}				
+				%>				
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x290.jpg"/>
+				<div class="transparence"></div>
+				<div class="header">${item.note}</div>
+			</div>
+			<div class="card-50">
+				<%
+					item = info.item[5]
+					photoId = (item.photoId =~ /\d{1,999999}/)[0]
+					if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+						link = item.link.toString()
+					} else {
+						link = "/" + item.link.toString() 
+					}
+				%>					
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x290.jpg"/>
+				<div class="transparence"></div>
+				<div class="header">${item.note}</div>
+			</div>							
+		</div>						
+	</div>											
+</div>
 <%
 	}
-%>	         
-		</ul>
-   </div>
-</div>
+%>

@@ -4,30 +4,7 @@
 <%@ taglib prefix="p" uri="/publisher-tags" %>
 <div class="box-1024">
 	<div class="box-714 box-shadow">
-		<div class="highlights box-shadow">
-			<div class="highlight">
-				<div class="card-50 margin-right-5">
-					<img alt="76774.jpg" src="http://cdn-tatame.trrsf.com/img/76774_352x595.jpg"/>
-					<div class="transparence"></div>
-					<div class="header">Chapéu da matéria</div>
-					<div class="title">Título da matéria muito longo aqui!</div>
-				</div>
-				<div class="card-50 margin-left-5">
-					<div class="card-50 margin-bottom-15">
-						<img alt="76775.jpg" src="http://cdn-tatame.trrsf.com/img/76775_352x290.jpg"/>
-						<div class="transparence"></div>
-						<div class="header">Chapéu da matéria</div>
-						<div class="title">Título da matéria muito longo aqui!</div>
-					</div>
-					<div class="card-50">
-						<img alt="76777.jpg" src="http://cdn-tatame.trrsf.com/img/76777_352x290.jpg"/>
-						<div class="transparence"></div>
-						<div class="header">Chapéu da matéria</div>
-						<div class="title">Título da matéria muito longo aqui!</div>
-					</div>							
-				</div>						
-			</div>								
-		</div>				
+		<p:tile xml="home/destaques-com-fotos"/>				
 	</div>
 	<div class="box-300 margin-left-10">
 		<div class="ads-highlights">
