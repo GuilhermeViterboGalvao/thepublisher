@@ -1,4 +1,61 @@
 $(function() {
+	//Destaques com fotos
+	var showNext = function() {
+		var childrens = $(".highlights").children(".highlight");
+		var previousHighlight = null;
+		var nextHighlight = null;
+		var nextPosition = 0;
+		$(childrens).each(function(index) {
+			var length = childrens.length;
+			var children = $(this);
+			if (children.attr("class").indexOf("current") > 0) {
+				previousHighlight = children;
+				if ((index + 1) == length) {
+					nextPosition = 0;
+				} else {
+					nextPosition = (index + 1);
+				}				
+			}
+		});
+		nextHighlight = $(childrens[nextPosition]);
+		previousHighlight.stop(true).animate({
+			opacity: 0
+		}, 500, "swing", function() {
+			$(this).removeClass("current");
+		});
+		nextHighlight.stop(true).animate({
+			opacity: 1
+		}, 500, "swing", function() {
+			$(this).addClass("current");
+		});
+	};
+	var intervalId = setInterval(showNext, 3000);
+	$("div.highlights").mouseover(function() {
+		$("img.arrow-left").add("img.arrow-right").css("display", "block");
+	}).mouseout(function() {
+		$("img.arrow-left").add("img.arrow-right").css("display", "none");
+	});
+	$("img.arrow-left").mouseover(function() {
+		$("img.arrow-left").css("display", "block");
+	}).click(function() {
+		if (intervalId > 0) {
+			clearInterval(intervalId);
+			intervalId = 0;
+		}
+		showNext();
+	});
+	$("img.arrow-right").mouseover(function() {
+		$("img.arrow-right").css("display", "block");
+	}).click(function() {
+		if (intervalId > 0) {
+			clearInterval(intervalId);
+			intervalId = 0;
+		}		
+		showNext();
+	});
+	
+	
+	//Matérias mais lidas
 	$.ajax({
 		url     : "/mostViewed?categoryId=1&currentPage=1&pageSize=30",
 		cache   : false,
@@ -42,77 +99,3 @@ $(function() {
 		}
 	});
 });
-//$(function() {
-//	$.ajax({
-//		url : "/tatame/view/poll",
-//		cache : false,
-//		success : function(data) {			
-//			if (data) {
-//				var divPoll = $("div.poll");
-//				var divAlternatives = $("<div>").addClass("alternatives");
-//				for (var i = 0; i < data.alternatives.length; i++) {
-//					var alternative = data.alternatives[i];
-//					divAlternatives.append(
-//						$("<div>").addClass("alternative").append(
-//							$("<input>").attr({
-//								"type"  : "radio",
-//								"id"    : alternative.id,
-//								"votes" : alternative.votes,
-//								"value" : alternative.text						
-//							}).click(function() {
-//								var pollId = $("div.question").attr("id"); 
-//								var alternativeId = $(this).attr("id");
-//								if (getCookie(pollId)) {
-//									$(this).attr("checked", false);
-//									alert("Você já votou.");
-//									return;
-//								}							
-//								$("div.alternative input[type=radio]").each(function() {
-//									$(this).attr("checked", false);
-//								});	
-//								$(this).attr("checked", true);
-//								$.ajax({
-//									url : "/tatame/view/poll?pollId=" + pollId + "&alternativeId=" + alternativeId,
-//									cache : false,
-//									success : function(data) {
-//										console.log(data);
-//										alert("Voto realizado com sucesso.");
-//									}
-//								});
-//								setCookie(pollId);
-//							})					
-//						).append(
-//							$("<span>").html(alternative.text)
-//						)
-//					);
-//				}
-//				divPoll.append(
-//					$("<div>").addClass("question").attr("id", data.id).html(data.question)
-//				).append(
-//					divAlternatives
-//				);	
-//			} else {
-//				$("div.bd-poll").css("display", "none");
-//			}
-//		}
-//	});
-//});
-//
-//var setCookie = function(pollId){
-//	var date = new Date();
-//	date.setDate(date.getDate() + 365);
-//	var value = ("POLL_" + pollId) + "; expires="+date.toUTCString();
-//	document.cookie=("POLL_" + pollId) + "=" + value;
-//};
-//
-//var getCookie = function(pollId){
-//	var i, x, y, ARRcookies = document.cookie.split(";");
-//	for (i = 0; i< ARRcookies.length; i++) {
-//		x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
-//	  	y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
-//	  	x = x.replace(/^\s+|\s+$/g,"");
-//	  	if (x == ("POLL_" + pollId)) {
-//	    	return unescape(y);
-//	    }
-//	}
-//};

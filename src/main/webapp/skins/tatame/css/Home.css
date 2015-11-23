@@ -1,6 +1,9 @@
 @CHARSET "UTF-8";
-.highlights { float: left; height: 595px; width: 714px; overflow: hidden; }
-.highlights .highlight { float: left; height: 595px; width: 714px; }
+.highlights { float: left; height: 595px; width: 714px; overflow: hidden; position: relative; }
+.highlights .arrow-left { position: absolute; z-index: 3; top: 272px; left: 5px; display: none; }
+.highlights .arrow-right { position: absolute; top: 272px; left: 659px; z-index: 3; display: none; }
+.highlights .highlight { float: left; height: 595px; width: 714px; display: none; }
+.highlights .current { display: block; }
 .highlights .highlight .card-50 { float: left; width: 352px; height: 595px; position: relative; }
 .highlights .highlight .card-50 > img { float: left; width: 353px; height: auto; }
 .highlights .highlight .card-50 .transparence { width: 352px; background-color: #000; opacity: 0.5; height: 134px; position: absolute; left: 0; top: 461px; }
