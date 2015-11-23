@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+.articles { float: left; }
+.articles .title { float: left; }
+.articles .article { float: left; }
+.articles .article > a { float: left; }
+.articles .article > a img { float: left; }
+.articles .article .info { float: left; }
+.articles .article .info .title { float: left; }
+.articles .article .info .author { float: left; }
+.articles .article .info .date { float: left; }
+.footer { float: left; }
+.footer .previous { float: left; }
+.footer .current { float: left; }
+.footer .inactive { float: left; }
+.footer .next { float: left; }
