@@ -1,6 +1,6 @@
 $(function() {
 	$.ajax({
-		url     : "/mostViewed?categoryId=1&currentPage=1&pageSize=5",
+		url     : "/mostViewed?categoryId=1&currentPage=1&pageSize=30",
 		cache   : false,
 		success : function(data) {
 			if (data && data.length > 0) {
@@ -18,10 +18,10 @@ $(function() {
 					dataInOrder.push(mostViewed);
 				} while (data.length > 0);
 				data = dataInOrder;
-				var divReadMore = $("div.read-more");
+				var divMostVieweds = $("div.most-vieweds");
 				for (var i = 0; i < data.length; i++) {
 					var article = data[i];
-					divReadMore.append(
+					divMostVieweds.append(
 						$("<div>").addClass("most-viewed box-shadow").append(
 							$("<a>").attr("href", article.link).append(
 								$("<img>").attr({
@@ -31,12 +31,10 @@ $(function() {
 							)
 						).append(
 							$("<div>").addClass("info").append(
-								$("<div>").addClass("date").html(article.date)
+								$("<div>").addClass("date").html(article.publishedAt)
 							).append(
 								$("<div>").addClass("header").html(article.header)
-							).append(
-								$("<div>").addClass("title").html(article.title)
-							)						
+							)			
 						)
 					);
 				}				
