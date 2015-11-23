@@ -24,7 +24,7 @@
 </div>
 <div class="container">
 	<div class="header-adv">
-		<s:if test="model != null && ((model instanceof com.publisher.entity.Page && model.id == 1) || (model instanceof com.publisher.entity.Category &&  model.id == 1))">
+		<s:if test="model != null && ((model instanceof com.publisher.entity.Page || model instanceof com.publisher.entity.Category) && model.id == 1)">
 			<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
 			<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master1&direct=1"></script>
 		</s:if>
