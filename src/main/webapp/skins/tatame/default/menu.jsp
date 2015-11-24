@@ -27,6 +27,10 @@
 		<s:if test="model != null && ((model instanceof com.publisher.entity.Page || model instanceof com.publisher.entity.Category) && model.id == 1)">
 			<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
 			<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master1&direct=1"></script>
+			
+			<div id='tatame_728x90_ros' style='width:728px; height:90px; margin: 0 auto; padding-top:10px;'> 
+				<script type='text/javascript'>googletag.cmd.push(function(){googletag.display('tatame_728x90_ros');});</script> 
+			</div>
 		</s:if>
 		<s:else>
 			<div id='tatame_728x90_ros' style='width:728px; height:90px; margin: 0 auto;'> 
