@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="/home/indica" min="6" max="6" name="Indica" version="123456789">
+<items form="home/indica" max="6" min="1" name="Indica" version="1435156317954">
   <item>
-      <photoId></photoId>
-      <note></note>
-      <date></date>
-      <link></link>
+    <title>FORÇA E RESISTÊNCIA</title>
+    <price>R$ 799,00</price>
+    <photoId>/img/385789_130x80.jpg</photoId>
+    <description>O Relógio EWC Extreme EMT15312-1 foi projetado com caixa de 55 mm e pulseira de silicone preta. É movido por máquina japonesa, o que garante qualidade e durabilidade! Sua resistência à água alcança até 100 metros. Tudo com 2 anos de garantia!</description>
+    <link>http://ewcwatches.com</link>
+    <date>15/06/2015</date>
+  </item>
+  <item>
+    <title>Treinos em dia </title>
+    <price>R$ 369,90</price>
+    <photoId>/img/386308_130x80.jpg</photoId>
+    <description>Para deixar os lutadores em dia com os treinos de habilidade e resistência, o Tatame Prime Esportes UFC Oficial Small / Thin 22 é ideal. Criado nas normas técnicas definidas pela Federação de Lutas Marciais.</description>
+    <link>http://www.primesportes.com.br/</link>
+    <date>18/06/2015</date>
+  </item>
+  <item>
+    <title>kimono Arm Lock da Dragão</title>
+    <price>R$ 420,00</price>
+    <photoId>/img/386304_130x80.jpg</photoId>
+    <description>Kimono para Jiu-Jitsu, 100% algodão, com medidas oficiais da CBJJ (Confederação brasileira de Jiu jitsu): Blusão – feito com tecido trançado (890gr/m), gola de lona com 6 costuras, patch nas costas, no peito, bordado preto sobre preto nas mangas. Acabamento interno personalizado nas mangas e na barra do blusão. Logo Dragão Jiu Jitsu no interior do kimono.  Calça – feita com tecido de lona grossa (550gr/m), duplo tecido da coxa até a barra e reforços extras. Patch na lateral da perna</description>
+    <link>http://www.kimonosdragao.com.br/arm-lock-preto-2015-lancamento</link>
+    <date>18/06/2015</date>
   </item>
 </items>

@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="/home/destaques" min="4" max="4" name="Destaques" version="123456789">
+<items form="home/destaques" max="4" min="4" name="Destaques" version="1447282586353">
   <item>
-      <photoId></photoId>
-      <note></note>
-      <date></date>
-      <link></link>
+    <date>11/11/2015</date>
+    <note>Joanna faz desabafo sobre provocações de Claudinha Gadelha: 'Falando demais'</note>
+    <link>tatame/noticias/joanna-faz-desabafo-sobre-recentes-provocacoes-de-claudinha-esta-falando-demais</link>
+    <photoId>/img/73569_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>10/11/2015</date>
+    <note>Bader comenta duelo com Johnson e garante: 'Vou fazer o que o Cormier fez com ele'</note>
+    <link>tatame/noticias/ryan-bader-comenta-duelo-com-johnson-e-garante-vou-fazer-o-que-o-cormier-fez-com-ele</link>
+    <photoId>/img/71020_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>10/11/2015</date>
+    <note>Campeão Daniel Straus revela que quebrou a mão no 1º round contra Pitbull; veja imagem</note>
+    <link>tatame/noticias/campeao-daniel-straus-revela-que-quebrou-a-mao-no-1-round-contra-pitbull-veja-imagem</link>
+    <photoId>/img/73960_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>10/11/2015</date>
+    <note>Decepcionado, Gilbert Durinho confirma superioridade do russo e quer usar revés como lição</note>
+    <link>tatame/noticias/decepcionado-gilbert-durinho-confirma-superioridade-do-russo-e-quer-usar-reves-como-licao</link>
+    <photoId>/img/77106_150x150.jpg</photoId>
   </item>
 </items>

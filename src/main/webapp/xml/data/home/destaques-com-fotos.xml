@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="/home/destaques-com-fotos" min="6" max="6" name="Destaques com fotos" version="123456789">
+<items form="home/destaques-com-fotos" max="6" min="6" name="Destaques com fotos" version="1447282454356">
   <item>
-      <photoId></photoId>
-      <note></note>
-      <link></link>
+    <note>Donald Cerrone recebe 'falha de localização' por omitir do UFC onde estaria no fim de semana e recebe alerta</note>
+    <link>tatame/noticias/cerrone-recebe-falha-de-localizacao-por-nao-contar-ao-ufc-onde-estaria-no-fim-de-semana/</link>
+    <photoId>/img/71904_150x150.jpg</photoId>
   </item>
+  <item>
+    <note>Com duas disputas de cinturão, Bellator supera Ultimate em espectadores no último final de semana; veja</note>
+    <link>tatame/noticias/com-duas-disputas-de-cinturao-bellator-supera-ufc-em-expectadores-no-fim-de-semana/</link>
+    <photoId>/img/77101_150x150.jpg</photoId>
+  </item>
+  <item>
+    <note>Vídeo: praticante de Kung Fu desafia lutador de Muay Thai e leva nocaute com chute brutal; assista</note>
+    <link>tatame/videos/video-lutador-leva-nocaute-com-chute-brutal-em-desafio-entre-kung-fu-e-muay-thai-confira</link>
+    <photoId>/img/77100_150x150.jpg</photoId>
+  </item>
+  <item>
+    <note>Empresa de Ronaldo Fenômeno rompe com Ultimate e anuncia fim de agenciamento à Belfort e Junior Cigano</note>
+    <link>tatame/noticias/empresa-de-ronaldo-rompe-com-o-ufc-e-anuncia-fim-de-agenciamento-a-belfort-e-cigano</link>
+    <photoId>/img/75663_150x150.jpg</photoId>
+  </item>
+  <item>
+    <note>Empresa de Ronaldo Fenômeno rompe com Ultimate e anuncia fim de agenciamento à Belfort e Junior Cigano</note>
+    <link>tatame/noticias/empresa-de-ronaldo-rompe-com-o-ufc-e-anuncia-fim-de-agenciamento-a-belfort-e-cigano</link>
+    <photoId>/img/75663_150x150.jpg</photoId>
+  </item>
+  <item>
+    <note>Empresa de Ronaldo Fenômeno rompe com Ultimate e anuncia fim de agenciamento à Belfort e Junior Cigano</note>
+    <link>tatame/noticias/empresa-de-ronaldo-rompe-com-o-ufc-e-anuncia-fim-de-agenciamento-a-belfort-e-cigano</link>
+    <photoId>/img/75663_150x150.jpg</photoId>
+  </item>    
 </items>

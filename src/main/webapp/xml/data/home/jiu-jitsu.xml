@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="/home/jiu-jitsu" min="4" max="4" name="Jiu Jitsu" version="123456789">
+<items form="home/jiu-jitsu" max="4" min="4" name="Jiu Jitsu" version="1447282652350">
   <item>
-      <photoId></photoId>
-      <note></note>
-      <date></date>
-      <link></link>
+    <date>11/11/2015</date>
+    <note>Preguiça vibra após brilhar no Mundial No-Gi e projeta superluta com Simões</note>
+    <link>tatame/jiu-jitsu/felipe-preguica-vibra-apos-brilhar-no-mundial-no-gi-e-projeta-superluta-com-yuri-simoes</link>
+    <photoId>/img/77108_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>11/11/2015</date>
+    <note>Tanquinho celebra volta ao Jiu-Jitsu com ouro no Mundial No-Gi e projeta superluta na Rússia</note>
+    <link>tatame/jiu-jitsu/tanquinho-celebra-volta-ao-jiu-jitsu-com-ouro-no-mundial-no-gi-e-projeta-superluta-na-russia</link>
+    <photoId>/img/77107_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>10/11/2015</date>
+    <note>João Miyao passa irmão é o novo líder do ranking mundial da IBJJF; Mackenzie lidera feminino</note>
+    <link>tatame/jiu-jitsu/joao-miyao-e-o-novo-lider-do-ranking-mundial-da-ibjjf-mackenzie-dern-lidera-feminino</link>
+    <photoId>/img/60425_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>10/11/2015</date>
+    <note>Com nomes de peso, Rio BJJ Pro agita o Rio de Janeiro no fim de semana; inscrições abertas</note>
+    <link>tatame/jiu-jitsu/com-nomes-de-peso-confirmados-rio-bjj-pro-acontece-no-fim-de-semana</link>
+    <photoId>/img/77018_150x150.jpg</photoId>
   </item>
 </items>

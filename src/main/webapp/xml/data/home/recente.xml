@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="/home/recente" min="4" max="40" name="Recente" version="123456789">
+<items form="home/recente" max="40" min="4" name="Recente" version="1447328935560">
   <item>
-      <photoId></photoId>
-      <note></note>
-      <date></date>
-      <link></link>
+    <date>12/11/2015</date>
+    <note>Última etapa do Circuito Rio Mineirinho, Qualifier tem valor de inscrição promocional até 15/11</note>
+    <link>tatame/jiu-jitsu/ultima-etapa-do-ranking-do-rio-mineirinho-qualifier-tem-inscricoes-promocionais-ate-15/11</link>
+    <photoId>/img/77111_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>12/11/2015</date>
+    <note>Rio de Janeiro recebe 'Curso de Preparação Física para Lutadores' no próximo sábado</note>
+    <link>tatame/noticias/rio-de-janeiro-recebe-curso-de-preparacao-fisica-para-lutadores-no-proximo-sabado</link>
+    <photoId>/img/77110_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>11/11/2015</date>
+    <note>Preguiça vibra após brilhar no World Jiu-Jitsu No-Gi e projeta superluta com Yuri Simões</note>
+    <link>tatame/jiu-jitsu/felipe-preguica-vibra-apos-brilhar-no-mundial-no-gi-e-projeta-superluta-com-yuri-simoes</link>
+    <photoId>/img/77108_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>11/11/2015</date>
+    <note>Rafael dos Anjos mostra apoio após lesão de Nurmagomedov: 'Desejo o melhor para ele'</note>
+    <link>tatame/noticias/dos-anjos-mostra-apoio-apos-lesao-de-nurmagomedov-desejo-o-melhor-a-ele</link>
+    <photoId>/img/71989_150x150.jpg</photoId>
+  </item>
+  <item>
+    <date>11/11/2015</date>
+    <note>Joanna Jedrzejczyk faz desabafo sobre recentes provocações de Claudinha: 'Está falando demais'</note>
+    <link>tatame/noticias/joanna-faz-desabafo-sobre-recentes-provocacoes-de-claudinha-esta-falando-demais</link>
+    <photoId>/img/73569_150x150.jpg</photoId>
   </item>
 </items>
