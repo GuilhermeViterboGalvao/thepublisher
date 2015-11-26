@@ -9,9 +9,9 @@
 	<div class="box-300 margin-left-10">
 		<div class="ads-highlights">
 			<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
-			<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow"></div>
-			<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow"></div>
-			<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
+			<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow margin-top-15"></div>
+			<div id="tatame_300x250_ros" class="ads-300-250 box-shadow box-shadow margin-top-15"></div>
+			<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow box-shadow margin-top-15"></div>
 		</div>				
 	</div>
 </div>				

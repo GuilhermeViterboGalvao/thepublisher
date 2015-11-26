@@ -31,7 +31,10 @@
 	    		<div class="tags">
 					<b>Tags</b>
 					<s:property value="tags"/>
-				</div>  		
+				</div>
+				<s:if test="forumEnabled">
+					<div class="fb-comments margin-top-15" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="714"></div>
+				</s:if>			
 	    	</div>
 		    <div class="box-300 margin-left-10">
 		    	<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
@@ -55,9 +58,6 @@
 					</s:iterator>
 				</div>
 			</div>
-		    <s:if test="forumEnabled">
-				<div class="fb-comments box-shadow" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="1024"></div>
-			</s:if>
 		</div>
 	</div>
 </s:if>
