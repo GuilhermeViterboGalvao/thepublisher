@@ -36,7 +36,7 @@
 		<div class="black-belt-most-vieweds box-shadow">
 			<div class="dan">Mais lidas</div>
 		</div>					
-		<div class="most-vieweds"></div>					
+		<div class="most-vieweds perfect-scroll"></div>					
 	</div>
 	<div class="box-714 margin-left-10">
 		<p:tile xml="home/jiu-jitsu"/>					

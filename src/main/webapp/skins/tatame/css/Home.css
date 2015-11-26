@@ -39,7 +39,7 @@
 
 .black-belt-last-news { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-last-news .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 75px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
-.last-news { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
+.last-news { float: left; height: 810px; width: 300px; border-bottom: 1px solid #a2393c; }
 .last-news .article { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
 .last-news .article img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
 .last-news .article .info { float: left; width: 300px; height: 70px; }
@@ -48,7 +48,7 @@
 
 .black-belt-most-vieweds { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-most-vieweds .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 90px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
-.most-vieweds { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
+.most-vieweds { float: left; height: 810px; width: 300px; border-bottom: 1px solid #a2393c; }
 .most-vieweds .most-viewed { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
 .most-vieweds .most-viewed img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
 .most-vieweds .most-viewed .info { float: left; width: 300px; height: 70px; }

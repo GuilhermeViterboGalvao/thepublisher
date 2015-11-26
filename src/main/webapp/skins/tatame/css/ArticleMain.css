@@ -46,10 +46,10 @@ div.content div.tags b { font-weight: bold; }
 
 div.black-belt-post-related { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; }
 div.black-belt-post-related div.dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 18px; line-height: 25px; height: 25px; color: #fff; width: 174px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
-div.related-posts { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
+div.related-posts { float: left; height: 535px; width: 300px; border-bottom: 1px solid #a2393c; }
 div.related-posts div.related-item { float: left; width: 300px; height: 265px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
 div.related-posts div.related-item img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
 div.related-posts div.related-item div.info { float: left; width: 300px; height: 70px; }
-div.related-posts div.related-item div.info .title { float: left; width: 277px; height: 38px; padding: 0 0 0 5px; line-height: 18px; overflow: hidden; }
+div.related-posts div.related-item div.info .title { float: left; width: 290px; height: 38px; padding: 0 0 0 5px; line-height: 18px; overflow: hidden; }
 div.related-posts div.related-item div.info .title a {  text-decoration:none; font-size: 13px; color: #fff;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 div.related-posts div.related-item div.info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 13px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }

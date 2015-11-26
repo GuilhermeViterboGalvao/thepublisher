@@ -11,7 +11,7 @@
 %>
 <s:if test="published || #request.preview">
 	<div class="padding-top-15">
-		<div class="box box-1024 box-shadow">	
+		<div class="box box-1024">	
 	    	<div class="box-714">
 	    		<div class="title"><s:property value="title"/></div>
 	    		<div class="credits margin-top-10">	
@@ -35,11 +35,11 @@
 	    	</div>
 		    <div class="box-300 margin-left-10">
 		    	<div id="tatame_300x250_ros" class="ads-300-250 box-shadow"></div>
-		    	
+		    	<div id="tatame_300x600_ros" class="ads-300-600 box-shadow margin-top-10"></div>
 				<div class="black-belt-post-related box-shadow margin-top-10">
 					<div class="dan">Notícias relacionadas</div>
 				</div>
-				<div class="related-posts">
+				<div class="related-posts box-shadow perfect-scroll">
 					<s:iterator value="getLast(4)" status="st">
 						<div class="related-item">
 							<a href="/${permanentLink.uri}" title="${title}">
@@ -56,7 +56,7 @@
 				</div>
 			</div>
 		    <s:if test="forumEnabled">
-				<div class="fb-comments" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="1024"></div>
+				<div class="fb-comments box-shadow" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="1024"></div>
 			</s:if>
 		</div>
 	</div>

@@ -30,6 +30,8 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .content { float: left; width: 100%; }
 .page { height: auto; width: 1024px; margin: 15px auto; }
 
+.perfect-scroll { overflow: hidden; position: relative; }
+
 .header { float: left; width: 100%; }
 .header .terra-bar { float: left; width: 100%; }
 .header .terra-bar iframe { float: left; height: 25px; width: 100%; }

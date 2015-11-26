@@ -2,6 +2,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <script type="text/javascript">terra_stats_metrics();</script>
 <script type="text/javascript" src="http://cdn-tatame.trrsf.com/skins/tatame/js/jquery-1.7.2-min.js"></script>
+<script type="text/javascript" src="/frameworks/jquery/plugins/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/skins/tatame/js/main.js"></script>
+
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 	<script type="text/javascript" src="/skins/tatame/js/Home.js?13"></script>
 </s:if>
@@ -11,6 +14,7 @@
 		<script type="text/javascript" src="/skins/tatame/js/PhotoGallery.js"></script>
 	</s:if>
 </s:if>
+
 <!-- FB Rmkt – MMA 2x2 -->
 <script type="text/javascript">
 	(function() {
