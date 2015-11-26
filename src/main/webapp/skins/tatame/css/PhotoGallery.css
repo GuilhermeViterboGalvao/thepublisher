@@ -1,14 +1,16 @@
 @CHARSET "UTF-8";
-article.post div.bigphotoholder { float: left; width: 620px; }
-article.post div.bigphotoholder div.holder { float: left; width: 620px; }
-article.post div.bigphotoholder div.holder img { margin: 0 auto; display: table; }
-article.post div.bigphotonote { background-color: #e7e7e9; color: #000; float: left; font-family: Verdana !important; font-size: 14px; line-height: 20px; margin: 5px 0; padding: 5px; width: 611px; }
-article.post .bigphotoholder-thumbs { float: left; margin-top: 5px; overflow: hidden; width: 620px; }
-article.post .bigphotoholder-thumbs div.left { float: left; height: 22px; padding: 24px 0; width: 17px; }
-article.post .bigphotoholder-thumbs div.right { float: right; height: 22px; padding: 24px 0; width: 17px; }
-article.post .bigphotoholder-thumbs div.left img,
-article.post .bigphotoholder-thumbs div.right img { width: 17px; height: 22px; }
-article.post .bigphotoholder-thumbs div.photoholder { float: left; height: 70px; overflow: hidden; width: 586px; }
-article.post .bigphotoholder-thumbs div.photoholder img { border: 1px solid #babaca; float: left; height: 68px; margin: 0 2px; width: 91px; }
-article.post .hide { display: none; }
-article.post .show { display: block; }
+div.content div.bigphotoholder { float: left; height: 452px; width: 714px; overflow: hidden; position: relative; padding-top: 10px; }
+div.content div.bigphotoholder div.holder { float: left; width: 714px; }
+div.content div.bigphotoholder div.holder img { margin: 0 auto; display: table; }
+div.content div.bigphotoholder div.transparent { left: 0; background-color: #000; height: 50px; width: 714px; position: absolute;  opacity: 0.5; top: 410px; }
+div.content div.bigphotoholder div.bigphotonote { color: #fff; font-size: 16px; height: 24px; line-height: 20px; width: 708px; top:424px; left: 20px; overflow: hidden; position: absolute;  text-overflow: ellipsis; white-space:nowrap; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+
+div.content div.bigphotoholder-thumbs { float: left; margin-top: 5px; overflow: hidden; width: 714px; }
+div.content div.bigphotoholder-thumbs div.left { float: left; padding: 25px 0; width: 25px; }
+div.content div.bigphotoholder-thumbs div.right { float: right; padding: 25px 0; width: 25px; }
+div.content div.bigphotoholder-thumbs div.left img,
+div.content div.bigphotoholder-thumbs div.right img { width: 25px; }
+div.content div.bigphotoholder-thumbs div.photoholder { float: left; height: 78px; overflow: hidden; width: 644px; }
+div.content div.bigphotoholder-thumbs div.photoholder img { border: 1px solid #babaca; float: left; height: 75px; margin: 0 2px; width: 101px; }
+div.content .hide { display: none; }
+div.content .show { display: block; }

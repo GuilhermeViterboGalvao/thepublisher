@@ -6,9 +6,9 @@
 	<script type="text/javascript" src="/skins/tatame/js/Home.js?13"></script>
 </s:if>
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
-	<script type="text/javascript" src="http://cdn-tatame.trrsf.com/skins/tatame/js/Article.js"></script>
+	<script type="text/javascript" src="/skins/tatame/js/Article.js"></script>
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">
-		<script type="text/javascript" src="http://cdn-tatame.trrsf.com/skins/tatame/js/PhotoGallery.js"></script>
+		<script type="text/javascript" src="/skins/tatame/js/PhotoGallery.js"></script>
 	</s:if>
 </s:if>
 <!-- FB Rmkt – MMA 2x2 -->

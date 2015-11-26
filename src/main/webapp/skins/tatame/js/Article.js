@@ -1,11 +1,9 @@
 $(function() {
-	$("article.post div.photo img").each(function() {
+	$("div.text div.photo img").each(function() {
 		var img = $(this);
 		var src = img.attr("src");
-		if (src.indexOf("../") == 0) {
-			src = src.replace("../", "/");	
-		} else if (src.indexOf("img/") == 0) {
-			src = src.replace("img/", "http://cdn-tatame.trrsf.com/img/");
+		if (src.indexOf("/img/") == 0) {
+			src = src.replace("/img/", "http://cdn-tatame.trrsf.com/img/");
 		}
 		img.attr("src", src);
 	});

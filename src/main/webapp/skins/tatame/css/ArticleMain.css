@@ -1,30 +1,55 @@
 @CHARSET "UTF-8";
-div#bd-recent-posts-2 div.widget-inner { height: 454px; }
-.post-tags { float: left; max-width: 620px; width: 100%; }
-.post-entry { float: left; max-width: 620px; width: 100%; }
-.post > .post-title > a { font-size: 24px; line-height: 30px;}
-div.post-entry div.size670,
-div.post-entry div.size670 div { padding: 3px; text-align: center; }
-div.post-entry div.size670 > img { width: 610px; }
-div.post-entry div.size670 > div { width: 590px; }
-div.post-entry div.size360,
-div.post-entry div.size360 div { margin-bottom: 10px; }
-div.post-entry div.size360 > img { width: 339px; }
-div.post-entry div.size360 > div { width: 319px; }
-div.post-entry div.size320,
-div.post-entry div.size320 div { margin-bottom: 10px; }
-div.post-entry div.size320 > img { width: 299px; }
-div.post-entry div.size320 > div { width: 279px; }
-div.post-entry div.size210,
-div.post-entry div.size210 div { margin-bottom: 10px; font-size: 14px; padding: 5px; width: 190px; line-height: 18px; }
-div.post-entry div.size210 > img { width: 190px; }
-div.post-entry div.size210 > div { width: 170px; }
-div.post-entry div.size210 > div,
-div.post-entry div.size320 > div,
-div.post-entry div.size360 > div,
-div.post-entry div.size670 > div { color: #000; font-size: 12px; font-style: italic; font-weight: bold; line-height: 20px; padding: 10px; }
-div.post-entry div.center { width: 100%; }
-div.post-entry div.center img,
-div.post-entry div.center div { display: table; margin: 0 auto; background-color: #ececec; }
-div.post-entry div.right { float: right; clear: right; margin-left: 10px; }
-div.post-entry div.left { float: left; clear: left; margin-right: 10px; }
+
+div.content div.size670,
+div.content div.size670 div { padding: 3px; text-align: center; }
+div.content div.size670 > img { width: 610px; }
+div.content div.size670 > div { width: 590px; }
+div.content div.size360,
+div.content div.size360 div { margin-bottom: 10px; }
+div.content div.size360 > img { width: 339px; }
+div.content div.size360 > div { width: 319px; }
+div.content div.size320,
+div.content div.size320 div { margin-bottom: 10px; }
+div.content div.size320 > img { width: 299px; }
+div.content div.size320 > div { width: 279px; }
+div.content div.size210,
+div.content div.size210 div { margin-bottom: 10px; font-size: 14px; padding: 5px; width: 190px; line-height: 18px; }
+div.content div.size210 > div { width: 170px; }
+div.content div.size210 > div,
+div.content div.size320 > div,
+div.content div.size360 > div,
+div.content div.size670 > div { color: #fff; font-size: 12px; font-style: italic; line-height: 20px; padding: 10px; background-color: #2b2b2b; }
+div.content div.center { width: 100%; }
+div.content div.center img,
+div.content div.center div { display: table; margin: 0 auto; background-color: #2b2b2b; }
+div.content div.right { float: right; clear: right; margin-left: 10px; }
+div.content div.left { float: left; clear: left; margin-right: 10px; }
+
+div.content div.title { float: left; position: relative; font-size: 28px; line-height: 33px; font-weight: bold; color: #000; }
+
+div.content div.credits { width: 714px; float: left; position: relative; background-color: #2b2b2b; }
+div.content div.credits div.info { float: left; width: 591px; padding: 5px 0 5px 5px; border-right: 3px solid #a2393c; }
+div.content div.credits div.info p { color: #fff; font-size: 13px; padding: 1px 0; }
+div.content div.credits div.info p a { text-decoration: none; font-weight: bold; color: #fff; font-size: 15px; }
+div.content div.credits div.social-plugins { float: right; padding: 4.8px 0 0 2px; }
+div.content div.credits div.social-plugins > iframe { float: left; height: 20px; margin-right: 5px; width: 55px; }
+div.content div.credits div.social-plugins > div { float: left; height: 20px; width: 113px; }
+
+div.content div.text { float: left; margin: 15px 0 0 2px; width: 714px; font-family: Open Sans,sans-serif; }
+div.content div.text p { color: #5d5c5c; margin-bottom:15px; font-size: 14px; line-height: 20px; max-width: 708px; word-wrap: break-word; }
+div.content div.text p a { text-decoration: none; font-weight: bold; color: #000; }
+div.content div.text > div { color: #7d7d7d; font-size: 14px; line-height: 24px; max-width: 714px; word-wrap: break-word; padding-bottom: 10px; }
+div.content div.text > div a { text-decoration: none; }
+
+div.content div.tags { float: left; position:relative; width: 714px; text-transform: uppercase; color: #5d5c5c; margin: 20px 0; font-family: Open Sans,sans-serif; font-size: 14px; }
+div.content div.tags b { font-weight: bold; }
+
+div.black-belt-post-related { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; }
+div.black-belt-post-related div.dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 18px; line-height: 25px; height: 25px; color: #fff; width: 174px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+div.related-posts { float: left; height: 810px; width: 300px; overflow-x: hidden; overflow-y: scroll; border-bottom: 1px solid #a2393c; }
+div.related-posts div.related-item { float: left; width: 300px; height: 265px; overflow: hidden; margin: 0 0 5px 0; background-color: #2b2b2b; }
+div.related-posts div.related-item img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
+div.related-posts div.related-item div.info { float: left; width: 300px; height: 70px; }
+div.related-posts div.related-item div.info .title { float: left; width: 277px; height: 38px; padding: 0 0 0 5px; line-height: 18px; overflow: hidden; }
+div.related-posts div.related-item div.info .title a {  text-decoration:none; font-size: 13px; color: #fff;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+div.related-posts div.related-item div.info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 13px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }

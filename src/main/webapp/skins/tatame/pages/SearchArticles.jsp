@@ -23,7 +23,7 @@
 				</div>
 				<div class="post-image">
 					<a href="/${permanentLink.uri}" title="${title}"> 
-						<img class="lazy" data-original="http://cdn-tatame.trrsf.com/img/${photo.id}_270x180.jpg" width="270" height="180" alt="${title}" border="0" />
+						<img class="lazy" src="http://cdn-tatame.trrsf.com/img/${photo.id}_270x180.jpg" width="270" height="180" alt="${title}" border="0" />
 					</a>
 				</div>
 				<div class="post-entry">
