@@ -4,36 +4,32 @@
 <div class="padding-top-15">
 	<div class="box box-1024">
 		<span class="category-name">
-			<a href="/<s:property value="permanentLink.uri"/>">
-				<s:property value="name"/>
-			</a>
+			<s:property value="query"/>
 		</span>	
 		<div class="box-1024 padding-15">
 			<div class="box-714">
 				<div class="first-article box-shadow">
-					<div>
-						<s:if test="articles.get(0).photo != null">
+					<s:if test="articles.get(0).photo != null">
+						<a href="/${articles.get(0).permanentLink.uri}">
+							<img alt="<s:property value="articles.get(0).header"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="articles.get(0).photo.id"/>_714x452.jpg"/>
+						</a>
+					</s:if>
+					<div class="info">
+						<p class="title">
 							<a href="/${articles.get(0).permanentLink.uri}">
-								<img alt="<s:property value="articles.get(0).header"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="articles.get(0).photo.id"/>_714x452.jpg"/>
+								<s:property value="articles.get(0).title"/>
 							</a>
-						</s:if>
-						<div class="info">
-							<p class="title">
-								<a href="/${articles.get(0).permanentLink.uri}">
-									<s:property value="articles.get(0).title"/>
-								</a>
-							</p>
-							<p class="author">
-								<a href="/${articles.get(0).permanentLink.uri}">
-				    				<span><s:property value="articles.get(0).createdBy.name"/> <s:date name="articles.get(0).publishedAt" format="dd/MM/yyyy"/></span> 
-				    			</a>
-				    		</p>
-				    		<p class="note">
-				    			<a href="/${articles.get(0).permanentLink.uri}">
-				    				<s:property value="articles.get(0).note"/>
-				    			</a>
-				    		</p>
-						</div>
+						</p>
+						<p class="author">
+							<a href="/${articles.get(0).permanentLink.uri}">
+			    				<span><s:property value="articles.get(0).createdBy.name"/> <s:date name="articles.get(0).publishedAt" format="dd/MM/yyyy"/></span> 
+			    			</a>
+			    		</p>
+			    		<p class="note">
+			    			<a href="/${articles.get(0).permanentLink.uri}">
+			    				<s:property value="articles.get(0).note"/>
+			    			</a>
+			    		</p>
 					</div>
 				</div>
 				<div class="articles margin-top-10">					

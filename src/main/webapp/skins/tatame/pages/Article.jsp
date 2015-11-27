@@ -36,28 +36,30 @@
 					<div class="fb-comments margin-top-15" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="714"></div>
 				</s:if>			
 	    	</div>
-		    <div class="box-300 margin-left-10">
-		    	<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
-		    	<div id="tatame_300x250_ros" class="ads-300-250 box-shadow margin-top-10"></div>
-				<div class="black-belt-post-related box-shadow margin-top-10">
-					<div class="dan">Notícias relacionadas</div>
-				</div>
-				<div class="related-posts box-shadow perfect-scroll">
-					<s:iterator value="getLast(4)" status="st">
-						<div class="related-item">
-							<a href="/${permanentLink.uri}" title="${title}">
-								<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photo.id}_270x180.jpg" />
-							</a>
-							<div class="info">	
-								<div class="title">
-									<a href="/${permanentLink.uri}">${title}</a>
+	    	<s:if test="!#withoutRight">
+			    <div class="box-300 margin-left-10">
+			    	<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
+			    	<div id="tatame_300x250_ros" class="ads-300-250 box-shadow margin-top-10"></div>
+					<div class="black-belt-post-related box-shadow margin-top-10">
+						<div class="dan">Notícias relacionadas</div>
+					</div>
+					<div class="related-posts box-shadow perfect-scroll">
+						<s:iterator value="getLast(4)" status="st">
+							<div class="related-item">
+								<a href="/${permanentLink.uri}" title="${title}">
+									<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photo.id}_270x180.jpg" />
+								</a>
+								<div class="info">	
+									<div class="title">
+										<a href="/${permanentLink.uri}">${title}</a>
+									</div>
+									<div class="date"><s:date format="dd/MM/yyyy" name="lastModified" /></div>
 								</div>
-								<div class="date"><s:date format="dd/MM/yyyy" name="lastModified" /></div>
-							</div>
-						</div>			
-					</s:iterator>
+							</div>			
+						</s:iterator>
+					</div>
 				</div>
-			</div>
+			</s:if>
 		</div>
 	</div>
 </s:if>

@@ -6,4 +6,5 @@
 <s:set var="footerPathJSP" value="'/skins/tatame/default/footer.jsp'"/>
 <s:set var="scriptsPathJSP" value="'/skins/tatame/default/scripts.jsp'"/>
 <s:set var="dfpPathJSP" value="'/skins/tatame/default/google-dfp-script.jsp'"/>
+<s:set var="withoutRight" value="false"/>
 <%-- <s:set var="customHeadPathJSP" value=""/> --%>
