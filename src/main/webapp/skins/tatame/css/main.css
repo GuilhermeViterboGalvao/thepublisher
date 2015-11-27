@@ -61,6 +61,10 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .box-507 { float: left; width: 507px; }
 .box-300 { float: left; width: 300px; }
 
+.ads-300-100 { float: left; height: 100px; width: 300px; }
+.ads-300-250 { float: left; height: 250px; width: 300px; }
+.ads-300-600 { float: left; height: 600px; width: 300px; }
+
 .margin-right-5 { margin-right: 5px; }
 .margin-right-10 { margin-right: 10px; }
 .margin-right-15 { margin-right: 15px; }
