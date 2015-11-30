@@ -11,7 +11,7 @@
 %>
 <s:if test="published || #request.preview">
 	<div class="padding-top-15">
-		<div class="box box-1024">	
+		<div class="box-1024">	
 	    	<div class="box-714">
 	    		<div class="title"><s:property value="title"/></div>
 	    		<div class="credits margin-top-10">	

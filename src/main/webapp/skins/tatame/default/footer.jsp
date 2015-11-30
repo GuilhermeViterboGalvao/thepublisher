@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="logo">
 	<img alt="tatame_white.png" src="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png"/>
-</div>			
+</div>	
 <div class="pages">
 	<div class="title">PÁGINAS</div>
 	<p>Assinatura</p>
@@ -17,3 +17,9 @@
 	<p>Cep 20080-004</p>
 	<p>Tel: +55 (21) 2233-7755 / 2516-8595</p>
 </div>
+<s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
+	<div id="tatame_1680x912_home"></div>
+</s:if>
+<s:else>
+	<div id="tatame_1680x912_ros"></div>
+</s:else>

@@ -10,43 +10,43 @@
 		</s:if>		
 	</head>
 	<body>
-		<jsp:include page="/skins/tatame/default/terra-counter-head.jsp"/>
-		<div id="fb-root"></div>
-		<script type="text/javascript">
-			(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) {
-				  return;
-			  }
-			  js = d.createElement(s); 
-			  js.id = id;
-			  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=312287075567167";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, "script", "facebook-jssdk"));
-		</script>
-		<div class="header">
-			<s:if test="#headerPathJSP != null">
-				<s:include value="%{headerPathJSP}"/>
-			</s:if>
-			<s:if test="#menuPathJSP != null">
-				<s:include value="%{menuPathJSP}"/>
-			</s:if>
-		</div>
-		<div class="content">
-			<div class="page">
+		<div class="page">
+			<jsp:include page="/skins/tatame/default/terra-counter-head.jsp"/>
+			<div id="fb-root"></div>
+			<script type="text/javascript">
+				(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) {
+					  return;
+				  }
+				  js = d.createElement(s); 
+				  js.id = id;
+				  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=312287075567167";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, "script", "facebook-jssdk"));
+			</script>
+			<div class="header">
+				<s:if test="#headerPathJSP != null">
+					<s:include value="%{headerPathJSP}"/>
+				</s:if>
+				<s:if test="#menuPathJSP != null">
+					<s:include value="%{menuPathJSP}"/>
+				</s:if>
+			</div>
+			<div class="content">
 				<tiles:insertAttribute name="content"/>
-			</div>			
-		</div>
-		<div class="footer">
-			<s:if test="#footerPathJSP != null">
-				<s:include value="%{footerPathJSP}"/>
-			</s:if>
-		</div>
-		<s:if test="#scriptsPathJSP != null">
-			<s:include value="%{scriptsPathJSP}"/>
-		</s:if>							
-		<s:if test="#dfpPathJSP != null">
-			<s:include value="%{dfpPathJSP}"/>
-		</s:if>
+			</div>
+			<div class="footer box-shadow">
+				<s:if test="#footerPathJSP != null">
+					<s:include value="%{footerPathJSP}"/>
+				</s:if>
+			</div>
+			<s:if test="#scriptsPathJSP != null">
+				<s:include value="%{scriptsPathJSP}"/>
+			</s:if>							
+			<s:if test="#dfpPathJSP != null">
+				<s:include value="%{dfpPathJSP}"/>
+			</s:if>		
+		</div>		
 	</body>
 </html>

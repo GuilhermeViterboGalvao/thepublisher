@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"              %>
 <%@ taglib prefix="p" uri="/publisher-tags" %>
 <div class="padding-top-15">
-	<div class="box box-1024">
+	<div class="box-1024">
 		<span class="category-name">
 			<s:property value="query"/>
 		</span>	
