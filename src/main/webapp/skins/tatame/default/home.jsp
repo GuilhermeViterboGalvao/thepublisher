@@ -10,7 +10,8 @@
 		<div class="ads-highlights">
 			<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
 			<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow margin-top-15"></div>
-			<div id="tatame_300x250_ros" class="ads-300-250 box-shadow box-shadow margin-top-15"></div>
+			<div class="ads-300-250 box-shadow box-shadow margin-top-15" id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
+			<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.right4&direct=1"></script>			
 			<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow box-shadow margin-top-15"></div>
 		</div>				
 	</div>
@@ -23,7 +24,7 @@
 	<div class="box-714">
 		<p:tile xml="home/videos"/>
 	</div>
-	<div class="box-300 margin-left-10">
+	<div class="box-300 margin-left-10 box-shadow">
 		<p:tile xml="home/recente"/>
 	</div>
 </div>		
@@ -32,7 +33,7 @@
 	<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master2&direct=1"></script>				
 </div>	
 <div class="box-1024">
-	<div class="box-300">
+	<div class="box-300 box-shadow">
 		<div class="black-belt-most-vieweds box-shadow">
 			<div class="dan">Mais lidas</div>
 		</div>					

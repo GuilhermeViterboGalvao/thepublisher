@@ -7,13 +7,15 @@
 	<ul class="categories">
 		<li>
 			<a href="/tatame/noticias">NOTÍCIAS</a>
-		</li>
-		<li>
-			<a href="/search?query=mma">MMA</a>
-		</li>
-		<li>
-			<a href="/tatame/jiujitsu">JIU-JITSU</a>
-		</li>						
+			<ul>
+				<li>
+					<a href="/search?query=mma">MMA</a>
+				</li>
+				<li>
+					<a href="/tatame/jiujitsu">JIU-JITSU</a>
+				</li>			
+			</ul>
+		</li>					
 	</ul>
 	<a href="#" class="diary">AGENDA</a>
 	<a href="#" class="columns">COLUNAS</a>

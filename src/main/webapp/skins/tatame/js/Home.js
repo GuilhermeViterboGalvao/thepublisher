@@ -1,4 +1,4 @@
-$(function() {
+$(function() {	
 	//Destaques com fotos
 	var showNext = function() {
 		var childrens = $(".highlights").children(".highlight");

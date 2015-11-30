@@ -3,10 +3,9 @@
 <script type="text/javascript">terra_stats_metrics();</script>
 <script type="text/javascript" src="http://cdn-tatame.trrsf.com/skins/tatame/js/jquery-1.7.2-min.js"></script>
 <script type="text/javascript" src="/frameworks/jquery/plugins/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="/skins/tatame/js/main.js"></script>
-
+<script type="text/javascript" src="/skins/tatame/js/main.js?1"></script>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
-	<script type="text/javascript" src="/skins/tatame/js/Home.js?13"></script>
+	<script type="text/javascript" src="/skins/tatame/js/Home.js?14"></script>
 </s:if>
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
 	<script type="text/javascript" src="/skins/tatame/js/Article.js"></script>
