@@ -1,5 +1,5 @@
 <%
-	if (info && info.item && info.item.size() == 4) {
+	if (info && info.item && info.item.size() == 2) {
 		def item, photoId, link
 %>
 <div class="black-belt-vidoes box-shadow">
@@ -36,36 +36,6 @@
 		</a>
 		<div class="note">${item.note}</div>
 	</div>
-	<div class="video box-shadow margin-top-10">
-		<%
-			item = info.item[2]
-			photoId = (item.photoId =~ /\d{1,999999}/)[0]
-			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
-				link = item.link.toString()
-			} else {
-				link = "/" + item.link.toString() 
-			}				
-		%>
-		<a href="${link}">
-			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg">
-		</a>
-		<div class="note">${item.note}</div>
-	</div>		
-	<div class="video box-shadow margin-left-10 margin-top-10">
-		<%
-			item = info.item[3]
-			photoId = (item.photoId =~ /\d{1,999999}/)[0]
-			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
-				link = item.link.toString()
-			} else {
-				link = "/" + item.link.toString() 
-			}				
-		%>
-		<a href="${link}">
-			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg">
-		</a>
-		<div class="note">${item.note}</div>
-	</div>	
 </div>
 <%
 	}

@@ -20,18 +20,24 @@
 <div class="ads-1024">
 	<div id="tatame_728x90_ros"></div>
 </div>
+
+
 <div class="box-1024">
 	<div class="box-714">
-		<p:tile xml="home/videos"/>
+		<p:tile xml="home/jiu-jitsu"/>
+		<p:tile xml="home/colunas"/>
 	</div>
+	
 	<div class="box-300 margin-left-10 box-shadow">
 		<p:tile xml="home/recente"/>
 	</div>
-</div>		
+</div>	
+	
 <div class="ads-1024">
 	<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
 	<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master2&direct=1"></script>				
 </div>	
+
 <div class="box-1024">
 	<div class="box-300 box-shadow">
 		<div class="black-belt-most-vieweds box-shadow">
@@ -40,9 +46,12 @@
 		<div class="most-vieweds perfect-scroll"></div>					
 	</div>
 	<div class="box-714 margin-left-10">
-		<p:tile xml="home/jiu-jitsu"/>					
+		<p:tile xml="home/agenda"/>	
+		<p:tile xml="home/videos"/>			
 	</div>					
-</div>				
+</div>
+
+			
 <div class="box-1024 margin-top-10">
 	<div class="box-714">
 		<p:tile xml="home/video"/>
@@ -50,7 +59,9 @@
 	<div class="box-300 box-shadow margin-left-10">
 		<div id="tatame_300x600_ros"></div>
 	</div>
-</div>				
+</div>	
+
+			
 <div class="box-1024 margin-top-10">
 	<div class="box-300">
 		<p:tile xml="home/revista"/>

@@ -2,10 +2,10 @@
 	if (info && info.item && info.item.size() == 2) {
 		def item, photoId, link
 %>
-<div class="black-belt-jiu-jitsu box-shadow">
-	<div class="dan">Jiu Jitsu</div>
+<div class="black-belt-colunas box-shadow">
+	<div class="dan">Colunas</div>
 </div>
-<div class="jiu-jitsu-articles">
+<div class="colunas-articles">
 	<div class="jiu-jitsu-article box-shadow">
 		<%
 			item = info.item[0]
@@ -35,7 +35,7 @@
 			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg"/>
 		</a>		
 		<div class="note">${item.note}</div>
-	</div>
+	</div>		
 </div>
 <%
 	}

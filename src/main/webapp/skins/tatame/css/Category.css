@@ -5,9 +5,9 @@ div.content span.category-name a { text-decoration: none; color: #2b2b2b; }
 
 div.content div.first-article { float: left; width: 714px; position:relative; }
 div.content div.first-article img { margin: 0 auto; display: table; }
-div.content div.first-article div.info { float: left; position: relative; width: 704px; height: 140px; padding: 10px 0 0 10px; background-color: #2b2b2b; }
-div.content div.first-article div.info p { color: #f2f2ed; overflow:hidden; width: 698px; }
-div.content div.first-article div.info p a { text-decoration: none; color: #f2f2ed; }
+div.content div.first-article div.info { float: left; position: relative; width: 704px; height: 140px; padding: 10px 0 0 10px; background-color: #f6f6f6; }
+div.content div.first-article div.info p { color: #000; overflow:hidden; width: 698px; }
+div.content div.first-article div.info p a { text-decoration: none; color: #000; }
 div.content div.first-article div.info p.title { text-overflow: ellipsis; font-size: 18px; line-height: 26px; font-weight: bold; font-family: fgDemi,sans-serif; text-transform: uppercase; height: 52px;}
 div.content div.first-article div.info p.author { float: left; font-size: 12px; padding: 5px 0 0; font-weight: bold; height: 30px; }
 div.content div.first-article div.info p.author span {  border-bottom: 3px solid #a2393c; }
@@ -17,9 +17,9 @@ div.content div.first-article div.info p.note { height: 45px; font-size: 14px; }
 div.content div.articles { float:left; width: 714px; position: relative; }
 div.content div.articles div.article { float:left; width: 714px; position: relative; margin-bottom: 10px;}
 div.content div.articles div.article img { float:left; position:relative; width: 270px; }
-div.content div.articles div.article div.info { float: left; position: relative; width: 434px; height: 180px; padding: 10px 0 0 10px; background-color: #2b2b2b; }
-div.content div.articles div.article div.info p { color: #f2f2ed; overflow:hidden; width: 428px; }
-div.content div.articles div.article div.info p a { color: #f2f2ed; text-decoration: none; }
+div.content div.articles div.article div.info { float: left; position: relative; width: 434px; height: 180px; padding: 10px 0 0 10px; background-color: #f6f6f6; }
+div.content div.articles div.article div.info p { color: #000; overflow:hidden; width: 428px; }
+div.content div.articles div.article div.info p a { color: #000; text-decoration: none; }
 div.content div.articles div.article div.info p.title { text-overflow: ellipsis; font-size: 23px; line-height: 26px; font-weight: bold; font-family: fgDemi,sans-serif; text-transform: uppercase; height: 78px;}
 div.content div.articles div.article div.info p.author { float: left; font-size: 14px; padding: 5px 0; font-weight: bold; font-style: italic; height: 30px; }
 div.content div.articles div.article div.info p.author span {  border-bottom: 3px solid #a2393c; }
@@ -31,4 +31,4 @@ div.content div.page-list a { text-decoration: none; color: #2b2b2b; font-size: 
 
 div.content div.magazine { float: left; height: 600px; width: 300px; overflow: hidden; }
 div.content div.magazine img { float: left; height: 402px; width: 300px; }
-div.content div.magazine .note { float: left; height: 187px; width: 290px; padding: 10px 0 0 10px; font-size: 30px; background-color: #2b2b2b; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; border-top: 1px solid #a2393c; line-height: 35px; }
+div.content div.magazine .note { float: left; height: 187px; width: 290px; padding: 10px 0 0 10px; font-size: 30px; background-color: #f6f6f6; color: #000; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; border-top: 1px solid #a2393c; line-height: 35px; }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="home/videos" max="4" min="4" name="Videos" version="1447282704919">
+<items form="home/videos" max="2" min="2" name="Videos" version="1447282704919">
   <item>
     <date>08/11/2015</date>
     <note>Confira o incrível nocaute do peso-galo Thominhas Almeida sobre Anthony Birchak no UFC São Paulo</note>
@@ -11,17 +11,5 @@
     <note>Confira a bomba de direita de Alex Cowboy que culminou em nocaute contra Hallmann no UFC São Paulo</note>
     <link>tatame/videos/video-confira-a-bomba-de-direita-de-alex-cowboy-que-culminou-em-nocaute-contra-hallmann</link>
     <photoId>/img/77089_150x150.jpg</photoId>
-  </item>
-  <item>
-    <date>08/11/2015</date>
-    <note>Confira a bomba de direita de Alex Cowboy que culminou em nocaute contra Hallmann no UFC São Paulo</note>
-    <link>tatame/videos/video-confira-a-bomba-de-direita-de-alex-cowboy-que-culminou-em-nocaute-contra-hallmann</link>
-    <photoId>/img/77089_150x150.jpg</photoId>
-  </item>
-  <item>
-    <date>08/11/2015</date>
-    <note>Confira o incrível nocaute do peso-galo Thominhas Almeida sobre Anthony Birchak no UFC São Paulo</note>
-    <link>tatame/videos/video-confira-o-incrivel-nocaute-de-thominhas-almeida-sobre-birchak-no-ufc-sao-paulo</link>
-    <photoId>/img/77085_150x150.jpg</photoId>
-  </item>   
+  </item> 
 </items>
