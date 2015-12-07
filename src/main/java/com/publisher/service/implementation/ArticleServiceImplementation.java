@@ -321,9 +321,9 @@ public class ArticleServiceImplementation extends TransactionalService implement
 		if (publishedUntil != null) {						
 			junction = junction.must(
 				qb.range().onField("publishedAt").from(
-					DateTools.round(0l, DateTools.Resolution.DAY)
+					DateTools.round(0l, DateTools.Resolution.HOUR)
 				).to(
-					DateTools.round(publishedUntil.getTime(), DateTools.Resolution.DAY)
+					DateTools.round(publishedUntil.getTime(), DateTools.Resolution.HOUR)
 				).excludeLimit().createQuery()
 			);
 		}		
