@@ -1,5 +1,6 @@
 package com.publisher.view.feed;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -50,8 +51,15 @@ public class TerraFeedAction extends ActionSupport implements ServletRequestAwar
 			try {
 				//Unix Epoch Time
 				Date start = new Date(Long.parseLong(startdate) * 1000);
-				Date end = new Date(Long.parseLong(enddate) * 1000);
-				articles = articleService.get(0, 0, start, end, true);
+				Calendar calendar = Calendar.getInstance();
+				calendar.add(Calendar.DAY_OF_MONTH, -30);
+				Date minDate = calendar.getTime();
+				if(start.compareTo(minDate) >= 0) {
+					Date end = new Date(Long.parseLong(enddate) * 1000);
+					if (end.compareTo(start) >= 0) {
+						articles = articleService.get(0, 0, start, end, true);	
+					}
+				}
 			} catch (Exception e) {
 				log.error(e);
 			}
