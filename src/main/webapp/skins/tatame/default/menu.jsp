@@ -17,8 +17,8 @@
 			</ul>
 		</li>					
 	</ul>
-	<a href="#" class="diary">AGENDA</a>
-	<a href="#" class="columns">COLUNAS</a>
+	<a href="/tatame/agenda" class="diary">AGENDA</a>
+	<a href="/tatame/colunas" class="columns">COLUNAS</a>
 	<a href="/tatame/videos" class="videos">VÍDEOS</a>
 	<a href="http://www.tatameshop.com.br/" target="_blank" class="tatameshop">TATAMESHOP</a>
 	<a href="http://www.tatameshop.com.br/tatame-f65/" target="_blank" class="subscribe">ASSINE</a>
