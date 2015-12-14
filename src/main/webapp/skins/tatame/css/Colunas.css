@@ -1,3 +1,5 @@
 @CHARSET "UTF-8";
 
-div.header-colunas { float: left; height:auto; margin: 1px 0 15px 0px; width: 1024px; text-align: center; }
+div.header-colunas { float: left; margin: 10px 0; width: 1024px; }
+div.header-colunas img { border-bottom: 2px solid #a2393c; border-top: 2px solid #a2393c; }
+
