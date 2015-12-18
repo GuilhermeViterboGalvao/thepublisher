@@ -48,7 +48,7 @@
 
 .black-belt-most-vieweds { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-most-vieweds .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 90px;  }
-.most-vieweds { float: left; height: 814px; width: 300px; border-bottom: 1px solid #a2393c; }
+.most-vieweds { float: left; height: 774px; width: 300px; border-bottom: 1px solid #a2393c; }
 .most-vieweds .most-viewed { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #f6f6f6; }
 .most-vieweds .most-viewed img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
 .most-vieweds .most-viewed .info { float: left; width: 300px; height: 70px; }
