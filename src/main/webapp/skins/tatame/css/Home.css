@@ -71,9 +71,11 @@
 
 .black-belt-agenda { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-agenda .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; } 				
-.agenda-articles { height: 370px; width: 714px; white-space:nowrap; overflow:hidden; }
-.agenda-articles a { display: table-cell; }
-.agenda-articles a img { height: 345px; width: 255px; margin: 10px 7px; }
+.agenda-articles { width: 714px; height:330px; overflow:hidden; position:relative; float: left; }
+.agenda-articles .arrow-left { position: absolute; z-index: 3; top: 152px; left: 7px; display: none; width: 34px; }
+.agenda-articles .arrow-right { position: absolute; top: 152px; left: 677px; z-index: 3; display: none; width: 34px; }
+.agenda-articles div.article { float: left; height: 330px; overflow: hidden; position: relative; width: 236px; margin-left: 2px; }
+.agenda-articles div.article a img { height: 330px; width: 236px; }
 
 .black-belt-big-video { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-big-video .dan { float: left; background-color: #a2393c; height: 25px; width: 112px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; }

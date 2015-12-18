@@ -98,4 +98,53 @@ $(function() {
 			}
 		}
 	});
+	
+	
+	//Agenda
+	
+	$("div.agenda-articles").mouseover(function() {
+		$("img.arrow-left").add("img.arrow-right").css("display", "block");
+	}).mouseout(function() {
+		$("img.arrow-left").add("img.arrow-right").css("display", "none");
+	});
+	
+	var elements = 3;
+	
+	var links = $("div.agenda-articles div"),
+	currentPage = 1,
+	start = 0,
+	pages = links.length > elements ? Math.ceil(links.length/elements) : 1,
+	end = links.length > elements ? elements-1 : links.length;
+	
+	var left = $("div.agenda-articles .arrow-left").click(function() {
+		if (currentPage > 1) {
+			currentPage--;			
+			start -= elements;
+			end -= elements;
+			links.each(function(index) {
+				var link = $(this);
+				if (index >= start && index <= end) {
+					link.removeClass("hide").addClass("show");
+				} else {
+					link.removeClass("show").addClass("hide");
+				}
+			});
+		}
+	});
+	
+	var right = $("div.agenda-articles .arrow-right").click(function() {
+		if (currentPage < pages) {
+			currentPage++;
+			start = end + 1;
+			end += elements;		
+			links.each(function(index) {
+				var link = $(this);
+				if (index >= start && index <= end) {
+					link.removeClass("hide").addClass("show");
+				} else {
+					link.removeClass("show").addClass("hide");
+				}
+			});
+		}
+	});
 });

@@ -15,9 +15,9 @@ div.content div.first-article div.info p.note { height: 45px; font-size: 14px; }
 
 
 div.content div.articles { float:left; width: 714px; position: relative; }
-div.content div.articles div.article { float:left; width: 714px; position: relative; margin-bottom: 10px;}
+div.content div.articles div.article { float:left; width: 714px; position: relative; margin-bottom: 10px; background-color: #f6f6f6; }
 div.content div.articles div.article img { float:left; position:relative; width: 270px; }
-div.content div.articles div.article div.info { float: left; position: relative; width: 434px; height: 180px; padding: 10px 0 0 10px; background-color: #f6f6f6; }
+div.content div.articles div.article div.info { float: left; position: relative; width: 434px; height: 180px; padding: 10px 0 0 10px; }
 div.content div.articles div.article div.info p { color: #000; overflow:hidden; width: 428px; }
 div.content div.articles div.article div.info p a { color: #000; text-decoration: none; }
 div.content div.articles div.article div.info p.title { text-overflow: ellipsis; font-size: 23px; line-height: 26px; font-weight: bold; font-family: fgDemi,sans-serif; text-transform: uppercase; height: 78px;}
