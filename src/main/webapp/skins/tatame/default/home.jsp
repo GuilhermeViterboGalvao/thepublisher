@@ -10,8 +10,10 @@
 		<div class="ads-highlights">
 			<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
 			<div id="tatame_300x100_especial1_home" class="ads-300-100 box-shadow margin-top-15"></div>
-			<div class="ads-300-250 box-shadow box-shadow margin-top-15" id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
-			<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.right4&direct=1"></script>			
+			<div class="ads-300-250 box-shadow box-shadow margin-top-15">
+				<div  id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
+				<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.right4&direct=1"></script>	
+			</div>			
 			<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow box-shadow margin-top-15"></div>
 		</div>				
 	</div>
