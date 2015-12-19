@@ -53,7 +53,7 @@
 .most-vieweds .most-viewed img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
 .most-vieweds .most-viewed .info { float: left; width: 300px; height: 70px; }
 .most-vieweds .most-viewed .info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #000; padding: 0 0 0 5px; font-weight:bold;  }
-.most-vieweds .most-viewed .info .header { float: left; width: 295px; height: 46px; line-height: 18px; font-size: 13px; color: #000; padding: 0 0 0 5px; background-color: #f6f6f6; font-weight: bold; }			
+.most-vieweds .most-viewed .info .header { float: left; width: 295px; height: 38px; line-height: 18px; font-size: 13px; color: #000; padding: 0 0 0 5px; background-color: #f6f6f6; font-weight: bold; overflow: hidden; }			
 
 .black-belt-jiu-jitsu { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-jiu-jitsu .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px;  } 				
