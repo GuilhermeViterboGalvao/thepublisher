@@ -2,12 +2,14 @@ package br.com.clubetatame.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Cache;
@@ -27,9 +29,9 @@ import com.publisher.entity.Account;
 @Entity
 @Indexed
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Product implements Serializable {
+public class CompanyContract implements Serializable {
 
-	private static final long serialVersionUID = -4529064085062361145L;
+	private static final long serialVersionUID = 8409338965425067347L;
 
 	@Id
 	@DocumentId
@@ -45,9 +47,15 @@ public class Product implements Serializable {
 	@Field
 	private int value;
 	
-	@Field(index = Index.YES, store = Store.YES)
-	private boolean active = true;
+	private Date start;
 	
+	private Date end;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Company company;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	private List<Product> products;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @IndexedEmbedded(includeEmbeddedObjectId=true)
@@ -96,14 +104,38 @@ public class Product implements Serializable {
 		this.value = value;
 	}
 	
-	public boolean isActive() {
-		return active;
+	public Date getStart() {
+		return start;
 	}
 	
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setStart(Date start) {
+		this.start = start;
 	}
 	
+	public Date getEnd() {
+		return end;
+	}
+	
+	public void setEnd(Date end) {
+		this.end = end;
+	}
+	
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 	public Account getCreatedBy() {
 		return createdBy;
 	}
@@ -139,10 +171,10 @@ public class Product implements Serializable {
 	@Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Product)) {
+        if (!(object instanceof CompanyContract)) {
             return false;
         }
-        Product other = (Product) object;
+        CompanyContract other = (CompanyContract) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -150,6 +182,6 @@ public class Product implements Serializable {
     }
     @Override
     public String toString() {
-        return "br.com.clubetatame.entity.Product#" + String.valueOf(id);
+        return "br.com.clubetatame.entity.CompanyContract#" + String.valueOf(id);
     }	
 }
