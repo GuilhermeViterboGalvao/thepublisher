@@ -29,7 +29,7 @@ $(function() {
 			$(this).addClass("current");
 		});
 	};
-	var intervalId = setInterval(showNext, 3000);
+	var intervalId = setInterval(showNext, 20000);
 	$("div.highlights").mouseover(function() {
 		$("img.arrow-left").add("img.arrow-right").css("display", "block");
 	}).mouseout(function() {
