@@ -57,7 +57,7 @@ public class MostViewedArticlesAction extends ActionSupport {
 					resultInMemory = cache.get(category);
 					if (resultInMemory == null || resultInMemory.getDate().getTime() < currentDate.getTime()) {
 						cache.remove(category);
-						calendar.add(Calendar.DAY_OF_MONTH, - dayRange);
+						calendar.add(Calendar.DAY_OF_MONTH, dayRange);
 						Date start = calendar.getTime();
 						List<Article> articles = articleService.get(category, currentPage, pageSize, start, currentDate, true, "views", "desc");
 						if (articles != null && articles.size() > 0) {
@@ -87,7 +87,7 @@ public class MostViewedArticlesAction extends ActionSupport {
 	
 	private int currentPage = 1;
 	
-	private int dayRange = 7;
+	private int dayRange = -7;
 
 	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
