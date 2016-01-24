@@ -10,6 +10,9 @@
 		<property name="permanentLinkService" ref="permanentLinkService"/>		
 		<property name="backupMapper" ref="defaultMapper"/>		
 	</bean>	
+	<!-- Clube Tatame -->
+	<bean id="memberService" class="br.com.clubetatame.service.implementation.MemberServiceImplementation"/>
+	<!-- The Publisher -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>	
 	<bean id="accountService" class="com.publisher.service.implementation.AccountServiceImplementation"/>	
 	<bean id="articleService" class="com.publisher.service.implementation.ArticleServiceImplementation"/>
