@@ -29,7 +29,7 @@ $(function() {
 			$(this).addClass("current");
 		});
 	};
-	var intervalId = setInterval(showNext, 3000);
+	var intervalId = setInterval(showNext, 12000);
 	$("div.highlights").mouseover(function() {
 		$("img.arrow-left").add("img.arrow-right").css("display", "block");
 	}).mouseout(function() {
@@ -57,7 +57,7 @@ $(function() {
 	
 	//Matérias mais lidas
 	$.ajax({
-		url     : "/mostViewed?categoryId=1&currentPage=1&pageSize=30",
+		url     : "/mostViewed?categoryId=1&dayRange=4&currentPage=1&pageSize=30",
 		cache   : false,
 		success : function(data) {
 			if (data && data.length > 0) {
