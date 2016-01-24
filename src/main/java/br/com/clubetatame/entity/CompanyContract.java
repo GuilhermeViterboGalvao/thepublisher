@@ -44,7 +44,6 @@ public class CompanyContract implements Serializable {
 	@Field
 	private String description;
 	
-	@Field
 	private int value;
 	
 	private Date start;

@@ -55,9 +55,8 @@ public class Gym implements Serializable {
 	private String address;
 	
 	@Field
-	private String CEP;
+	private String cep;
 	
-	@Field
 	private String hash;
 	
 	private String instagram;
@@ -148,11 +147,11 @@ public class Gym implements Serializable {
 	}
 
 	public String getCEP() {
-		return CEP;
+		return cep;
 	}
 
-	public void setCEP(String cEP) {
-		CEP = cEP;
+	public void setCEP(String cep) {
+		this.cep = cep;
 	}
 
 	public String getHash() {
@@ -270,6 +269,7 @@ public class Gym implements Serializable {
         }
         return true;
     }
+	
     @Override
     public String toString() {
         return "br.com.clubetatame.entity.Gym#" + String.valueOf(id);

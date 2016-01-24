@@ -44,7 +44,6 @@ public class GymContract implements Serializable {
 	@Field
 	private String description;
 	
-	@Field
 	private int value;
 	
 	private Date start;
@@ -180,6 +179,7 @@ public class GymContract implements Serializable {
         }
         return true;
     }
+	
     @Override
     public String toString() {
         return "br.com.clubetatame.entity.GymContract#" + String.valueOf(id);

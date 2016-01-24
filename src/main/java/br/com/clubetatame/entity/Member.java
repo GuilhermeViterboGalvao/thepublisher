@@ -1,16 +1,13 @@
 package br.com.clubetatame.entity;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.search.annotations.DateBridge;
@@ -22,7 +19,6 @@ import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
-
 import com.publisher.entity.Account;
 
 @Entity
@@ -46,19 +42,16 @@ public class Member implements Serializable {
 	@Field
 	private String email;
 	
-	@Field
-	private boolean gender;
+	private String gender;
 	
-	@Field
-	private Calendar birth;
+	private Date birth;
 	
 	@Field
 	private String address;
 	
 	@Field
-	private String CEP;
+	private String cep;
 	
-	@Field
 	private String hash;
 	
 	private Long fbid;
@@ -117,19 +110,19 @@ public class Member implements Serializable {
 		this.email = email;
 	}
 
-	public boolean isGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(boolean gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-	public Calendar getBirth() {
+	public Date getBirth() {
 		return birth;
 	}
 
-	public void setBirth(Calendar birth) {
+	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
 
@@ -142,11 +135,11 @@ public class Member implements Serializable {
 	}
 
 	public String getCEP() {
-		return CEP;
+		return cep;
 	}
 
-	public void setCEP(String cEP) {
-		CEP = cEP;
+	public void setCEP(String cep) {
+		this.cep = cep;
 	}
 
 	public String getHash() {
