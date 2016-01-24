@@ -42,7 +42,7 @@ public class Member implements Serializable {
 	@Field
 	private String email;
 	
-	private boolean gender;
+	private String gender;
 	
 	private Date birth;
 	
@@ -110,11 +110,11 @@ public class Member implements Serializable {
 		this.email = email;
 	}
 
-	public boolean isGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(boolean gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
@@ -233,6 +233,7 @@ public class Member implements Serializable {
         }
         return true;
     }
+	
     @Override
     public String toString() {
         return "br.com.clubetatame.entity.Member#" + String.valueOf(id);
