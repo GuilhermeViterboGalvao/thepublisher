@@ -213,7 +213,7 @@ public class GymServiceImplementation extends TransactionalService implements Gy
         result.setTimeElapsed((int)(System.currentTimeMillis() - t));
         result.setPage(page);
         result.setPageSize(pageSize);
-        log.info("MEMBER SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
+        log.info("GYM SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
         return result;
 	}
 

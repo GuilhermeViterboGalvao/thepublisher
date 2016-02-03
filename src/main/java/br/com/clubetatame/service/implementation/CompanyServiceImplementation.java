@@ -213,7 +213,7 @@ public class CompanyServiceImplementation extends TransactionalService implement
         result.setTimeElapsed((int)(System.currentTimeMillis() - t));
         result.setPage(page);
         result.setPageSize(pageSize);
-        log.info("MEMBER SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
+        log.info("COMPANY SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
         return result;
 	}
 

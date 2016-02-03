@@ -1,6 +1,7 @@
 package br.com.clubetatame.service.implementation;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
 import org.apache.commons.logging.Log;
@@ -12,52 +13,52 @@ import com.publisher.entity.Account;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
-import br.com.clubetatame.entity.Product;
-import br.com.clubetatame.service.ProductService;
+import br.com.clubetatame.entity.MemberContract;
+import br.com.clubetatame.service.MemberContractService;
 
-public class ProductServiceImplementation extends TransactionalService implements ProductService {
+public class MemberContractServiceImplementation extends TransactionalService implements MemberContractService {
 
-	private static Log log = LogFactory.getLog(ProductServiceImplementation.class);
+	private static Log log = LogFactory.getLog(MemberContractServiceImplementation.class);
 	
 	@Override
-	public Product get(Long id) {
-		return id != null ? entityManager.find(Product.class, id) : null;
+	public MemberContract get(Long id) {
+		return id != null ? entityManager.find(MemberContract.class, id) : null;
 	}
 
 	@Override
-	public void persist(Product entity) {
+	public void persist(MemberContract entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
 		}
 	}
 
 	@Override
-	public void update(Product entity) {
+	public void update(MemberContract entity) {
 		if (entity != null) {
 			entityManager.merge(entity);
 		}
 	}
 
 	@Override
-	public void delete(Product entity) {
+	public void delete(MemberContract entity) {
 		if (entity != null) {
 			entityManager.remove(entityManager.merge(entity));
 		}
 	}
 
 	@Override
-	public Collection<Product> list() {
+	public Collection<MemberContract> list() {
 		return list(0, 0);
 	}
 
 	@Override
-	public Collection<Product> search(String query) {
+	public Collection<MemberContract> search(String query) {
 		return search(query, 0, 0).getResult();
 	}
 
 	@Override
 	public long count() {
-        Query query = entityManager.createQuery("select count(p) from Product p");
+        Query query = entityManager.createQuery("select count(c) from MemberContract c");
         return query != null ? (Long)query.getSingleResult() : 0;
 	}
 	
@@ -65,16 +66,16 @@ public class ProductServiceImplementation extends TransactionalService implement
 	@SuppressWarnings("unchecked")
 	public void indexAll() {
         try {
-            Query query = entityManager.createQuery("select max(p.id) from Product p");
+            Query query = entityManager.createQuery("select max(c.id) from MemberContract c");
             long total = (Long)query.getSingleResult();
             FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-            ft.purgeAll(Product.class);
+            ft.purgeAll(MemberContract.class);
             for (long i = 0; i < total / 100 + 1; i++) {
-                query = ft.createQuery("select p from Product p where p.id>=? and p.id<=? order by p.id");
+                query = ft.createQuery("select c from MemberContract c where c.id>=? and c.id<=? order by c.id");
                 query.setParameter(1, i * 100 + 1);
                 query.setParameter(2, (i + 1) * 100);
-				List<Product> list = query.getResultList();
-                for (Product product : list) {                	
+				List<MemberContract> list = query.getResultList();
+                for (MemberContract product : list) {                	
                     ft.index(product);
                     log.info(product.getId() + ": " + product.getName());
                 }
@@ -88,20 +89,28 @@ public class ProductServiceImplementation extends TransactionalService implement
 	}
 
 	@Override
-	public Collection<Product> list(int page, int pageSize) {
+	public Collection<MemberContract> list(int page, int pageSize) {
 		return list(page, pageSize, null, null);
 	}
 
 	@Override
+	public Collection<MemberContract> list(int page, int pageSize, String orderBy, String order) {
+		return list(page, pageSize, orderBy, order, null);
+	}
+	
+	@Override
 	@SuppressWarnings("unchecked")
-	public Collection<Product> list(int page, int pageSize, String orderBy, String order) {
+	public Collection<MemberContract> list(int page, int pageSize, String orderBy, String order, Date end) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("from Product p ");
+		sql.append("from MemberContract c ");
+		if (end != null) {
+			sql.append("where c.end >=:end ");			
+		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
-			sql.append("p." + orderBy + " " + order);	
+			sql.append("c." + orderBy + " " + order);	
 		} else {
-			sql.append("p.id desc");
+			sql.append("c.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
         if (pageSize > 0) {
@@ -115,20 +124,20 @@ public class ProductServiceImplementation extends TransactionalService implement
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public ResultList<Product> search(String query, int page, int pageSize) {
+	public ResultList<MemberContract> search(String query, int page, int pageSize) {
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Account.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "description").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Product.class);        
+        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, MemberContract.class);        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
-        ResultList<Product> result = new ResultList<Product>();
+        ResultList<MemberContract> result = new ResultList<MemberContract>();
         result.setResult(fullTextQuery.getResultList());
         result.setResultSize(fullTextQuery.getResultSize());
         result.setTimeElapsed((int)(System.currentTimeMillis() - t));
         result.setPage(page);
         result.setPageSize(pageSize);
-        log.info("PRODUCT SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
+        log.info("MEMBER_CONTRACT SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
         return result;
 	}
 }
