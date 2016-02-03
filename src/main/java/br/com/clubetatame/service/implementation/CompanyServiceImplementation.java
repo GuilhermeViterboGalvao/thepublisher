@@ -15,52 +15,52 @@ import com.publisher.entity.Account;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
-import br.com.clubetatame.entity.Gym;
-import br.com.clubetatame.service.GymService;
+import br.com.clubetatame.entity.Company;
+import br.com.clubetatame.service.CompanyService;
 
-public class GymServiceImplementation extends TransactionalService implements GymService {
+public class CompanyServiceImplementation extends TransactionalService implements CompanyService {
 
-	private static Log log = LogFactory.getLog(GymServiceImplementation.class);
+	private static Log log = LogFactory.getLog(CompanyServiceImplementation.class);
 	
 	@Override
-	public Gym get(Long id) {
-		return id != null ? entityManager.find(Gym.class, id) : null;
+	public Company get(Long id) {
+		return id != null ? entityManager.find(Company.class, id) : null;
 	}
 
 	@Override
-	public void persist(Gym entity) {
+	public void persist(Company entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
 		}
 	}
 
 	@Override
-	public void update(Gym entity) {
+	public void update(Company entity) {
 		if (entity != null) {
 			entityManager.merge(entity);
 		}
 	}
 
 	@Override
-	public void delete(Gym entity) {
+	public void delete(Company entity) {
 		if (entity != null) {
 			entityManager.remove(entityManager.merge(entity));
 		}
 	}
 
 	@Override
-	public Collection<Gym> list() {
+	public Collection<Company> list() {
 		return list(0, 0);
 	}
 
 	@Override
-	public Collection<Gym> search(String query) {
+	public Collection<Company> search(String query) {
 		return search(query, 0, 0).getResult();
 	}
 
 	@Override
 	public long count() {
-        Query query = entityManager.createQuery("select count(g) from Gym g");
+        Query query = entityManager.createQuery("select count(c) from Company c");
         return query != null ? (Long)query.getSingleResult() : 0;
 	}
 	
@@ -68,16 +68,16 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	@SuppressWarnings("unchecked")
 	public void indexAll() {
         try {
-            Query query = entityManager.createQuery("select max(g.id) from Gym g");
+            Query query = entityManager.createQuery("select max(c.id) from Company c");
             long total = (Long)query.getSingleResult();
             FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-            ft.purgeAll(Gym.class);
+            ft.purgeAll(Company.class);
             for (long i = 0; i < total / 100 + 1; i++) {
-                query = ft.createQuery("select g from Gym g where g.id>=? and g.id<=? order by g.id");
+                query = ft.createQuery("select c from Company g where c.id>=? and c.id<=? order by c.id");
                 query.setParameter(1, i * 100 + 1);
                 query.setParameter(2, (i + 1) * 100);
-				List<Gym> list = query.getResultList();
-                for (Gym gym : list) {                	
+				List<Company> list = query.getResultList();
+                for (Company gym : list) {                	
                     ft.index(gym);
                     log.info(gym.getId() + ": " + gym.getName());
                 }
@@ -92,11 +92,11 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public Gym authenticate(String email, String password) {
-        Gym gym = null;
-        Query query = entityManager.createQuery("from Gym where email=:email").setParameter("email", email);
+	public Company authenticate(String email, String password) {
+        Company gym = null;
+        Query query = entityManager.createQuery("from Company where email=:email").setParameter("email", email);
         if (query != null) {
-            List<Gym> result = query.getResultList();
+            List<Company> result = query.getResultList();
             if (result != null && !result.isEmpty()) {
             	gym = result.iterator().next();
                 if (!gym.getHash().equals(hash(password))) {
@@ -108,20 +108,20 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	}
 
 	@Override
-	public Collection<Gym> list(int page, int pageSize) {
+	public Collection<Company> list(int page, int pageSize) {
 		return list(page, pageSize, null, null);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Collection<Gym> list(int page, int pageSize, String orderBy, String order) {
+	public Collection<Company> list(int page, int pageSize, String orderBy, String order) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("from Gym g ");
+		sql.append("from Company c ");
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
-			sql.append("g." + orderBy + " " + order);	
+			sql.append("c." + orderBy + " " + order);	
 		} else {
-			sql.append("g.id desc");
+			sql.append("c.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
         if (pageSize > 0) {
@@ -134,33 +134,33 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	}
 	
 	@Override
-	public Collection<Gym> list(float lat, float lon, float distanceInKM) {
+	public Collection<Company> list(float lat, float lon, float distanceInKM) {
 		return list(lat, lon, distanceInKM, null);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Collection<Gym> list(float lat, float lon, float distanceInKM, Boolean active) {
+	public Collection<Company> list(float lat, float lon, float distanceInKM, Boolean active) {
 		StringBuilder sql = new StringBuilder();
-        sql.append("select g from Gym g ");
+        sql.append("select c from Company c ");
         List<Float> area = null;
         if (distanceInKM > 0.0f) {
             area = this.getArea(lat, lon, distanceInKM);
             sql.append("where ");
-            sql.append("g.lat>=:lat1 ");
+            sql.append("c.lat>=:lat1 ");
             sql.append("and ");
-            sql.append("g.lat<=:lat2 ");
+            sql.append("c.lat<=:lat2 ");
             sql.append("and ");
-            sql.append("g.lon<=:lon2 ");
+            sql.append("c.lon<=:lon2 ");
             sql.append("and ");
-            sql.append("g.lon>=:lon1 ");
+            sql.append("c.lon>=:lon1 ");
         }
         if (area != null && active != null) {
             sql.append("and ");
-            sql.append("g.active=:active ");
+            sql.append("c.active=:active ");
         } else if (area == null && active != null) {
             sql.append("where ");
-            sql.append("g.active=:active ");
+            sql.append("c.active=:active ");
         }
         Query query = entityManager.createQuery(sql.toString());
         if (area != null) {
@@ -193,21 +193,21 @@ public class GymServiceImplementation extends TransactionalService implements Gy
     }
 	
 	@Override
-	public ResultList<Gym> search(String query, int page, int pageSize) {
+	public ResultList<Company> search(String query, int page, int pageSize) {
         return search(query, page, pageSize, null);
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public ResultList<Gym> search(String query, int page, int pageSize, Boolean active) {
+	public ResultList<Company> search(String query, int page, int pageSize, Boolean active) {
 		long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Account.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contact", "document", "email", "phone", "address", "cep").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Gym.class); 
-        if (active != null) fullTextQuery.enableFullTextFilter("activeGym").setParameter("isActive", active);
+        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Company.class); 
+        if (active != null) fullTextQuery.enableFullTextFilter("activeCompany").setParameter("isActive", active);
         fullTextQuery.setHint("org.hibernate.cacheable", true);
-        ResultList<Gym> result = new ResultList<Gym>();
+        ResultList<Company> result = new ResultList<Company>();
         result.setResult(fullTextQuery.getResultList());
         result.setResultSize(fullTextQuery.getResultSize());
         result.setTimeElapsed((int)(System.currentTimeMillis() - t));

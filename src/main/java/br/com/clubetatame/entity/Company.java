@@ -15,6 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FullTextFilterDef;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
@@ -24,9 +25,12 @@ import org.hibernate.search.annotations.Store;
 
 import com.publisher.entity.Account;
 
+import br.com.clubetatame.entity.search.ActiveFilterFactory;
+
 @Entity
 @Indexed
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@FullTextFilterDef(name = "activeCompany", impl = ActiveFilterFactory.class)
 public class Company implements Serializable {
 
 	private static final long serialVersionUID = -7082129800486525379L;
