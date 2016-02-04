@@ -17,12 +17,9 @@
 			<div id="tatame_300x100_especial2_home" class="ads-300-100 box-shadow box-shadow margin-top-15"></div>
 		</div>				
 	</div>
-</div>				
+</div>	
+			
 <p:tile xml="home/destaques"/>
-<div class="ads-1024">
-	<div id="tatame_728x90_ros"></div>
-</div>
-
 
 <div class="box-1024">
 	<div class="box-714">

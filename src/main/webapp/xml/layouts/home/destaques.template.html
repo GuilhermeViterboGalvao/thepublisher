@@ -1,5 +1,5 @@
 <%
-	if (info && info.item && info.item.size() == 2) {
+	if (info && info.item && (info.item.size() == 2 || info.item.size() == 4)) {
 		def item, photoId, link
 %>
 <div class="black-belt-highlights box-shadow">
@@ -43,7 +43,56 @@
 				<div class="date">${item.date}</div>
 			</div>
 		</div>			
-	</div>					
+	</div>
+	
+	<div class="ads-1024">
+		<div id="tatame_728x90_ros"></div>
+	</div>
+	
+	<%
+		if (info.item.size() == 4) {
+	%>
+	<div class="other-highlights margin-bottom-15">
+		<div class="highlight box-shadow">
+			<%
+				item = info.item[2]
+				photoId = (item.photoId =~ /\d{1,999999}/)[0]
+				if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+					link = item.link.toString()
+				} else {
+					link = "/" + item.link.toString() 
+				}				
+			%>	
+			<a href="${link}">
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg"/>
+			</a>
+			<div class="info">
+				<div class="note">${item.note}</div>
+				<div class="date">${item.date}</div>
+			</div>
+		</div>
+		<div class="highlight margin-left-10 box-shadow">
+			<%
+				item = info.item[3]
+				photoId = (item.photoId =~ /\d{1,999999}/)[0]
+				if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+					link = item.link.toString()
+				} else {
+					link = "/" + item.link.toString() 
+				}			
+			%>
+			<a href="${link}">	
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg"/>
+			</a>
+			<div class="info">
+				<div class="note">${item.note}</div>
+				<div class="date">${item.date}</div>
+			</div>
+		</div>			
+	</div>	
+	<%
+		}
+	%>						
 </div>
 <%
 	}
