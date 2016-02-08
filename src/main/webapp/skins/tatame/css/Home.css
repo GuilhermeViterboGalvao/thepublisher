@@ -16,7 +16,7 @@
 
 .ads-1024 { float: left; width: 1024px; }
 .ads-1024 #tatame_728x90_ros { width: 728px; height: 90px; margin: 15px auto; box-shadow: 3px 3px 3px #777; }
-.ads-1024 > div { width: 728px; height: 90px; margin: 15px auto; box-shadow: 3px 3px 3px #777; }
+.ads-1024 > div { width: 728px; height: 90px; margin: 15px auto; box-shadow: 3px 3px 3px #777; overflow: hidden; }
 
 #tatame_1680x912_home { display: none; }
 
