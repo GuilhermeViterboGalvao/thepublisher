@@ -15,5 +15,11 @@
     </definition>
     <definition name="manager-clube-tatame-index" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/index.jsp"/>
-    </definition>   
+    </definition>
+    <definition name="member-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/member/list.jsp"/>
+    </definition>    
+    <definition name="member-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/member/input.jsp"/>
+    </definition>     
 </tiles-definitions>
