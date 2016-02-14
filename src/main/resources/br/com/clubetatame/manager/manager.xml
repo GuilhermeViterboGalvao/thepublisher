@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="manager-clube-tatame" namespace="/manager/clube-tatame" extends="struts-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="false" />
+			<result-type name="json"  class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<interceptors>
+			<interceptor name="clubeTatameAuthenticationInteceptor" class="br.com.clubetatame.manager.AuthenticationInterceptor" />
+			<interceptor name="monitoring" class="net.bull.javamelody.StrutsInterceptor"/> 
+			<interceptor-stack name="clubeTatameSecureManager">
+			    <interceptor-ref name="monitoring"/>			    
+				<interceptor-ref name="clubeTatameAuthenticationInteceptor"/>
+				<interceptor-ref name="paramsPrepareParamsStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="clubeTatameSecureManager"/>
+		<global-results>
+			<result name="login" type="tiles">manager-clube-tatame-login</result>
+		</global-results>
+		<action name="home">
+			<result type="tiles">manager-clube-tatame-home</result>
+		</action>		
+		<action name="login" class="br.com.clubetatame.manager.LoginAction">
+			<interceptor-ref name="defaultStack"/>
+			<result type="tiles">manager-clube-tatame-index</result>
+			<result name="redirect" type="tiles">manager-clube-tatame-index</result>
+		</action>
+		<action name="logout" class="br.com.clubetatame.manager.LogoutAction"/>		     		
+	</package>
+</struts>

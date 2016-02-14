@@ -18,7 +18,7 @@
 	</context-param>
 	<context-param>
 		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-		<param-value>/WEB-INF/tiles.xml</param-value>
+		<param-value>/WEB-INF/tiles.xml,/WEB-INF/tiles-clube-tatame.xml</param-value>
 	</context-param>
 	<filter>
 		<filter-name>javamelody</filter-name>

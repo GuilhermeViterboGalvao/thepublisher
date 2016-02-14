@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="manager-clube-tatame-layout" template="/manager/clube-tatame/layout.jsp">
+        <put-attribute name="title" value="Administrativo do site Clube Tatame"/>
+        <put-attribute name="head" value="/manager/clube-tatame/head.jsp"/>
+        <put-attribute name="header" value="/manager/clube-tatame/header.jsp"/>
+        <put-attribute name="menu" value="/manager/clube-tatame/menu.jsp"/>
+        <put-attribute name="content" value="/manager/clube-tatame/home.jsp"/>
+        <put-attribute name="footer" value="/manager/clube-tatame/footer.jsp"/>
+    </definition>
+    <definition name="manager-clube-tatame-login" template="/manager/clube-tatame/loginform.jsp"/>
+    <definition name="manager-clube-tatame-home" extends="manager-clube-tatame-layout">
+    	<put-attribute name="content" value="/manager/clube-tatame/home.jsp"/>
+    </definition>
+    <definition name="manager-clube-tatame-index" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/index.jsp"/>
+    </definition>   
+</tiles-definitions>
