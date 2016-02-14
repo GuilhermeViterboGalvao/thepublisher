@@ -57,7 +57,7 @@ $(function() {
 	
 	//Matérias mais lidas
 	$.ajax({
-		url     : "/mostViewed?categoryId=1&dayRange=4&currentPage=1&pageSize=30",
+		url     : "/mostViewed?categoryId=1&dayRange=-4&currentPage=1&pageSize=30",
 		cache   : false,
 		success : function(data) {
 			if (data && data.length > 0) {

@@ -32,7 +32,7 @@ public abstract class AbstractAction<T> extends ActionSupport implements Account
 	
 	@SkipValidation
 	public String list(){
-		if (search != null && !search.isEmpty()) {
+		if (search != null && !search.isEmpty() && search.length() > 2) {
 			list = generateSearch();
 		} else {
 			list = generateList();

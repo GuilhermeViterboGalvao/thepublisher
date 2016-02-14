@@ -102,7 +102,11 @@ public class MostViewedArticlesAction extends ActionSupport {
 	}
 	
 	public void setDayRange(int dayRange){
-		this.dayRange = dayRange;
+		if (dayRange > 0 && dayRange <= 30) {
+			this.dayRange = -1 * dayRange;
+		} else if (dayRange >= -30 && dayRange < 0 ) {
+			this.dayRange = dayRange;	
+		}
 	}
 	
 	private Collection<Result> result;
