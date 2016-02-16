@@ -1,4 +1,5 @@
 <%
+	def hash = (int)(Math.floor(Math.random() * 100000))
 	if (info && info.item && info.item.size() > 0) {
 		info.item.eachWithIndex { item, index ->
 			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
@@ -11,7 +12,7 @@
 %>
 <div class="magazine box-shadow">
 	<a href="${link}">
-		<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_300x402.jpg?${(int)(Math.random() * 10000001)}"/>
+		<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_300x402.jpg?${hash}"/>
 	</a>	
 	<div class="note">${item.title}</div>
 </div>

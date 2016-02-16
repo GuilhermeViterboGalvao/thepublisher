@@ -1,4 +1,5 @@
 <%
+def hash = (int)(Math.floor(Math.random() * 100000))
 if (info && info.item && info.item.size() >= 1) {
 %>
 	<div class="black-belt-agenda box-shadow">
@@ -19,7 +20,7 @@ if (info && info.item && info.item.size() >= 1) {
 			%>
 			<div id="${index}" class="article ${index < 3 ? 'show' : 'hide'}">
 				<a href="${link}">
-					<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_236x330.jpg"/>
+					<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_236x330.jpg?${hash}"/>
 				</a>
 			</div>
 		<% } %>
