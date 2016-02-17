@@ -11,7 +11,13 @@
 		<property name="backupMapper" ref="defaultMapper"/>		
 	</bean>	
 	<!-- Clube Tatame -->
+	<bean id="companyContractService" class="br.com.clubetatame.service.implementation.CompanyContractServiceImplementation"/>
+	<bean id="companyService" class="br.com.clubetatame.service.implementation.CompanyServiceImplementation"/>
+	<bean id="gymContractService" class="br.com.clubetatame.service.implementation.GymContractServiceImplementation"/>
+	<bean id="gymContract" class="br.com.clubetatame.service.implementation.GymServiceImplementation"/>
+	<bean id="memberContractService" class="br.com.clubetatame.service.implementation.MemberContractServiceImplementation"/>
 	<bean id="memberService" class="br.com.clubetatame.service.implementation.MemberServiceImplementation"/>
+	<bean id="productService" class="br.com.clubetatame.service.implementation.ProductServiceImplementation"/>
 	<!-- The Publisher -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>	
 	<bean id="accountService" class="com.publisher.service.implementation.AccountServiceImplementation"/>	

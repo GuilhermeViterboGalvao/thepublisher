@@ -32,6 +32,11 @@
 			<result type="tiles">member-list</result>
 			<result name="input" type="tiles">member-input</result>
 			<result name="redirect" type="redirectAction">member-list</result>
-		</action>				     		
+		</action>
+		<action name="gym-*" class="br.com.clubetatame.manager.GymAction" method="{1}">
+			<result type="tiles">gym-list</result>
+			<result name="input" type="tiles">gym-input</result>
+			<result name="redirect" type="redirectAction">gym-list</result>
+		</action>					     		
 	</package>
 </struts>
