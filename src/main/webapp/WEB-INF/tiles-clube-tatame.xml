@@ -21,5 +21,17 @@
     </definition>    
     <definition name="member-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/member/input.jsp"/>
+    </definition>
+    <definition name="company-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/company/list.jsp"/>
     </definition>    
+    <definition name="company-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/company/input.jsp"/>
+    </definition>
+    <definition name="gym-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/gym/list.jsp"/>
+    </definition>    
+    <definition name="gym-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/gym/input.jsp"/>
+    </definition>        
 </tiles-definitions>

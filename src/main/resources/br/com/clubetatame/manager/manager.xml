@@ -28,15 +28,21 @@
 			<result name="redirect" type="tiles">manager-clube-tatame-index</result>
 		</action>
 		<action name="logout" class="br.com.clubetatame.manager.LogoutAction"/>
+		
 		<action name="member-*" class="br.com.clubetatame.manager.MemberAction" method="{1}">
 			<result type="tiles">member-list</result>
 			<result name="input" type="tiles">member-input</result>
 			<result name="redirect" type="redirectAction">member-list</result>
+		</action>			
+		<action name="company-*" class="br.com.clubetatame.manager.CompanyAction" method="{1}">
+			<result type="tiles">company-list</result>
+			<result name="input" type="tiles">company-input</result>
+			<result name="redirect" type="redirectAction">company-list</result>
 		</action>
 		<action name="gym-*" class="br.com.clubetatame.manager.GymAction" method="{1}">
 			<result type="tiles">gym-list</result>
 			<result name="input" type="tiles">gym-input</result>
 			<result name="redirect" type="redirectAction">gym-list</result>
-		</action>					     		
+		</action>		
 	</package>
 </struts>
