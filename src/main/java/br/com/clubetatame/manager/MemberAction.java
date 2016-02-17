@@ -96,35 +96,9 @@ public class MemberAction extends AbstractAction<Member> {
 		return memberService.get(id);
 	}
 	
-	@Override
-	public void validate() {
-		super.validate();
-		if (name == null || name.isEmpty()) {
-			addFieldError("name", "O campo 'nome' é obrigatório.");
-		}
-		if (document == null || document.isEmpty()) {
-			addFieldError("document", "O campo 'R.G.' é obrigatório.");
-		}
-		if (email == null || email.isEmpty()) {
-			addFieldError("email", "O campo 'e-mail' é obrigatório.");
-		}
-		if (gender == null || gender.isEmpty()) {
-			addFieldError("gender", "O campo 'sexo' é obrigatório.");
-		}
-		if (birth == null) {
-			addFieldError("birth", "O campo 'data de nascimento' é obrigatório.");
-		}
-		if (address == null || address.isEmpty()) {
-			addFieldError("address", "O campo 'endereço' é obrigatório.");
-		}
-		if (cep == null || cep.isEmpty()) {
-			addFieldError("cep", "O campo 'CEP' é obrigatório.");
-		}		
-	}
-	
 	//Action properties
 	
-	private String orderBy = "publishedAt";
+	private String orderBy = "created";
 	
 	private boolean orderly = true;
 	

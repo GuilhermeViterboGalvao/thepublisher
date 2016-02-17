@@ -1,0 +1,47 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <message>O campo 'nome' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="document">
+        <field-validator type="requiredstring">
+            <message>O campo 'R.G.' é obrigatório.</message>
+        </field-validator>
+        <field-validator type="regex">
+        	<param name="expression">[0-9]\.[0-9]{3}\.[0-9]{3}-[0-9]</param>
+            <message>RG inválido.</message>
+        </field-validator>        
+    </field>
+    <field name="email">
+        <field-validator type="requiredstring">
+            <message>O campo 'e-mail' é obrigatório.</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Você deve entrar um e-mail válido</message>
+        </field-validator>
+    </field>
+    <field name="birth">
+        <field-validator type="requiredstring">
+            <message>O campo 'data de nascimento' é obrigatório.</message>
+        </field-validator>
+        <field-validator type="date">
+            <message>Data de nascimento inválido.</message>
+        </field-validator>        
+    </field>
+    <field name="address">
+        <field-validator type="requiredstring">
+            <message>O campo 'endereço' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="cep">
+        <field-validator type="requiredstring">
+            <message>O campo 'CEP' é obrigatório.</message>
+        </field-validator>
+        <field-validator type="regex">
+        	<param name="expression">^\\d{5}[-]\\d{3}$</param>
+            <message>CEP inválido.</message>
+        </field-validator>        
+    </field>    
+</validators>
