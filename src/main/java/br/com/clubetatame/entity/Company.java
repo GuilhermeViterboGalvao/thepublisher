@@ -65,11 +65,7 @@ public class Company implements Serializable {
 	
 	private String instagram;
 	
-	private Long fbid;
-	
-	private String facebookAccessToken;
-	
-	private Date facebookAccessTokenExpiration;
+	private String facebook;
 	
 	@Field(index = Index.YES, store = Store.YES)
 	private boolean active = true;
@@ -150,11 +146,11 @@ public class Company implements Serializable {
 		this.address = address;
 	}
 
-	public String getCEP() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCEP(String cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -174,28 +170,12 @@ public class Company implements Serializable {
 		this.instagram = instagram;
 	}
 
-	public Long getFbid() {
-		return fbid;
+	public String getFacebook() {
+		return facebook;
 	}
 
-	public void setFbid(Long fbid) {
-		this.fbid = fbid;
-	}
-
-	public String getFacebookAccessToken() {
-		return facebookAccessToken;
-	}
-
-	public void setFacebookAccessToken(String facebookAccessToken) {
-		this.facebookAccessToken = facebookAccessToken;
-	}
-
-	public Date getFacebookAccessTokenExpiration() {
-		return facebookAccessTokenExpiration;
-	}
-
-	public void setFacebookAccessTokenExpiration(Date facebookAccessTokenExpiration) {
-		this.facebookAccessTokenExpiration = facebookAccessTokenExpiration;
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
 	}
 
 	public boolean isActive() {

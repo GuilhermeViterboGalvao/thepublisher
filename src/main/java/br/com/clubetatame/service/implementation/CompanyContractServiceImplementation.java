@@ -75,9 +75,9 @@ public class CompanyContractServiceImplementation extends TransactionalService i
                 query.setParameter(1, i * 100 + 1);
                 query.setParameter(2, (i + 1) * 100);
 				List<CompanyContract> list = query.getResultList();
-                for (CompanyContract product : list) {                	
-                    ft.index(product);
-                    log.info(product.getId() + ": " + product.getName());
+                for (CompanyContract contract : list) {                	
+                    ft.index(contract);
+                    log.info(contract.getId() + ": " + contract.getName());
                 }
                 ft.flushToIndexes();
                 ft.clear();

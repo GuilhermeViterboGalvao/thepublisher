@@ -77,9 +77,9 @@ public class CompanyServiceImplementation extends TransactionalService implement
                 query.setParameter(1, i * 100 + 1);
                 query.setParameter(2, (i + 1) * 100);
 				List<Company> list = query.getResultList();
-                for (Company gym : list) {                	
-                    ft.index(gym);
-                    log.info(gym.getId() + ": " + gym.getName());
+                for (Company company : list) {                	
+                    ft.index(company);
+                    log.info(company.getId() + ": " + company.getName());
                 }
                 ft.flushToIndexes();
                 ft.clear();
@@ -93,18 +93,18 @@ public class CompanyServiceImplementation extends TransactionalService implement
 	@Override
 	@SuppressWarnings("unchecked")
 	public Company authenticate(String email, String password) {
-        Company gym = null;
+        Company company = null;
         Query query = entityManager.createQuery("from Company where email=:email").setParameter("email", email);
         if (query != null) {
             List<Company> result = query.getResultList();
             if (result != null && !result.isEmpty()) {
-            	gym = result.iterator().next();
-                if (!gym.getHash().equals(hash(password))) {
-                	gym = null;
+            	company = result.iterator().next();
+                if (!company.getHash().equals(hash(password))) {
+                	company = null;
                 }
             }        	
         }
-        return gym;
+        return company;
 	}
 
 	@Override
