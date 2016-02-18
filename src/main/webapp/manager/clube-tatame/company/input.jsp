@@ -19,6 +19,7 @@
 	</ul>		
 </nav>
 <s:if test="isAdmin()">
+	<s:fielderror cssClass="error"/>
 	<form action="/manager/clube-tatame/company-save" method="post" onsubmit="validate();">
 		<div class="ym-form">
 			<div class="ym-fbox-text">
@@ -65,10 +66,10 @@
 			</div>
 		</div>
 		<s:if test="createdBy != null">		
-			<p style="margin: 10px 0px">Criado por <s:property value="createdBy" /> em <s:property value="created"/>.</p>			
+			<p style="margin: 10px 0px">Criado por <s:property value="createdBy.name" /> em <s:property value="created"/>.</p>			
 		</s:if>		
 		<s:if test="lastModifiedBy != null">		
-			<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy" /> em <s:property value="lastModified"/>.</p>			
+			<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
 		</s:if>	
 	</form>
 </s:if>
@@ -113,9 +114,9 @@
 		</div>
 	</div>
 	<s:if test="createdBy != null">		
-		<p style="margin: 10px 0px">Criado por <s:property value="createdBy" /> em <s:property value="created"/>.</p>			
+		<p style="margin: 10px 0px">Criado por <s:property value="createdBy.name" /> em <s:property value="created"/>.</p>			
 	</s:if>		
 	<s:if test="lastModifiedBy != null">		
-		<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy" /> em <s:property value="lastModified"/>.</p>			
+		<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
 	</s:if>
 </s:else>
