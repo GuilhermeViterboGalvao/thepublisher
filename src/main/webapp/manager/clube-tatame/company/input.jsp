@@ -2,9 +2,14 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
 <script type="text/javascript" src="/manager/js/GoogleMaps.js"></script>
-<script type="text/javascript"> initGoogleMap('${lat != null ? lat : -23.9923}', '${lon != null ? lon : -46.3479}', '${zoomGoogleMaps > 0 ? zoomGoogleMaps : 10}') </script>
+<script type="text/javascript"> 
+	initGoogleMap(
+		'${lat != null ? lat : -23.9923}', 
+		'${lon != null ? lon : -46.3479}', 
+		'${zoomGoogleMaps > 0 ? zoomGoogleMaps : 10}'
+	); 
+</script>
 
 <nav class="ym-hlist">
 	<ul>
@@ -17,8 +22,9 @@
 	<form action="/manager/clube-tatame/company-save" method="post" onsubmit="validate();">
 		<div class="ym-form">
 			<div class="ym-fbox-text">
-				<div id="map_canvas" style="width: 100%; height: 200px;"></div>
 			
+				<div id="map_canvas" style="width: 100%; height: 200px;"></div>
+				
 				<s:hidden name="id"/>	
 				<label for="name">Nome</label>
 				<s:textfield name="name"/>
@@ -44,6 +50,9 @@
 				
 				<label for="lon">Longitude</label>
 				<s:textfield id="lon" name="lon"/>
+				
+				<label for="zoomGoogleMaps">Zoom Google Maps</label>
+				<s:textfield id="zoomGoogleMaps" name="zoomGoogleMaps"/>
 				
 				<div class="ym-fbox-check" style="padding-top: 10px;">
 					<label for="active">Ativo</label>
@@ -93,6 +102,9 @@
 			
 			<label for="lon">Longitude</label>
 			<s:textfield id="lon" name="lon"/>
+			
+			<label for="zoomGoogleMaps">Zoom Google Maps</label>
+			<s:textfield id="zoomGoogleMaps" name="zoomGoogleMaps"/>
 			
 			<div class="ym-fbox-check" style="padding-top: 10px;">
 				<label for="active">Ativo</label>

@@ -74,6 +74,8 @@ public class Company implements Serializable {
 	
 	private Float lon;
 	
+	private int zoomGoogleMaps;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
     @IndexedEmbedded(includeEmbeddedObjectId=true)
 	private Account createdBy;
@@ -200,6 +202,14 @@ public class Company implements Serializable {
 
 	public void setLon(Float lon) {
 		this.lon = lon;
+	}
+
+	public int getZoomGoogleMaps() {
+		return zoomGoogleMaps;
+	}
+
+	public void setZoomGoogleMaps(int zoomGoogleMaps) {
+		this.zoomGoogleMaps = zoomGoogleMaps;
 	}
 
 	public Account getCreatedBy() {

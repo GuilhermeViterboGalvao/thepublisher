@@ -26,6 +26,7 @@ public class CompanyAction extends AbstractAction<Company> {
 	@Override
 	protected void populateForm(Company entity) {
 		if (entity != null) {
+			this.zoomGoogleMaps = entity.getZoomGoogleMaps();
 			this.lastModifiedBy = entity.getLastModifiedBy();
 			this.lastModified = entity.getLastModified();
 			this.createdBy = entity.getCreatedBy();
@@ -50,6 +51,7 @@ public class CompanyAction extends AbstractAction<Company> {
 	@Override
 	protected Company updateObject(Company entity) {
 		if (entity != null) {
+			entity.setZoomGoogleMaps(zoomGoogleMaps);
 			entity.setInstagram(instagram);
 			entity.setFacebook(facebook);
 			entity.setDocument(document);
@@ -183,6 +185,8 @@ public class CompanyAction extends AbstractAction<Company> {
 	
 	private Float lon;
 	
+	private int zoomGoogleMaps;
+	
 	private Account createdBy;
 	
 	private Date created;
@@ -293,6 +297,14 @@ public class CompanyAction extends AbstractAction<Company> {
 
 	public void setLon(Float lon) {
 		this.lon = lon;
+	}
+
+	public int getZoomGoogleMaps() {
+		return zoomGoogleMaps;
+	}
+
+	public void setZoomGoogleMaps(int zoomGoogleMaps) {
+		this.zoomGoogleMaps = zoomGoogleMaps;
 	}
 
 	public Account getCreatedBy() {
