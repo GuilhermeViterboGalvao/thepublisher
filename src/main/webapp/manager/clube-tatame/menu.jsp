@@ -18,7 +18,12 @@
 	<ul>
 		<li><a href="/manager/clube-tatame/company-input">Cadastrar</a></li>
 		<li><a href="/manager/clube-tatame/company-list">Listar</a></li>
-	</ul>	
+	</ul>
+	<h6 class="ym-vtitle">Produtos</h6>
+	<ul>
+		<li><a href="/manager/clube-tatame/product-input">Cadastrar</a></li>
+		<li><a href="/manager/clube-tatame/product-list">Listar</a></li>
+	</ul>
 	<h6 class="ym-vtitle">Outros</h6>
 	<ul>
 		<li><a href="/manager/clube-tatame/logout">Sair</a></li>

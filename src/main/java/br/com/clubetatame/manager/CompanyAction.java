@@ -33,7 +33,6 @@ public class CompanyAction extends AbstractAction<Company> {
 			this.instagram = entity.getInstagram();
 			this.document = entity.getDocument();
 			this.facebook = entity.getFacebook();
-			this.created = entity.getCreated();
 			this.contact = entity.getContact();
 			this.created = entity.getCreated();
 			this.address = entity.getAddress();

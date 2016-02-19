@@ -33,5 +33,11 @@
     </definition>    
     <definition name="gym-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/gym/input.jsp"/>
-    </definition>        
+    </definition>
+    <definition name="product-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/product/list.jsp"/>
+    </definition>    
+    <definition name="product-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/product/input.jsp"/>
+    </definition>      
 </tiles-definitions>

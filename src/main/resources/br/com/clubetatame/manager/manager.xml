@@ -43,6 +43,11 @@
 			<result type="tiles">gym-list</result>
 			<result name="input" type="tiles">gym-input</result>
 			<result name="redirect" type="redirectAction">gym-list</result>
+		</action>
+		<action name="product-*" class="br.com.clubetatame.manager.ProductAction" method="{1}">
+			<result type="tiles">product-list</result>
+			<result name="input" type="tiles">product-input</result>
+			<result name="redirect" type="redirectAction">product-list</result>
 		</action>		
 	</package>
 </struts>
