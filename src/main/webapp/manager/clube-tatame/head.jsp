@@ -8,4 +8,4 @@
 <link rel="stylesheet" type="text/css" href="/frameworks/yaml/navigation/vlist.css"/>
 <link rel="stylesheet" type="text/css" href="/frameworks/yaml/screen/typography.css"/>
 <link rel="stylesheet" type="text/css" href="/frameworks/jquery/plugins/jquery-ui.min.css"/>
-<link rel="stylesheet" type="text/css" href="/manager/css/default.css"/>
+<link rel="stylesheet" type="text/css" href="/manager/css/default.css?5"/>

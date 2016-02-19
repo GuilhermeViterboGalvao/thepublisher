@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<style type="text/css">#map_canvas { width: 100%; height: 200px; margin-bottom: 15px; }</style>
 <nav class="ym-hlist">
 	<ul>
 		<li class="active">
@@ -7,9 +8,12 @@
 		</li>					
 	</ul>		
 </nav>
-<s:fielderror cssClass="error"/>
-<form action="/manager/clube-tatame/gym-save" method="post">
-	<div class="ym-form">
+<form action="/manager/clube-tatame/gym-save" method="post" onsubmit="checkLatLon();">
+	<div class="ym-form">		
+		<s:fielderror cssClass="error"/>		
+		<s:if test="lat != null && lon != null">
+			<div id="map_canvas"></div>
+		</s:if>			
 		<div class="ym-fbox-text">
 			<s:hidden name="id"/>	
 			<label for="name">Nome</label>
@@ -29,9 +33,9 @@
 			<label for="instagram">Instagram</label>
 			<s:textfield name="instagram"/>			
 			<label for="lat">Latitude</label>
-			<s:textfield name="lat"/>
+			<s:textfield id="lat" name="lat"/>
 			<label for="lon">Longitude</label>
-			<s:textfield name="lon"/>
+			<s:textfield id="lon" name="lon"/>
 			<div class="ym-fbox-check" style="padding-top: 10px;">
 				<label for="active">Ativo</label>
 				<s:checkbox id="active" name="active"/>
@@ -48,3 +52,33 @@
 		<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
 	</s:if>	
 </form>
+<script type="text/javascript">
+	var lat = $("#lat");
+	var lon = $("#lon");
+	var checkLatLon = function() {		
+		if (lat && lat.val() && lat.val().indexOf(".") > 0) {
+			lat.val(lat.val().replace(".", ","));
+		}		
+		if (lon && lon.val()) {
+			lon.val(lon.val().replace(".", ","));
+		}
+	};
+	checkLatLon();
+</script>
+<s:if test="lat != null && lon != null">
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript">
+		var latlon = new google.maps.LatLng(Number(lat.val().replace(",", ".")), Number(lon.val().replace(",", ".")));
+		var options = {
+	  		zoom : 12,
+	  		center : latlon,
+	  		mapTypeId : google.maps.MapTypeId.SATELLITE
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), options);
+		new google.maps.Marker({
+			position : latlon,
+			map : map,
+			draggable : true
+		});		
+	</script>
+</s:if>

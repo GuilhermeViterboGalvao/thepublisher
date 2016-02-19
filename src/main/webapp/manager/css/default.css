@@ -24,3 +24,6 @@ td.td{ padding: 10px; text-align: end; }
 .ym-button-override{ margin: 1px 0; padding: 0 20px; font-family: arial, helvetica; font-size: 15px; }
 .tabs-menu { display:none; }
 table.list tr th, td { max-width: 17.25em; }
+ul.error { float: left; background-color: transparent; margin: 0; padding: 0; width: 100%; }
+ul.error li { float: left; width: 99%; margin: 0.5% 0 0.5% 1%; padding: 0; list-style-type: none; }
+ul.error li span { float: left; width: 100%; color: red; }

@@ -40,6 +40,7 @@ public class GymAction extends AbstractAction<Gym> {
 			this.created = entity.getCreated();
 			this.lastModifiedBy = entity.getLastModifiedBy();
 			this.lastModified = entity.getLastModified();
+			this.phone = entity.getPhone();
 		}		
 	}
 
@@ -56,6 +57,7 @@ public class GymAction extends AbstractAction<Gym> {
 			entity.setActive(active);
 			entity.setLat(lat);
 			entity.setLon(lon);
+			entity.setPhone(phone);
 			if (entity.getCreatedBy() == null) {
 				entity.setCreatedBy(getAccount());
 			}

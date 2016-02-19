@@ -13,12 +13,13 @@
     <field name="document">
         <field-validator type="requiredstring">
             <message>O campo 'CNPJ' é obrigatório.</message>
-        </field-validator>
-        <field-validator type="regex">
-        	<param name="expression">([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})</param>
-            <message>CNPJ inválido.</message>
         </field-validator>        
     </field>
+	<validator type="regex">
+        <param name="fieldName">document</param>
+        <param name="regex"><![CDATA[\d{2}.\d{3}.\d{3}/\d{4}-\d{2}]]></param>
+        <message>CNPJ inválido.</message>
+    </validator> 
     <field name="email">
         <field-validator type="requiredstring">
             <message>O campo 'E-mail' é obrigatório.</message>
@@ -40,30 +41,31 @@
     <field name="cep">
         <field-validator type="requiredstring">
             <message>O campo 'CEP' é obrigatório.</message>
-        </field-validator>
-        <field-validator type="regex">
-        	<param name="expression">\d{5}[-]\d{3}</param>
-            <message>CEP inválido.</message>
         </field-validator>        
     </field>
+	<validator type="regex">
+        <param name="fieldName">cep</param>
+        <param name="regex"><![CDATA[\d{5}-\d{3}]]></param>
+        <message>CEP inválido.</message>
+    </validator> 
     <field name="lat">
-        <field-validator type="requiredstring">
+        <field-validator type="required">
             <message>O campo 'Latitude' é obrigatório.</message>
         </field-validator>
-        <field-validator type="double">
-			<param name="min">-90</param>
-			<param name="max">90</param>
-			<message>A Latitude deve ser entre ${min} a ${max}.</message>        
-        </field-validator>
+	    <field-validator type="double">
+			<param name="minExclusive">-90</param>
+			<param name="maxExclusive">90</param>
+			<message>A Latitude deve ser entre ${minExclusive} a ${maxExclusive}.</message>
+	    </field-validator>
     </field>
     <field name="lon">
-        <field-validator type="requiredstring">
+        <field-validator type="required">
             <message>O campo 'Longitude' é obrigatório.</message>
         </field-validator>
-        <field-validator type="double">
-			<param name="min">-180</param>
-			<param name="max">180</param>
-			<message>A Longitude deve ser entre ${min} a ${max}.</message>        
-        </field-validator>
-    </field>             
+	    <field-validator type="double">
+			<param name="minExclusive">-180</param>
+			<param name="maxExclusive">180</param>
+			<message>A Longitude deve ser entre ${minExclusive} a ${maxExclusive}.</message>
+	    </field-validator>        
+    </field>    
 </validators>
