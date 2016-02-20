@@ -2,29 +2,33 @@ package com.publisher.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FullTextFilterDef;
+import org.hibernate.search.annotations.FullTextFilterDefs;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
+import br.com.clubetatame.entity.search.PhotoEventFilterFactory;
 
 @Entity
 @Indexed
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@FullTextFilterDefs({
+	@FullTextFilterDef(name = "isEvent", impl = PhotoEventFilterFactory.class)
+})
 public class Photo implements Serializable {
 
 	private static final long serialVersionUID = 3169912176987305269L;
@@ -76,6 +80,8 @@ public class Photo implements Serializable {
     
     @Field(index = Index.YES, store = Store.YES)
     private boolean published = false;
+    
+    private boolean isEvent = false;
 
 	public Long getId() {
 		return id;
@@ -188,8 +194,16 @@ public class Photo implements Serializable {
 	public void setPublished(boolean published) {
 		this.published = published;
 	}
-	
-    @Override
+
+    public boolean isEvent() {
+		return isEvent;
+	}
+
+	public void setEvent(boolean isEvent) {
+		this.isEvent = isEvent;
+	}
+
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);

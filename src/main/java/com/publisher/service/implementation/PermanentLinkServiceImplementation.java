@@ -16,7 +16,7 @@ import com.publisher.entity.Page;
 import com.publisher.entity.PermanentLink;
 import com.publisher.service.PermanentLinkService;
 import com.publisher.utils.HibernateSearchUtils;
-
+import com.publisher.utils.ResultList;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
@@ -61,17 +61,28 @@ public class PermanentLinkServiceImplementation extends TransactionalService imp
 	}
 	
 	@Override
-	@SuppressWarnings("unchecked")
 	public Collection<PermanentLink> search(String query) {
+        return search(query, 0, 0).getResult();
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public ResultList<PermanentLink> search(String query, int page, int pageSize) {
     	long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(PermanentLink.class).get();
         org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "uri", "type").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, PermanentLink.class);
-        fullTextQuery.setHint("org.hibernate.cacheable", true);
+        fullTextQuery.setHint("org.hibernate.cacheable", true);        
+        ResultList<PermanentLink> result = new ResultList<PermanentLink>();
+        result.setResult(fullTextQuery.getResultList());
+        result.setResultSize(fullTextQuery.getResultSize());
+        result.setTimeElapsed((int)(System.currentTimeMillis() - t));
+        result.setPage(page);
+        result.setPageSize(pageSize);        
         log.info("PAGE SEARCH=[" + luceneQuery + "] - TimeElapsed=" + (int)(System.currentTimeMillis() - t));
-        return fullTextQuery.getResultList();
-	}
+        return result;
+	}	
 
 	@Override
 	public long count() {
