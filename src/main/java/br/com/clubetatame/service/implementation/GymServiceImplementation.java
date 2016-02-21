@@ -11,7 +11,6 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
-import com.publisher.entity.Account;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
@@ -202,7 +201,7 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	public ResultList<Gym> search(String query, int page, int pageSize, Boolean active) {
 		long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Account.class).get();
+		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Gym.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contact", "document", "email", "phone", "address", "cep").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Gym.class); 
         if (active != null) fullTextQuery.enableFullTextFilter("activeGym").setParameter("isActive", active);

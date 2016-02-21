@@ -10,7 +10,6 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
-import com.publisher.entity.Account;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
@@ -160,7 +159,7 @@ public class MemberServiceImplementation extends TransactionalService implements
 	public ResultList<Member> search(String query, int page, int pageSize) {
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Account.class).get();
+		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Member.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "email", "document", "address", "cep").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Member.class);        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
