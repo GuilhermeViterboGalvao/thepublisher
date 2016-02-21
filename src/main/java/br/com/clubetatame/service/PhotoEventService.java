@@ -5,6 +5,9 @@ import java.util.List;
 import com.publisher.entity.Photo;
 import com.publisher.utils.ResultList;
 
+import net.bull.javamelody.MonitoredWithSpring;
+
+@MonitoredWithSpring
 public interface PhotoEventService {
 
 	List<Photo> listEventsPhotos();

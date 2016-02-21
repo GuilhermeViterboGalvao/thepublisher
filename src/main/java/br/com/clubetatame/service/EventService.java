@@ -16,11 +16,15 @@ public interface EventService extends Service<Event> {
 	
 	List<Event> list(Boolean isActive, int page, int pageSize);
 	
+	List<Event> list(Boolean isActive, int page, int pageSize, String orderBy, String order);
+	
 	List<Event> listByCompany(Company company);
 	
 	List<Event> listByCompany(Company company, Boolean isActive);	
 	
 	List<Event> listByCompany(Company company, Boolean isActive, int page, int pageSize);
+	
+	List<Event> listByCompany(Company company, Boolean isActive, int page, int pageSize, String orderBy, String order);
 	
 	List<Event> listByDate(Date start);
 	
@@ -29,6 +33,8 @@ public interface EventService extends Service<Event> {
 	List<Event> listByDate(Date start, Date end, Boolean isActive);
 	
 	List<Event> listByDate(Date start, Date end, Boolean isActive, int page, int pageSize);
+	
+	List<Event> listByDate(Date start, Date end, Boolean isActive, int page, int pageSize, String orderBy, String order);
 	
 	int count(Boolean isActive);
 	
