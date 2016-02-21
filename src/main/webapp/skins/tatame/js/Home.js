@@ -147,4 +147,36 @@ $(function() {
 			});
 		}
 	});
+	
+	//Colunas
+	
+	$("div.colunas-articles").mouseover(function() {
+		$("img.arrow-left").add("img.arrow-right").css("display", "block");
+	}).mouseout(function() {
+		$("img.arrow-left").add("img.arrow-right").css("display", "none");
+	});
+	
+	var links = $("div.colunas-articles div"),
+	current = 0,
+	end = links.length;
+	
+	var left = $("div.colunas-articles .arrow-left").click(function() {
+		if (current > 0) {
+			current--;
+			
+			$("div.colunas-articles div#" + (current +1)).addClass("margin-left-9");
+			$("div.colunas-articles div#" + current).removeClass("hide").addClass("show");
+			$("div.colunas-articles div#" + (current + 5)).removeClass("show").addClass("hide");
+		}
+	});
+	
+	var right = $("div.colunas-articles .arrow-right").click(function() {
+		if (current + 5 < end) {
+			current++;
+			
+			$("div.colunas-articles div#" + current).removeClass("margin-left-9");
+			$("div.colunas-articles div#" + (current - 1)).removeClass("show").addClass("hide");
+			$("div.colunas-articles div#" + (current + 4)).removeClass("hide").addClass("show");
+		}
+	});
 });

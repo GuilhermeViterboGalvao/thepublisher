@@ -39,7 +39,7 @@
 
 .black-belt-last-news { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-last-news .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 75px; }
-.last-news { float: left; height: 844px; width: 300px; border-bottom: 1px solid #a2393c; }
+.last-news { float: left; height: 614px; width: 300px; border-bottom: 1px solid #a2393c; }
 .last-news .article { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #f6f6f6; }
 .last-news .article img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
 .last-news .article .info { float: left; width: 300px; height: 70px; }
@@ -64,10 +64,11 @@
 
 .black-belt-colunas { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 15px 0 5px 0; }
 .black-belt-colunas .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; } 				
-.colunas-articles { float: left; height: 400px; width: 714px; }
-.colunas-articles .jiu-jitsu-article { float: left; height: 400px; width: 352px; overflow: hidden; background-color: #f6f6f6; }
-.colunas-articles .jiu-jitsu-article img { float: left; height: 335px; width: 352px; border-bottom: 1px solid #a2393c; }
-.colunas-articles .jiu-jitsu-article .note { float: left; height: 38px; width: 340px; color: #000; font-size: 14px; padding: 10px 0 0 10px; line-height: 18px; overflow: hidden; font-weight: bold; }						
+.colunas-articles { float: left; width: 714px; position: relative; }
+.colunas-articles .arrow-left { position: absolute; z-index: 3; top: 71px; left: 4px; display: none; width: 28px; }
+.colunas-articles .arrow-right { position: absolute; top: 71px; left: 682px; z-index: 3; display: none; width: 28px; }
+.colunas-articles .coluna { float: left; height: 170px; width: 135px; overflow: hidden; }
+.colunas-articles .coluna img { float: left; }
 
 .black-belt-agenda { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-agenda .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; } 				
