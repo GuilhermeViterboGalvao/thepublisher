@@ -108,32 +108,6 @@ public class CompanyAction extends AbstractAction<Company> {
 		return companyService.get(id);
 	}
 	
-	@Override
-	public void validate() {
-		super.validate();
-		if (name == null || name.isEmpty()) {
-			addFieldError("name", "O campo 'nome' é obrigatório.");
-		}
-		if (document == null || document.isEmpty()) {
-			addFieldError("document", "O campo 'CNPJ' é obrigatório.");
-		}
-		if (email == null || email.isEmpty()) {
-			addFieldError("email", "O campo 'e-mail' é obrigatório.");
-		}
-		if (address == null || address.isEmpty()) {
-			addFieldError("address", "O campo 'endereço' é obrigatório.");
-		}
-		if (cep == null || cep.isEmpty()) {
-			addFieldError("cep", "O campo 'CEP' é obrigatório.");
-		}
-		if (lat == null) {
-			addFieldError("lat", "O campo 'Latitude' é obrigatório.");
-		}
-		if (lon == null) {
-			addFieldError("lon", "O campo 'Longitude' é obrigatório.");
-		}
-	}
-	
 	//Action properties
 	
 	private String orderBy = "created";
