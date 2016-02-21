@@ -136,7 +136,7 @@ public class CompanyAction extends AbstractAction<Company> {
 	
 	//Action properties
 	
-	private String orderBy = "publishedAt";
+	private String orderBy = "created";
 	
 	private boolean orderly = true;
 	

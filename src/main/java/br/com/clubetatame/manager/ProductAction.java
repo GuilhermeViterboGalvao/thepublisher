@@ -90,7 +90,7 @@ public class ProductAction extends AbstractAction<Product> {
 	
 	//Action properties
 	
-	private String orderBy = "publishedAt";
+	private String orderBy = "created";
 	
 	private boolean orderly = true;
 	
