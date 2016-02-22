@@ -3,12 +3,16 @@ package br.com.clubetatame.service;
 import java.util.Date;
 import java.util.List;
 import com.publisher.service.Service;
+import com.publisher.utils.ResultList;
+
 import br.com.clubetatame.entity.Company;
 import br.com.clubetatame.entity.Event;
 import net.bull.javamelody.MonitoredWithSpring;
 
 @MonitoredWithSpring
 public interface EventService extends Service<Event> {
+	
+	ResultList<Event> search(String query, int page, int pageSize, Boolean isActive);
 
 	List<Event> list();
 	
@@ -36,15 +40,15 @@ public interface EventService extends Service<Event> {
 	
 	List<Event> listByDate(Date start, Date end, Boolean isActive, int page, int pageSize, String orderBy, String order);
 	
-	int count(Boolean isActive);
+	long count(Boolean isActive);
 	
-	int countByCompany(Company company);
+	long countByCompany(Company company);
 	
-	int countByCompany(Company company, Boolean isActive);
+	long countByCompany(Company company, Boolean isActive);
 	
-	int countByDate(Date Start);
+	long countByDate(Date Start);
 	
-	int countByDate(Date Start, Date end);
+	long countByDate(Date Start, Date end);
 	
-	int countByDate(Date Start, Date end, Boolean isActive);
+	long countByDate(Date Start, Date end, Boolean isActive);
 }

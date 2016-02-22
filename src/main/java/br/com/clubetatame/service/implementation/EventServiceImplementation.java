@@ -3,9 +3,7 @@ package br.com.clubetatame.service.implementation;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Query;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
@@ -54,13 +52,21 @@ public class EventServiceImplementation extends TransactionalService implements 
 	}
 	
 	@Override
-	@SuppressWarnings("unchecked")
 	public ResultList<Event> search(String query, int page, int pageSize) {
+		return search(query, page, pageSize, null);
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")	
+	public ResultList<Event> search(String query, int page, int pageSize, Boolean isActive) {
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Event.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contact", "state", "city", "address").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Event.class);        
+        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Event.class);
+        if (isActive != null && isActive) {
+        	fullTextQuery.enableFullTextFilter("activeEvent").setParameter("isActive", true);
+        }        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<Event> result = new ResultList<Event>();
         result.setResult(fullTextQuery.getResultList());
@@ -69,7 +75,7 @@ public class EventServiceImplementation extends TransactionalService implements 
         result.setPage(page);
         result.setPageSize(pageSize);
         log.info("EVENT SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
-        return result;
+        return result;		
 	}
 
 	@Override
@@ -125,7 +131,7 @@ public class EventServiceImplementation extends TransactionalService implements 
 		StringBuilder sql = new StringBuilder();
 		sql.append("from Event e ");
 		if (isActive != null) {
-			sql.append("where e.isActive:=isActive ");
+			sql.append("where e.active=:isActive ");
 		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
@@ -166,12 +172,12 @@ public class EventServiceImplementation extends TransactionalService implements 
 		StringBuilder sql = new StringBuilder();
 		sql.append("from Event e ");
 		if (company != null) {
-			sql.append("where e.company:=company ");
+			sql.append("where e.company=:company ");
 		}
 		if (company != null && isActive != null) {
-			sql.append("and e.isActive:=isActive ");			
+			sql.append("and e.active=:isActive ");			
 		} else if (company == null && isActive != null) {
-			sql.append("where e.isActive:=isActive ");
+			sql.append("where e.active=:isActive ");
 		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
@@ -229,9 +235,9 @@ public class EventServiceImplementation extends TransactionalService implements 
 			sql.append("where e.end<=end ");
 		}
 		if ((start != null || end != null) && isActive != null) {
-			sql.append("and e.isActive:=isActive ");
+			sql.append("and e.active=:isActive ");
 		} else if (start == null && end == null && isActive != null) {
-			sql.append("where e.isActive:=isActive ");
+			sql.append("where e.active=:isActive ");
 		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
@@ -259,39 +265,74 @@ public class EventServiceImplementation extends TransactionalService implements 
 	}	
 
 	@Override
-	public int count(Boolean isActive) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long count(Boolean isActive) {
+		return countByCompany(null, isActive);
 	}
 
 	@Override
-	public int countByCompany(Company company) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long countByCompany(Company company) {
+		return countByCompany(company, null);
 	}
 
 	@Override
-	public int countByCompany(Company company, Boolean isActive) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long countByCompany(Company company, Boolean isActive) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("select count(e) from Event e ");
+		if (company != null) {
+			sql.append("where e.company=:company ");
+		}
+		if (company != null && isActive != null) {
+			sql.append("and e.active=:isActive ");
+		} else if (company == null && isActive != null) {
+			sql.append("where e.active=:isActive ");
+		}
+		Query query = entityManager.createQuery(sql.toString());
+		if (company != null) {
+			query.setParameter("company", company);
+		}
+		if (isActive != null) {
+			query.setParameter("isActive", isActive);
+		}
+		return (Long)query.getSingleResult();
 	}
 
 	@Override
-	public int countByDate(Date Start) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long countByDate(Date start) {
+		return countByDate(start, null);
 	}
 
 	@Override
-	public int countByDate(Date Start, Date end) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long countByDate(Date start, Date end) {
+		return countByDate(start, end, null);
 	}
 
 	@Override
-	public int countByDate(Date Start, Date end, Boolean isActive) {
-		// TODO Auto-generated method stub
-		return 0;
+	public long countByDate(Date start, Date end, Boolean isActive) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("select count(e) from Event e ");
+		if (start != null) {
+			sql.append("where e.start>=start ");
+		}
+		if (start != null && end != null) {
+			sql.append("and e.end<=end ");
+		} else if (start == null && end != null) {
+			sql.append("where e.end<=end ");
+		}
+		if ((start != null || end != null) && isActive != null) {
+			sql.append("and e.active=:isActive ");
+		} else if (start == null && end == null && isActive != null) {
+			sql.append("where e.active=:isActive ");
+		}
+		Query query = entityManager.createQuery(sql.toString());
+		if (start != null) {
+			query.setParameter("start", start);
+		}
+		if (end != null) {
+			query.setParameter("end", end);
+		}		
+		if (isActive != null) {
+			query.setParameter("isActive", isActive);
+		}
+		return (Long)query.getSingleResult();
 	}
-
 }
