@@ -13,6 +13,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FullTextFilterDef;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
@@ -21,9 +22,12 @@ import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
 import com.publisher.entity.Account;
 
+import br.com.clubetatame.entity.search.ActiveFilterFactory;
+
 @Entity
 @Indexed
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@FullTextFilterDef(name = "activeMember", impl = ActiveFilterFactory.class)
 public class Member implements Serializable {
 
 	private static final long serialVersionUID = 5984515100458191997L;

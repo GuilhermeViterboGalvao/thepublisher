@@ -22,5 +22,7 @@ public interface MemberService extends Service<Member> {
     
     ResultList<Member> search(String query, int page, int pageSize);
     
+    ResultList<Member> search(String query, int page, int pageSize, Boolean isActive);
+    
     String hash(String password);
 }

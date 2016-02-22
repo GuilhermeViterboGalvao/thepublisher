@@ -64,8 +64,8 @@ public class EventServiceImplementation extends TransactionalService implements 
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Event.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contact", "state", "city", "address").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Event.class);
-        if (isActive != null && isActive) {
-        	fullTextQuery.enableFullTextFilter("activeEvent").setParameter("isActive", true);
+        if (isActive != null) {
+        	fullTextQuery.enableFullTextFilter("activeEvent").setParameter("isActive", isActive);
         }        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<Event> result = new ResultList<Event>();

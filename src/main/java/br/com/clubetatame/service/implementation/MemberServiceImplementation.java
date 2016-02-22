@@ -154,14 +154,22 @@ public class MemberServiceImplementation extends TransactionalService implements
         return query.getResultList();
 	}
 	
+	@Override	
+	public ResultList<Member> search(String query, int page, int pageSize) {
+		return search(query, page, pageSize, null);
+	}
+	
 	@Override
 	@SuppressWarnings("unchecked")
-	public ResultList<Member> search(String query, int page, int pageSize) {
+	public ResultList<Member> search(String query, int page, int pageSize, Boolean isActive) {
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Member.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "email", "document", "address", "cep").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Member.class);        
+        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Member.class);
+        if (isActive != null) {
+        	fullTextQuery.enableFullTextFilter("activeMember").setParameter("isActive", isActive);
+        }        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<Member> result = new ResultList<Member>();
         result.setResult(fullTextQuery.getResultList());
@@ -170,7 +178,7 @@ public class MemberServiceImplementation extends TransactionalService implements
         result.setPage(page);
         result.setPageSize(pageSize);
         log.info("MEMBER SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
-        return result;
+        return result;		
 	}
 
 	@Override
