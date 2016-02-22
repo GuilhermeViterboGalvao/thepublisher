@@ -18,6 +18,8 @@
 	<bean id="memberContractService" class="br.com.clubetatame.service.implementation.MemberContractServiceImplementation"/>
 	<bean id="memberService" class="br.com.clubetatame.service.implementation.MemberServiceImplementation"/>
 	<bean id="productService" class="br.com.clubetatame.service.implementation.ProductServiceImplementation"/>
+	<bean id="eventService" class="br.com.clubetatame.service.implementation.EventServiceImplementation"/>
+	<bean id="photoEventService" class="br.com.clubetatame.service.implementation.PhotoEventServiceImplementation"/>
 	<!-- The Publisher -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>	
 	<bean id="accountService" class="com.publisher.service.implementation.AccountServiceImplementation"/>	

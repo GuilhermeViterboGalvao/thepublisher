@@ -27,8 +27,7 @@
 			<result type="tiles">manager-clube-tatame-index</result>
 			<result name="redirect" type="tiles">manager-clube-tatame-index</result>
 		</action>
-		<action name="logout" class="br.com.clubetatame.manager.LogoutAction"/>
-		
+		<action name="logout" class="br.com.clubetatame.manager.LogoutAction"/>		
 		<action name="member-*" class="br.com.clubetatame.manager.MemberAction" method="{1}">
 			<result type="tiles">member-list</result>
 			<result name="input" type="tiles">member-input</result>
@@ -48,6 +47,15 @@
 			<result type="tiles">product-list</result>
 			<result name="input" type="tiles">product-input</result>
 			<result name="redirect" type="redirectAction">product-list</result>
-		</action>		
+		</action>
+		<action name="photoEvent-*" class="br.com.clubetatame.manager.PhotoEventAction" method="{1}">
+			<result type="tiles">photo-event-list</result>
+			<result name="input" type="tiles">photo-event-input</result>
+			<result name="redirect" type="redirectAction">photo-event-list</result>
+		</action>
+		<action name="photoEventMulti-*" class="br.com.clubetatame.manager.PhotoEventMultiUploadAction" method="{1}">
+		    <result name="input" type="tiles">photo-event-multi-input</result>
+			<result name="redirect" type="redirectAction">photoEvent-list</result>
+		</action>					
 	</package>
 </struts>

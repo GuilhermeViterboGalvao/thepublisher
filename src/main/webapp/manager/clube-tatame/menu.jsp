@@ -24,6 +24,11 @@
 		<li><a href="/manager/clube-tatame/product-input">Cadastrar</a></li>
 		<li><a href="/manager/clube-tatame/product-list">Listar</a></li>
 	</ul>
+	<h6 class="ym-vtitle">Fotos dos eventos</h6>
+	<ul>
+		<li><a href="/manager/clube-tatame/photoEvent-input">Cadastrar</a></li>
+		<li><a href="/manager/clube-tatame/photoEvent-list">Listar</a></li>
+	</ul>	
 	<h6 class="ym-vtitle">Outros</h6>
 	<ul>
 		<li><a href="/manager/clube-tatame/logout">Sair</a></li>

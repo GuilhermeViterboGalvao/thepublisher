@@ -3,12 +3,13 @@ package br.com.clubetatame.service;
 import java.util.Collection;
 import java.util.List;
 import com.publisher.entity.Photo;
+import com.publisher.service.PhotoService;
 import com.publisher.utils.ResultList;
 
 import net.bull.javamelody.MonitoredWithSpring;
 
 @MonitoredWithSpring
-public interface PhotoEventService {
+public interface PhotoEventService extends PhotoService {
 
 	List<Photo> listEventsPhotos();
 	

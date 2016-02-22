@@ -16,20 +16,20 @@ public class PhotoMultiUploadAction extends ActionSupport implements ServletRequ
 
 	private static final long serialVersionUID = 76972787395291166L;
 
-	private PhotoService photoService;
+	protected PhotoService photoService;
 	
 	public void setPhotoService(PhotoService photoService) {
 		this.photoService = photoService;
 	}
 	
-	private HttpServletRequest request;
+	protected HttpServletRequest request;
 	
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}	
 	
-	private Account account;
+	protected Account account;
 	
 	@Override
 	public void setAccount(Account account) {
@@ -106,23 +106,23 @@ public class PhotoMultiUploadAction extends ActionSupport implements ServletRequ
 	
 	//POJO properties
 	
-	private boolean useFilename = false;
+	protected boolean useFilename = false;
 	
-	private String[] pictureDescription;
+	protected String[] pictureDescription;
 	
-	private String[] pictureTag;
+	protected String[] pictureTag;
 	
-	private String description;
+	protected String description;
 	
-	private boolean published;
+	protected boolean published;
 	
-	private long[] pictureId;
+	protected long[] pictureId;
 	
-	private String credits;
+	protected String credits;
 	
-	private String tags;
+	protected String tags;
 	
-	private Date date;
+	protected Date date;
 
 	public boolean isUseFilename() {
 		return useFilename;

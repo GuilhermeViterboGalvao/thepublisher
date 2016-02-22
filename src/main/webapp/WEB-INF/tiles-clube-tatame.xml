@@ -39,5 +39,14 @@
     </definition>    
     <definition name="product-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/product/input.jsp"/>
-    </definition>      
+    </definition>
+    <definition name="photo-event-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo/list.jsp"/>
+    </definition>    
+    <definition name="photo-event-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo/input.jsp"/>
+    </definition>
+    <definition name="photo-event-multi-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo/multi.jsp"/>
+    </definition>       
 </tiles-definitions>
