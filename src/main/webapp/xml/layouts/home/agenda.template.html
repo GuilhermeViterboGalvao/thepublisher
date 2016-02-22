@@ -6,8 +6,8 @@ if (info && info.item && info.item.size() >= 1) {
 		<div class="dan">Agenda</div>
 	</div>
 	<div class="agenda-articles box-shadow">
-		<img class="arrow-left" alt="arrow-left.png" src="/skins/tatame/img/arrow-left.png"/>
-		<img class="arrow-right" alt="arrow-right.png" src="/skins/tatame/img/arrow-right.png"/>
+		<img class="agenda-arrow-left" alt="arrow-left.png" src="/skins/tatame/img/arrow-left.png"/>
+		<img class="agenda-arrow-right" alt="arrow-right.png" src="/skins/tatame/img/arrow-right.png"/>
 			<%
 			info.item.eachWithIndex { item, index ->
 				def photoId = (item.photoId =~ /\d{1,999999}/)[0],
@@ -18,7 +18,7 @@ if (info && info.item && info.item.size() >= 1) {
 					link = "/" + item.link.toString() 
 				}
 			%>
-			<div id="${index}" class="article ${index < 3 ? 'show' : 'hide'}">
+			<div id="agenda-${index}" class="article ${index == 0 ? '' : 'margin-left-2'} ${index < 3 ? 'show' : 'hide'}">
 				<a href="${link}">
 					<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_236x330.jpg?${hash}"/>
 				</a>

@@ -103,80 +103,65 @@ $(function() {
 	//Agenda
 	
 	$("div.agenda-articles").mouseover(function() {
-		$("img.arrow-left").add("img.arrow-right").css("display", "block");
+		$("img.agenda-arrow-left").add("img.agenda-arrow-right").css("display", "block");
 	}).mouseout(function() {
-		$("img.arrow-left").add("img.arrow-right").css("display", "none");
+		$("img.agenda-arrow-left").add("img.agenda-arrow-right").css("display", "none");
 	});
 	
-	var elements = 3;
+	var agendas = $("div.agenda-articles div"),
+	currentAId = 0;
+	aElements = 3;
 	
-	var links = $("div.agenda-articles div"),
-	currentPage = 1,
-	start = 0,
-	pages = links.length > elements ? Math.ceil(links.length/elements) : 1,
-	end = links.length > elements ? elements-1 : links.length;
-	
-	var left = $("div.agenda-articles .arrow-left").click(function() {
-		if (currentPage > 1) {
-			currentPage--;			
-			start -= elements;
-			end -= elements;
-			links.each(function(index) {
-				var link = $(this);
-				if (index >= start && index <= end) {
-					link.removeClass("hide").addClass("show");
-				} else {
-					link.removeClass("show").addClass("hide");
-				}
-			});
+	$("img.agenda-arrow-left").click(function() {
+		if (currentAId > 0) {
+			currentAId--;
+			
+			$("div.agenda-articles div#agenda-" + (currentAId +1)).addClass("margin-left-2");
+			$("div.agenda-articles div#agenda-" + currentAId).removeClass("hide").addClass("show");
+			$("div.agenda-articles div#agenda-" + (currentAId + aElements)).removeClass("show").addClass("hide");
 		}
 	});
 	
-	var right = $("div.agenda-articles .arrow-right").click(function() {
-		if (currentPage < pages) {
-			currentPage++;
-			start = end + 1;
-			end += elements;		
-			links.each(function(index) {
-				var link = $(this);
-				if (index >= start && index <= end) {
-					link.removeClass("hide").addClass("show");
-				} else {
-					link.removeClass("show").addClass("hide");
-				}
-			});
+	$("img.agenda-arrow-right").click(function() {
+		if (currentAId + aElements < agendas.length) {
+			currentAId++;
+			
+			$("div.agenda-articles div#agenda-" + currentAId).removeClass("margin-left-2");
+			$("div.agenda-articles div#agenda-" + (currentAId - 1)).removeClass("show").addClass("hide");
+			$("div.agenda-articles div#agenda-" + (currentAId + aElements -1)).removeClass("hide").addClass("show");
 		}
 	});
+	
 	
 	//Colunas
 	
 	$("div.colunas-articles").mouseover(function() {
-		$("img.arrow-left").add("img.arrow-right").css("display", "block");
+		$("img.colunas-arrow-left").add("img.colunas-arrow-right").css("display", "block");
 	}).mouseout(function() {
-		$("img.arrow-left").add("img.arrow-right").css("display", "none");
+		$("img.colunas-arrow-left").add("img.colunas-arrow-right").css("display", "none");
 	});
 	
-	var links = $("div.colunas-articles div"),
-	current = 0,
-	end = links.length;
+	var colunas = $("div.colunas-articles div"),
+	currentCId = 0;
+	cElements = 5;
 	
-	var left = $("div.colunas-articles .arrow-left").click(function() {
-		if (current > 0) {
-			current--;
+	$("img.colunas-arrow-left").click(function() {
+		if (currentCId > 0) {
+			currentCId--;
 			
-			$("div.colunas-articles div#" + (current +1)).addClass("margin-left-9");
-			$("div.colunas-articles div#" + current).removeClass("hide").addClass("show");
-			$("div.colunas-articles div#" + (current + 5)).removeClass("show").addClass("hide");
+			$("div.colunas-articles div#colunas-" + (currentCId +1)).addClass("margin-left-9");
+			$("div.colunas-articles div#colunas-" + currentCId).removeClass("hide").addClass("show");
+			$("div.colunas-articles div#colunas-" + (currentCId + cElements)).removeClass("show").addClass("hide");
 		}
 	});
 	
-	var right = $("div.colunas-articles .arrow-right").click(function() {
-		if (current + 5 < end) {
-			current++;
+	$("img.colunas-arrow-right").click(function() {
+		if (currentCId + cElements < colunas.length) {
+			currentCId++;
 			
-			$("div.colunas-articles div#" + current).removeClass("margin-left-9");
-			$("div.colunas-articles div#" + (current - 1)).removeClass("show").addClass("hide");
-			$("div.colunas-articles div#" + (current + 4)).removeClass("hide").addClass("show");
+			$("div.colunas-articles div#colunas-" + currentCId).removeClass("margin-left-9");
+			$("div.colunas-articles div#colunas-" + (currentCId - 1)).removeClass("show").addClass("hide");
+			$("div.colunas-articles div#colunas-" + (currentCId + (cElements -1))).removeClass("hide").addClass("show");
 		}
 	});
 });

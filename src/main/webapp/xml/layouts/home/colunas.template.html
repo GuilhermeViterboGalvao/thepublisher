@@ -7,8 +7,8 @@
 	<div class="dan">Colunas</div>
 </div>
 <div class="colunas-articles">
-	<img class="arrow-left" alt="arrow-left.png" src="/skins/tatame/img/arrow-left.png"/>
-	<img class="arrow-right" alt="arrow-right.png" src="/skins/tatame/img/arrow-right.png"/>
+	<img class="colunas-arrow-left" alt="arrow-left.png" src="/skins/tatame/img/arrow-left.png"/>
+	<img class="colunas-arrow-right" alt="arrow-right.png" src="/skins/tatame/img/arrow-right.png"/>
 <%
 	info.item.eachWithIndex { item, index ->
 		def photoId = (item.photoId =~ /\d{1,999999}/)[0],
@@ -19,7 +19,7 @@
 			link = "/" + item.link.toString() 
 		}
 %>
-	<div id="${index}" class="coluna box-shadow ${index == 0 ? '' : 'margin-left-9'} ${index < 5 ? 'show' : 'hide'}">
+	<div id="colunas-${index}" class="coluna box-shadow ${index == 0 ? '' : 'margin-left-9'} ${index < 5 ? 'show' : 'hide'}">
 		<a href="${link}">
 			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_135x170.jpg?${hash}"/>
 		</a>
