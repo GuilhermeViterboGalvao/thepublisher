@@ -203,7 +203,13 @@ public class CompanyServiceImplementation extends TransactionalService implement
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Company.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contact", "document", "email", "phone", "address", "cep").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Company.class); 
+        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Company.class);
+        if (pageSize > 0) {
+        	fullTextQuery.setMaxResults(pageSize);
+        }
+        if (page > 0 && pageSize > 0) {        	
+        	fullTextQuery.setFirstResult((page - 1) * pageSize);			
+		}        
         if (active != null) fullTextQuery.enableFullTextFilter("activeCompany").setParameter("isActive", active);
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<Company> result = new ResultList<Company>();

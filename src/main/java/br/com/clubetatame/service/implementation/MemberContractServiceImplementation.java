@@ -128,7 +128,13 @@ public class MemberContractServiceImplementation extends TransactionalService im
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(MemberContract.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "description").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, MemberContract.class);        
+        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, MemberContract.class);
+        if (pageSize > 0) {
+        	fullTextQuery.setMaxResults(pageSize);
+        }
+        if (page > 0 && pageSize > 0) {        	
+        	fullTextQuery.setFirstResult((page - 1) * pageSize);			
+		}        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<MemberContract> result = new ResultList<MemberContract>();
         result.setResult(fullTextQuery.getResultList());

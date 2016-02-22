@@ -128,7 +128,13 @@ public class GymContractServiceImplementation extends TransactionalService imple
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(GymContract.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "description").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, GymContract.class);        
+        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, GymContract.class);
+        if (pageSize > 0) {
+        	fullTextQuery.setMaxResults(pageSize);
+        }
+        if (page > 0 && pageSize > 0) {        	
+        	fullTextQuery.setFirstResult((page - 1) * pageSize);			
+		}        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<GymContract> result = new ResultList<GymContract>();
         result.setResult(fullTextQuery.getResultList());

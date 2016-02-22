@@ -205,6 +205,12 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contact", "document", "email", "phone", "address", "cep").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Gym.class); 
         if (active != null) fullTextQuery.enableFullTextFilter("activeGym").setParameter("isActive", active);
+        if (pageSize > 0) {
+        	fullTextQuery.setMaxResults(pageSize);
+        }
+        if (page > 0 && pageSize > 0) {        	
+        	fullTextQuery.setFirstResult((page - 1) * pageSize);			
+		}        
         fullTextQuery.setHint("org.hibernate.cacheable", true);
         ResultList<Gym> result = new ResultList<Gym>();
         result.setResult(fullTextQuery.getResultList());

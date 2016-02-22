@@ -167,6 +167,12 @@ public class MemberServiceImplementation extends TransactionalService implements
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Member.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "email", "document", "address", "cep").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Member.class);
+        if (pageSize > 0) {
+        	fullTextQuery.setMaxResults(pageSize);
+        }
+        if (page > 0 && pageSize > 0) {        	
+        	fullTextQuery.setFirstResult((page - 1) * pageSize);			
+		}        
         if (isActive != null) {
         	fullTextQuery.enableFullTextFilter("activeMember").setParameter("isActive", isActive);
         }        

@@ -12,13 +12,15 @@ public interface PhotoEventService {
 
 	List<Photo> listEventsPhotos();
 	
-	List<Photo> listEventsPhotos(Boolean isActive);
+	List<Photo> listEventsPhotos(Boolean published);
 	
-	List<Photo> listEventsPhotos(Boolean isActive, int page, int pageSize);
+	List<Photo> listEventsPhotos(Boolean published, int page, int pageSize);
+		
+	List<Photo> listEventsPhotos(Boolean published, int page, int pageSize, String orderBy, String order);
+		
+	long countEventsPhotos();
 	
-	int countEventsPhotos();
-	
-	int countEventsPhotos(Boolean isActive);
+	long countEventsPhotos(Boolean published);
 	
     Collection<Photo> searchEventsPhotos(String query);
     
