@@ -19,6 +19,7 @@
 		if(id != 1){
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
+			var title = document.getElementById("title" + id);
 			var link = document.getElementById("link" + id);
 			
 			id--;
@@ -27,15 +28,19 @@
 			var cloneImgUp = imgUp.cloneNode(true);
 			var inputUp = document.getElementById("photoId" + id);
 			var cloneInputUp = inputUp.cloneNode(true);
+			var titleUp = document.getElementById("title" + id);
+			var cloneTitleUp = titleUp.cloneNode(true);
 			var linkUp = document.getElementById("link" + id);
 			var cloneLinkUp = linkUp.cloneNode(true);
 			
 			imgUp.src = img.src;
 			inputUp.value = input.value;
+			titleUp.value = title.value;
 			linkUp.value = link.value;
 			
 			img.src = cloneImgUp.src;
 			input.value = cloneInputUp.value;
+			title.value = cloneTitleUp.value;
 			link.value = cloneLinkUp.value;
 		}
 	}
@@ -44,6 +49,7 @@
 		if(id != max){
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
+			var title = document.getElementById("title" + id);
 			var link = document.getElementById("link" + id);
 			
 			id++;
@@ -52,15 +58,19 @@
 			var cloneImgDown = imgDown.cloneNode(true);
 			var inputDown = document.getElementById("photoId" + id);
 			var cloneInputDown = inputDown.cloneNode(true);
+			var titleDown = document.getElementById("title" + id);
+			var cloneTitleDown = titleDown.cloneNode(true);
 			var linkDown = document.getElementById("link" + id);
 			var cloneLinkDown = linkDown.cloneNode(true);
 			
 			imgDown.src = img.src;
 			inputDown.value = input.value;
+			titleDown.value = title.value;
 			linkDown.value = link.value;
 			
 			img.src = cloneImgDown.src;
 			input.value = cloneInputDown.value;
+			title.value = cloneTitleDown.value;
 			link.value = cloneLinkDown.value;
 		}
 	}
@@ -116,9 +126,15 @@
 						<p:articleselectordialog cssClass="button" url="article_select" text="matérias" onArticleClick="function(article){
 							$('#photoId%{#st.count}_ACS').attr('src', article.photoId > 0 ? '/img/' + article.photoId + '_150x150.jpg' : '/manager/img/photo_80x60.jpg');
 							$('#photoId%{#st.count}').val(article.photoId > 0 ? '/img/' + article.photoId + '_150x150.jpg' : '/manager/img/photo_80x60.jpg');
+							$('#title%{#st.count}').val(article.title);
 							$('#link%{#st.count}').val(article.url);
 						}"/>					
 					</div>				
+				</div>
+				
+				<div class="field">
+					<label for="title">Título:</label>
+					<s:textfield id="title%{#st.count}" name="title" value="%{top['title']}"/>
 				</div>
 				
 				<div class="field">

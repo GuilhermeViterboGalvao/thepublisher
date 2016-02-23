@@ -67,8 +67,10 @@
 .colunas-articles { float: left; width: 714px; position: relative; }
 .colunas-articles .colunas-arrow-left { position: absolute; z-index: 3; top: 71px; left: 4px; display: none; width: 28px; }
 .colunas-articles .colunas-arrow-right { position: absolute; top: 71px; left: 682px; z-index: 3; display: none; width: 28px; }
-.colunas-articles .coluna { float: left; height: 170px; width: 135px; overflow: hidden; }
+.colunas-articles .coluna { float: left; height: 170px; width: 135px; overflow: hidden; position: relative; }
 .colunas-articles .coluna img { float: left; }
+.colunas-articles .coluna .title { position: absolute; left: 5px; top: 149px; font-size: 15px; color: #fff; width: 125px; height: auto; overflow: hidden; text-overflow: ellipsis; max-height: 17px; font-weight: bold; }			
+.colunas-articles .coluna .transparence { width: 135px; background-color: #000; opacity: 0.4; height: 25px; position: absolute; left: 0; top: 145px; }
 
 .black-belt-agenda { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-agenda .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; } 				

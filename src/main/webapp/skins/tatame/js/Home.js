@@ -108,12 +108,12 @@ $(function() {
 		$("img.agenda-arrow-left").add("img.agenda-arrow-right").css("display", "none");
 	});
 	
-	var agendas = $("div.agenda-articles div"),
+	var agendas = $("div.agenda-articles > div"),
 	currentAId = 0;
 	aElements = 3;
 	
 	$("img.agenda-arrow-left").click(function() {
-		if (currentAId > 0) {
+		if (currentAId > 0 && agendas.length > aElements) {
 			currentAId--;
 			
 			$("div.agenda-articles div#agenda-" + (currentAId +1)).addClass("margin-left-2");
@@ -123,7 +123,7 @@ $(function() {
 	});
 	
 	$("img.agenda-arrow-right").click(function() {
-		if (currentAId + aElements < agendas.length) {
+		if (currentAId + aElements < agendas.length && agendas.length > aElements) {
 			currentAId++;
 			
 			$("div.agenda-articles div#agenda-" + currentAId).removeClass("margin-left-2");
@@ -141,12 +141,12 @@ $(function() {
 		$("img.colunas-arrow-left").add("img.colunas-arrow-right").css("display", "none");
 	});
 	
-	var colunas = $("div.colunas-articles div"),
+	var colunas = $("div.colunas-articles > div"),
 	currentCId = 0;
 	cElements = 5;
 	
 	$("img.colunas-arrow-left").click(function() {
-		if (currentCId > 0) {
+		if (currentCId > 0 && colunas.length > cElements) {
 			currentCId--;
 			
 			$("div.colunas-articles div#colunas-" + (currentCId +1)).addClass("margin-left-9");
@@ -156,7 +156,7 @@ $(function() {
 	});
 	
 	$("img.colunas-arrow-right").click(function() {
-		if (currentCId + cElements < colunas.length) {
+		if (currentCId + cElements < colunas.length && colunas.length > cElements) {
 			currentCId++;
 			
 			$("div.colunas-articles div#colunas-" + currentCId).removeClass("margin-left-9");
