@@ -78,6 +78,10 @@ public class PhotoEventServiceImplementation extends PhotoServiceImplementation 
 			sql.append("and p.published=:published ");
 		}
 		Query query = entityManager.createQuery(sql.toString());
+		query.setParameter("isEvent", true);
+		if (published != null) {
+			query.setParameter("published", published);	
+		}
 		return (Long)query.getSingleResult();
 	}
 
