@@ -5,7 +5,7 @@
 <script type="text/javascript" src="/frameworks/jquery/plugins/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/skins/tatame/js/main.js?1"></script>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
-	<script type="text/javascript" src="/skins/tatame/js/Home.js?14"></script>
+	<script type="text/javascript" src="/skins/tatame/js/Home.js?15"></script>
 </s:if>
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
 	<script type="text/javascript" src="/skins/tatame/js/Article.js"></script>
