@@ -8,7 +8,7 @@ import org.apache.struts2.views.annotations.StrutsTag;
 
 import com.opensymphony.xwork2.util.ValueStack;
 
-@StrutsTag(name="autocomplete", tldTagClass="br.com.fluir.website.tags.AutoCompleteTag", description="Coloca campo de edição auto completável", allowDynamicAttributes=true)
+@StrutsTag(name="photoselector", tldTagClass="com.publisher.tags.PhotoSelector", description="Seleciona as fotos cadastradas no sistema através das tags.", allowDynamicAttributes=true)
 public class PhotoSelector extends Hidden {
 
 	private String display;

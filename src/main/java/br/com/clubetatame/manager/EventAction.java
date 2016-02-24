@@ -257,7 +257,7 @@ public class EventAction extends AbstractAction<Event> {
 	}
 
 	public Date getStart() {
-		return start;
+		return start != null ? start : new Date();
 	}
 
 	public void setStart(Date start) {
@@ -265,7 +265,7 @@ public class EventAction extends AbstractAction<Event> {
 	}
 
 	public Date getEnd() {
-		return end;
+		return end != null ? end : new Date();
 	}
 
 	public void setEnd(Date end) {

@@ -13,16 +13,16 @@ public class PhotoSelectorTag  extends HiddenTag {
 
 	private static final long serialVersionUID = 2876639904599778460L;
 
-	private String display;
-	private String url;
-	private String delay;
-	private String initialUrl;
-	private String pageSize;
-	private String showToolTip;
-	private String imagePattern;
-	private String minLength;
-	private String loadingImage;
-	private String evaluator;
+	protected String display;
+	protected String url;
+	protected String delay;
+	protected String initialUrl;
+	protected String pageSize;
+	protected String showToolTip;
+	protected String imagePattern;
+	protected String minLength;
+	protected String loadingImage;
+	protected String evaluator;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res){
 		return new PhotoSelector(stack, req, res);

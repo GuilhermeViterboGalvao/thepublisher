@@ -56,7 +56,23 @@ public class PhotoAutoCompleteAction extends AutoCompleteAction {
 		private String description;
 		
 		private String photographer;
-		
+				
+		public void setWidth(int width) {
+			this.width = width;
+		}
+
+		public void setHeight(int height) {
+			this.height = height;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public void setPhotographer(String photographer) {
+			this.photographer = photographer;
+		}
+
 		public String getPhotographer() { 
 			return photographer; 
 		}

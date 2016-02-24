@@ -213,17 +213,9 @@
 					url = url + "term="+search;
 				}
 				url = url + (url.indexOf('?')>0?'&':'?');
-				if (this.options.photoType == "isAdvertiser") {
-					url = url + "&isAdvertiser=true";
-				} else if (this.options.photoType == "isWallpaper") {
-					url = url + "&isWallpaper=true";
-				} else if (this.options.photoType == "isCover") {
-					url = url + "&isCover=true";
-				} else if (this.options.photoType == "isSpot") {
-					url = url + "&isSpot=true";
-				}else if (this.options.photoType == "isTatame") {
-					url = url + "&isTatame=true";
-				}	
+				if (this.options.isEvent && this.options.isEvent != undefined) {
+					url = url + "&isEvent=true";
+				}
 				url = url + "&pagesize="+this.pagesize+"&page="+this.page+"&callback="+this.name+"."+method;
 				jsonp(url);
 			},

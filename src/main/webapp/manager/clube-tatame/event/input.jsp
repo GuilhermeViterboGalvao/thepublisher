@@ -17,17 +17,17 @@
 		</s:if>			
 		<div class="ym-fbox-text">
 			<s:hidden name="id"/>
-			<p:photoselector 
+			<p:photoeventselector 
 				name="photoId" 
 				cssStyle="float: left;"
 				display="'/img/' + photoId + '_150x100.jpg'"
-				url="/manager/ac-photo"
+				url="/manager/clube-tatame/ac-photo-event"
 				imagePattern="/img/[value]_150x100.jpg"
 				minLength="5" 
 				delay="500" 
 				pageSize="60" 
 				showToolTip="true"
-				initialUrl="/manager/ac-photo"
+				initialUrl="/manager/clube-tatame/ac-photo-event"
 				loadingImage="/manager/img/loader.gif" 
 			/>				
 			<label for="name">Nome</label>
