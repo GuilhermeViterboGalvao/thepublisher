@@ -49,7 +49,7 @@ public class CompanyServiceImplementation extends TransactionalService implement
 
 	@Override
 	public Collection<Company> list() {
-		return list(0, 0);
+		return list(null);
 	}
 
 	@Override
@@ -107,15 +107,23 @@ public class CompanyServiceImplementation extends TransactionalService implement
 	}
 
 	@Override
-	public Collection<Company> list(int page, int pageSize) {
-		return list(page, pageSize, null, null);
+	public Collection<Company> list(Boolean active) {
+		return list(active, 0, 0);
+	}
+	
+	@Override
+	public Collection<Company> list(Boolean active, int page, int pageSize) {
+		return list(active, page, pageSize, null, null);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Collection<Company> list(int page, int pageSize, String orderBy, String order) {
+	public Collection<Company> list(Boolean active, int page, int pageSize, String orderBy, String order) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("from Company c ");
+		if (active != null) {
+			sql.append("where c.active=:active ");
+		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
 			sql.append("c." + orderBy + " " + order);	
@@ -123,6 +131,9 @@ public class CompanyServiceImplementation extends TransactionalService implement
 			sql.append("c.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
+        if (active != null) {
+        	query.setParameter("active", active);
+        }
         if (pageSize > 0) {
         	query.setMaxResults(pageSize);	
         }

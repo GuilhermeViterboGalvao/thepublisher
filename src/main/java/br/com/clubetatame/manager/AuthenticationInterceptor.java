@@ -5,6 +5,7 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 import com.publisher.entity.Account;
+import com.publisher.manager.AccountAware;
 
 public class AuthenticationInterceptor implements Interceptor {
 
@@ -18,9 +19,10 @@ public class AuthenticationInterceptor implements Interceptor {
         Action action = (Action)actionInvocation.getAction();
         if (action instanceof AccountAware) {
             Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
-            Account account = (Account)session.get("account");
-            ((AccountAware)action).setAccount(account);
-            if (account == null) {
+            Object obj = session != null ? session.get("account") : null;
+            if (obj != null && obj instanceof Account) {
+                ((AccountAware)action).setAccount((Account)obj);             
+            } else {
             	return Action.LOGIN;
             }
         }

@@ -1,0 +1,79 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <message>O campo 'Nome' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="description">
+        <field-validator type="requiredstring">
+            <message>O campo 'Descrição' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="contact">
+        <field-validator type="requiredstring">
+            <message>O campo 'Contato' é obrigatório.</message>
+        </field-validator>
+    </field>    
+    <field name="state">
+        <field-validator type="requiredstring">
+            <message>O campo 'Estado' é obrigatório.</message>
+        </field-validator>
+    </field>    
+    <field name="city">
+        <field-validator type="requiredstring">
+            <message>O campo 'Cidade' é obrigatório.</message>
+        </field-validator>
+    </field>    
+    <field name="address">
+        <field-validator type="requiredstring">
+            <message>O campo 'Endereço' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="start">
+        <field-validator type="requiredstring">
+            <message>O campo 'Data de início' é obrigatório.</message>
+        </field-validator>
+      <field-validator type="date">
+          <message>Formato inválido para o campo 'Data de início'. Por favor coloque no seguinte padrão DD/MM/AAAA ou DD/MM/AAAA HH:MM</message>
+      </field-validator>
+    </field>    
+    <field name="end">
+        <field-validator type="requiredstring">
+            <message>O campo 'Data de término' é obrigatório.</message>
+        </field-validator>
+      <field-validator type="date">
+          <message>Formato inválido para o campo 'Data de término'. Por favor coloque no seguinte padrão DD/MM/AAAA ou DD/MM/AAAA HH:MM</message>
+      </field-validator>        
+    </field>    
+    <field name="zoomGoogleMaps">
+        <field-validator type="requiredstring">
+            <message>O campo 'Zoom do Google maps' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="lat">
+        <field-validator type="required">
+            <message>O campo 'Latitude' é obrigatório.</message>
+        </field-validator>
+	    <field-validator type="double">
+			<param name="minExclusive">-90</param>
+			<param name="maxExclusive">90</param>
+			<message>A Latitude deve ser entre ${minExclusive} a ${maxExclusive}.</message>
+	    </field-validator>
+    </field>
+    <field name="lon">
+        <field-validator type="required">
+            <message>O campo 'Longitude' é obrigatório.</message>
+        </field-validator>
+	    <field-validator type="double">
+			<param name="minExclusive">-180</param>
+			<param name="maxExclusive">180</param>
+			<message>A Longitude deve ser entre ${minExclusive} a ${maxExclusive}.</message>
+	    </field-validator>        
+    </field>
+    <field name="company">
+        <field-validator type="requiredstring">
+            <message>É obrigatório selecionar a empresa organizadora do evento.</message>
+        </field-validator>
+    </field>    
+</validators>

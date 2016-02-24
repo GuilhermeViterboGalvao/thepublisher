@@ -12,9 +12,11 @@ public interface CompanyService extends Service<Company> {
 
 	Company authenticate(String email, String password);
 	
-    Collection<Company> list(int page, int pageSize);
+	Collection<Company> list(Boolean active);
+	
+    Collection<Company> list(Boolean active, int page, int pageSize);
     
-    Collection<Company> list(int page, int pageSize, String orderBy, String order);
+    Collection<Company> list(Boolean active, int page, int pageSize, String orderBy, String order);
     
     Collection<Company> list(float lat, float lon, float distanceInKM);
     

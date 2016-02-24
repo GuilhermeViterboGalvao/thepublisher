@@ -5,10 +5,6 @@
 	<ul>
 		<li><a href="/manager/clube-tatame/home">Editar</a></li>
 	</ul>
-	<h6 class="ym-vtitle">Membros</h6>	
-	<ul>
-		<li><a href="/manager/clube-tatame/member-list">Listar</a></li>
-	</ul>
 	<h6 class="ym-vtitle">Academias</h6>
 	<ul>
 		<li><a href="/manager/clube-tatame/gym-input">Cadastrar</a></li>
@@ -19,15 +15,24 @@
 		<li><a href="/manager/clube-tatame/company-input">Cadastrar</a></li>
 		<li><a href="/manager/clube-tatame/company-list">Listar</a></li>
 	</ul>
-	<h6 class="ym-vtitle">Produtos</h6>
+	<h6 class="ym-vtitle">Eventos</h6>
 	<ul>
-		<li><a href="/manager/clube-tatame/product-input">Cadastrar</a></li>
-		<li><a href="/manager/clube-tatame/product-list">Listar</a></li>
+		<li><a href="/manager/clube-tatame/event-input">Cadastrar</a></li>
+		<li><a href="/manager/clube-tatame/event-list">Listar</a></li>
 	</ul>
 	<h6 class="ym-vtitle">Fotos dos eventos</h6>
 	<ul>
 		<li><a href="/manager/clube-tatame/photoEvent-input">Cadastrar</a></li>
 		<li><a href="/manager/clube-tatame/photoEvent-list">Listar</a></li>
+	</ul>
+	<h6 class="ym-vtitle">Membros</h6>	
+	<ul>
+		<li><a href="/manager/clube-tatame/member-list">Listar</a></li>
+	</ul>		
+	<h6 class="ym-vtitle">Produtos</h6>
+	<ul>
+		<li><a href="/manager/clube-tatame/product-input">Cadastrar</a></li>
+		<li><a href="/manager/clube-tatame/product-list">Listar</a></li>
 	</ul>	
 	<h6 class="ym-vtitle">Outros</h6>
 	<ul>

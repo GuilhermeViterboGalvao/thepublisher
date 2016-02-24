@@ -93,7 +93,7 @@ public class CompanyAction extends AbstractAction<Company> {
 	@Override
 	protected Collection<Company> generateList() {
 		setPages((int)Math.floor(1f * companyService.count() / getPageSize()) + 1);		
-		return companyService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
+		return companyService.list(null, getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
 	}
 
 	@Override
