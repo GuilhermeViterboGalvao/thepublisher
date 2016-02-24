@@ -1,4 +1,5 @@
 <%
+	def hash = (int)(Math.floor(Math.random() * 100000))
 	if (info && info.item && info.item.size() == 2) {
 		def item, photoId, link
 %>
@@ -17,7 +18,7 @@
 			}				
 		%>
 		<a href="${link}">
-			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg"/>
+			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg?${hash}"/>
 		</a>		
 		<div class="note">${item.note}</div>
 	</div>
@@ -32,7 +33,7 @@
 			}				
 		%>
 		<a href="${link}">
-			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg"/>
+			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg?${hash}"/>
 		</a>		
 		<div class="note">${item.note}</div>
 	</div>

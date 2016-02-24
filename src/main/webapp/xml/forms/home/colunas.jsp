@@ -19,9 +19,8 @@
 		if(id != 1){
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
-			var note = document.getElementById("note" + id);
+			var title = document.getElementById("title" + id);
 			var link = document.getElementById("link" + id);
-			var date = document.getElementById("date" + id);
 			
 			id--;
 			
@@ -29,24 +28,20 @@
 			var cloneImgUp = imgUp.cloneNode(true);
 			var inputUp = document.getElementById("photoId" + id);
 			var cloneInputUp = inputUp.cloneNode(true);
-			var noteUp = document.getElementById("note" + id);
-			var cloneNoteUp = noteUp.cloneNode(true);
+			var titleUp = document.getElementById("title" + id);
+			var cloneTitleUp = titleUp.cloneNode(true);
 			var linkUp = document.getElementById("link" + id);
 			var cloneLinkUp = linkUp.cloneNode(true);
-			var dateUp = document.getElementById("date" + id);
-			var cloneDateUp = dateUp.cloneNode(true);
 			
 			imgUp.src = img.src;
 			inputUp.value = input.value;
-			noteUp.value = note.value;
+			titleUp.value = title.value;
 			linkUp.value = link.value;
-			dateUp.value = date.value;
 			
 			img.src = cloneImgUp.src;
 			input.value = cloneInputUp.value;
-			note.value = cloneNoteUp.value;
+			title.value = cloneTitleUp.value;
 			link.value = cloneLinkUp.value;
-			date.value = cloneDateUp.value;
 		}
 	}
 	function _down(e, max) {
@@ -54,34 +49,29 @@
 		if(id != max){
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
-			var note = document.getElementById("note" + id);
+			var title = document.getElementById("title" + id);
 			var link = document.getElementById("link" + id);
-			var date = document.getElementById("date" + id);
 			
 			id++;
 			
-			var imgUp = document.getElementById("photoId" + id + "_ACS");
-			var cloneImgUp = imgUp.cloneNode(true);
-			var inputUp = document.getElementById("photoId" + id);
-			var cloneInputUp = inputUp.cloneNode(true);
-			var noteUp = document.getElementById("note" + id);
-			var cloneNoteUp = noteUp.cloneNode(true);
-			var linkUp = document.getElementById("link" + id);
-			var cloneLinkUp = linkUp.cloneNode(true);
-			var dateUp = document.getElementById("date" + id);
-			var cloneDateUp = dateUp.cloneNode(true);
+			var imgDown = document.getElementById("photoId" + id + "_ACS");
+			var cloneImgDown = imgDown.cloneNode(true);
+			var inputDown = document.getElementById("photoId" + id);
+			var cloneInputDown = inputDown.cloneNode(true);
+			var titleDown = document.getElementById("title" + id);
+			var cloneTitleDown = titleDown.cloneNode(true);
+			var linkDown = document.getElementById("link" + id);
+			var cloneLinkDown = linkDown.cloneNode(true);
 			
-			imgUp.src = img.src;
-			inputUp.value = input.value;
-			noteUp.value = note.value;
-			linkUp.value = link.value;
-			dateUp.value = date.value;
+			imgDown.src = img.src;
+			inputDown.value = input.value;
+			titleDown.value = title.value;
+			linkDown.value = link.value;
 			
-			img.src = cloneImgUp.src;
-			input.value = cloneInputUp.value;
-			note.value = cloneNoteUp.value;
-			link.value = cloneLinkUp.value;
-			date.value = cloneDateUp.value;
+			img.src = cloneImgDown.src;
+			input.value = cloneInputDown.value;
+			title.value = cloneTitleDown.value;
+			link.value = cloneLinkDown.value;
 		}
 	}
 	function _del(e) {
@@ -136,27 +126,21 @@
 						<p:articleselectordialog cssClass="button" url="article_select" text="matérias" onArticleClick="function(article){
 							$('#photoId%{#st.count}_ACS').attr('src', article.photoId > 0 ? '/img/' + article.photoId + '_150x150.jpg' : '/manager/img/photo_80x60.jpg');
 							$('#photoId%{#st.count}').val(article.photoId > 0 ? '/img/' + article.photoId + '_150x150.jpg' : '/manager/img/photo_80x60.jpg');
-							$('#note%{#st.count}').val(article.note);
+							$('#title%{#st.count}').val(article.title);
 							$('#link%{#st.count}').val(article.url);
-							$('#date%{#st.count}').val(article.publishedAt);
 						}"/>					
 					</div>				
 				</div>
 				
 				<div class="field">
-					<label for="note">Resenha:</label>
-					<s:textfield id="note%{#st.count}" name="note" value="%{top['note']}"/>
+					<label for="title">Título:</label>
+					<s:textfield id="title%{#st.count}" name="title" value="%{top['title']}"/>
 				</div>
 				
 				<div class="field">
 					<label for="link">Link:</label>
 					<s:textfield id="link%{#st.count}" name="link" value="%{top['link']}"/>
-				</div>
-				
-				<div class="field">
-					<label for="date">Data:</label>
-					<s:textfield id="date%{#st.count}" name="date" value="%{top['date']}"/>
-				</div>				
+				</div>			
 
 				<hr/>
 			</s:div>

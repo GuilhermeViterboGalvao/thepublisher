@@ -24,9 +24,9 @@
 .black-belt-highlights .dan { float: left; background-color: #a2393c; height: 25px; width: 96px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; }
 
 .other-highlights { float: left; width: 1024px; }
-.other-highlights .highlight { float: left; height: 200px; width: 507px; }
+.other-highlights .highlight { float: left; height: 200px; width: 507px; background-color: #f6f6f6; }
 .other-highlights .highlight img { float: left; width: 250px; border-right: 1px solid #a2393c; }
-.other-highlights .highlight .info { float: left; width: 250px; height: 200px; background-color: #f6f6f6; }
+.other-highlights .highlight .info { float: left; width: 250px; height: 200px; }
 .other-highlights .highlight .info .note { float: left; width: 244px; height: 115px; font-size: 20px; line-height: 28px; padding: 10px 0 0 10px; font-weight: bold; color: #000; overflow: hidden; text-overflow: ellipsis; }
 .other-highlights .highlight .info .date { float: left; width: 244px; height: 30px; padding: 45px 0 0 10px; font-size: 20px; line-height: 28px; color: #000;  overflow: hidden; text-overflow: ellipsis; }
 	
@@ -39,7 +39,7 @@
 
 .black-belt-last-news { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-last-news .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 75px; }
-.last-news { float: left; height: 844px; width: 300px; border-bottom: 1px solid #a2393c; }
+.last-news { float: left; height: 614px; width: 300px; border-bottom: 1px solid #a2393c; }
 .last-news .article { float: left; width: 300px; height: 250px; overflow: hidden; margin: 0 0 5px 0; background-color: #f6f6f6; }
 .last-news .article img { float: left; width: 300px; border-bottom: 1px solid #a2393c; }
 .last-news .article .info { float: left; width: 300px; height: 70px; }
@@ -58,23 +58,26 @@
 .black-belt-jiu-jitsu { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-jiu-jitsu .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px;  } 				
 .jiu-jitsu-articles { float: left; height: 400px; width: 714px; }
-.jiu-jitsu-articles .jiu-jitsu-article { float: left; height: 400px; width: 352px; overflow: hidden; }
-.jiu-jitsu-articles .jiu-jitsu-article img { float: left; height: 335px; width: 352px; }
-.jiu-jitsu-articles .jiu-jitsu-article .note { float: left; height: 54px; width: 342px; background-color: #f6f6f6; color: #000; font-size: 14px; padding: 10px 0 0 10px; line-height: 18px; overflow: hidden; border-top: 1px solid #a2393c; font-weight: bold; }						
+.jiu-jitsu-articles .jiu-jitsu-article { float: left; height: 400px; width: 352px; overflow: hidden; background-color: #f6f6f6; }
+.jiu-jitsu-articles .jiu-jitsu-article img { float: left; height: 335px; width: 352px; border-bottom: 1px solid #a2393c; }
+.jiu-jitsu-articles .jiu-jitsu-article .note { float: left; height: 38px; width: 340px; color: #000; font-size: 14px; padding: 10px 0 0 10px; line-height: 18px; overflow: hidden; font-weight: bold; }						
 
 .black-belt-colunas { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 15px 0 5px 0; }
 .black-belt-colunas .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; } 				
-.colunas-articles { float: left; height: 400px; width: 714px; }
-.colunas-articles .jiu-jitsu-article { float: left; height: 400px; width: 352px; overflow: hidden; }
-.colunas-articles .jiu-jitsu-article img { float: left; height: 335px; width: 352px; }
-.colunas-articles .jiu-jitsu-article .note { float: left; height: 54px; width: 342px; background-color: #f6f6f6; color: #000; font-size: 14px; padding: 10px 0 0 10px; line-height: 18px; overflow: hidden; border-top: 1px solid #a2393c; font-weight: bold; }						
+.colunas-articles { float: left; width: 714px; position: relative; }
+.colunas-articles .colunas-arrow-left { position: absolute; z-index: 3; top: 71px; left: 4px; display: none; width: 28px; }
+.colunas-articles .colunas-arrow-right { position: absolute; top: 71px; left: 682px; z-index: 3; display: none; width: 28px; }
+.colunas-articles .coluna { float: left; height: 170px; width: 135px; overflow: hidden; position: relative; }
+.colunas-articles .coluna img { float: left; }
+.colunas-articles .coluna .title { position: absolute; left: 5px; top: 149px; font-size: 15px; color: #fff; width: 125px; height: auto; overflow: hidden; text-overflow: ellipsis; max-height: 17px; font-weight: bold; }			
+.colunas-articles .coluna .transparence { width: 135px; background-color: #000; opacity: 0.4; height: 25px; position: absolute; left: 0; top: 145px; }
 
 .black-belt-agenda { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }
 .black-belt-agenda .dan { float: left; background-color: #a2393c; height: 25px; width: 72px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; } 				
 .agenda-articles { width: 714px; height:330px; overflow:hidden; position:relative; float: left; }
-.agenda-articles .arrow-left { position: absolute; z-index: 3; top: 152px; left: 7px; display: none; width: 34px; }
-.agenda-articles .arrow-right { position: absolute; top: 152px; left: 677px; z-index: 3; display: none; width: 34px; }
-.agenda-articles div.article { float: left; height: 330px; overflow: hidden; position: relative; width: 236px; margin-left: 2px; }
+.agenda-articles .agenda-arrow-left { position: absolute; z-index: 3; top: 152px; left: 7px; display: none; width: 34px; }
+.agenda-articles .agenda-arrow-right { position: absolute; top: 152px; left: 677px; z-index: 3; display: none; width: 34px; }
+.agenda-articles div.article { float: left; height: 330px; overflow: hidden; position: relative; width: 236px; }
 .agenda-articles div.article a img { height: 330px; width: 236px; }
 
 .black-belt-big-video { float: left; background-color: #2b2b2b; height: 25px; width: 714px; margin: 0 0 5px 0; }

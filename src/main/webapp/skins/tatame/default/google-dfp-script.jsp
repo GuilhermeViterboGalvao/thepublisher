@@ -22,7 +22,8 @@
 			googletag.defineSlot("/13554095/Tatame_300x100_especial2_home", [300, 100], "tatame_300x100_especial2_home").addService(googletag.pubads());
 			//googletag.defineSlot("/13554095/Tatame_300x250_ros", [300, 250], "tatame_300x250_ros").addService(googletag.pubads());
 			googletag.defineSlot("/13554095/Tatame_300x600_ros", [300, 600], "tatame_300x600_ros").addService(googletag.pubads());
-			googletag.defineSlot("/13554095/Tatame_1680x912_Home", [1680, 912], "tatame_1680x912_home").addService(googletag.pubads());			
+			googletag.defineSlot("/13554095/Tatame_1680x912_Home", [1680, 912], "tatame_1680x912_home").addService(googletag.pubads());
+			googletag.pubads().setTargeting("pageType", "home");
 			googletag.pubads().enableSingleRequest();
 			googletag.enableServices();
 		});
@@ -44,7 +45,16 @@
 			googletag.defineSlot("/13554095/Tatame_300x100_ros", [300, 100], "tatame_300x100_ros").addService(googletag.pubads());
 			googletag.defineSlot("/13554095/Tatame_300x250_ros", [300, 250], "tatame_300x250_ros").addService(googletag.pubads());
 			googletag.defineSlot("/13554095/Tatame_300x600_ros", [300, 600], "tatame_300x600_ros").addService(googletag.pubads());
-			googletag.defineSlot("/13554095/Tatame_1680x912_Ros", [1680, 912], "tatame_1680x912_ros").addService(googletag.pubads());
+			googletag.defineSlot("/13554095/Tatame_1680x912_Ros", [1680, 912], "tatame_1680x912_ros").addService(googletag.pubads());			
+			<s:if test="model != null && model instanceof com.publisher.entity.Article">
+				googletag.pubads().setTargeting("pageType", "article");
+			</s:if>
+			<s:elseif test="model != null && model instanceof com.publisher.entity.Category">
+				googletag.pubads().setTargeting("pageType", "category");
+			</s:elseif>
+			<s:else>
+				googletag.pubads().setTargeting("pageType", "search");
+			</s:else>			
 			googletag.pubads().enableSingleRequest();
 			googletag.enableServices();
 		});

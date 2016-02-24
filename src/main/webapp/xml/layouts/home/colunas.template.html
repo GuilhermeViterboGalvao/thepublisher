@@ -1,41 +1,34 @@
 <%
-	if (info && info.item && info.item.size() == 2) {
-		def item, photoId, link
+	def css = ""
+	def hash = (int)(Math.floor(Math.random() * 100000))
+	if (info && info.item && info.item.size() >= 1) {
 %>
 <div class="black-belt-colunas box-shadow">
 	<div class="dan">Colunas</div>
 </div>
 <div class="colunas-articles">
-	<div class="jiu-jitsu-article box-shadow">
-		<%
-			item = info.item[0]
-			photoId = (item.photoId =~ /\d{1,999999}/)[0]
-			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
-				link = item.link.toString()
-			} else {
-				link = "/" + item.link.toString() 
-			}				
-		%>
+	<img class="colunas-arrow-left" alt="arrow-left.png" src="/skins/tatame/img/arrow-left.png"/>
+	<img class="colunas-arrow-right" alt="arrow-right.png" src="/skins/tatame/img/arrow-right.png"/>
+<%
+	info.item.eachWithIndex { item, index ->
+		def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+	   	    link = ""
+		if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+			link = item.link.toString()
+		} else {
+			link = "/" + item.link.toString() 
+		}
+%>
+	<div id="colunas-${index}" class="coluna box-shadow ${index == 0 ? '' : 'margin-left-9'} ${index < 5 ? 'show' : 'hide'}">
 		<a href="${link}">
-			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg"/>
-		</a>		
-		<div class="note">${item.note}</div>
-	</div>
-	<div class="jiu-jitsu-article box-shadow margin-left-10">
-		<%
-			item = info.item[1]
-			photoId = (item.photoId =~ /\d{1,999999}/)[0]
-			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
-				link = item.link.toString()
-			} else {
-				link = "/" + item.link.toString() 
-			}				
-		%>
-		<a href="${link}">
-			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_352x335.jpg"/>
-		</a>		
-		<div class="note">${item.note}</div>
-	</div>		
+			<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_135x170.jpg?${hash}"/>
+		</a>
+		<div class="transparence"></div>
+		<div class="title">${item.title}</div>
+	</div>	
+<%
+		}
+%>
 </div>
 <%
 	}

@@ -1,4 +1,5 @@
 <%
+	def hash = (int)(Math.floor(Math.random() * 100000))
 	if (info && info.item && (info.item.size() == 2 || info.item.size() == 4)) {
 		def item, photoId, link
 %>
@@ -18,7 +19,7 @@
 				}				
 			%>	
 			<a href="${link}">
-				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg"/>
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg?${hash}"/>
 			</a>
 			<div class="info">
 				<div class="note">${item.note}</div>
@@ -36,7 +37,7 @@
 				}			
 			%>
 			<a href="${link}">	
-				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg"/>
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg?${hash}"/>
 			</a>
 			<div class="info">
 				<div class="note">${item.note}</div>
@@ -64,7 +65,7 @@
 				}				
 			%>	
 			<a href="${link}">
-				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg"/>
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg?${hash}"/>
 			</a>
 			<div class="info">
 				<div class="note">${item.note}</div>
@@ -82,7 +83,7 @@
 				}			
 			%>
 			<a href="${link}">	
-				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg"/>
+				<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photoId}_250x200.jpg?${hash}"/>
 			</a>
 			<div class="info">
 				<div class="note">${item.note}</div>
