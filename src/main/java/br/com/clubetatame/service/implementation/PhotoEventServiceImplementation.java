@@ -45,6 +45,7 @@ public class PhotoEventServiceImplementation extends PhotoServiceImplementation 
 		if (published != null) {
 			sql.append("p.published=:published ");
 		}
+		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
 			sql.append("p." + orderBy + " " + order);	
 		} else {

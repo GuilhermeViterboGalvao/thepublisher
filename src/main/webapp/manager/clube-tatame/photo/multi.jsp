@@ -38,8 +38,8 @@
 		
 		<p:swf 
 			sessionid="%{sessionId}" 
-			uploadUrl="photo_swf-upload" 
-			deleteUrl="photo_swf-delete"
+			uploadUrl="/manager/photo_swf-upload" 
+			deleteUrl="/manager/photo_swf-delete"
 			idDivBtn="default"
 			idDivFileProgress="default"
 			idDivThumbnail="default"

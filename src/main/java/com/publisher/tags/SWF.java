@@ -30,7 +30,7 @@ public class SWF extends Hidden {
 		if (flashUrl != null) {
 			addParameter("flashUrl", flashUrl);
 		} else {
-			addParameter("flashUrl", "../frameworks/swfupload/swfupload.swf");
+			addParameter("flashUrl", "/frameworks/swfupload/swfupload.swf");
 		}
 		if (alternativePath != null) {
 			addParameter("alternativePath", alternativePath);

@@ -51,7 +51,7 @@
 		<action name="photoEvent-*" class="br.com.clubetatame.manager.PhotoEventAction" method="{1}">
 			<result type="tiles">photo-event-list</result>
 			<result name="input" type="tiles">photo-event-input</result>
-			<result name="redirect" type="redirectAction">photo-event-list</result>
+			<result name="redirect" type="redirectAction">photoEvent-list</result>
 		</action>
 		<action name="photoEventMulti-*" class="br.com.clubetatame.manager.PhotoEventMultiUploadAction" method="{1}">
 		    <result name="input" type="tiles">photo-event-multi-input</result>
