@@ -5,6 +5,7 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 import com.publisher.entity.Account;
+import com.publisher.manager.AccountAware;
 
 public class AuthenticationInterceptor implements Interceptor {
 
