@@ -66,62 +66,11 @@
 		</li>					
 	</ul>		
 </nav>
-<s:if test="isAdmin()">
-	<s:fielderror cssClass="error"/>
-	<form action="/manager/clube-tatame/company-save" method="post" onsubmit="validate();">
-		<div class="ym-form">
-			<div class="ym-fbox-text">
-				<s:hidden name="id"/>
-				
-				<div class="map">
-					<div id="map_canvas"></div>
-					<label for="lat">Latitude:</label>
-					<s:textfield id="lat" name="lat"/>
-					<label for="lon">Longitude:</label>
-					<s:textfield id="lon" name="lon"/>
-					<label for="zoomGoogleMaps">Map Zoom:</label>
-					<s:textfield id="zoomGoogleMaps" name="zoomGoogleMaps"/>
-				</div>
-				
-				<label for="name">Nome</label>
-				<s:textfield name="name"/>
-				<label for="document">CNPJ</label>
-				<s:textfield name="document"/>				
-				<label for="email">E-mail</label>
-				<s:textfield name="email"/>		
-				<label for="contact">Contato</label>
-				<s:textfield name="contact"/>
-				<label for="phone">Telefone</label>
-				<s:textfield name="phone"/>
-				<label for="address">Endereço</label>
-				<s:textfield name="address"/>
-				<label for="cep">CEP</label>
-				<s:textfield name="cep"/>
-				<label for="facebook">Facebook</label>
-				<s:textfield name="facebook"/>
-				<label for="instagram">Instagram</label>
-				<s:textfield name="instagram"/>
-				<div class="ym-fbox-check" style="padding-top: 10px;">
-					<label for="active">Ativo</label>
-					<s:checkbox id="active" name="active"/>
-			   	</div>	
-				
-				<div class="ym-g50 ym-gl ym-fbox-button">
-					<s:submit value="Enviar"/>
-				</div>   		
-			</div>
-		</div>
-		<s:if test="createdBy != null">		
-			<p style="margin: 10px 8px">Criado por <s:property value="createdBy.name" /> em <s:property value="created"/>.</p>			
-		</s:if>		
-		<s:if test="lastModifiedBy != null">		
-			<p style="margin: 10px 8px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
-		</s:if>	
-	</form>
-</s:if>
-<s:else>
+
+<s:fielderror cssClass="error"/>
+<form action="/manager/clube-tatame/company-save" method="post" onsubmit="validate();">
 	<div class="ym-form">
-		<div class="ym-fbox-text">		
+		<div class="ym-fbox-text">
 			<s:hidden name="id"/>
 			
 			<div class="map">
@@ -132,7 +81,7 @@
 				<s:textfield id="lon" name="lon"/>
 				<label for="zoomGoogleMaps">Map Zoom:</label>
 				<s:textfield id="zoomGoogleMaps" name="zoomGoogleMaps"/>
-			</div>	
+			</div>
 			
 			<label for="name">Nome</label>
 			<s:textfield name="name"/>
@@ -152,11 +101,14 @@
 			<s:textfield name="facebook"/>
 			<label for="instagram">Instagram</label>
 			<s:textfield name="instagram"/>
-			
 			<div class="ym-fbox-check" style="padding-top: 10px;">
 				<label for="active">Ativo</label>
 				<s:checkbox id="active" name="active"/>
-	   		</div>		
+		   	</div>	
+			
+			<div class="ym-g50 ym-gl ym-fbox-button">
+				<s:submit value="Enviar"/>
+			</div>   		
 		</div>
 	</div>
 	<s:if test="createdBy != null">		
@@ -164,5 +116,5 @@
 	</s:if>		
 	<s:if test="lastModifiedBy != null">		
 		<p style="margin: 10px 8px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
-	</s:if>
-</s:else>
+	</s:if>	
+</form>

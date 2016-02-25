@@ -39,12 +39,7 @@
 					<s:property value="email"/>
 				</td>
 				<td class="td">
-					<s:if test="isAdmin() || id == account.id">
-						<a href="company-edit?id=<s:property value="id"/>">Editar</a>
-					</s:if>
-					<s:else>
-						<a href="company-edit?id=<s:property value="id"/>">Ver dados</a>
-					</s:else>
+					<a href="company-edit?id=<s:property value="id"/>">Editar</a>
 				</td>
 			</tr>
 		</s:iterator>
