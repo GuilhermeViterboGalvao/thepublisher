@@ -33,6 +33,11 @@
 	<ul>
 		<li><a href="/manager/clube-tatame/product-input">Cadastrar</a></li>
 		<li><a href="/manager/clube-tatame/product-list">Listar</a></li>
+	</ul>
+	<h6 class="ym-vtitle">Contratos</h6>
+	<ul>
+		<li><a href="/manager/clube-tatame/contract-input">Cadastrar</a></li>
+		<li><a href="/manager/clube-tatame/contract-list">Listar</a></li>
 	</ul>	
 	<h6 class="ym-vtitle">Outros</h6>
 	<ul>

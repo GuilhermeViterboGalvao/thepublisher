@@ -38,6 +38,11 @@
 			<result name="input" type="tiles">company-input</result>
 			<result name="redirect" type="redirectAction">company-list</result>
 		</action>
+		<action name="contract-*" class="br.com.clubetatame.manager.CompanyContractAction" method="{1}">
+			<result type="tiles">contract-list</result>
+			<result name="input" type="tiles">contract-input</result>
+			<result name="redirect" type="redirectAction">contract-list</result>
+		</action>
 		<action name="gym-*" class="br.com.clubetatame.manager.GymAction" method="{1}">
 			<result type="tiles">gym-list</result>
 			<result name="input" type="tiles">gym-input</result>

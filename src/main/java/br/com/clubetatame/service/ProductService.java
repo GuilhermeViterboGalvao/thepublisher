@@ -11,7 +11,7 @@ public interface ProductService extends Service<Product> {
 	
     Collection<Product> list(int page, int pageSize);
     
-    Collection<Product> list(int page, int pageSize, String orderBy, String order);
+    Collection<Product> list(Boolean active, int page, int pageSize, String orderBy, String order);
     
     ResultList<Product> search(String query, int page, int pageSize);
 }

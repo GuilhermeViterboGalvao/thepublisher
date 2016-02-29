@@ -88,14 +88,17 @@ public class ProductServiceImplementation extends TransactionalService implement
 
 	@Override
 	public Collection<Product> list(int page, int pageSize) {
-		return list(page, pageSize, null, null);
+		return list(null, page, pageSize, null, null);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Collection<Product> list(int page, int pageSize, String orderBy, String order) {
+	public Collection<Product> list(Boolean active, int page, int pageSize, String orderBy, String order) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("from Product p ");
+		if (active != null) {
+			sql.append("where p.active=:active ");
+		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
 			sql.append("p." + orderBy + " " + order);	
@@ -103,6 +106,9 @@ public class ProductServiceImplementation extends TransactionalService implement
 			sql.append("p.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
+        if (active != null) {
+        	query.setParameter("active", active);
+        }
         if (pageSize > 0) {
         	query.setMaxResults(pageSize);	
         }

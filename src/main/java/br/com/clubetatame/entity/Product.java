@@ -47,7 +47,6 @@ public class Product implements Serializable {
 	@Field(index = Index.YES, store = Store.YES)
 	private boolean active = true;
 	
-	
 	@ManyToOne(fetch = FetchType.LAZY)
     @IndexedEmbedded(includeEmbeddedObjectId=true)
 	private Account createdBy;

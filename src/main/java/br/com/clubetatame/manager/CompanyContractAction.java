@@ -2,13 +2,19 @@ package br.com.clubetatame.manager;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import com.publisher.entity.Account;
 import com.publisher.utils.ResultList;
+import br.com.clubetatame.entity.Company;
+import br.com.clubetatame.entity.CompanyContract;
 import br.com.clubetatame.entity.Product;
+import br.com.clubetatame.service.CompanyContractService;
+import br.com.clubetatame.service.CompanyService;
 import br.com.clubetatame.service.ProductService;
 
-public class ProductAction extends AbstractAction<Product> {
+
+public class CompanyContractAction extends AbstractAction<CompanyContract> {
 
 	private static final long serialVersionUID = 6843359693103899377L;
 
@@ -17,32 +23,53 @@ public class ProductAction extends AbstractAction<Product> {
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
+	
+	private CompanyService companyService;
+	
+	public void setCompanyService(CompanyService companyService) {
+		this.companyService = companyService;
+	}
+	
+	private CompanyContractService companyContractService;
+	
+	public void setCompanyContractService(CompanyContractService companyContractService) {
+		this.companyContractService = companyContractService;
+	}
+
 
 	@Override
 	protected void indexAll() {
-		productService.indexAll();
+		companyContractService.indexAll();
 	}
 
 	@Override
-	protected void populateForm(Product entity) {
+	protected void populateForm(CompanyContract entity) {
 		if (entity != null) {
 			this.lastModifiedBy = entity.getLastModifiedBy();
 			this.lastModified = entity.getLastModified();
+			this.description = entity.getDescription();
 			this.createdBy = entity.getCreatedBy();
+			this.products = entity.getProducts();
 			this.created = entity.getCreated();
-			this.active = entity.isActive();
+			this.company = entity.getCompany();
 			this.value = entity.getValue();
+			this.start = entity.getStart();
 			this.name = entity.getName();
+			this.end = entity.getEnd();
 			this.id = entity.getId();
 		}		
 	}
 
 	@Override
-	protected Product updateObject(Product entity) {
+	protected CompanyContract updateObject(CompanyContract entity) {
 		if (entity != null) {
-			entity.setActive(active);
+			entity.setDescription(description);
+			entity.setProducts(products);
+			entity.setCompany(company);
+			entity.setStart(start);
 			entity.setValue(value);
 			entity.setName(name);
+			entity.setEnd(end);
 
 			if (entity.getCreatedBy() == null) {
 				entity.setCreatedBy(getAccount());
@@ -57,35 +84,43 @@ public class ProductAction extends AbstractAction<Product> {
 	}
 
 	@Override
-	protected Product createEmptyInstance() {
-		return new Product();
+	protected CompanyContract createEmptyInstance() {
+		return new CompanyContract();
 	}
 
 	@Override
-	protected void saveObject(Product entity, boolean isNew) {
+	protected void saveObject(CompanyContract entity, boolean isNew) {
 		if (isNew) {
-			productService.persist(entity);
+			companyContractService.persist(entity);
 		} else {
-			productService.update(entity);
+			companyContractService.update(entity);
 		}
 	}
 
 	@Override
-	protected Collection<Product> generateList() {
-		setPages((int)Math.floor(1f * productService.count() / getPageSize()) + 1);		
-		return productService.list(null, getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
+	protected Collection<CompanyContract> generateList() {
+		setPages((int)Math.floor(1f * companyContractService.count() / getPageSize()) + 1);		
+		return companyContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
 	}
 
 	@Override
-	protected Collection<Product> generateSearch() {
-		ResultList<Product> result = productService.search(getSearch(), getCurrentPage(), getPageSize());
+	protected Collection<CompanyContract> generateSearch() {
+		ResultList<CompanyContract> result = companyContractService.search(getSearch(), getCurrentPage(), getPageSize());
 		setPages((int)Math.floor(1f * result.getResultSize() / getPageSize()) + 1);
 		return result != null ? result.getResult() : null;
 	}
 
 	@Override
-	protected Product getObject() {
-		return productService.get(id);
+	protected CompanyContract getObject() {
+		return companyContractService.get(id);
+	}
+	
+	public Collection<Product> getListProducts() {
+		return productService.list(true, 0, 0, "name", "asc");
+	}
+	
+	public Collection<Company> getListCompanys() {
+		return companyService.list(true, 0, 0, "name", "asc");
 	}
 	
 	//Action properties
@@ -116,9 +151,17 @@ public class ProductAction extends AbstractAction<Product> {
 	
 	private String name;
 	
+	private String description;
+	
 	private int value;
 	
-	private boolean active;
+	private Date start;
+	
+	private Date end;
+	
+	private Company company;
+	
+	private List<Product> products;
 	
 	private Account createdBy;
 	
@@ -127,6 +170,7 @@ public class ProductAction extends AbstractAction<Product> {
 	private Account lastModifiedBy;
 	
 	private Date lastModified;
+	
 
 	public long getId() {
 		return id;
@@ -144,6 +188,14 @@ public class ProductAction extends AbstractAction<Product> {
 		this.name = name;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public int getValue() {
 		return value;
 	}
@@ -152,12 +204,36 @@ public class ProductAction extends AbstractAction<Product> {
 		this.value = value;
 	}
 
-	public boolean isActive() {
-		return active;
+	public Date getStart() {
+		return start;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setStart(Date start) {
+		this.start = start;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
+
+	public void setEnd(Date end) {
+		this.end = end;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	public Account getCreatedBy() {

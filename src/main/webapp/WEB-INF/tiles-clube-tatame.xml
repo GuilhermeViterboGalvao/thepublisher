@@ -54,5 +54,11 @@
     </definition>        
     <definition name="event-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/event/input.jsp"/>
-    </definition>     
+    </definition> 
+    <definition name="contract-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contract/list.jsp"/>
+    </definition>    
+    <definition name="contract-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contract/input.jsp"/>
+    </definition>    
 </tiles-definitions>
