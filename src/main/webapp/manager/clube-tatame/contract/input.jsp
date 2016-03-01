@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("input#start").datepicker({
+		$("#start").datepicker({
 		    dateFormat: 'dd/mm/yy',
 		    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
 		    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
@@ -13,7 +13,7 @@
 		    nextText: 'Próximo',
 		    prevText: 'Anterior'
 		});
-		$("input#end").datepicker({
+		$("#end").datepicker({
 		    dateFormat: 'dd/mm/yy',
 		    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
 		    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
@@ -33,7 +33,7 @@
 	</ul>		
 </nav>
 <s:fielderror cssClass="error"/>
-<form action="/manager/clube-tatame/company-save" method="post" onsubmit="validate();">
+<form action="/manager/clube-tatame/contract-save" method="post" >
 	<div class="ym-form">
 		<div class="ym-fbox-text">
 			<s:hidden name="id"/>
@@ -43,24 +43,19 @@
 			<s:textfield name="value"/>
 			<label for="description">Descrição</label>
 			<s:textarea name="description" rows="15"/>	
+			
 			<label for="start">Data de início:</label>
-			<input type="text" id="start" name="start" value="${start}"/>
+			<s:textfield id="start" name="start" />
 			<label for="end">Data de término:</label>
-			<input type="text" id="end" name="end" value="${end}"/>
+			<s:textfield id="end" name="end" />
+			
 			<div class="ym-fbox-select" >
 				<label for="company">Empresa</label>
 				<s:select name="company" list="listCompanys" listKey="id" listValue="name"/>
 			</div>		
 			<div class="ym-fbox-select" >
 				<label for="spots">Produtos</label>
-				<s:select 
-					name="products" 
-					list="listProducts" 
-					listKey="id" 
-					listValue="name" 
-					multiple="true" 
-					size="8"
-				/>
+				<s:select name="products" list="listProducts" listKey="id" listValue="name" multiple="true" size="8" />
 			</div>
 			<div class="ym-g50 ym-gl ym-fbox-button">
 				<s:submit value="Enviar"/>

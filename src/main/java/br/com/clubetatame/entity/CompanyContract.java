@@ -1,8 +1,8 @@
 package br.com.clubetatame.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -54,7 +54,7 @@ public class CompanyContract implements Serializable {
 	private Company company;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	private List<Product> products;
+	private Collection<Product> products;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @IndexedEmbedded(includeEmbeddedObjectId=true)
@@ -127,11 +127,11 @@ public class CompanyContract implements Serializable {
 		this.company = company;
 	}
 
-	public List<Product> getProducts() {
+	public Collection<Product> getProducts() {
 		return products;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(Collection<Product> products) {
 		this.products = products;
 	}
 

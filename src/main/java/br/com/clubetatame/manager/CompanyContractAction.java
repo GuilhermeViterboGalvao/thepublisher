@@ -1,5 +1,7 @@
 package br.com.clubetatame.manager;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -48,14 +50,14 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 			this.lastModifiedBy = entity.getLastModifiedBy();
 			this.lastModified = entity.getLastModified();
 			this.description = entity.getDescription();
+			this.start = getDate(entity.getStart());
 			this.createdBy = entity.getCreatedBy();
+			this.end = getDate(entity.getEnd());
 			this.products = entity.getProducts();
 			this.created = entity.getCreated();
 			this.company = entity.getCompany();
 			this.value = entity.getValue();
-			this.start = entity.getStart();
 			this.name = entity.getName();
-			this.end = entity.getEnd();
 			this.id = entity.getId();
 		}		
 	}
@@ -64,12 +66,13 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 	protected CompanyContract updateObject(CompanyContract entity) {
 		if (entity != null) {
 			entity.setDescription(description);
+			entity.setStart(getDate(start));
 			entity.setProducts(products);
+			entity.setEnd(getDate(end));
 			entity.setCompany(company);
-			entity.setStart(start);
 			entity.setValue(value);
 			entity.setName(name);
-			entity.setEnd(end);
+			
 
 			if (entity.getCreatedBy() == null) {
 				entity.setCreatedBy(getAccount());
@@ -123,6 +126,47 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 		return companyService.list(true, 0, 0, "name", "asc");
 	}
 	
+	private String getDate(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		String d = null;
+		int year  = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH) + 1;
+		int day   = calendar.get(Calendar.DAY_OF_MONTH);
+		d  = day < 10 ? "0" + String.valueOf(day) : String.valueOf(day);
+		d += "/" + (month < 10 ? "0" + String.valueOf(month) : String.valueOf(month));
+		d += "/" + String.valueOf(year);
+		return d;
+	}
+	
+	private Date getDate(String date) {
+		if (date != null && !date.isEmpty() && date.length() == 10) {
+			String[] d = date.split("/");
+			if (d != null && d.length == 3) {
+				int year  = 0;
+				int month = 0;
+				int day   = 0;
+				try {
+					year  = Integer.parseInt(d[2]);
+					month = Integer.parseInt(d[1]) - 1;
+					day   = Integer.parseInt(d[0]);
+				} catch (Exception e) { }
+				if (year > 0 && month >= 0 && day > 0) {
+					Calendar calendar = Calendar.getInstance();
+					calendar.set(Calendar.YEAR,        year);
+					calendar.set(Calendar.MONTH,      month);
+					calendar.set(Calendar.DAY_OF_MONTH, day);
+					calendar.set(Calendar.HOUR_OF_DAY,    0);
+					calendar.set(Calendar.MINUTE,         0);
+					calendar.set(Calendar.SECOND,         0);
+					calendar.set(Calendar.MILLISECOND,    0);
+					return calendar.getTime();
+				}
+			}
+		}
+		return null;
+	}
+	
 	//Action properties
 	
 	private String orderBy = "created";
@@ -155,13 +199,13 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 	
 	private int value;
 	
-	private Date start;
+	private String start;
 	
-	private Date end;
+	private String end;
 	
 	private Company company;
 	
-	private List<Product> products;
+	private Collection<Product> products;
 	
 	private Account createdBy;
 	
@@ -204,37 +248,52 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 		this.value = value;
 	}
 
-	public Date getStart() {
+	public String getStart() {
 		return start;
 	}
 
-	public void setStart(Date start) {
+
+	public void setStart(String start) {
 		this.start = start;
 	}
 
-	public Date getEnd() {
+
+	public String getEnd() {
 		return end;
 	}
 
-	public void setEnd(Date end) {
+
+	public void setEnd(String end) {
 		this.end = end;
 	}
 
-	public Company getCompany() {
-		return company;
+
+	public long getCompany() {
+		return company != null ? company.getId() : 0;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public void setCompany(long id) {
+		this.company = companyService.get(id);
 	}
 
-	public List<Product> getProducts() {
-		return products;
+	public Collection<Long> getProducts() {
+		if (products != null) {
+			List<Long> ids = new ArrayList<Long>(products.size());
+			for (Product product : products) {
+				ids.add(product.getId());
+			}
+			return ids;
+		}
+		return null;
 	}
 
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setProducts(long[] products) {
+		this.products = new ArrayList<Product>(products.length);
+		for (long id : products) {
+			this.products.add(productService.get(id));
+		}
 	}
+
 
 	public Account getCreatedBy() {
 		return createdBy;
