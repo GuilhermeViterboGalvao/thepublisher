@@ -39,10 +39,10 @@
 					<s:property value="name"/>
 				</td>
 				<td>
-					<s:date name="start" format="dd/MM/yyyy hh:mm"/>
+					<s:date name="start" format="dd/MM/yyyy HH:mm"/>
 				</td>
 				<td>
-					<s:date name="end" format="dd/MM/yyyy hh:mm"/>
+					<s:date name="end" format="dd/MM/yyyy HH:mm"/>
 				</td>
 				<td class="td">
 					<a href="contract-edit?id=<s:property value="id"/>">Editar</a>
