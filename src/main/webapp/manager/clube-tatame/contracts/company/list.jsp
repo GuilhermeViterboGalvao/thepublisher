@@ -3,7 +3,10 @@
 <nav class="ym-hlist">
 	<ul>
 		<li class="active">
-			<strong>Contratos</strong>
+			<strong>Contratos de Empresas</strong>
+		</li>
+		<li class="active">
+			<a href="contracts_company-edit">Novo</a>
 		</li>
 	</ul>
 	<form class="ym-searchform">
@@ -15,16 +18,16 @@
 	<thead>
 		<tr>
 			<th>
-				<a href="contract-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
+				<a href="contracts_company-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
 			</th>
 			<th>
-				<a href="contract-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
+				<a href="contracts_company-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
 			</th>
 			<th>
-				<a href="contract-list?orderBy=start&orderly=<s:property value="!orderly"/>">data de inicio</a>
+				<a href="contracts_company-list?orderBy=start&orderly=<s:property value="!orderly"/>">data de inicio</a>
 			</th>
 			<th>
-				<a href="contract-list?orderBy=end&orderly=<s:property value="!orderly"/>">data de fim</a>
+				<a href="contracts_company-list?orderBy=end&orderly=<s:property value="!orderly"/>">data de fim</a>
 			</th>
 			<th></th>
 		</tr>
@@ -45,7 +48,7 @@
 					<s:date name="end" format="dd/MM/yyyy HH:mm"/>
 				</td>
 				<td class="td">
-					<a href="contract-edit?id=<s:property value="id"/>">Editar</a>
+					<a href="contracts_company-edit?id=<s:property value="id"/>">Editar</a>
 				</td>
 			</tr>
 		</s:iterator>
@@ -53,7 +56,7 @@
 </table>
 <s:div cssClass="ym-grid" cssStyle='padding-top: 10px; margin-left: 10px; width: 98.8%;'> 
 	<s:if test="currentPage > 1">
-	    <s:url id="url" action="contract-list">
+	    <s:url id="url" action="contracts_company-list">
 	    	<s:param name="search"      value="search"/>
 	    	<s:param name="pageSize"    value="pageSize"/>
 	        <s:param name="currentPage" value="%{currentPage - 1}"/>
@@ -82,7 +85,7 @@
 	        		<s:property value="currentPage"/> 
 	        </s:if>
 	        <s:else>
-	            <s:url id="url" action="contract-list">
+	            <s:url id="url" action="contracts_company-list">
 	            	<s:param name="search"      value="search"/>
 	                <s:param name="currentPage" value="top"/>
 	                <s:param name="pageSize"    value="pageSize"/>
@@ -94,7 +97,7 @@
 	    </s:iterator>
 	</s:div>
 	<s:if test="currentPage < pages">	
-	     <s:url id="url" action="contract-list">
+	     <s:url id="url" action="contracts_company-list">
 	     	<s:param name="search"      value="search"/>
 	     	<s:param name="pageSize"    value="pageSize"/>
 	        <s:param name="currentPage" value="%{currentPage + 1}"/>

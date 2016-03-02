@@ -33,7 +33,7 @@
 	</ul>		
 </nav>
 <s:fielderror cssClass="error"/>
-<form action="/manager/clube-tatame/contract-save" method="post" >
+<form action="/manager/clube-tatame/contracts_gym-save" method="post" >
 	<div class="ym-form">
 		<div class="ym-fbox-text">
 			<s:hidden name="id"/>
@@ -50,8 +50,8 @@
 			<s:textfield id="end" name="end" />
 			
 			<div class="ym-fbox-select" >
-				<label for="company">Empresa</label>
-				<s:select name="company" list="listCompanys" listKey="id" listValue="name"/>
+				<label for="gym">Academia</label>
+				<s:select name="gym" list="listGyms" listKey="id" listValue="name"/>
 			</div>		
 			<div class="ym-fbox-select" >
 				<label for="spots">Produtos</label>

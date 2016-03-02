@@ -55,10 +55,16 @@
     <definition name="event-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/event/input.jsp"/>
     </definition> 
-    <definition name="contract-list" extends="manager-clube-tatame-layout">
-        <put-attribute name="content" value="/manager/clube-tatame/contract/list.jsp"/>
+    <definition name="contracts_company-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contracts/company/list.jsp"/>
     </definition>    
-    <definition name="contract-input" extends="manager-clube-tatame-layout">
-        <put-attribute name="content" value="/manager/clube-tatame/contract/input.jsp"/>
+    <definition name="contracts_company-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contracts/company/input.jsp"/>
+    </definition>
+    <definition name="contracts_gym-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contracts/gym/list.jsp"/>
+    </definition>    
+    <definition name="contracts_gym-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contracts/gym/input.jsp"/>
     </definition>    
 </tiles-definitions>

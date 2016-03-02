@@ -12,9 +12,11 @@ public interface GymService extends Service<Gym> {
 
 	Gym authenticate(String email, String password);
 	
-    Collection<Gym> list(int page, int pageSize);
+	Collection<Gym> list(Boolean active);
+	
+    Collection<Gym> list(Boolean active, int page, int pageSize);
     
-    Collection<Gym> list(int page, int pageSize, String orderBy, String order);
+    Collection<Gym> list(Boolean active, int page, int pageSize, String orderBy, String order);
     
     Collection<Gym> list(float lat, float lon, float distanceInKM);
     

@@ -14,6 +14,7 @@ import org.hibernate.search.jpa.Search;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
+
 import br.com.clubetatame.entity.Gym;
 import br.com.clubetatame.service.GymService;
 
@@ -49,7 +50,7 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 
 	@Override
 	public Collection<Gym> list() {
-		return list(0, 0);
+		return list(null);
 	}
 
 	@Override
@@ -105,17 +106,25 @@ public class GymServiceImplementation extends TransactionalService implements Gy
         }
         return gym;
 	}
+	
+	@Override
+	public Collection<Gym> list(Boolean active) {
+		return list(active, 0, 0);
+	}
 
 	@Override
-	public Collection<Gym> list(int page, int pageSize) {
-		return list(page, pageSize, null, null);
+	public Collection<Gym> list(Boolean active, int page, int pageSize) {
+		return list(active, page, pageSize, null, null);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Collection<Gym> list(int page, int pageSize, String orderBy, String order) {
+	public Collection<Gym> list(Boolean active, int page, int pageSize, String orderBy, String order) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("from Gym g ");
+		if (active != null) {
+			sql.append("where g.active=:active ");
+		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
 			sql.append("g." + orderBy + " " + order);	
@@ -123,6 +132,9 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 			sql.append("g.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
+        if (active != null) {
+        	query.setParameter("active", active);
+        }
         if (pageSize > 0) {
         	query.setMaxResults(pageSize);	
         }

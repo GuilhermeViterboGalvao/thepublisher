@@ -38,15 +38,20 @@
 			<result name="input" type="tiles">company-input</result>
 			<result name="redirect" type="redirectAction">company-list</result>
 		</action>
-		<action name="contract-*" class="br.com.clubetatame.manager.CompanyContractAction" method="{1}">
-			<result type="tiles">contract-list</result>
-			<result name="input" type="tiles">contract-input</result>
-			<result name="redirect" type="redirectAction">contract-list</result>
+		<action name="contracts_company-*" class="br.com.clubetatame.manager.CompanyContractAction" method="{1}">
+			<result type="tiles">contracts_company-list</result>
+			<result name="input" type="tiles">contracts_company-input</result>
+			<result name="redirect" type="redirectAction">contracts_company-list</result>
 		</action>
 		<action name="gym-*" class="br.com.clubetatame.manager.GymAction" method="{1}">
 			<result type="tiles">gym-list</result>
 			<result name="input" type="tiles">gym-input</result>
 			<result name="redirect" type="redirectAction">gym-list</result>
+		</action>
+		<action name="contracts_gym-*" class="br.com.clubetatame.manager.GymContractAction" method="{1}">
+			<result type="tiles">contracts_gym-list</result>
+			<result name="input" type="tiles">contracts_gym-input</result>
+			<result name="redirect" type="redirectAction">contracts_gym-list</result>
 		</action>
 		<action name="product-*" class="br.com.clubetatame.manager.ProductAction" method="{1}">
 			<result type="tiles">product-list</result>

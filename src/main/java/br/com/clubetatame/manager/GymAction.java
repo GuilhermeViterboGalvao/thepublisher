@@ -87,7 +87,7 @@ public class GymAction extends AbstractAction<Gym> {
 	@Override
 	protected Collection<Gym> generateList() {
 		setPages((int)Math.floor(1f * gymService.count() / getPageSize()) + 1);		
-		return gymService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
+		return gymService.list(null, getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
 	}
 
 	@Override
