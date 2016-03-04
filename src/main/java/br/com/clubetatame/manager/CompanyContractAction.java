@@ -124,8 +124,13 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 		return productService.list(true, 0, 0, "name", "asc");
 	}
 	
+	private Collection<Company> companys;
+	
 	public Collection<Company> getListCompanys() {
-		return companyService.list(true, 0, 0, "name", "asc");
+		if (companys == null) {
+			companys = companyService.list(true, 0, 0, "name", "asc");
+		}
+		return companys;
 	}
 	
 	private String getDate(Date date) {

@@ -120,8 +120,13 @@ public class GymContractAction extends AbstractAction<GymContract> {
 		return contractService.get(id);
 	}
 	
+	private Collection<Product> listProducts;
+	
 	public Collection<Product> getListProducts() {
-		return productService.list(true, 0, 0, "name", "asc");
+		if (listProducts == null) {
+			listProducts = productService.list(true, 0, 0, "name", "asc");
+		}
+		return listProducts;
 	}
 	
 	public Collection<Gym> getListGyms() {
