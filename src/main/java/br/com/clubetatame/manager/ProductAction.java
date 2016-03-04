@@ -116,7 +116,7 @@ public class ProductAction extends AbstractAction<Product> {
 	
 	private String name;
 	
-	private int value;
+	private double value;
 	
 	private boolean active;
 	
@@ -144,11 +144,11 @@ public class ProductAction extends AbstractAction<Product> {
 		this.name = name;
 	}
 
-	public int getValue() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 

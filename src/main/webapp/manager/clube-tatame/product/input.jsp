@@ -1,6 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-
 <nav class="ym-hlist">
 	<ul>
 		<li class="active">
@@ -8,21 +7,19 @@
 		</li>					
 	</ul>		
 </nav>
-
 <s:fielderror cssClass="error"/>
-<form action="/manager/clube-tatame/product-save" method="post">
+<form action="/manager/clube-tatame/product-save" method="post" onsubmit="checkValue();">
 	<div class="ym-form">
 		<div class="ym-fbox-text">
 			<s:hidden name="id"/>
 			<label for="name">Nome</label>
 			<s:textfield name="name"/>
 			<label for="value">Valor</label>
-			<s:textfield name="value"/>
+			<s:textfield id="value" name="value"/>
 			<div class="ym-fbox-check" style="padding-top: 10px;">
 				<label for="active">Ativo</label>
 				<s:checkbox id="active" name="active"/>
-		   	</div>	
-			
+		   	</div>
 			<div class="ym-g50 ym-gl ym-fbox-button">
 				<s:submit value="Enviar"/>
 			</div>   		
@@ -35,3 +32,22 @@
 		<p style="margin: 10px 8px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
 	</s:if>	
 </form>
+<script type="text/javascript">
+	var value = $("#value");
+	var checkValue = function() {
+		try {
+			if (value && value.val()) {
+				var newValue;
+				if (value.val().indexOf(",") > 0) {
+					newValue = Number(value.val().replace(",", "."));	
+				} else {
+					newValue = Number(value.val());
+				}
+				value.val(parseFloat(newValue.toFixed(2)));
+			}	
+		} catch(exception) {
+			value.val(0.0);
+		}
+	};
+	checkValue();
+</script>

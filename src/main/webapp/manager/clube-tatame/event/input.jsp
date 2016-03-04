@@ -42,10 +42,10 @@
 			<s:textfield name="city"/>
 			<label for="address">Endereço</label>
 			<s:textfield name="address"/>
-			<label for="start">Data de início (Exemplo DD/MM/AAAA ou DD/MM/AAAA HH:MM)</label>
-			<s:textfield name="start" value="%{getText('date.format', {start})}"/>			
-			<label for="end">Data de término (Exemplo DD/MM/AAAA ou DD/MM/AAAA HH:MM)</label>
-			<s:textfield name="end" value="%{getText('date.format', {end})}"/>
+			<label for="start">Data de início</label>
+			<s:textfield id="start" name="start" value="%{getText('date.format', {start})}"/>			
+			<label for="end">Data de término</label>
+			<s:textfield id="end" name="end" value="%{getText('date.format', {end})}"/>
 			<label for="lat">Latitude</label>
 			<s:textfield id="lat" name="lat"/>
 			<label for="lon">Longitude</label>
@@ -82,6 +82,26 @@
 		}
 	};
 	checkLatLon();
+	$("#start").datepicker({
+	    dateFormat: 'dd/mm/yy',
+	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+	    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+	    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+	    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+	    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+	    nextText: 'Próximo',
+	    prevText: 'Anterior'
+	});
+	$("#end").datepicker({
+	    dateFormat: 'dd/mm/yy',
+	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+	    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+	    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+	    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+	    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+	    nextText: 'Próximo',
+	    prevText: 'Anterior'
+	});
 </script>
 <s:if test="lat != null && lon != null">
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>

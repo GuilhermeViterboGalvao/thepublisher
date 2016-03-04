@@ -42,7 +42,7 @@ public class Product implements Serializable {
 	@Field
 	private String description;
 	
-	private int value;
+	private double value;
 	
 	@Field(index = Index.YES, store = Store.YES)
 	private boolean active = true;
@@ -86,11 +86,11 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 	
-	public int getValue() {
+	public double getValue() {
 		return value;
 	}
 	
-	public void setValue(int value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 	
