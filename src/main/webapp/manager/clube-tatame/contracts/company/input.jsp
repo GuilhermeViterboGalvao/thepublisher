@@ -18,16 +18,16 @@
 			<s:textfield id="value" name="value"/>
 			<label for="description">Descrição</label>
 			<s:textarea name="description" rows="15"/>			
-			<label for="start">Data de início:</label>
+			<label for="start">Data de início</label>
 			<s:textfield id="start" name="start" />
-			<label for="end">Data de término:</label>
+			<label for="end">Data de término</label>
 			<s:textfield id="end" name="end" />			
 			<div class="ym-fbox-select" >
 				<label for="company">Empresa</label>
 				<s:select name="company" list="listCompanys" listKey="id" listValue="name"/>
 			</div>		
 			<div class="ym-fbox-select" >
-				<label for="spots">Produtos</label>
+				<label for="products">Produtos</label>
 				<s:select id="products" name="products" list="listProducts" listKey="id" listValue="name" multiple="true" size="8" />
 			</div>
 			<div class="ym-g50 ym-gl ym-fbox-button">
@@ -36,10 +36,10 @@
 		</div>
 	</div>
 	<s:if test="createdBy != null">		
-		<p style="margin: 10px 8px">Criado por <s:property value="createdBy.name" /> em <s:property value="created"/>.</p>			
+		<p style="margin: 10px 8px">Criado por <s:property value="createdBy.name" /> em <s:property value="%{getText('date.format', {created})}"/>.</p>			
 	</s:if>		
 	<s:if test="lastModifiedBy != null">		
-		<p style="margin: 10px 8px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
+		<p style="margin: 10px 8px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="%{getText('date.format', {lastModified})}"/>.</p>			
 	</s:if>	
 </form>
 <script type="text/javascript">
@@ -84,7 +84,18 @@
 			value.val(0.0);
 		}
 	};
-	checkValue();	
+	checkValue();
+	$("#value").keypress(function(event) {
+		var value = this.value;
+		var keyCode = event.keyCode;
+		if ((keyCode >= 48 && keyCode <= 57) || keyCode == 46) {
+			if (value.indexOf(".") > 0 && keyCode == 46) {
+				return false;	
+			}
+			return true;
+		}
+		return false;
+	});	
 	$("#start").datepicker({
 	    dateFormat: 'dd/mm/yy',
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],

@@ -1,0 +1,39 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <message>O campo 'nome' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="value">
+        <field-validator type="requiredstring">
+            <message>O campo 'valor' é obrigatório.</message>
+        </field-validator>
+    </field>    
+    <field name="start">
+        <field-validator type="requiredstring">
+            <message>O campo 'Data de fim' é obrigatório.</message>
+        </field-validator>
+      <field-validator type="date">
+          <message>Formato inválido para o campo 'Data de fim'. Por favor coloque no seguinte padrão DD/MM/AAAA ou DD/MM/AAAA HH:MM</message>
+      </field-validator>        
+    </field>    
+    <field name="end">
+        <field-validator type="requiredstring">
+            <message>O campo 'Data de término' é obrigatório.</message>
+        </field-validator>
+      <field-validator type="date">
+          <message>Formato inválido para o campo 'Data de término'. Por favor coloque no seguinte padrão DD/MM/AAAA ou DD/MM/AAAA HH:MM</message>
+      </field-validator>        
+    </field>
+    <field name="gym">
+        <field-validator type="requiredstring">
+            <message>O campo 'Academia' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="products">
+        <field-validator type="requiredstring">
+            <message>O campo 'Produtos' é obrigatório.</message>
+        </field-validator>
+    </field>    
+</validators>

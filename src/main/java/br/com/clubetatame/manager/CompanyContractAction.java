@@ -40,7 +40,6 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 		this.contractService.setEntityName(CompanyContract.class.getName());
 	}
 
-
 	@Override
 	protected void indexAll() {
 		contractService.indexAll();
@@ -204,7 +203,7 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 	
 	private String description;
 	
-	private int value;
+	private double value;
 	
 	private String start;
 	
@@ -247,11 +246,11 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 		this.description = description;
 	}
 
-	public int getValue() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 

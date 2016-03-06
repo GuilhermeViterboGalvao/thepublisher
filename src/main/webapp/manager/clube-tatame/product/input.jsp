@@ -5,7 +5,7 @@
 		<li class="active">
 			<strong>Editar produto</strong>
 		</li>					
-	</ul>		
+	</ul>	
 </nav>
 <s:fielderror cssClass="error"/>
 <form action="/manager/clube-tatame/product-save" method="post" onsubmit="checkValue();">
@@ -26,15 +26,15 @@
 		</div>
 	</div>
 	<s:if test="createdBy != null">		
-		<p style="margin: 10px 8px">Criado por <s:property value="createdBy.name" /> em <s:property value="created"/>.</p>			
+		<p style="margin: 10px 8px">Criado por: <s:property value="createdBy.name"/> em <s:property value="%{getText('date.format', {created})}"/>.</p>			
 	</s:if>		
 	<s:if test="lastModifiedBy != null">		
-		<p style="margin: 10px 8px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="lastModified"/>.</p>			
+		<p style="margin: 10px 8px">Modificado por: <s:property value="lastModifiedBy.name"/> em <s:property value="%{getText('date.format', {lastModified})}"/>.</p>			
 	</s:if>	
 </form>
-<script type="text/javascript">
-	var value = $("#value");
+<script type="text/javascript">	
 	var checkValue = function() {
+		var value = $("#value");
 		try {
 			if (value && value.val()) {
 				var newValue;
@@ -46,8 +46,19 @@
 				value.val(parseFloat(newValue.toFixed(2)));
 			}	
 		} catch(exception) {
-			value.val(0.0);
+			value.val(0.00);
 		}
 	};
 	checkValue();
+	$("#value").keypress(function(event) {
+		var value = this.value;
+		var keyCode = event.keyCode;
+		if ((keyCode >= 48 && keyCode <= 57) || keyCode == 46) {
+			if (value.indexOf(".") > 0 && keyCode == 46) {
+				return false;	
+			}
+			return true;
+		}
+		return false;
+	});
 </script>

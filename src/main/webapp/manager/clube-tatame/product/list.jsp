@@ -20,6 +20,9 @@
 			<th>
 				<a href="product-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
 			</th>
+			<th>
+				<a href="product-list?orderBy=value&orderly=<s:property value="!orderly"/>">valor</a>
+			</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -31,6 +34,9 @@
 				</td>
 				<td>
 					<s:property value="name"/>
+				</td>
+				<td>
+					<s:property value="%{getText('format.money',{value})}"/>
 				</td>
 				<td class="td">
 					<a href="product-edit?id=<s:property value="id"/>">Editar</a>

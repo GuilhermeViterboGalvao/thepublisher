@@ -204,7 +204,7 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	
 	private String description;
 	
-	private int value;
+	private double value;
 	
 	private String start;
 	
@@ -247,11 +247,11 @@ public class GymContractAction extends AbstractAction<GymContract> {
 		this.description = description;
 	}
 
-	public int getValue() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 
