@@ -7,7 +7,7 @@
 		<jsp:include page="/skins/tatame/default/head.jsp"/>
 		<s:if test="#customHeadPathJSP != null">
 			<s:include value="%{customHeadPathJSP}"/>
-		</s:if>		
+		</s:if>
 	</head>
 	<body>
 		<div class="page">
@@ -43,7 +43,7 @@
 			</div>
 			<s:if test="#scriptsPathJSP != null">
 				<s:include value="%{scriptsPathJSP}"/>
-			</s:if>							
+			</s:if>				
 			<s:if test="#dfpPathJSP != null">
 				<s:include value="%{dfpPathJSP}"/>
 			</s:if>		
