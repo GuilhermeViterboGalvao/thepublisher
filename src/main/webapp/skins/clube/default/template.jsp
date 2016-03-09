@@ -13,7 +13,9 @@
 			<s:if test="#headerPathJSP != null">
 				<s:include value="%{headerPathJSP}"/>
 			</s:if>
-			<tiles:insertAttribute name="content"/>
+			<main>
+				<tiles:insertAttribute name="content"/>
+			</main>			
 			<s:if test="#footerPathJSP != null">
 				<s:include value="%{footerPathJSP}"/>
 			</s:if>
