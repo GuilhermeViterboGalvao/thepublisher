@@ -1,4 +1,9 @@
 /target/
 /.settings/
+<<<<<<< HEAD
 /.classpath
 /.project
+=======
+/.project
+/.classpath
+>>>>>>> refs/heads/master
