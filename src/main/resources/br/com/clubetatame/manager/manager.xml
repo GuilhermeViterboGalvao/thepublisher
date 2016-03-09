@@ -27,7 +27,10 @@
 			<result type="tiles">manager-clube-tatame-index</result>
 			<result name="redirect" type="tiles">manager-clube-tatame-index</result>
 		</action>
-		<action name="logout" class="br.com.clubetatame.manager.LogoutAction"/>		
+		<action name="logout" class="br.com.clubetatame.manager.LogoutAction"/>
+		<action name="gxml-*" class="com.publisher.manager.GenericXMLTileAction" method="{1}">
+			<result name="success" type="tiles">clube-generic-xml</result>
+		</action>				
 		<action name="member-*" class="br.com.clubetatame.manager.MemberAction" method="{1}">
 			<result type="tiles">member-list</result>
 			<result name="input" type="tiles">member-input</result>

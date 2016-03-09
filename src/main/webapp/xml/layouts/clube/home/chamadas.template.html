@@ -1,0 +1,28 @@
+<%
+def hash = (int)(Math.floor(Math.random() * 100000))
+if (info && info.item && info.item.size() >= 1) {
+%>
+<section class="boxs">
+		<%
+			info.item.eachWithIndex { item, index ->
+				def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+					title = item.title,
+					text = item.text,
+			   	    link = ""			   	    
+				if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+					link = item.link.toString()
+				} else {
+					link = "/" + item.link.toString() 
+				}
+				
+		%>
+			<div class="box">
+				<a href="${link}">
+					<img alt="${photoId}" data-desktopsrc="/img/${photoId}_291x150.jpg" data-mobilesrc="/img/${photoId}_145x75.jpg"/>
+				</a>		
+				<span class="title">${title}</span>
+				<span class="text">${text}</span>
+			</div>
+		<% } %>	
+</section>
+<%}%>

@@ -10,6 +10,9 @@
         <put-attribute name="footer" value="/manager/clube-tatame/footer.jsp"/>
     </definition>
     <definition name="manager-clube-tatame-login" template="/manager/clube-tatame/loginform.jsp"/>
+    <definition name="clube-generic-xml" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/generic-xml/xmltile.jsp"/>
+    </definition>     
     <definition name="manager-clube-tatame-home" extends="manager-clube-tatame-layout">
     	<put-attribute name="content" value="/manager/clube-tatame/home.jsp"/>
     </definition>
