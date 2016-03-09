@@ -12,7 +12,7 @@
 	img.photoselector { width: 130px; height: 80px; float: left; }
 	div.entrie-head { float: left; z-index: 10; width: 100%; height: 82px; }
 </style>
-<script type="text/javascript" src="/manager/js/swfDialog.js"></script>
+<script type="text/javascript" src="/manager/js/SwfDialog.js"></script>
 <script type="text/javascript">
 	function _up(e) {
 		var id = e.id.replace("up", "");		
