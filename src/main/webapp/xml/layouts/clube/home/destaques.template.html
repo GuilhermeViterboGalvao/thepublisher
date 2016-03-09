@@ -1,0 +1,44 @@
+<%
+def hash = (int)(Math.floor(Math.random() * 100000))
+if (info && info.item && info.item.size() >= 1) {
+%>
+<section class="hightlights">
+		<form action="#" method="post">
+			<div class="form">
+				<span>Faça já seu cadastro</span>
+				<label for="name">Nome completo</label>
+				<input type="text" name="name"/>
+				<label for="cpf">CPF (apenas números sem traço)</label>
+				<input type="text" name="cpf"/>
+				<label for="email">E-mail</label>
+				<input type="text" name="email"/>
+				<div class="password">
+					<label for="password">Senha</label>
+					<input type="text" name="password"/>
+					<label for="password2">Redigite a senha</label>
+					<input type="text" name="password2"/>					
+				</div>
+				<input type="submit" value="CONTINUAR"/>
+			</div>
+		</form>
+		<%
+			info.item.eachWithIndex { item, index ->
+				def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+					text = item.text,
+			   	    link = ""			   	    
+				if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+					link = item.link.toString()
+				} else {
+					link = "/" + item.link.toString() 
+				}
+				
+		%>
+			<div class="hightlight">
+				<a href="${link}">
+					<img alt="${photoId}" data-desktopSrc="/img/${photoId}_944x289.jpg" data-mobileSrc="/img/${photoId}_472x145.jpg"/>
+				</a>				
+				<span>${text}</span>
+			</div>
+		<% } %>	
+</section>
+<%}%>
