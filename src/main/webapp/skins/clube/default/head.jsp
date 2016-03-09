@@ -9,3 +9,4 @@
 	<title><s:property value="%{titlePage}"/></title>
 </s:if>
 <link href="/skins/clube/css/main.css" rel="stylesheet" type="text/css"/>
+<link href="/skins/clube/css/home.css" rel="stylesheet" type="text/css"/>
