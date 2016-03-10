@@ -35,7 +35,12 @@
 			<result type="tiles">member-list</result>
 			<result name="input" type="tiles">member-input</result>
 			<result name="redirect" type="redirectAction">member-list</result>
-		</action>			
+		</action>
+		<action name="contracts_member-*" class="br.com.clubetatame.manager.MemberContractAction" method="{1}">
+			<result type="tiles">contracts_member-list</result>
+			<result name="input" type="tiles">contracts_member-input</result>
+			<result name="redirect" type="redirectAction">contracts_member-list</result>
+		</action>		
 		<action name="company-*" class="br.com.clubetatame.manager.CompanyAction" method="{1}">
 			<result type="tiles">company-list</result>
 			<result name="input" type="tiles">company-input</result>

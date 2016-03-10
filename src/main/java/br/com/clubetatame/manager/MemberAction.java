@@ -81,7 +81,7 @@ public class MemberAction extends AbstractAction<Member> {
 	@Override
 	protected Collection<Member> generateList() {
 		setPages((int)Math.floor(1f * memberService.count() / getPageSize()) + 1);		
-		return memberService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
+		return memberService.list(null, getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
 	}
 
 	@Override

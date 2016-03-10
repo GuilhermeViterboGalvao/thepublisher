@@ -13,6 +13,7 @@ import org.hibernate.search.jpa.Search;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
+
 import br.com.clubetatame.entity.Member;
 import br.com.clubetatame.service.MemberService;
 
@@ -48,7 +49,7 @@ public class MemberServiceImplementation extends TransactionalService implements
 
 	@Override
 	public Collection<Member> list() {
-		return list(0, 0);
+		return list(null);
 	}
 
 	@Override
@@ -129,15 +130,23 @@ public class MemberServiceImplementation extends TransactionalService implements
 	}
 
 	@Override
-	public Collection<Member> list(int page, int pageSize) {
-		return list(page, pageSize, null, null);
+	public Collection<Member> list(Boolean active) {
+		return list(active, 0, 0);
+	}
+
+	@Override
+	public Collection<Member> list(Boolean active, int page, int pageSize) {
+		return list(active, page, pageSize, null, null);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Collection<Member> list(int page, int pageSize, String orderBy, String order) {
+	public Collection<Member> list(Boolean active, int page, int pageSize, String orderBy, String order)  {
 		StringBuilder sql = new StringBuilder();
 		sql.append("from Member m ");
+		if (active != null) {
+			sql.append("where m.active=:active ");
+		}
 		sql.append("order by ");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
 			sql.append("m." + orderBy + " " + order);	
@@ -145,6 +154,9 @@ public class MemberServiceImplementation extends TransactionalService implements
 			sql.append("m.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
+        if (active != null) {
+        	query.setParameter("active", active);
+        }
         if (pageSize > 0) {
         	query.setMaxResults(pageSize);	
         }

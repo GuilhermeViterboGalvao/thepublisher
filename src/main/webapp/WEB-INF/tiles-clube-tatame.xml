@@ -69,5 +69,11 @@
     </definition>    
     <definition name="contracts_gym-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/contracts/gym/input.jsp"/>
+    </definition>
+    <definition name="contracts_member-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contracts/member/list.jsp"/>
     </definition>    
+    <definition name="contracts_member-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/contracts/member/input.jsp"/>
+    </definition>   
 </tiles-definitions>

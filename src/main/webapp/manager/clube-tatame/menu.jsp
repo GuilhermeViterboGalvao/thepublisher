@@ -30,6 +30,7 @@
 	<h6 class="ym-vtitle">Membros</h6>	
 	<ul>
 		<li><a href="/manager/clube-tatame/member-list">Listar</a></li>
+		<li><a href="/manager/clube-tatame/contracts_member-list">Contratos</a></li>
 	</ul>		
 	<h6 class="ym-vtitle">Produtos</h6>
 	<ul>
