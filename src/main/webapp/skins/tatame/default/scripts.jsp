@@ -72,4 +72,7 @@
 	})(document, window);
 </script>
 <!-- end advertising -->
+<!-- WebSpectator -->
+<script type="text/javascript" src="//wfpscripts.webspectator.com/bootstrap/ws-68AA2D64.js"></script>
+<!-- WebSpectator -->
 <jsp:include page="/skins/tatame/default/google-analytics-script.jsp"/>
