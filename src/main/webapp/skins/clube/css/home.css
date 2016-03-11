@@ -18,3 +18,8 @@
 .boxs .box a img { float: left; width: 100%; max-width: 291px; }
 .boxs .box .title { float: left; width: 100%; margin: 2% 0; line-height: 30px; font-size: 1.2em; font-weight: 600; }
 .boxs .box .text { float: left; width: 100%; font-size: 1em; line-height: 25px; font-weight: 300; }
+
+.guide-gym { float: left; }
+.guide-gym span { float: left; }
+.guide-gym input[type="text"] { float: left; }
+.guide-gym input[type="submit"] { float: left; }
