@@ -26,8 +26,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 CSS Page
 ----------------------------------------------*/
 @font-face { font-family: Tahoma; src: url("/skins/clube/css/fonts/Tahoma.ttf"); }
-html, body { display: block; width: 100%; padding: 0; margin: 0; z-index: 1; font-size: 100%; font-family: Tahoma; }
-.page { display: table; width: 100%; margin: 0 auto; }
+html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-size: 100%; font-family: Tahoma; }
+.page { float: left; width: 100%; }
 .page header { display: table; width: 100%; max-width: 944px; margin: 0 auto; }
 .page header .logo { float: left; max-width: 211px; width: 100%; height: auto; }
 .page header .menu { float: left; height: auto; margin: 15px 0 0 218px; width: 515px; }

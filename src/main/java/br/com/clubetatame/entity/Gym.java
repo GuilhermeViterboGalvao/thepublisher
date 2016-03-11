@@ -54,6 +54,12 @@ public class Gym implements Serializable {
 	
 	@Field
 	private String phone;
+
+	@Field
+	private String state;
+	
+	@Field
+	private String city;	
 	
 	@Field
 	private String address;
@@ -140,6 +146,30 @@ public class Gym implements Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 
 	public String getAddress() {

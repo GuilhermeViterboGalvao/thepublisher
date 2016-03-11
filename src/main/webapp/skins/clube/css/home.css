@@ -10,3 +10,11 @@
 .hightlights .hightlight a { float: left; width: 100%; }
 .hightlights .hightlight a img { float: left; width: 100%; }
 .hightlights .hightlight span { float: left; width: 100%; font-size: 1.5em; text-align: center; padding: 30px 0; background-color: #fdf991; font-weight: 600; }
+
+.boxs { display: table; margin: 25px auto; width: 100%; max-width: 944px; }
+.boxs .box { float: left; width: 33.33%; max-width: 291px; }
+.boxs .margin { margin: 0 35px 0 0; } 
+.boxs .box a { float: left; width: 100%; max-width: 291px; }
+.boxs .box a img { float: left; width: 100%; max-width: 291px; }
+.boxs .box .title { float: left; width: 100%; margin: 2% 0; line-height: 30px; font-size: 1.2em; font-weight: 600; }
+.boxs .box .text { float: left; width: 100%; font-size: 1em; line-height: 25px; font-weight: 300; }

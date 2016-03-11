@@ -25,7 +25,11 @@
 			<label for="email">E-mail</label>
 			<s:textfield name="email"/>			
 			<label for="phone">Telefone</label>
-			<s:textfield name="phone"/>			
+			<s:textfield name="phone"/>
+			<label for="state">Estado</label>
+			<s:textfield name="state"/>			
+			<label for="city">Cidade</label>
+			<s:textfield name="city"/>						
 			<label for="address">Endereço</label>
 			<s:textfield name="address"/>
 			<label for="cep">CEP</label>

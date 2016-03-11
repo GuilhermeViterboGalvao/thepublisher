@@ -4,4 +4,4 @@
 <script type="text/javascript" src="/skins/clube/js/ImageLazyLoad.js"></script>
 <script type="text/javascript" src="/skins/clube/js/Main.js"></script>
 <script type="text/javascript" src="/skins/clube/js/Home.js"></script>
-<script type="text/javascript">ImageLazyLoad.loadImages();</script>
+<script type="text/javascript">ImageLazyLoad.init();</script>
