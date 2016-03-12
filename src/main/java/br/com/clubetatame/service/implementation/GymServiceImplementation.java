@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
 import org.apache.commons.logging.Log;
@@ -11,12 +12,16 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
+
+import com.publisher.entity.PermanentLink;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
 
 import br.com.clubetatame.entity.Gym;
 import br.com.clubetatame.service.GymService;
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
 
 public class GymServiceImplementation extends TransactionalService implements GymService {
 
@@ -31,6 +36,13 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	public void persist(Gym entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
+			 if (entity.getPermanentLink() != null) {
+	        	entityManager.flush();
+	        	entity.getPermanentLink().setParam(entity.getId());
+	        	entity.setCreated(new Date());
+	        	entityManager.merge(entity.getPermanentLink());
+	        	entityManager.flush();
+			 }
 		}
 	}
 
@@ -38,7 +50,14 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	public void update(Gym entity) {
 		if (entity != null) {
 			entityManager.merge(entity);
+			cleanCache(entity.getPermanentLink());
 		}
+	}
+	
+	@Override
+	public void update(Gym entity, PermanentLink oldPermanentLink) {
+		entityManager.merge(entity);
+		cleanCache(oldPermanentLink);
 	}
 
 	@Override
@@ -88,6 +107,19 @@ public class GymServiceImplementation extends TransactionalService implements Gy
         	log.error(e);
             e.printStackTrace();
         }
+	}
+	
+	private void cleanCache(PermanentLink permanentLink) {
+		if (permanentLink != null && permanentLink.getUri() != null) {
+			try {
+				Cache cache = CacheManager.getInstance().getCache("pageCache");
+				if (cache != null) {
+					cache.remove(permanentLink.getUri());	
+				}	
+			} catch (Exception e) {
+				log.error(e);
+			}
+		}
 	}
 	
 	@Override

@@ -3,6 +3,7 @@ package br.com.clubetatame.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,9 @@ import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
 import com.publisher.entity.Account;
+import com.publisher.entity.PermanentLink;
 import com.publisher.entity.Photo;
+
 
 import br.com.clubetatame.entity.search.ActiveFilterFactory;
 
@@ -65,6 +68,9 @@ public class Event implements Serializable {
 	private Float lat;
 	
 	private Float lon;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE} )
+	private PermanentLink permanentLink;
 	
 	private int zoomGoogleMaps;
 	
@@ -174,6 +180,14 @@ public class Event implements Serializable {
 
 	public Float getLon() {
 		return lon;
+	}	
+
+	public PermanentLink getPermanentLink() {
+		return permanentLink;
+	}
+
+	public void setPermanentLink(PermanentLink permanentLink) {
+		this.permanentLink = permanentLink;
 	}
 
 	public void setLon(Float lon) {
