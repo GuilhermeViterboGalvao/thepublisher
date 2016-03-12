@@ -33,3 +33,53 @@
 .indicates .persons .person .image { float: left; width: 100%; }
 .indicates .persons .person .image img { margin: 0 auto; width: 100%; max-width: 112px; display: table; }
 .indicates .persons .person .text { float: left; width: 80%; line-height: 25px; margin: 5% 10%; font-size: 1em; color: #838282; font-weight: 300; }
+@media screen and (max-width: 800px) {
+	.page .hightlights { margin: 10px 0; }
+	.page .hightlights form { position: relative; width: 98%; margin: 1%; left: 0; top: 0; }
+	.page .hightlights form .form { width: 98%; padding: 1%; }
+	.page .hightlights form .form span { font-size: 1em; margin: 0 0 10px 0; }
+	.page .hightlights form .form label { font-size: 0.8em; }
+	.page .hightlights form .form input[type="text"] { margin: 0 0 5px 0; height: 5px; font-size: 0.8em; }
+	
+	.page .hightlights .hightlight { width: 98%; margin: 0 1%; }
+	.page .hightlights .hightlight span { font-size: 1.2em; }
+	
+	.page .boxs { float: left; margin: 10px 1% 10px 1%; width: 98%; display: block; }
+	.page .boxs .margin { margin: 0; }
+	.page .boxs .box { width: 100%; max-width: none; }
+	.page .boxs .box a { display: table; float: none; margin: 0 auto; }
+	.page .boxs .box .title { text-align: center; margin: 2% 1%; width: 98%; }
+	.page .boxs .box .text { width: 98%; margin: 2% 1%; }
+	
+	.page .guide-gym { width: 98%; margin: 0 1%; float: left; display: block; }
+	
+	.page .indicates { width: 98%; margin: 0 1%; }	
+}
+@media screen and (max-width: 600px) {
+	.page .hightlights .hightlight span { font-size: 1em; line-height: 25px; }
+	
+	.page .guide-gym span { margin: 2% 1%; line-height: normal; height: auto; }
+	
+	.page .indicates .header .text { font-size: 0.8em; }	
+}
+@media screen and (max-width: 500px) {
+	.page .indicates .persons .person .text { font-size: 0.7em; line-height: 18px; }
+}
+@media screen and (max-width: 414px) {
+	.page .guide-gym span { margin: 4% 1%; font-size: 0.8em; }
+	
+	.page .indicates .header .text { width: 60%; margin: 10px 20%; }
+	.page .indicates .persons .person .image { width: 90%; margin: 0 5%; }
+	.page .indicates .persons .person .text { font-size: 0.6em; }	
+}
+@media screen and (max-width: 375px) {
+	.page .hightlights form .form input[type="text"] { height: 15px; }
+}
+@media screen and (max-width: 320px) {
+	.page .indicates .header .line { margin: 40px 0;}	
+	
+	.page .guide-gym { height: auto; }
+	.page .guide-gym span { width: 98%; margin: 2% 1%; }	
+	.page .guide-gym input[type="text"] { width: 96%; margin: 2% 1%; }
+	.page .guide-gym input[type="submit"] { width: 98%; margin: 2% 1%; }
+}

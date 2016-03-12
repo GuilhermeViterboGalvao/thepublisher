@@ -56,3 +56,49 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 .page footer > section .col2 span { float: left; width: 100%; color: #fff; font-size: 0.8em; line-height: 25px; margin: 0 0 10px 0; }
 .page footer > section .col3 { float: left; width: 33.33%; }
 .page footer > section .col3 img { max-width: 114px; width: 100%; margin: 84px auto; display: table; }
+@media screen and (max-width: 800px) {
+	.page header .logo { float: none; display: table; margin: 0 auto; }
+	.page header .menu { width: 96%; margin: 2%; }
+	.page header .menu form { width: 100%; margin: 0 0 2% 0; height: auto; border: 0.01em solid #e2e2e2; }
+	.page header .menu form input[type="text"] { margin: 1%; width: 31.33%; height: 30px; border: 0.01em solid #b8b8b8; }
+	.page header .menu form input[type="submit"] { margin: 1%; width: 29.33%; height: 30px; border: none; border-radius: 5px; }
+	.page header .menu .btnFacebook { float: none; margin: 0 auto; display: table; }
+	.page header nav { max-width: none; }
+}
+@media screen and (max-width: 600px) {
+	.page header .menu form input[type="submit"] { width: 28.33%; }	
+}
+@media screen and (max-width: 500px) {
+	.page header nav ul li a { font-size: 0.7em; }	
+}
+@media screen and (max-width: 414px) {
+	.page header .menu form input[type="submit"] { width: 27.33%; }
+	.page footer > section .col1 h1 { font-size: 1em; }
+	.page footer > section .col1 h2 { font-size: 0.8em; }
+	.page footer > section .col2 .address li,
+	.page footer > section .col2 .phone li,
+	.page footer > section .col2 .email li,
+	.page footer > section .col2 span { font-size: 0.6em; }	
+}
+@media screen and (max-width: 375px) {
+	.page header nav,
+	.page header nav ul,
+	.page header nav ul li { height: auto; } 
+	.page header nav ul li { width: 100%; line-height: 30px; }	
+	
+	.page footer > section .col1,
+	.page footer > section .col2,
+	.page footer > section .col3 { width: 100%; margin: 10px 0; }
+	.page footer > section .col2 .address li, 
+	.page footer > section .col2 .phone li, 
+	.page footer > section .col2 .email li,
+	.page footer > section .col2 span { text-align: center; }
+	.page footer > section .col3 img { margin: 15px auto; }	
+}
+@media screen and (max-width: 360px) {
+	.page header .menu form input[type="text"] { width: 45.33%; }
+	.page header .menu form input[type="submit"] { width: 96.33%; }
+}
+@media screen and (max-width: 320px) {
+
+}
