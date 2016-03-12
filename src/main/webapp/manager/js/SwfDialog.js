@@ -144,7 +144,7 @@
 		data += 'published=' + $('#swf_dialog_published' + contextReference.getInstanceId())[0].checked + '&';
 		data += 'useFilename=' + $('#swf_dialog_useFilename' + contextReference.getInstanceId())[0].checked;		
 		
-		$.post('photomulti-save', data).done(function() {
+		$.post('/manager/photomulti-save', data).done(function() {
 			$('#'+contextReference.getPopup()).empty().dialog('close');
 		});
 	};	
@@ -289,8 +289,8 @@
 		var handler = new SWFHandlers(
 			"/frameworks/swfupload/swfupload.swf",
 			null,
-			"photo_swf-upload",
-			"photo_swf-delete",
+			"/manager/photo_swf-upload",
+			"/manager/photo_swf-delete",
 			this.getSession(),
 			"swfButton" + this.getInstanceId(),					
 			"swfThumbnail" + this.getInstanceId(),

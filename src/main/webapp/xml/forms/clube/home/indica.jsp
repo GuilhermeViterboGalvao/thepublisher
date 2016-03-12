@@ -19,7 +19,6 @@
 		if(id != 1){
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
-			var link = document.getElementById("link" + id);
 			var text = document.getElementById("text" + id);
 			
 			id--;
@@ -27,20 +26,16 @@
 			var imgUp = document.getElementById("photoId" + id + "_ACS");
 			var cloneImgUp = imgUp.cloneNode(true);
 			var inputUp = document.getElementById("photoId" + id);
-			var cloneInputUp = inputUp.cloneNode(true);
-			var linkUp = document.getElementById("link" + id);
-			var cloneLinkUp = linkUp.cloneNode(true);
+			var cloneInputUp = inputUp.cloneNode(true);			
 			var textUp = document.getElementById("text" + id);
 			var cloneTextUp = textUp.cloneNode(true);
 			
 			imgUp.src = img.src;
 			inputUp.value = input.value;
-			linkUp.value = link.value;
 			textUp.value = text.value;
 			
 			img.src = cloneImgUp.src;
 			input.value = cloneInputUp.value;
-			link.value = cloneLinkUp.value;
 			text.value = cloneTextUp.value;
 		}
 	}
@@ -49,7 +44,6 @@
 		if(id != max){
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
-			var link = document.getElementById("link" + id);
 			var text = document.getElementById("text" + id);
 			
 			id++;
@@ -57,20 +51,16 @@
 			var imgUp = document.getElementById("photoId" + id + "_ACS");
 			var cloneImgUp = imgUp.cloneNode(true);
 			var inputUp = document.getElementById("photoId" + id);
-			var cloneInputUp = inputUp.cloneNode(true);
-			var linkUp = document.getElementById("link" + id);
-			var cloneLinkUp = linkUp.cloneNode(true);
+			var cloneInputUp = inputUp.cloneNode(true);			
 			var textUp = document.getElementById("text" + id);
 			var cloneTextUp = textUp.cloneNode(true);
 			
 			imgUp.src = img.src;
 			inputUp.value = input.value;
-			linkUp.value = link.value;
 			textUp.value = text.value;
 			
 			img.src = cloneImgUp.src;
 			input.value = cloneInputUp.value;
-			link.value = cloneLinkUp.value;
 			text.value = cloneTextUp.value;
 		}
 	}
@@ -121,17 +111,12 @@
 						</div>
 					</div>				
 				</div>
-
+				
 				<div class="field">
 					<label for="text">Texto:</label>
-					<s:textfield id="text%{#st.count}" name="text" value="%{top['text']}"/>
+					<s:textarea id="text%{#st.count}" name="text" value="%{top['text']}" rows="5"/>
 				</div>
-				
-				<div class="field">
-					<label for="link">Link:</label>
-					<s:textfield id="link%{#st.count}" name="link" value="%{top['link']}"/>
-				</div>
-				
+
 				<hr/>
 			</s:div>
 		</s:iterator>

@@ -38,6 +38,8 @@ public class GymAction extends AbstractAction<Gym> {
 			this.contact = entity.getContact();
 			this.document = entity.getDocument();
 			this.email = entity.getEmail();
+			this.state = entity.getState();
+			this.city = entity.getCity();
 			this.address = entity.getAddress();
 			this.cep = entity.getCEP();
 			this.instagram = entity.getInstagram();
@@ -74,6 +76,8 @@ public class GymAction extends AbstractAction<Gym> {
 			entity.setContact(contact);
 			entity.setDocument(document);
 			entity.setEmail(email);
+			entity.setState(state);
+			entity.setCity(city);
 			entity.setAddress(address);
 			entity.setCEP(cep);
 			entity.setInstagram(instagram);
@@ -203,6 +207,10 @@ public class GymAction extends AbstractAction<Gym> {
 	
 	private String phone;
 	
+	private String state;
+	
+	private String city;
+	
 	private String address;
 	
 	private String cep;
@@ -271,6 +279,22 @@ public class GymAction extends AbstractAction<Gym> {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getAddress() {

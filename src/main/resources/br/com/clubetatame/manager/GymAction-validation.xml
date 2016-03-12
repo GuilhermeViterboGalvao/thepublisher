@@ -33,6 +33,16 @@
             <message>O campo 'Telefone' é obrigatório.</message>
         </field-validator>
     </field>
+    <field name="state">
+        <field-validator type="requiredstring">
+            <message>O campo 'Estado' é obrigatório.</message>
+        </field-validator>
+    </field>
+    <field name="city">
+        <field-validator type="requiredstring">
+            <message>O campo 'Cidade' é obrigatório.</message>
+        </field-validator>
+    </field>    
     <field name="address">
         <field-validator type="requiredstring">
             <message>O campo 'Endereço' é obrigatório.</message>

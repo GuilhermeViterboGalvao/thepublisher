@@ -116,8 +116,7 @@
 							<script type="text/javascript">
 								SWFDialog({
 									sessionId    : '<s:property value="sessionId"/>',
-									targetButton : 'swf<s:property value="#st.count"/>',
-									photoType    : 'isTatame'
+									targetButton : 'swf<s:property value="#st.count"/>'
 								});
 							</script>							
 						</div>

@@ -1,0 +1,26 @@
+<%
+def hash = (int)(Math.floor(Math.random() * 100000))
+if (info && info.item && info.item.size() >= 1) {
+%>
+<section class="indicates">
+		<div class="header">
+			<span class="line"></span>
+			<span class="text">Quem aprova o Clube Tatame</span>
+		</div>
+		<div class="persons">		
+		<%
+			info.item.eachWithIndex { item, index ->
+				def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+					text = item.text
+				
+		%>
+			<div class="person">
+				<div class="image">
+					<img alt="${photoId}" data-desktopsrc="/img/${photoId}_112x112.jpg?${hash}" data-mobilesrc="/img/${photoId}_56x56.jpg?${hash}"/>
+				</div>
+				<span class="text">${text}</span>
+			</div>
+		<% } %>
+		</div>	
+</section>
+<%}%>
