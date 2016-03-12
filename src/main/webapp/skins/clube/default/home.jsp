@@ -8,23 +8,4 @@
 	<input type="text" name="query" placeholder="Estado, Cidade ou Modalidade"/>
 	<input type="submit" value="Buscas"/>	
 </section>
-<section class="info">
-	<div class="col1">
-		<div class="header">
-			<h1>O que é o clube?</h1>
-			<span>América Latina seu pioneirismo e imparcialidade fazem dela um produto sem igual é mundialmente respeitada e consino mercado. Produto sem igual é mundialmente respeitada e consino mercado.</span>
-		</div>
-		<div class="itens">
-			<div class="item">
-			</div>
-			<div class="item">
-			</div>
-			<div class="item">
-			</div>
-			<div class="item">
-			</div>									
-		</div>
-	</div>
-	<div class="col2">
-	</div>	
-</section>
+<p:tile xml="clube/home/indica"/>

@@ -18,7 +18,7 @@ if (info && info.item && info.item.size() >= 1) {
 		%>
 			<div class="box ${index < 2 ? 'margin' : ''}">
 				<a href="${link}">
-					<img alt="${photoId}" data-desktopsrc="/img/${photoId}_291x150.jpg" data-mobilesrc="/img/${photoId}_145x75.jpg"/>
+					<img alt="${photoId}" data-desktopsrc="/img/${photoId}_291x150.jpg?${hash}" data-mobilesrc="/img/${photoId}_145x75.jpg?${hash}"/>
 				</a>		
 				<span class="title">${title}</span>
 				<span class="text">${text}</span>
