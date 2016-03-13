@@ -11,25 +11,21 @@ article .note { float: left; width: 100%; font-size: 1.1em; margin: 0 0 2%; font
 article .content { float: left; width: 100%; }
 article .content p { float: none; width: 100%; font-size: 1em; line-height: 20px; }
 
-article .content .size670,
-article .content .size670 div { padding: 3px; text-align: center; }
+article .content .size670 { width: 670px; margin-bottom: 10px; }
 article .content .size670 > img { width: 100%; }
-article .content .size670 > div { width: 650px; }
+article .content .size670 > div { width: 650px; padding: 3px; text-align: center; }
 
-article .content .size360,
-article .content .size360 div { margin-bottom: 10px; }
+article .content .size360 { width: 360px; margin-bottom: 10px; }
 article .content .size360 > img { width: 100%; }
 article .content .size360 > div { width: 340px; }
 
-article .content .size320,
-article .content .size320 div { margin-bottom: 10px; }
+article .content .size320 { width: 320px; margin-bottom: 10px; }
 article .content .size320 > img { width: 100%; }
 article .content .size320 > div { width: 300px; }
 
-article .content .size210,
-article .content .size210 div { margin-bottom: 10px; font-size: 14px; padding: 5px; width: 210px; line-height: 18px; }
+article .content .size210 { width: 210px; margin-bottom: 10px; }
 article .content .size210 > img { width: 100%; }
-article .content .size210 > div { width: 190px; }
+article .content .size210 > div { width: 190px; font-size: 14px; padding: 5px; line-height: 18px; }
 
 article .content .size210 > div,
 article .content .size320 > div,
@@ -44,3 +40,30 @@ article .content .center div { display: table; margin: 0 auto; background-color:
 article .content .right { float: right; clear: right; margin-left: 10px; }
 
 article .content .left { float: left; clear: left; margin-right: 10px; }
+
+@media screen and (max-width: 800px) {
+	.page main { width: 98%; margin: 1%; }
+}
+@media screen and (max-width: 600px) {
+	.page article .title { font-size: 2em; line-height: normal; margin: 0 0 1% 0; }
+	.page article .author { font-size: 1em; line-height: normal; }
+	.page article .note { font-size: 1.5em; line-height: normal; }
+	.page article .content p { font-size: 1.2em; line-height: 1.4em; }
+}
+@media screen and (max-width: 414px) {
+	.page article .content .photo { float: left; }
+	
+	.page article .content .right,
+	.page article .content .left,
+	.page article .content .center { float: left; width: 100%; display: block; margin: 2% 0; }
+	
+	.page article .content .size670 > img,
+	.page article .content .size360 > img,
+	.page article .content .size320 > img,
+	.page article .content .size210 > img { float: left; display: block; }
+	
+	.page article .content .size670 > div,
+	.page article .content .size360 > div,
+	.page article .content .size320 > div,
+	.page article .content .size210 > div { float: left; display: block; width: 96%; padding: 2%; font-size: 0.8em; line-height: 1.2em; }
+}
