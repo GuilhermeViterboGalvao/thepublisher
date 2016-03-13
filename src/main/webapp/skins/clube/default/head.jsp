@@ -10,3 +10,6 @@
 </s:if>
 <link href="/skins/clube/css/main.css" rel="stylesheet" type="text/css"/>
 <link href="/skins/clube/css/home.css" rel="stylesheet" type="text/css"/>
+<s:if test="model != null && model instanceof com.publisher.entity.Article">
+	<link href="/skins/clube/css/article.css" rel="stylesheet" type="text/css"/>	
+</s:if>
