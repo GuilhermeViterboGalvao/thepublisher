@@ -1,17 +1,12 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="p" uri="/publisher-tags" %>
-<link href="/manager/clube-tatame/photo/css/input.css" type="text/css" rel="stylesheet"/>
+<link href="/manager/clube-tatame/photo-event/css/input.css" type="text/css" rel="stylesheet"/>
 <nav class="ym-hlist">
 	<ul>
 		<li class="active">
 			<strong>Nova foto</strong>
 		</li>
-		<s:if test="id > 0">
-			<li class="active">
-				<s:a href="photocustom-list?id=%{id}">Fotos customizadas</s:a>
-			</li>			
-		</s:if>
 	</ul>
 </nav>
 <div style="margin-top: 5px;">
@@ -32,7 +27,7 @@
 	        </div>
 	    </div>	
 	</s:if>    
-    <s:form method="post" enctype="multipart/form-data" action="photo-save" cssClass="ym-form"  accept-charset="UTF-8">     			
+    <s:form method="post" enctype="multipart/form-data" action="photoEvent-save" cssClass="ym-form"  accept-charset="UTF-8">     			
 		<div class="ym-fbox-text">		    	    
             <s:hidden key="id"/>            
             <s:fielderror cssStyle="color: red;"/>            
@@ -72,5 +67,5 @@
 		</div>
 	</s:form>       
 </div>
-<script src="/manager/clube-tatame/photo/js/input.js" type="text/javascript"></script>
+<script src="/manager/clube-tatame/photo-event/js/input.js" type="text/javascript"></script>
 <script type="text/javascript">inicialize(<s:property value="horizontalCenter"/>, <s:property value="verticalCenter"/>);</script>

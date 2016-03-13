@@ -1,11 +1,11 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" 			  %>
-<link href="/manager/clube-tatame/photo/css/list.css" type="text/css" rel="stylesheet"/>
+<link href="/manager/clube-tatame/photo-event/css/list.css" type="text/css" rel="stylesheet"/>
 <nav class="ym-hlist">
 	<ul>
 		<li class="active"><strong>Fotos</strong></li>
-		<li><a href="photo-edit">Nova foto</a></li>
-		<li><a href="photomulti-add">Enviar várias fotos</a></li>		
+		<li><a href="photoEvent-edit">Nova foto</a></li>
+		<li><a href="photoEventMulti-add">Enviar várias fotos</a></li>		
 	</ul>
 	<form class="ym-searchform">
 		<s:hidden name="isDefault"/>
@@ -19,7 +19,7 @@
 		request.setAttribute("i", i);
 	%>
     <s:iterator value="list">    
-        <s:url id="url" action="photo-edit">
+        <s:url id="url" action="photoEvent-edit">
             <s:param name="id" value="id"/>
         </s:url>        
         <s:a href="%{url}">
@@ -29,7 +29,7 @@
 </div>
 <s:div cssClass="ym-grid" cssStyle='padding-top: 10px; margin-left: 10px; width: 98.8%;'> 
 	<s:if test="currentPage > 1">
-	    <s:url id="url" action="photo-list">
+	    <s:url id="url" action="photoEvent-list">
 	    	<s:param name="search" value="search"/>
 	    	<s:param name="pageSize" value="pageSize"/>
 	    	<s:param name="isDefault" value="isDefault"/>
@@ -63,7 +63,7 @@
 	        		<s:property value="currentPage"/> 
 	        </s:if>
 	        <s:else>
-	            <s:url id="url" action="photo-list">
+	            <s:url id="url" action="photoEvent-list">
 	            	<s:param name="search" value="search"/>
 	                <s:param name="currentPage" value="top"/>
 	                <s:param name="pageSize" value="pageSize"/>
@@ -75,7 +75,7 @@
 	</s:div>
 	
 	<s:if test="currentPage < pages">	
-	     <s:url id="url" action="photo-list">	     	
+	     <s:url id="url" action="photoEvent-list">	     	
 	     	<s:param name="search" value="search"/>
 	     	<s:param name="pageSize" value="pageSize"/>
 	     	<s:param name="isDefault" value="isDefault"/>

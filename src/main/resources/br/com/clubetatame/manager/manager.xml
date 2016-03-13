@@ -30,7 +30,22 @@
 		<action name="logout" class="br.com.clubetatame.manager.LogoutAction"/>
 		<action name="gxml-*" class="com.publisher.manager.GenericXMLTileAction" method="{1}">
 			<result name="success" type="tiles">clube-generic-xml</result>
-		</action>					
+		</action>
+		<action name="article-*" class="br.com.clubetatame.manager.ArticleAction" method="{1}">
+			<result type="tiles">manager-clube-article-list</result>
+			<result name="input" type="tiles">${input}</result>
+			<result name="reload" type="redirectAction">article-edit?id=${id}</result>			
+			<result name="redirect" type="redirectAction">article-list</result>
+		</action>
+		<action name="photo-*" class="com.publisher.manager.PhotoAction" method="{1}">
+			<result type="tiles">manager-clube-photo-list</result>
+			<result name="input" type="tiles">manager-clube-photo-input</result>
+			<result name="redirect" type="redirectAction">photo-list</result>
+		</action>
+		<action name="photomulti-*" class="com.publisher.manager.PhotoMultiUploadAction" method="{1}">
+		    <result name="input" type="tiles">manager-clube-photomulti-input</result>
+			<result name="redirect" type="redirectAction">photo-list</result>
+		</action>							
 		<action name="member-*" class="br.com.clubetatame.manager.MemberAction" method="{1}">
 			<result type="tiles">member-list</result>
 			<result name="input" type="tiles">member-input</result>

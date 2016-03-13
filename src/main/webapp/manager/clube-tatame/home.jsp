@@ -4,7 +4,7 @@
 		<h4 class="ym-fbox-heading">Itens</h4>
 		<div class="ym-grid">
 			<div class="ym-gbox">
-				<a style="height: 30px; text-align: center; width: 95%;" class="ym-button" href="/manager/clube-tatame/gxml-edit?path=clube/home/destaques">Destaques</a>
+				<a style="height: 30px; text-align: center; width: 95%;" class="ym-button" href="/manager/clube-tatame/gxml-edit?path=clube/home/destaque">Destaque</a>
 			</div>
 			<div class="ym-gbox">
 				<a style="height: 30px; text-align: center; width: 95%;" class="ym-button" href="/manager/clube-tatame/gxml-edit?path=clube/home/chamadas">Chamadas</a>

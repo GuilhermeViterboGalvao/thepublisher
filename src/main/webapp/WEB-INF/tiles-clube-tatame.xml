@@ -10,11 +10,26 @@
         <put-attribute name="footer" value="/manager/clube-tatame/footer.jsp"/>
     </definition>
     <definition name="manager-clube-tatame-login" template="/manager/clube-tatame/loginform.jsp"/>
-    <definition name="clube-generic-xml" extends="manager-clube-tatame-layout">
-        <put-attribute name="content" value="/manager/generic-xml/xmltile.jsp"/>
-    </definition>     
     <definition name="manager-clube-tatame-home" extends="manager-clube-tatame-layout">
     	<put-attribute name="content" value="/manager/clube-tatame/home.jsp"/>
+    </definition>    
+    <definition name="clube-generic-xml" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/generic-xml/xmltile.jsp"/>
+    </definition>
+    <definition name="manager-clube-article-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/article/list.jsp"/>
+    </definition>    
+    <definition name="manager-clube-article-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/article/input.jsp"/>
+    </definition>
+    <definition name="manager-clube-photo-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo/list.jsp"/>
+    </definition>
+    <definition name="manager-clube-photo-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo/input.jsp"/>
+    </definition>
+    <definition name="manager-clube-photomulti-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo/multi.jsp"/>
     </definition>
     <definition name="manager-clube-tatame-index" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/index.jsp"/>
@@ -44,13 +59,13 @@
         <put-attribute name="content" value="/manager/clube-tatame/product/input.jsp"/>
     </definition>
     <definition name="photo-event-list" extends="manager-clube-tatame-layout">
-        <put-attribute name="content" value="/manager/clube-tatame/photo/list.jsp"/>
+        <put-attribute name="content" value="/manager/clube-tatame/photo-event/list.jsp"/>
     </definition>    
     <definition name="photo-event-input" extends="manager-clube-tatame-layout">
-        <put-attribute name="content" value="/manager/clube-tatame/photo/input.jsp"/>
+        <put-attribute name="content" value="/manager/clube-tatame/photo-event/input.jsp"/>
     </definition>
     <definition name="photo-event-multi-input" extends="manager-clube-tatame-layout">
-        <put-attribute name="content" value="/manager/clube-tatame/photo/multi.jsp"/>
+        <put-attribute name="content" value="/manager/clube-tatame/photo-event/multi.jsp"/>
     </definition>
     <definition name="event-list" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/event/list.jsp"/>

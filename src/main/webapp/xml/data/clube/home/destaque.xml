@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<items form="clube/home/destaques" max="10" min="1" name="Destaques" version="1447212590916">
+<items form="clube/home/destaque" max="1" min="1" name="Destaque" version="1447212590916">
   <item>
   	<photoId></photoId>
   	<text></text>
