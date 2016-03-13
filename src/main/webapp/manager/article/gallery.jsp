@@ -205,7 +205,7 @@
 		tinymce.init({
 			selector: "#tinyMCEEditor",
 			plugins: "inlinepopups,fullscreen,autosave,paste,photogallery",
-			content_css: "/manager/css/article.css",
+			content_css: "/manager/css/article.css?1",
 			theme : "advanced",
 			relative_urls: false,
 			width: 863,
