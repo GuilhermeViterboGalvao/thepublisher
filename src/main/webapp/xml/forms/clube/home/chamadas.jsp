@@ -139,7 +139,7 @@
 
 				<div class="field">
 					<label for="text">Texto:</label>
-					<s:textfield id="text%{#st.count}" name="text" value="%{top['text']}"/>
+					<s:textarea id="text%{#st.count}" name="text" value="%{top['text']}" rows="5"/>
 				</div>
 				
 				<div class="field">

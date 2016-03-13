@@ -86,7 +86,7 @@
 		$('#message').css('display', 'none');
 		var contextReference = this;		
 		$.ajax({
-			url : 'ac-permanentlink?term=' + $('#term').val(),
+			url : '/manager/ac-permanentlink?term=' + $('#term').val(),
 			cache : false,
 			success : function(data) {
 				if(data[0].value != "" && data[0].value != currentValue){

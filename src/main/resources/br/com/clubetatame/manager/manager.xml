@@ -35,7 +35,7 @@
 			<result type="tiles">manager-clube-article-list</result>
 			<result name="input" type="tiles">${input}</result>
 			<result name="reload" type="redirectAction">article-edit?id=${id}</result>			
-			<result name="redirect" type="redirectAction">article-list</result>
+			<result name="redirect" type="redirectAction">article-list?cid=37</result>
 		</action>
 		<action name="photo-*" class="com.publisher.manager.PhotoAction" method="{1}">
 			<result type="tiles">manager-clube-photo-list</result>
