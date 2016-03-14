@@ -2,6 +2,7 @@ package br.com.clubetatame.manager;
 
 import java.util.Collection;
 import java.util.Date;
+
 import com.publisher.entity.Account;
 import com.publisher.entity.PermanentLink;
 import com.publisher.service.PermanentLinkService;
@@ -35,6 +36,9 @@ public class GymAction extends AbstractAction<Gym> {
 		if (entity != null) {
 			this.id = entity.getId();
 			this.name = entity.getName();
+			this.description = entity.getDescription();
+			this.site = entity.getSite();
+			this.operation = entity.getOperation();
 			this.contact = entity.getContact();
 			this.document = entity.getDocument();
 			this.email = entity.getEmail();
@@ -73,6 +77,9 @@ public class GymAction extends AbstractAction<Gym> {
 			}
 			
 			entity.setName(name);
+			entity.setDescription(description);
+			entity.setSite(site);
+			entity.setOperation(operation);
 			entity.setContact(contact);
 			entity.setDocument(document);
 			entity.setEmail(email);
@@ -199,6 +206,12 @@ public class GymAction extends AbstractAction<Gym> {
 	
 	private String name;
 	
+	private String description;
+	
+	private String site;
+	
+	private String operation;
+	
 	private String contact;
 	
 	private String document;
@@ -247,6 +260,30 @@ public class GymAction extends AbstractAction<Gym> {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
 	}
 
 	public String getContact() {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+    <constant name="struts.mapper.class" value="permanentLinkMapper"/>
+	<constant name="struts.devMode" value="false" />	
+	<package name="clube-view" namespace="/clube" extends="struts-default">	    	    
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="false" />
+			<result-type name="json"  class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<interceptors>		    
+		    <interceptor name="monitoring" class="net.bull.javamelody.StrutsInterceptor"/>
+			<interceptor-stack name="min">			    
+				<interceptor-ref name="params"/>
+				<interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="staticParams"/>
+				<interceptor-ref name="servletConfig"/>
+			</interceptor-stack>
+			<interceptor-stack name="viewStack">
+			    <interceptor-ref name="monitoring"/>			    
+				<interceptor-ref name="min"/>
+				<interceptor-ref name="prepare"/>
+				<interceptor-ref name="modelDriven"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="viewStack"/>		
+		
+		
+ 		<action name="academias" class="br.com.clubetatame.view.GymAction">
+			<result type="tiles">default</result>
+        </action>           			
+	</package>
+</struts>

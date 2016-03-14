@@ -52,6 +52,12 @@
         </action>
  		<action name="terra-feed" class="com.publisher.view.feed.TerraFeedAction">
 			<result name="success">/skins/feed/terra-feed.jsp</result>
-        </action>                			
+        </action>  
+        
+		<!--CLUBE-TATAME -->
+        <action name="gym" class="br.com.clubetatame.view.GymAction">
+		    <result type="tiles">default</result>
+		</action>
+		<!--CLUBE-TATAME -->           			
 	</package>
 </struts>

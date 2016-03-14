@@ -46,6 +46,15 @@ public class Gym implements Serializable {
 	private String name;
 	
 	@Field
+	private String description;
+	
+	@Field
+	private String site;
+	
+	@Field
+	private String operation;
+	
+	@Field
 	private String contact;
 	
 	@Field
@@ -119,6 +128,30 @@ public class Gym implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
 	}
 
 	public String getContact() {

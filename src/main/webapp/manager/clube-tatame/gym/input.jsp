@@ -18,6 +18,12 @@
 			<s:hidden name="id"/>	
 			<label for="name">Nome</label>
 			<s:textfield name="name"/>
+			<label for="description">Descrição</label>
+			<s:textarea name="description"/>
+			<label for="site">Site</label>
+			<s:textfield name="site"/>
+			<label for="operation">Funcionamento</label>
+			<s:textfield name="operation"/>
 			<label for="contact">Contato</label>
 			<s:textfield name="contact"/>			
 			<label for="document">CNPJ</label>
