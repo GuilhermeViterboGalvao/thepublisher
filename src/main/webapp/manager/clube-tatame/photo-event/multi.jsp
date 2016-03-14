@@ -8,7 +8,7 @@
 		</li>					
 	</ul>		
 </nav>
-<s:form method="post" action="photomulti-save" onsubmit="return validateForm();" cssClass="ym-form">   		
+<s:form method="post" action="photoEventMulti-save" onsubmit="return validateForm();" cssClass="ym-form">   		
 	<div class="ym-fbox-text" >
 		<label for="description">Descrição</label>
 		<s:textarea id="description" name="description" />			
@@ -47,4 +47,4 @@
 		<s:fielderror cssStyle="color: red;"/>		
 	</div>			          
 </s:form>
-<script type="text/javascript" src="/manager/clube-tatame/photo/js/multi.js"></script>
+<script type="text/javascript" src="/manager/clube-tatame/photo-event/js/multi.js"></script>

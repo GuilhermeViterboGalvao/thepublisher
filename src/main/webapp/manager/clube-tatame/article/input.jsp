@@ -28,7 +28,7 @@
 	</ul>
 </nav>
 <s:fielderror cssClass="error"/>
-<form action="/manager/article-save" method="post" onsubmit="checkPermanentLink();">
+<form action="/manager/clube-tatame/article-save" method="post" onsubmit="checkPermanentLink();">
 	<div class="ym-form">
 		<div class="ym-fbox-text fields">	
 			<s:hidden name="id"/>
@@ -60,7 +60,7 @@
 					name="categoryId" 
 					display="-vazio-" 
 					url="/manager/ac-category" 
-					initial="[{label:'Tatame',value: 1}]"
+					initial="[{label:'Clube Tatame',value: 37}, {label:'Clube Tatame - Promoções',value: 38}, {label:'Clube Tatame - Eventos',value: 39}, {label:'Clube Tatame - Notícias',value: 37}]"
 				/>			
 			</s:if>
 			<s:else>
@@ -68,7 +68,7 @@
 					name="categoryId" 
 					display="%{categoryName}" 
 					url="/manager/ac-category" 
-					initial="[{label:'Tatame',value: 1}]"
+					initial="[{label:'Clube Tatame',value: 37}, {label:'Clube Tatame - Promoções',value: 38}, {label:'Clube Tatame - Eventos',value: 39}, {label:'Clube Tatame - Notícias',value: 37}]"
 				/>			
 			</s:else>
 
@@ -110,7 +110,7 @@
 					name="templateId" 
 					display="-vazio-"	
 					url="/manager/ac-skin"  
-					initial="[{label:'Tatame - Padrão',value: 214}]"
+					initial="[{label:'Clube Tatame - Padrão',value: 35}]"
 				/>
 			</s:if>
 			<s:else>
@@ -118,7 +118,7 @@
 					name="templateId" 
 					display="%{templateDescription}"	
 					url="/manager/ac-skin"  
-					initial="[{label:'Tatame - Padrão',value: 214}]"
+					initial="[{label:'Clube Tatame - Padrão',value: 35}]"
 				/>
 			</s:else>
 						
@@ -162,7 +162,7 @@
 </form>
 <script type="text/javascript" src="/frameworks/tinymce/tiny_mce.js"></script>
 <script type="text/javascript" src="/frameworks/tinymce/plugins/photogallery/editor_plugin_src.js"></script>
-<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js"></script>
+<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js?1"></script>
 <script type="text/javascript" src="/manager/js/SwfDialog.js?1"></script>
 <script type="text/javascript">
 	function checkPermanentLink() {
@@ -179,7 +179,7 @@
 		tinymce.init({
 			selector: "#tinyMCEEditor",
 			plugins: "inlinepopups,fullscreen,autosave,paste,photogallery",
-			content_css: "/manager/css/article.css?1",
+			content_css: "/manager/css/article.css",
 			theme : "advanced",
 			relative_urls: false,
 			width: 863,
