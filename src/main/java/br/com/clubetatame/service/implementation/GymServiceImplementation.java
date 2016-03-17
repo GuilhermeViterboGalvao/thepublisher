@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Query;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -71,16 +72,15 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	public Collection<Gym> list() {
 		return list(null);
 	}
+	
+	@Override
+	public long count(){
+		return count(null);
+	}
 
 	@Override
 	public Collection<Gym> search(String query) {
 		return search(query, 0, 0).getResult();
-	}
-
-	@Override
-	public long count() {
-        Query query = entityManager.createQuery("select count(g) from Gym g");
-        return query != null ? (Long)query.getSingleResult() : 0;
 	}
 	
 	@Override
@@ -140,6 +140,22 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	}
 	
 	@Override
+	public long count(Boolean active){
+        StringBuilder sql = new StringBuilder();
+        sql.append("select count(g) from Gym g");
+        
+        if (active != null) {
+			sql.append("where g.active=:active ");
+		}
+        Query query = entityManager.createQuery(sql.toString());
+        if (active != null) {
+        	query.setParameter("active", active);
+        }
+        query.setHint("org.hibernate.cacheable", true);
+        return (Long) query.getSingleResult();
+	}
+	
+	@Override
 	public Collection<Gym> list(Boolean active) {
 		return list(active, 0, 0);
 	}
@@ -153,15 +169,15 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	@SuppressWarnings("unchecked")
 	public Collection<Gym> list(Boolean active, int page, int pageSize, String orderBy, String order) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("from Gym g ");
+		sql.append("from Gym g");
 		if (active != null) {
-			sql.append("where g.active=:active ");
+			sql.append(" where g.active=:active");
 		}
-		sql.append("order by ");
+		sql.append(" order by");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
-			sql.append("g." + orderBy + " " + order);	
+			sql.append(" g." + orderBy + " " + order);	
 		} else {
-			sql.append("g.id desc");
+			sql.append(" g.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
         if (active != null) {
