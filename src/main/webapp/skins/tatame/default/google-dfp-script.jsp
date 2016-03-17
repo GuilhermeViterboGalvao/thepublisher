@@ -47,7 +47,7 @@
 			googletag.defineSlot("/13554095/Tatame_300x100_ros", [300, 100], "tatame_300x100_ros").addService(googletag.pubads());
 			googletag.defineSlot("/13554095/Tatame_300x250_ros", [300, 250], "tatame_300x250_ros").addService(googletag.pubads());
 			googletag.defineSlot("/13554095/Tatame_300x600_ros", [300, 600], "tatame_300x600_ros").addService(googletag.pubads());
-			googletag.defineSlot("/13554095/Tatame_1680x912_Ros", [1680, 912], "tatame_1680x912_ros").addService(googletag.pubads());			
+			googletag.defineSlot("/13554095/Tatame_1680x912_Ros", [1680, 912], "tatame_1680x912_ros").addService(googletag.pubads());
 			<s:if test="model != null && model instanceof com.publisher.entity.Article">
 				googletag.pubads().setTargeting("pageType", "article");
 			</s:if>
