@@ -97,6 +97,10 @@ public abstract class AbstractAction<T> extends ActionSupport implements ModelDr
         return getList(0);
     }
     
+    public Date getCurrentDate(){
+    	return new Date();
+    }
+    
 	@Override
 	public abstract String getLayoutPath();
 

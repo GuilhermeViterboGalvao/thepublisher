@@ -13,7 +13,6 @@
 	<!-- Clube Tatame -->
 	<bean id="contractService" class="br.com.clubetatame.service.implementation.ContractServiceImplementation"/>
 	<bean id="companyService" class="br.com.clubetatame.service.implementation.CompanyServiceImplementation"/>
-	<bean id="gymContractService" class="br.com.clubetatame.service.implementation.GymContractServiceImplementation"/>
 	<bean id="gymService" class="br.com.clubetatame.service.implementation.GymServiceImplementation"/>
 	<bean id="memberContractService" class="br.com.clubetatame.service.implementation.MemberContractServiceImplementation"/>
 	<bean id="memberService" class="br.com.clubetatame.service.implementation.MemberServiceImplementation"/>

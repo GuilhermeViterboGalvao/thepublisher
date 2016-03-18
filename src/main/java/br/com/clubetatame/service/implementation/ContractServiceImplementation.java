@@ -116,17 +116,20 @@ public class ContractServiceImplementation<E> extends TransactionalService imple
 	@SuppressWarnings("unchecked")
 	public Collection<E> list(int page, int pageSize, String orderBy, String order, Date end) {
 		StringBuilder sql = new StringBuilder();
-		sql.append(String.format("from %s c ", entityName));
+		sql.append(String.format("from %s c", entityName));
 		if (end != null) {
-			sql.append("where c.end >=:end ");			
+			sql.append(" where c.end >=:end");			
 		}
-		sql.append("order by ");
+		sql.append(" order by");
 		if (orderBy != null && !orderBy.isEmpty() && order != null && !order.isEmpty()) {
-			sql.append("c." + orderBy + " " + order);	
+			sql.append(" c." + orderBy + " " + order);	
 		} else {
-			sql.append("c.id desc");
+			sql.append(" c.id desc");
 		}
         Query query = entityManager.createQuery(sql.toString());
+        if (end != null) {
+        	query.setParameter("end", end);	
+        }
         if (pageSize > 0) {
         	query.setMaxResults(pageSize);	
         }
