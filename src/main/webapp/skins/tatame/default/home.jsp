@@ -17,8 +17,12 @@
 			<div id="tatame_300x100_prime3_home" class="ads-300-100 box-shadow box-shadow margin-top-15"></div>
 		</div>				
 	</div>
-</div>	
-			
+</div>
+
+<div class="ads-1024">
+	<div id="tatame_728x90_cob_cust"></div>
+</div>
+	
 <p:tile xml="home/destaques"/>
 
 <div class="box-1024">
@@ -27,7 +31,7 @@
 		<p:tile xml="home/colunas"/>
 	</div>
 	
-	<div class="box-300 margin-left-10 box-shadow">
+	<div class="box-300 margin-left-10 box-shadow margin-top-15">
 		<p:tile xml="home/recente"/>
 	</div>
 </div>	
@@ -38,7 +42,7 @@
 </div>	
 
 <div class="box-1024">
-	<div class="box-300 box-shadow">
+	<div class="box-300 box-shadow margin-top-15">
 		<div class="black-belt-most-vieweds box-shadow">
 			<div class="dan">Mais lidas</div>
 		</div>					
