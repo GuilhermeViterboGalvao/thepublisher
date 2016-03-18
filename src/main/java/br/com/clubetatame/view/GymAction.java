@@ -25,8 +25,6 @@ public class GymAction extends AbstractAction<Gym> {
 
 	@Override
 	public String getContentPath() {
-		String content = "";
-		if(getId() > 0) content = "/skins/clube/gym/info.jsp"; 
-		return content;
+		return "/skins/clube/gym/info.jsp";
 	}
 }
