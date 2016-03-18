@@ -55,7 +55,7 @@
         </action>  
         
 		<!--CLUBE-TATAME -->
-        <action name="gym" class="br.com.clubetatame.view.GymContractAction">
+        <action name="gym" class="br.com.clubetatame.view.GymAction">
 		    <result type="tiles">default</result>
 		</action>
 		<!--CLUBE-TATAME -->           			

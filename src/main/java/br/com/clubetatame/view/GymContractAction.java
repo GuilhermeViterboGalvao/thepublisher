@@ -9,6 +9,12 @@ public class GymContractAction extends AbstractAction<GymContract> {
 
 	private static final long serialVersionUID = -5054133042718478840L;
 	
+	private String orderBy = "value";
+	
+	private boolean orderly = true;
+	
+	private Collection<GymContract> list;
+	
 	private ContractService<GymContract> contractService;
 	
 	public void setContractService(ContractService<GymContract> contractService) {
@@ -17,19 +23,21 @@ public class GymContractAction extends AbstractAction<GymContract> {
 		this.contractService.setEntityName(GymContract.class.getName());
 	}
 	
-	@Override
-	public GymContract getEntity(long id) {
-		return contractService.get(id);
+	public Collection<GymContract> getList(){
+		return getList(0);
 	}
-
-	private Collection<GymContract> list;
 
 	public Collection<GymContract> getList(int i){
 		setPageSize(i);
 		setPages((int) Math.floor(contractService.count() * 1f / getPageSize()) + 1);
-		list = contractService.list(getCurrentPage(), getPageSize());
+		list = contractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
       
         return list;
+	}
+
+	@Override
+	public GymContract getEntity(long id) {
+		return contractService.get(id);
 	}
 	
 	@Override
@@ -39,8 +47,7 @@ public class GymContractAction extends AbstractAction<GymContract> {
 
 	@Override
 	public String getContentPath() {
-		String content = "/skins/clube/gym/contracts.jsp";
-		if(getId() > 0) content = "/skins/clube/gym/contract.jsp"; 
-		return content;
+
+		return "/skins/clube/gym/contracts.jsp";
 	}
 }

@@ -1,6 +1,5 @@
 package br.com.clubetatame.view;
 
-import java.util.Collection;
 import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -92,10 +91,6 @@ public abstract class AbstractAction<T> extends ActionSupport implements ModelDr
     public void setEnd(Date end) {
     	this.end = end;
     }
-
-    public Collection<T> getList() {
-        return getList(0);
-    }
     
     public Date getCurrentDate(){
     	return new Date();
@@ -108,6 +103,4 @@ public abstract class AbstractAction<T> extends ActionSupport implements ModelDr
 	public abstract String getContentPath();
 	
 	public abstract T getEntity(long id);
-	
-	public abstract Collection<T> getList(int i);
 }

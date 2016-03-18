@@ -8,7 +8,8 @@
 
 		
 	<s:iterator value="list" status="st">
-		<p class="gym.title"><s:property value="gym.name"/></p>
+		<p><s:property value="gym.site"/></p>
+		<p><s:property value="gym.name"/></p>
 		<s:if test="end.after(CurrentDate) && value > 0">
 			<span>Premium</span>
 		</s:if>
