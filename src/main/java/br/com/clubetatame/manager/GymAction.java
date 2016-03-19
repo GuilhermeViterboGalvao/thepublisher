@@ -4,8 +4,6 @@ import java.util.Collection;
 import java.util.Date;
 
 import com.publisher.entity.Account;
-import com.publisher.entity.PermanentLink;
-import com.publisher.service.PermanentLinkService;
 import com.publisher.utils.ResultList;
 import br.com.clubetatame.entity.Gym;
 import br.com.clubetatame.service.GymService;
@@ -13,12 +11,6 @@ import br.com.clubetatame.service.GymService;
 public class GymAction extends AbstractAction<Gym> {
 
 	private static final long serialVersionUID = -4976296568486569598L;
-	
-	private PermanentLinkService permanentLinkService;
-	
-	public void setPermanentLinkService(PermanentLinkService permanentLinkService) {
-		this.permanentLinkService = permanentLinkService;
-	}
 	
 	private GymService gymService;
 	
@@ -55,27 +47,12 @@ public class GymAction extends AbstractAction<Gym> {
 			this.lastModifiedBy = entity.getLastModifiedBy();
 			this.lastModified = entity.getLastModified();
 			this.phone = entity.getPhone();
-			
-			if (entity.getPermanentLink()!=null) {
-				permanentLink = entity.getPermanentLink().getUri();
-			}
 		}		
 	}
 
 	@Override
 	protected Gym updateObject(Gym entity) {
 		if (entity != null) {
-			if (permanentLink != null && permanentLink.length() > 0 
-					&& (entity.getPermanentLink() == null || !permanentLink.equals(entity.getPermanentLink().getUri()))) {
-				newPermanentLink = new PermanentLink();
-				newPermanentLink.setUri(permanentLink);
-				newPermanentLink.setCreated(new Date());
-				newPermanentLink.setType("gym");
-				if (permanentLink != null) {
-					oldPermanentLink = entity.getPermanentLink();
-				}
-			}
-			
 			entity.setName(name);
 			entity.setDescription(description);
 			entity.setSite(site);
@@ -112,50 +89,12 @@ public class GymAction extends AbstractAction<Gym> {
 	@Override
 	protected void saveObject(Gym entity, boolean isNew) {
 		if (isNew) {
-			if (newPermanentLink != null){
-				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
-				entity.setPermanentLink(newPermanentLink);
-			}
 			gymService.persist(entity);
 		} else {
-			if (newPermanentLink!=null) {
-				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
-				newPermanentLink.setParam(entity.getId());
-				newPermanentLink.setCreated(new Date());
-				entity.setPermanentLink(newPermanentLink);
-			}
-			if (oldPermanentLink != null) {
-				gymService.update(entity, oldPermanentLink);	
-			} else {
-				gymService.update(entity);	
-			}			
+			gymService.update(entity);			
 		}
-		if (oldPermanentLink != null)
-			permanentLinkService.change(oldPermanentLink, entity.getPermanentLink());
 	}
 	
-	@Override
-	public void validate() {
-		if (permanentLink != null && permanentLink.length() > 0) {			
-			//Validation for removing the first character if it is equal to '/'
-			while(permanentLink.charAt(0) == '/' && permanentLink.length() > 0) {				
-				permanentLink = permanentLink.substring(1);			
-			}			
-			Gym entity = gymService.get(id);
-			if (entity != null) {
-				if(entity.getPermanentLink() != null && !permanentLink.equals(entity.getPermanentLink().getUri())) {
-					if (permanentLinkService.get(permanentLink) != null) {
-						addFieldError("permanentLink", "Link já cadastrado.");	
-					}						
-				}
-			} else {
-				if (permanentLinkService.get(permanentLink) != null)  {
-					addFieldError("permanentLink", "Link já cadastrado.");
-				}					
-			}
-		}
-	}
-
 	@Override
 	protected Collection<Gym> generateList() {
 		setPages((int)Math.floor(1f * gymService.count() / getPageSize()) + 1);		
@@ -175,10 +114,6 @@ public class GymAction extends AbstractAction<Gym> {
 	}
 	
 	//Action properties
-	
-	private PermanentLink oldPermanentLink;
-	
-	private PermanentLink newPermanentLink;
 	
 	private String orderBy = "created";
 	
@@ -235,8 +170,6 @@ public class GymAction extends AbstractAction<Gym> {
 	private Float lat;
 	
 	private Float lon;
-	
-	private String permanentLink;
 	
 	private Account createdBy;
 	
@@ -380,14 +313,6 @@ public class GymAction extends AbstractAction<Gym> {
 
 	public void setLon(Float lon) {
 		this.lon = lon;
-	}
-
-	public String getPermanentLink() {
-		return permanentLink;
-	}
-
-	public void setPermanentLink(String permanentLink) {
-		this.permanentLink = permanentLink;
 	}
 
 	public Account getCreatedBy() {

@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 import com.publisher.entity.Account;
+import com.publisher.entity.PermanentLink;
+import com.publisher.service.PermanentLinkService;
 import com.publisher.utils.ResultList;
 import br.com.clubetatame.entity.Gym;
 import br.com.clubetatame.entity.GymContract;
@@ -19,6 +21,12 @@ import br.com.clubetatame.service.ProductService;
 public class GymContractAction extends AbstractAction<GymContract> {
 
 	private static final long serialVersionUID = 6843359693103899377L;
+	
+	private PermanentLinkService permanentLinkService;
+	
+	public void setPermanentLinkService(PermanentLinkService permanentLinkService) {
+		this.permanentLinkService = permanentLinkService;
+	}
 
 	private ProductService productService;
 	
@@ -61,12 +69,27 @@ public class GymContractAction extends AbstractAction<GymContract> {
 			this.value = entity.getValue();
 			this.name = entity.getName();
 			this.id = entity.getId();
+			
+			if (entity.getPermanentLink()!=null) {
+				permanentLink = entity.getPermanentLink().getUri();
+			}
 		}		
 	}
 
 	@Override
 	protected GymContract updateObject(GymContract entity) {
 		if (entity != null) {
+			if (permanentLink != null && permanentLink.length() > 0 
+					&& (entity.getPermanentLink() == null || !permanentLink.equals(entity.getPermanentLink().getUri()))) {
+				newPermanentLink = new PermanentLink();
+				newPermanentLink.setUri(permanentLink);
+				newPermanentLink.setCreated(new Date());
+				newPermanentLink.setType("gymContract");
+				if (permanentLink != null) {
+					oldPermanentLink = entity.getPermanentLink();
+				}
+			}
+			
 			entity.setDescription(description);
 			entity.setStart(getDate(start));
 			entity.setProducts(products);
@@ -96,9 +119,54 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	@Override
 	protected void saveObject(GymContract entity, boolean isNew) {
 		if (isNew) {
+			if (newPermanentLink != null){
+				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
+				entity.setPermanentLink(newPermanentLink);
+			}
+			
 			contractService.persist(entity);
+			
+			if(entity.getPermanentLink() != null){
+				entity.getPermanentLink().setParam(entity.getId());
+				contractService.persistPermanentLink(entity.getPermanentLink());
+			}
 		} else {
-			contractService.update(entity);
+			if (newPermanentLink!=null) {
+				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
+				newPermanentLink.setParam(entity.getId());
+				newPermanentLink.setCreated(new Date());
+				entity.setPermanentLink(newPermanentLink);
+			}
+			
+			if (oldPermanentLink != null) {
+				contractService.update(entity, oldPermanentLink);	
+			} else {
+				contractService.update(entity);
+			}
+		}
+		if (oldPermanentLink != null)
+			permanentLinkService.change(oldPermanentLink, entity.getPermanentLink());
+	}
+	
+	@Override
+	public void validate() {
+		if (permanentLink != null && permanentLink.length() > 0) {			
+			//Validation for removing the first character if it is equal to '/'
+			while(permanentLink.charAt(0) == '/' && permanentLink.length() > 0) {				
+				permanentLink = permanentLink.substring(1);			
+			}			
+			GymContract entity = contractService.get(id);
+			if (entity != null) {
+				if(entity.getPermanentLink() != null && !permanentLink.equals(entity.getPermanentLink().getUri())) {
+					if (permanentLinkService.get(permanentLink) != null) {
+						addFieldError("permanentLink", "Link já cadastrado.");	
+					}						
+				}
+			} else {
+				if (permanentLinkService.get(permanentLink) != null)  {
+					addFieldError("permanentLink", "Link já cadastrado.");
+				}					
+			}
 		}
 	}
 
@@ -176,6 +244,10 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	
 	//Action properties
 	
+	private PermanentLink oldPermanentLink;
+	
+	private PermanentLink newPermanentLink;
+	
 	private String orderBy = "created";
 	
 	private boolean orderly = true;
@@ -213,6 +285,8 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	private Gym gym;
 	
 	private Collection<Product> products;
+	
+	private String permanentLink;
 	
 	private Account createdBy;
 	
@@ -301,6 +375,13 @@ public class GymContractAction extends AbstractAction<GymContract> {
 		}
 	}
 
+	public String getPermanentLink() {
+		return permanentLink;
+	}
+
+	public void setPermanentLink(String permanentLink) {
+		this.permanentLink = permanentLink;
+	}
 
 	public Account getCreatedBy() {
 		return createdBy;

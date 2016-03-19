@@ -10,10 +10,14 @@ import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
 
+import com.publisher.entity.PermanentLink;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
+
 import br.com.clubetatame.service.ContractService;
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
 
 
 public class ContractServiceImplementation<E> extends TransactionalService implements ContractService<E> {
@@ -38,11 +42,12 @@ public class ContractServiceImplementation<E> extends TransactionalService imple
 	public E get(Long id) {
 		return id != null ? entityManager.find(genericClass, id) : null;
 	}
-
+	
 	@Override
 	public void persist(E entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
+			entityManager.flush();
 		}
 	}
 
@@ -51,6 +56,12 @@ public class ContractServiceImplementation<E> extends TransactionalService imple
 		if (entity != null) {
 			entityManager.merge(entity);
 		}
+	}
+	
+	@Override
+	public void update(E entity, PermanentLink oldPermanentLink) {
+		entityManager.merge(entity);
+		cleanCache(oldPermanentLink);
 	}
 
 	@Override
@@ -74,6 +85,27 @@ public class ContractServiceImplementation<E> extends TransactionalService imple
 	public long count() {
         Query query = entityManager.createQuery(String.format("select count(c) from %s c", entityName));
         return query != null ? (Long)query.getSingleResult() : 0;
+	}
+	
+	@Override
+	public void persistPermanentLink(PermanentLink permanentLink){
+		if(permanentLink != null){
+			entityManager.merge(permanentLink);
+			entityManager.flush();
+		}
+	}
+	
+	private void cleanCache(PermanentLink permanentLink) {
+		if (permanentLink != null && permanentLink.getUri() != null) {
+			try {
+				Cache cache = CacheManager.getInstance().getCache("pageCache");
+				if (cache != null) {
+					cache.remove(permanentLink.getUri());	
+				}	
+			} catch (Exception e) {
+				log.error(e);
+			}
+		}
 	}
 	
 	@Override

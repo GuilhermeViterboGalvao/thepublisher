@@ -47,6 +47,6 @@ public class GymContractAction extends AbstractAction<GymContract> {
 
 	@Override
 	public String getContentPath() {
-		return "/skins/clube/gym/contracts.jsp";
+		return (getId() > 0 ? "/skins/clube/gym/contract.jsp" : "/skins/clube/gym/contracts.jsp");
 	}
 }

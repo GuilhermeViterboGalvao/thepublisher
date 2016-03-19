@@ -46,9 +46,6 @@
 			<s:textfield id="lat" name="lat"/>
 			<label for="lon">Longitude</label>
 			<s:textfield id="lon" name="lon"/>
-			<label for="permanentLink">Link Permanent:</label>
-			<s:hidden id="link" name="link" value="%{permanentLink}"/>
-			<s:textfield id="permanentLink" name="permanentLink" />
 			<div class="ym-fbox-check" style="padding-top: 10px;">
 				<label for="active">Ativo</label>
 				<s:checkbox id="active" name="active"/>

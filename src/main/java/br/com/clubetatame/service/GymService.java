@@ -2,7 +2,6 @@ package br.com.clubetatame.service;
 
 import java.util.Collection;
 
-import com.publisher.entity.PermanentLink;
 import com.publisher.service.Service;
 import com.publisher.utils.ResultList;
 
@@ -11,8 +10,6 @@ import net.bull.javamelody.MonitoredWithSpring;
 
 @MonitoredWithSpring
 public interface GymService extends Service<Gym> {
-	
-	void update(Gym entity, PermanentLink oldPermanentLink);
 
 	Gym authenticate(String email, String password);
 	
