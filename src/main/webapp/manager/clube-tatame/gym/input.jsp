@@ -4,10 +4,19 @@
 	#map_canvas { width: 100%; height: 200px; margin-bottom: 15px; }
 	
 	img.photoselector { float: left; margin: 8px 20px 8px 0; }
-	div.d-photo { margin: 10px 0; background-color: #cccccc; height: 48px; position: relative; }
-	img.d-photo { display: block; float: left; margin: 0; border: 0; width:80px; height: 48px; cursor: move; }
-	img.d-photo-nav { width: 22px; height: 22px; float: right; margin: 3px; }
-	div.d-photo > textarea.d-photo  { position: absolute; left: 85px; top: 5px; padding: 4px; width: 715px; height: 38px; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;	}
+	.tinyMCEEditor { margin: 10px 1px 10px 10px; padding: 0; width: 863px; }
+	.errors { color: red; }
+	div.fields { margin-bottom: 0; }
+	label.header { overflow: hidden; } 
+	input.header { width: 659px; }
+	label.title { overflow: hidden; } 
+	input.title { width: 659px; }
+	label.categoryName { clear: left; }
+	input.publishedAt { margin-right: 20px; width: 150px; float: left; }
+	div.preview { float: right; top: -20px; margin-right: 50px; }
+	div.check-box { margin: 0 230px; }
+	input.forumEnabled { margin-right: 50px; }
+	input.published {}	
 </style>
 
 <nav class="ym-hlist">
@@ -88,8 +97,10 @@
 	</s:if>	
 </form>
 
-<script type="text/javascript" src="/manager/js/PhotoSelectorDialog.js"></script>
-<script type="text/javascript" src="/manager/js/SwfDialog.js"></script>
+<script type="text/javascript" src="/frameworks/tinymce/tiny_mce.js"></script>
+<script type="text/javascript" src="/frameworks/tinymce/plugins/photogallery/editor_plugin_src.js"></script>
+<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js?1"></script>
+<script type="text/javascript" src="/manager/js/SwfDialog.js?1"></script>
 
 <script type="text/javascript">
 	var lat = $("#lat");
@@ -103,8 +114,51 @@
 		}
 	};
 	checkLatLon();
-
+	
+	function checkPermanentLink() {
+		var value = $('#link').val();
+		var permanentLink = $('#permanentLink').val();
+		if ((value == undefined || value == null || value == "") 
+		&& (permanentLink == undefined || permanentLink == null || permanentLink == "")) {
+			$('#permanentLink').val(convertToPermanentLink(suggestPermanentLink()));	
+		} else if (permanentLink != value) {
+			$('#permanentLink').val(convertToPermanentLink($('#permanentLink').val()));
+		}
+	}
+	
+	$(function() {
+		tinymce.init({
+			selector: "#tinyMCEEditor",
+			plugins: "inlinepopups,fullscreen,autosave,paste,photogallery",
+			content_css: "/manager/css/article.css",
+			theme : "advanced",
+			relative_urls: false,
+			width: 863,
+			height: 500,
+			theme_advanced_toolbar_location: "top",
+			theme_advanced_toolbar_align: "left",
+			theme_advanced_statusbar_location: "bottom",		
+			theme_advanced_buttons1: "bold,italic,underline,separator,justifyleft,justifycenter,justifyright,justifyfull,separator,formatselect,separator,bullist,numlist,separator,outdent,indent,separator,undo,redo",
+			theme_advanced_buttons2: "sub,sup,charmap,hr,separator,link,unlink,anchor,separator,photogallery,separator,cleanup,removeformat,separator,pastetext,pasteword,separator,code,separator,fullscreen,forecolor,backcolor",
+			theme_advanced_buttons3: "",
+			theme_advanced_buttons4: ""		
+		});
+		PermanentLinkSelectorDialog({
+			'element_target': 'published',
+			'on_confirm' : function(permanentLink){	
+				$('#permanentLink').val(convertToPermanentLink(permanentLink)); 
+			},
+			'on_show' : function(element, permanentLinkSelectorDialog){	
+				if(element.checked) permanentLinkSelectorDialog.show($('#permanentLink').val());
+			}
+		});
+		SWFDialog({
+			sessionId    : '<s:property value="sessionId"/>',
+			targetButton : 'swfDialog'
+		});		
+	});
 </script>
+
 <s:if test="lat != null && lon != null">
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript">
