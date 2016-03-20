@@ -2,16 +2,21 @@ package br.com.clubetatame.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderColumn;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.ListIndexBase;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
@@ -24,6 +29,8 @@ import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
 
 import com.publisher.entity.Account;
+import com.publisher.entity.PermanentLink;
+import com.publisher.entity.Photo;
 
 import br.com.clubetatame.entity.search.ActiveFilterFactory;
 
@@ -53,6 +60,9 @@ public class Gym implements Serializable {
 	private String operation;
 	
 	@Field
+	private String 	modality;
+	
+	@Field
 	private String contact;
 	
 	@Field
@@ -80,11 +90,25 @@ public class Gym implements Serializable {
 	
 	private String instagram;
 	
+	private String facebook;
+	
 	private Long fbid;
 	
 	private String facebookAccessToken;
 	
 	private Date facebookAccessTokenExpiration;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Photo logo;
+	
+	@ListIndexBase(value=1)
+    @OrderColumn(name="position")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Photo> photos;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)	
+	private PermanentLink permanentLink;
 	
 	@Field(index = Index.YES, store = Store.YES)
 	private boolean active = true;
@@ -147,6 +171,14 @@ public class Gym implements Serializable {
 
 	public void setOperation(String operation) {
 		this.operation = operation;
+	}
+
+	public String getModality() {
+		return modality;
+	}
+
+	public void setModality(String modality) {
+		this.modality = modality;
 	}
 
 	public String getContact() {
@@ -237,6 +269,14 @@ public class Gym implements Serializable {
 		this.instagram = instagram;
 	}
 
+	public String getFacebook() {
+		return facebook;
+	}
+
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
+	}
+
 	public Long getFbid() {
 		return fbid;
 	}
@@ -259,6 +299,30 @@ public class Gym implements Serializable {
 
 	public void setFacebookAccessTokenExpiration(Date facebookAccessTokenExpiration) {
 		this.facebookAccessTokenExpiration = facebookAccessTokenExpiration;
+	}
+	
+	public Photo getLogo() {
+		return logo;
+	}
+
+	public void setLogo(Photo logo) {
+		this.logo = logo;
+	}
+
+	public List<Photo> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<Photo> photos) {
+		this.photos = photos;
+	}
+
+	public PermanentLink getPermanentLink() {
+		return permanentLink;
+	}
+
+	public void setPermanentLink(PermanentLink permanentLink) {
+		this.permanentLink = permanentLink;
 	}
 
 	public boolean isActive() {

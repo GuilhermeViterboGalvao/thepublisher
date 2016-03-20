@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,7 +25,6 @@ import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
 
 import com.publisher.entity.Account;
-import com.publisher.entity.PermanentLink;
 
 @Entity
 @Indexed
@@ -57,9 +55,6 @@ public class GymContract implements Serializable {
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	private Collection<Product> products;
-	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)	
-	private PermanentLink permanentLink;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @IndexedEmbedded(includeEmbeddedObjectId=true)
@@ -138,14 +133,6 @@ public class GymContract implements Serializable {
 
 	public void setProducts(Collection<Product> products) {
 		this.products = products;
-	}
-
-	public PermanentLink getPermanentLink() {
-		return permanentLink;
-	}
-
-	public void setPermanentLink(PermanentLink permanentLink) {
-		this.permanentLink = permanentLink;
 	}
 
 	public Account getCreatedBy() {

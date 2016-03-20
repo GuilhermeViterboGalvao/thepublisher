@@ -1,10 +1,18 @@
 package br.com.clubetatame.manager;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import com.publisher.entity.Account;
+import com.publisher.entity.PermanentLink;
+import com.publisher.entity.Photo;
+import com.publisher.service.PermanentLinkService;
+import com.publisher.service.PhotoService;
 import com.publisher.utils.ResultList;
+
+
 import br.com.clubetatame.entity.Gym;
 import br.com.clubetatame.service.GymService;
 
@@ -16,6 +24,18 @@ public class GymAction extends AbstractAction<Gym> {
 	
 	public void setGymService(GymService gymService) {
 		this.gymService = gymService;
+	}
+	
+	private PhotoService photoService;
+	
+	public void setPhotoService(PhotoService photoService) {
+		this.photoService = photoService;
+	}
+	
+	private PermanentLinkService permanentLinkService;
+	
+	public void setPermanentLinkService(PermanentLinkService permanentLinkService) {
+		this.permanentLinkService = permanentLinkService;
 	}
 
 	@Override
@@ -31,6 +51,7 @@ public class GymAction extends AbstractAction<Gym> {
 			this.description = entity.getDescription();
 			this.site = entity.getSite();
 			this.operation = entity.getOperation();
+			this.modality = entity.getModality();
 			this.contact = entity.getContact();
 			this.document = entity.getDocument();
 			this.email = entity.getEmail();
@@ -39,6 +60,9 @@ public class GymAction extends AbstractAction<Gym> {
 			this.address = entity.getAddress();
 			this.cep = entity.getCEP();
 			this.instagram = entity.getInstagram();
+			this.facebook = entity.getFacebook();
+			this.logo = entity.getLogo();
+			this.photos = entity.getPhotos();
 			this.active = entity.isActive();
 			this.lat = entity.getLat();
 			this.lon = entity.getLon();
@@ -47,6 +71,10 @@ public class GymAction extends AbstractAction<Gym> {
 			this.lastModifiedBy = entity.getLastModifiedBy();
 			this.lastModified = entity.getLastModified();
 			this.phone = entity.getPhone();
+			
+			if (entity.getPermanentLink() != null) {
+				permanentLink = entity.getPermanentLink().getUri();
+			}
 		}		
 	}
 
@@ -57,6 +85,7 @@ public class GymAction extends AbstractAction<Gym> {
 			entity.setDescription(description);
 			entity.setSite(site);
 			entity.setOperation(operation);
+			entity.setModality(modality);
 			entity.setContact(contact);
 			entity.setDocument(document);
 			entity.setEmail(email);
@@ -65,10 +94,34 @@ public class GymAction extends AbstractAction<Gym> {
 			entity.setAddress(address);
 			entity.setCEP(cep);
 			entity.setInstagram(instagram);
+			entity.setFacebook(facebook);
+			entity.setLogo(logo);
 			entity.setActive(active);
 			entity.setLat(lat);
 			entity.setLon(lon);
 			entity.setPhone(phone);
+			
+			if (photos != null && photos.size() > 0) {
+				List<Photo> list = new ArrayList<Photo>(photos.size());
+				for (Photo photo : photos) {
+					Photo p = photoService.get(photo.getId());
+					p.setDescription(photo.getDescription());
+					list.add(p);
+				}
+				entity.setPhotos(list);
+			}
+			
+			if (permanentLink != null && permanentLink.length() > 0 
+					&& (entity.getPermanentLink() == null || !permanentLink.equals(entity.getPermanentLink().getUri()))) {
+				newPermanentLink = new PermanentLink();
+				newPermanentLink.setUri(permanentLink);
+				newPermanentLink.setCreated(new Date());
+				newPermanentLink.setType("gym");
+				if (permanentLink != null) {
+					oldPermanentLink = entity.getPermanentLink();
+				}
+			}
+			
 			if (entity.getCreatedBy() == null) {
 				entity.setCreatedBy(getAccount());
 			}
@@ -89,9 +142,47 @@ public class GymAction extends AbstractAction<Gym> {
 	@Override
 	protected void saveObject(Gym entity, boolean isNew) {
 		if (isNew) {
+			if (newPermanentLink != null){
+				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
+				entity.setPermanentLink(newPermanentLink);
+			}
 			gymService.persist(entity);
 		} else {
-			gymService.update(entity);			
+			if (newPermanentLink!=null) {
+				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
+				newPermanentLink.setParam(entity.getId());
+				newPermanentLink.setCreated(new Date());
+				entity.setPermanentLink(newPermanentLink);
+			}
+			if (oldPermanentLink != null) {
+				gymService.update(entity, oldPermanentLink);	
+			} else {
+				gymService.update(entity);
+			}
+		}
+		if (oldPermanentLink != null)
+			permanentLinkService.change(oldPermanentLink, entity.getPermanentLink());
+	}
+	
+	@Override
+	public void validate() {
+		if (permanentLink != null && permanentLink.length() > 0) {			
+			//Validation for removing the first character if it is equal to '/'
+			while(permanentLink.charAt(0) == '/' && permanentLink.length() > 0) {				
+				permanentLink = permanentLink.substring(1);			
+			}			
+			Gym entity = gymService.get(id);
+			if (entity != null) {
+				if(entity.getPermanentLink() != null && !permanentLink.equals(entity.getPermanentLink().getUri())) {
+					if (permanentLinkService.get(permanentLink) != null) {
+						addFieldError("permanentLink", "Link já cadastrado.");	
+					}						
+				}
+			} else {
+				if (permanentLinkService.get(permanentLink) != null)  {
+					addFieldError("permanentLink", "Link já cadastrado.");
+				}					
+			}
 		}
 	}
 	
@@ -114,6 +205,10 @@ public class GymAction extends AbstractAction<Gym> {
 	}
 	
 	//Action properties
+	
+	private PermanentLink oldPermanentLink;
+	
+	private PermanentLink newPermanentLink;
 	
 	private String orderBy = "created";
 	
@@ -147,6 +242,8 @@ public class GymAction extends AbstractAction<Gym> {
 	
 	private String operation;
 	
+	private String modality;
+	
 	private String contact;
 	
 	private String document;
@@ -164,6 +261,14 @@ public class GymAction extends AbstractAction<Gym> {
 	private String cep;
 	
 	private String instagram;
+	
+	private String facebook;
+	
+	private Photo logo;
+	
+	private List<Photo> photos;
+	
+	private String permanentLink;
 	
 	private boolean active;
 	
@@ -217,6 +322,14 @@ public class GymAction extends AbstractAction<Gym> {
 
 	public void setOperation(String operation) {
 		this.operation = operation;
+	}
+
+	public String getModality() {
+		return modality;
+	}
+
+	public void setModality(String modality) {
+		this.modality = modality;
 	}
 
 	public String getContact() {
@@ -289,6 +402,38 @@ public class GymAction extends AbstractAction<Gym> {
 
 	public void setInstagram(String instagram) {
 		this.instagram = instagram;
+	}
+
+	public String getFacebook() {
+		return facebook;
+	}
+
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
+	}	
+
+	public Photo getLogo() {
+		return logo;
+	}
+
+	public void setLogo(Photo logo) {
+		this.logo = logo;
+	}
+
+	public List<Photo> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<Photo> photos) {
+		this.photos = photos;
+	}
+
+	public String getPermanentLink() {
+		return permanentLink;
+	}
+
+	public void setPermanentLink(String permanentLink) {
+		this.permanentLink = permanentLink;
 	}
 
 	public boolean isActive() {

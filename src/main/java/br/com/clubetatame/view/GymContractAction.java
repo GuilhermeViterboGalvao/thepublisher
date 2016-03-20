@@ -3,7 +3,7 @@ package br.com.clubetatame.view;
 import java.util.Collection;
 
 import br.com.clubetatame.entity.GymContract;
-import br.com.clubetatame.service.ContractService;
+import br.com.clubetatame.service.GymContractService;
 
 public class GymContractAction extends AbstractAction<GymContract> {
 
@@ -15,12 +15,10 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	
 	private Collection<GymContract> list;
 	
-	private ContractService<GymContract> contractService;
+	private GymContractService gymContractService;
 	
-	public void setContractService(ContractService<GymContract> contractService) {
-		this.contractService = contractService;
-		this.contractService.setGenericClass(GymContract.class);
-		this.contractService.setEntityName(GymContract.class.getName());
+	public void setGymContractService(GymContractService gymContractService) {
+		this.gymContractService = gymContractService;
 	}
 	
 	public Collection<GymContract> getList(){
@@ -29,15 +27,15 @@ public class GymContractAction extends AbstractAction<GymContract> {
 
 	public Collection<GymContract> getList(int i){
 		setPageSize(i);
-		setPages((int) Math.floor(contractService.count() * 1f / getPageSize()) + 1);
-		list = contractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
+		setPages((int) Math.floor(gymContractService.count() * 1f / getPageSize()) + 1);
+		list = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
       
         return list;
 	}
 
 	@Override
 	public GymContract getEntity(long id) {
-		return contractService.get(id);
+		return gymContractService.get(id);
 	}
 	
 	@Override
@@ -47,6 +45,6 @@ public class GymContractAction extends AbstractAction<GymContract> {
 
 	@Override
 	public String getContentPath() {
-		return (getId() > 0 ? "/skins/clube/gym/contract.jsp" : "/skins/clube/gym/contracts.jsp");
+		return "/skins/clube/gym/contracts.jsp";
 	}
 }

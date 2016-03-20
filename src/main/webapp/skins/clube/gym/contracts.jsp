@@ -3,16 +3,25 @@
 
 
 <div class="box box-1024 box-shadow">
-	<span class="category-name">Academias</span>
+	<span class="category-name">ACADEMIAS PREMIUM</span>
 	
 
 		
 	<s:iterator value="list" status="st">
-		<p><s:property value="gym.site"/></p>
-		<p><s:property value="gym.name"/></p>
 		<s:if test="end.after(CurrentDate) && value > 0">
-			<span>Premium</span>
+			<p><s:property value="gym.name"/></p>
+			<p><s:property value="gym.description"/></p>
+		
 		</s:if>
+		<s:else>
+			<p><s:property value="gym.name"/></p>
+			<p>
+				<s:property value="gym.address"/>
+				<s:property value="gym.city"/>
+				<s:property value="gym.state"/>
+			</p>
+		</s:else>
+		
 	</s:iterator>
 
 </div>
