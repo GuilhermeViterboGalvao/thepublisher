@@ -82,6 +82,8 @@ public class Photo implements Serializable {
     private boolean published = false;
     
     private boolean isEvent = false;
+    
+    private boolean isGym = false;
 
 	public Long getId() {
 		return id;
@@ -201,6 +203,14 @@ public class Photo implements Serializable {
 
 	public void setEvent(boolean isEvent) {
 		this.isEvent = isEvent;
+	}
+
+	public boolean isGym() {
+		return isGym;
+	}
+
+	public void setGym(boolean isGym) {
+		this.isGym = isGym;
 	}
 
 	@Override

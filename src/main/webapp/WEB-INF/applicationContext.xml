@@ -11,11 +11,12 @@
 		<property name="backupMapper" ref="defaultMapper"/>		
 	</bean>	
 	<!-- Clube Tatame -->
-	<bean id="contractService" class="br.com.clubetatame.service.implementation.ContractServiceImplementation"/>
 	<bean id="companyService" class="br.com.clubetatame.service.implementation.CompanyServiceImplementation"/>
+	<bean id="companyContractService" class="br.com.clubetatame.service.implementation.CompanyContractServiceImplementation"/>
 	<bean id="gymService" class="br.com.clubetatame.service.implementation.GymServiceImplementation"/>
-	<bean id="memberContractService" class="br.com.clubetatame.service.implementation.MemberContractServiceImplementation"/>
+	<bean id="gymContractService" class="br.com.clubetatame.service.implementation.GymContractServiceImplementation"/>
 	<bean id="memberService" class="br.com.clubetatame.service.implementation.MemberServiceImplementation"/>
+	<bean id="memberContractService" class="br.com.clubetatame.service.implementation.MemberContractServiceImplementation"/>
 	<bean id="productService" class="br.com.clubetatame.service.implementation.ProductServiceImplementation"/>
 	<bean id="eventService" class="br.com.clubetatame.service.implementation.EventServiceImplementation"/>
 	<bean id="photoEventService" class="br.com.clubetatame.service.implementation.PhotoEventServiceImplementation"/>

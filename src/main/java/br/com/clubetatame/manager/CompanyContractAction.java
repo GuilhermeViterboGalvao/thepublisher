@@ -11,7 +11,7 @@ import com.publisher.utils.ResultList;
 import br.com.clubetatame.entity.Company;
 import br.com.clubetatame.entity.CompanyContract;
 import br.com.clubetatame.entity.Product;
-import br.com.clubetatame.service.ContractService;
+import br.com.clubetatame.service.CompanyContractService;
 import br.com.clubetatame.service.CompanyService;
 import br.com.clubetatame.service.ProductService;
 
@@ -32,17 +32,15 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 		this.companyService = companyService;
 	}
 	
-	private ContractService<CompanyContract> contractService;
+	private CompanyContractService companyContractService;
 	
-	public void setContractService(ContractService<CompanyContract> contractService) {
-		this.contractService = contractService;
-		this.contractService.setGenericClass(CompanyContract.class);
-		this.contractService.setEntityName(CompanyContract.class.getName());
+	public void setCompanyContractService(CompanyContractService companyContractService) {
+		this.companyContractService = companyContractService;
 	}
 
 	@Override
 	protected void indexAll() {
-		contractService.indexAll();
+		companyContractService.indexAll();
 	}
 
 	@Override
@@ -95,28 +93,28 @@ public class CompanyContractAction extends AbstractAction<CompanyContract> {
 	@Override
 	protected void saveObject(CompanyContract entity, boolean isNew) {
 		if (isNew) {
-			contractService.persist(entity);
+			companyContractService.persist(entity);
 		} else {
-			contractService.update(entity);
+			companyContractService.update(entity);
 		}
 	}
 
 	@Override
 	protected Collection<CompanyContract> generateList() {
-		setPages((int)Math.floor(1f * contractService.count() / getPageSize()) + 1);		
-		return contractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
+		setPages((int)Math.floor(1f * companyContractService.count() / getPageSize()) + 1);		
+		return companyContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
 	}
 
 	@Override
 	protected Collection<CompanyContract> generateSearch() {
-		ResultList<CompanyContract> result = contractService.search(getSearch(), getCurrentPage(), getPageSize());
+		ResultList<CompanyContract> result = companyContractService.search(getSearch(), getCurrentPage(), getPageSize());
 		setPages((int)Math.floor(1f * result.getResultSize() / getPageSize()) + 1);
 		return result != null ? result.getResult() : null;
 	}
 
 	@Override
 	protected CompanyContract getObject() {
-		return contractService.get(id);
+		return companyContractService.get(id);
 	}
 	
 	public Collection<Product> getListProducts() {
