@@ -13,7 +13,10 @@
 				</li>
 				<li>
 					<a href="/tatame/jiujitsu">JIU-JITSU</a>
-				</li>			
+				</li>
+				<li>
+					<a href="/tatame/jiu-jitsu/pan-2016">PAN JJ 2016</a>
+				</li>		
 			</ul>
 		</li>					
 	</ul>

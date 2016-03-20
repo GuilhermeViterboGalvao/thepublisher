@@ -72,5 +72,8 @@
     </definition>
     <definition name="generic-xml" extends="manager-layout">
         <put-attribute name="content" value="/manager/generic-xml/xmltile.jsp"/>
-    </definition>     
+    </definition>
+    <definition name="indexall-form" extends="manager-layout">
+        <put-attribute name="content" value="/manager/indexall/form.jsp"/>
+    </definition>
 </tiles-definitions>

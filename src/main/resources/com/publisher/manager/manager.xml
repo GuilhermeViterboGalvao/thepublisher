@@ -123,7 +123,7 @@
 		<action name="ac-photo" class="com.publisher.utils.autocomplete.PhotoAutoCompleteAction">
 			<result name="login" type="httpheader">
 				<param name="error">401</param>
-			</result>		    
+			</result>  
 			<result type="json">
 				<param name="excludeNullProperties">true</param>
 				<param name="callbackParameter">callback</param>
@@ -164,6 +164,58 @@
 				<param name="root">result</param>
 				<param name="enableGZIP">true</param>
 			</result>
-		</action>				     		
+		</action>
+		<action name="indexAllFacade-*" class="com.publisher.manager.IndexAllFacade" method="{1}">
+			<result type="tiles">indexall-form</result>
+			<result name="index-account" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>			
+			<result name="index-article" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-category" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-page" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-permanentLink" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-photo" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-skin" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>						
+		</action>					     		
 	</package>
 </struts>

@@ -30,7 +30,7 @@
 <s:fielderror cssClass="error"/>
 <form action="/manager/article-save" method="post" onsubmit="checkPermanentLink();">
 	<div class="ym-form">
-		<div class="ym-fbox-text fields">	
+		<div class="ym-fbox-text fields">
 			<s:hidden name="id"/>
 			<s:hidden name="type"/>
 			<p:photoselector 
