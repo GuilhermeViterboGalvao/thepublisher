@@ -53,7 +53,7 @@
 			<label for="zoomGoogleMaps">Zoom do Google Maps</label>
 			<s:textfield id="zoomGoogleMaps" name="zoomGoogleMaps"/>
 	        <label for="company.id">Empresa</label>
-	        <s:select name="company.id" list="companys" listKey="id" listValue="name"/>						
+	        <s:select name="company.id" list="companys" listKey="id" listValue="name" headerKey="0" headerValue="Selecione uma empresa"/>						
 			<div class="ym-fbox-check" style="padding-top: 10px;">
 				<label for="active">Ativo</label>
 				<s:checkbox id="active" name="active"/>

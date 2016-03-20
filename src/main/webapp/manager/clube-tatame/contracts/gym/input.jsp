@@ -24,7 +24,7 @@
 			<s:textfield id="end" name="end" />
 			<div class="ym-fbox-select" >
 				<label for="gym">Academia</label>
-				<s:select name="gym" list="listGyms" listKey="id" listValue="name" headerKey="-1" headerValue="Selecione uma academia"/>
+				<s:select name="gym" list="listGyms" listKey="id" listValue="name" headerKey="0" headerValue="Selecione uma academia"/>
 			</div>		
 			<div class="ym-fbox-select" >
 				<label for="products">Produtos</label>
