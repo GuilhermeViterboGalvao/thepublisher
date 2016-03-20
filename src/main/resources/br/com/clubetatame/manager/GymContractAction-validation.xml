@@ -6,10 +6,11 @@
         </field-validator>
     </field>
     <field name="value">
-        <field-validator type="requiredstring">
-            <message>O campo 'valor' é obrigatório.</message>
-        </field-validator>
-    </field>    
+	    <field-validator type="double">
+	        <param name="minInclusive">0,1</param>
+	        <message>O campo 'Valor' é obrigatório.</message>
+	    </field-validator>        
+    </field>
     <field name="start">
         <field-validator type="requiredstring">
             <message>O campo 'Data de fim' é obrigatório.</message>
@@ -27,13 +28,15 @@
       </field-validator>        
     </field>
     <field name="gym">
-        <field-validator type="requiredstring">
+        <field-validator type="long">
+        	<param name="min">1</param>
             <message>O campo 'Academia' é obrigatório.</message>
         </field-validator>
     </field>
-    <field name="products">
-        <field-validator type="requiredstring">
+<!--     <field name="products">
+        <field-validator type="long">
+        	<param name="min">1</param>
             <message>O campo 'Produtos' é obrigatório.</message>
         </field-validator>
-    </field>    
+    </field>     -->
 </validators>

@@ -27,7 +27,7 @@
 			<s:textfield id="permanentLink" name="permanentLink" />	
 			<div class="ym-fbox-select" >
 				<label for="gym">Academia</label>
-				<s:select name="gym" list="listGyms" listKey="id" listValue="name"/>
+				<s:select name="gym" list="listGyms" listKey="id" listValue="name" headerKey="-1" headerValue="Selecione uma academia"/>
 			</div>		
 			<div class="ym-fbox-select" >
 				<label for="products">Produtos</label>

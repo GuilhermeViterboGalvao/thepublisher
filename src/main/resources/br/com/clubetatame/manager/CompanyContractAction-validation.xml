@@ -6,9 +6,10 @@
         </field-validator>
     </field>
     <field name="value">
-        <field-validator type="requiredstring">
-            <message>O campo 'valor' é obrigatório.</message>
-        </field-validator>
+	    <field-validator type="double">
+	        <param name="minInclusive">0,1</param>
+	        <message>O valor deve ser maior que ${minInclusive}.</message>
+	    </field-validator>
     </field>    
     <field name="start">
         <field-validator type="requiredstring">
