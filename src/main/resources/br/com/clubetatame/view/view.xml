@@ -22,13 +22,13 @@
 				<interceptor-ref name="prepare"/>
 				<interceptor-ref name="modelDriven"/>
 			</interceptor-stack>
-		</interceptors>
-		
-		<default-interceptor-ref name="viewStack"/>		
-		
-		
+		</interceptors>		
+		<default-interceptor-ref name="viewStack"/>				
  		<action name="academias" class="br.com.clubetatame.view.GymContractAction">
 			<result type="tiles">default</result>
-        </action>           			
+        </action>
+ 		<action name="membros-*" class="br.com.clubetatame.view.MemberAction" method="{1}">
+			<result type="tiles">default</result>
+        </action>             			
 	</package>
 </struts>
