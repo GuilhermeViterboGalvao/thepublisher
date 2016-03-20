@@ -91,40 +91,41 @@
 		}
 	};
 	$("#btnCompany").click(function() {
-		index("/manager/indexAllFacade-indexCompany", "COMPANY");
+		index("/manager/clube-tatame/indexAllFacade-indexCompany", "COMPANY");
 	});
 	$("#btnCompanyContract").click(function() {
-		index("/manager/indexAllFacade-indexCompanyContract", "COMPANYCONTRACT");		
+		index("/manager/clube-tatame/indexAllFacade-indexCompanyContract", "COMPANYCONTRACT");		
 	});
 	$("#btnEvent").click(function() {
-		index("/manager/indexAllFacade-indexEvent", "EVENT");	
+		index("/manager/clube-tatame/indexAllFacade-indexEvent", "EVENT");	
 	});
 	$("#btnGym").click(function() {
-		index("/manager/indexAllFacade-indexGym", "GYM");	
+		index("/manager/clube-tatame/indexAllFacade-indexGym", "GYM");	
 	});	
 	$("#btnGymContract").click(function() {
-		index("/manager/indexAllFacade-indexGymContract", "GYMCONTRACT");
+		index("/manager/clube-tatame/indexAllFacade-indexGymContract", "GYMCONTRACT");
 	});
 	$("#btnMember").click(function() {
-		index("/manager/indexAllFacade-indexMember", "MEMBER");		
+		index("/manager/clube-tatame/indexAllFacade-indexMember", "MEMBER");		
 	});
 	$("#btnMemberContract").click(function() {
-		index("/manager/indexAllFacade-indexMemberContract", "MEMBERCONTRACT");	
+		index("/manager/clube-tatame/indexAllFacade-indexMemberContract", "MEMBERCONTRACT");	
 	});
 	$("#btnProduct").click(function() {
-		index("/manager/indexAllFacade-indexProduct", "PRODUCT");	
+		index("/manager/clube-tatame/indexAllFacade-indexProduct", "PRODUCT");	
 	});	
 	$("#btnIndexAll").click(function() {
 		if (!indexing) {
-			index("/manager/indexAllFacade-indexCompany", "COMPANY", function() {
-				index("/manager/indexAllFacade-indexCompanyContract", "COMPANYCONTRACT", function() {
-					index("/manager/indexAllFacade-indexEvent", "EVENT", function() {
-						index("/manager/indexAllFacade-indexGym", "GYM", function() {
-							index("/manager/indexAllFacade-indexGymContract", "GYMCONTRACT", function() {
-								index("/manager/indexAllFacade-indexMember", "MEMBER", function() {
-									index("/manager/indexAllFacade-indexMemberContract", "MEMBERCONTRACT", function() {
-										index("/manager/indexAllFacade-indexProduct", "PRODUCT");
-										print("Todas as entidades indexadas com sucesso!!!");
+			index("/manager/clube-tatame/indexAllFacade-indexCompany", "COMPANY", function() {
+				index("/manager/clube-tatame/indexAllFacade-indexCompanyContract", "COMPANYCONTRACT", function() {
+					index("/manager/clube-tatame/indexAllFacade-indexEvent", "EVENT", function() {
+						index("/manager/clube-tatame/indexAllFacade-indexGym", "GYM", function() {
+							index("/manager/clube-tatame/indexAllFacade-indexGymContract", "GYMCONTRACT", function() {
+								index("/manager/clube-tatame/indexAllFacade-indexMember", "MEMBER", function() {
+									index("/manager/clube-tatame/indexAllFacade-indexMemberContract", "MEMBERCONTRACT", function() {
+										index("/manager/clube-tatame/indexAllFacade-indexProduct", "PRODUCT", function() {
+											print("Todas as entidades indexadas com sucesso!!!");
+										});										
 									});
 								});	
 							});
