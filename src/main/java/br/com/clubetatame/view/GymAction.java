@@ -30,7 +30,6 @@ public class GymAction extends AbstractAction<Gym> {
 	}
 	
 	public Collection<GymContract> getValidContracts(){
-		Collection<GymContract> contracts = gymContractService.list(getModel(), getCurrentDate(), value, 0, 0, orderBy, orderly ? "desc" : "asc");
 		return gymContractService.list(getModel(), getCurrentDate(), value, 0, 0, orderBy, orderly ? "desc" : "asc");
 	}
 
