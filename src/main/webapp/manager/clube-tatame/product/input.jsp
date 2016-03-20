@@ -38,6 +38,5 @@
 		var value = $("#value");
 		value.val(value.maskMoney("unmasked")[0]);
 	};
-	$("#value").maskMoney({prefix:"R$ ", allowNegative: true, thousands:".", decimal:",", affixesStay: false});
-	$("#value").maskMoney("mask");
+	$("#value").maskMoney({prefix:"R$ ", allowNegative: true, thousands:".", decimal:",", affixesStay: false}).maskMoney("mask");
 </script>

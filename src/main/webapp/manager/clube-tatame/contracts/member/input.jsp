@@ -72,8 +72,14 @@
 		});
    		$("#value").maskMoney("mask", parseFloat(newValue.toFixed(2)));
    	});
-	$("#value").maskMoney({prefix:"R$ ", allowNegative: true, thousands:".", decimal:",", affixesStay: false});
-	$("#value").maskMoney("mask");
+   	var valueInput = $("#value"); 
+   	valueInput.maskMoney({prefix:"R$ ", allowNegative: true, thousands:".", decimal:",", affixesStay: false});
+   	var valueInputVal = valueInput.val();
+	if (valueInputVal && valueInputVal > 0) {
+		$("#value").maskMoney("mask", parseFloat(Number(valueInputVal).toFixed(2)));	
+	} else {
+		$("#value").maskMoney("mask");
+	}
 	$("#start").datepicker({
 	    dateFormat: 'dd/mm/yy',
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
