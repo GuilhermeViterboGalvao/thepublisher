@@ -90,5 +90,8 @@
     </definition>    
     <definition name="contracts_member-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/contracts/member/input.jsp"/>
-    </definition>   
+    </definition>
+    <definition name="clube-tatame-indexall-form" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/indexall/form.jsp"/>
+    </definition>    
 </tiles-definitions>

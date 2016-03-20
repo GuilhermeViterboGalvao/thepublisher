@@ -49,6 +49,9 @@
 	</ul>
 	<h6 class="ym-vtitle">Outros</h6>
 	<ul>
+		<s:if test="isAdmin()">
+			<li><a href="/manager/clube-tatame/indexAllFacade-execute">Indexar entidades do sistema</a></li>
+		</s:if>	
 		<li><a href="/manager/clube-tatame/logout">Sair</a></li>
 	</ul>
 </nav>
