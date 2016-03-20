@@ -106,6 +106,65 @@
 			<result type="tiles">event-list</result>
 			<result name="input" type="tiles">event-input</result>
 			<result name="redirect" type="redirectAction">event-list</result>
-		</action>							
+		</action>
+		<action name="indexAllFacade-*" class="br.com.clubetatame.manager.IndexAllFacade" method="{1}">
+			<result type="tiles">clube-tatame-indexall-form</result>
+			<result name="index-company" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>			
+			<result name="index-company-contract" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-event" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-gym" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-gym-contract" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-member" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+			<result name="index-member-contract" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>			
+			<result name="index-product" type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="callbackParameter">callback</param>
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>			
+		</action>								
 	</package>
 </struts>
