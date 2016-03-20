@@ -7,7 +7,7 @@
     </field>
     <field name="value">
 	    <field-validator type="double">
-	        <param name="minInclusive">0,1</param>
+	        <param name="minInclusive">0,0</param>
 	        <message>O campo 'Valor' é obrigatório.</message>
 	    </field-validator>        
     </field>

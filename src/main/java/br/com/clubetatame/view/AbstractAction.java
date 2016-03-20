@@ -72,26 +72,6 @@ public abstract class AbstractAction<T> extends ActionSupport implements ModelDr
     	this.pages = pages;
     }
     
-    private Date start;
-    
-    public Date getStart(){
-    	return start;
-    }
-    
-    public void setStart(Date start) {
-    	this.start = start;
-    }    
-    
-    private Date end;
-    
-    public Date getEnd (){
-    	return end;
-    }
-    
-    public void setEnd(Date end) {
-    	this.end = end;
-    }
-    
     public Date getCurrentDate(){
     	return new Date();
     }

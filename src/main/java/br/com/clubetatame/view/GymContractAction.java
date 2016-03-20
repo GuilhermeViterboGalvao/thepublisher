@@ -1,6 +1,7 @@
 package br.com.clubetatame.view;
 
 import java.util.Collection;
+import java.util.Date;
 
 import br.com.clubetatame.entity.GymContract;
 import br.com.clubetatame.service.GymContractService;
@@ -21,6 +22,26 @@ public class GymContractAction extends AbstractAction<GymContract> {
 		this.gymContractService = gymContractService;
 	}
 	
+    private Date start;
+    
+    public Date getStart(){
+    	return start;
+    }
+    
+    public void setStart(Date start) {
+    	this.start = start;
+    }    
+    
+    private Date end;
+    
+    public Date getEnd (){
+    	return end;
+    }
+    
+    public void setEnd(Date end) {
+    	this.end = end;
+    }
+    
 	public Collection<GymContract> getList(){
 		return getList(0);
 	}
