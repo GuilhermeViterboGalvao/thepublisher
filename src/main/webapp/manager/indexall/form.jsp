@@ -116,8 +116,9 @@
 						index("/manager/indexAllFacade-indexPage", "PAGE", function() {
 							index("/manager/indexAllFacade-indexPermanentLink", "PERMANENTLINK", function() {
 								index("/manager/indexAllFacade-indexPhoto", "PHOTO", function() {
-									index("/manager/indexAllFacade-indexSkin", "SKIN");
-									print("Todas as entidades indexadas com sucesso!!!");
+									index("/manager/indexAllFacade-indexSkin", "SKIN", function() {
+										print("Todas as entidades indexadas com sucesso!!!");
+									});									
 								});		
 							});				
 						});			
