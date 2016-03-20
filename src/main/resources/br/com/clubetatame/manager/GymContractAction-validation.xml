@@ -33,10 +33,10 @@
             <message>O campo 'Academia' é obrigatório.</message>
         </field-validator>
     </field>
-<!--     <field name="products">
-        <field-validator type="long">
-        	<param name="min">1</param>
-            <message>O campo 'Produtos' é obrigatório.</message>
+    <field name="products">
+        <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[products.size() > 0]]></param>
+            <message>É obrigatório selecionar um ou mais produtos.</message>
         </field-validator>
-    </field>     -->
+    </field>	
 </validators>

@@ -42,6 +42,7 @@
 		<p style="margin: 10px 8px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="%{getText('date.format', {lastModified})}"/>.</p>			
 	</s:if>	
 </form>
+<script type="text/javascript" src="/frameworks/jquery/plugins/MaskMoney/jquery.maskMoney.min.js"></script>
 <script type="text/javascript">
 	var products = [
    		<s:iterator value="listProducts" status="i">
@@ -61,41 +62,19 @@
    		}
    		return product != null ? product.value : 0;
    	}
+   	var checkValue = function() {
+		var value = $("#value");
+		value.val(value.maskMoney("unmasked")[0]);
+   	};   	
    	$("#products").change(function() {
    		var newValue = 0;
-   		 $("#products option:selected").each(function() {
-   			 newValue += getProductValue(this.value);
-   		 });
-   		 $("#value").val(parseFloat(newValue.toFixed(2)));
-   	});	
-   	var checkValue = function() {
-   		var value = $("#value");
-   		try {
-   			if (value && value.val()) {
-   				var newValue;
-   				if (value.val().indexOf(",") > 0) {
-   					newValue = Number(value.val().replace(",", "."));	
-   				} else {
-   					newValue = Number(value.val());
-   				}
-   				value.val(parseFloat(newValue.toFixed(2)));
-   			}	
-   		} catch(exception) {
-   			value.val(0.0);
-   		}
-   	};
-   	checkValue();
-	$("#value").keypress(function(event) {
-		var value = this.value;
-		var keyCode = event.keyCode;
-		if ((keyCode >= 48 && keyCode <= 57) || keyCode == 46) {
-			if (value.indexOf(".") > 0 && keyCode == 46) {
-				return false;	
-			}
-			return true;
-		}
-		return false;
-	});   	
+   		$("#products option:selected").each(function() {
+			newValue += Number(getProductValue(this.value));
+		});
+   		$("#value").maskMoney("mask", parseFloat(newValue.toFixed(2)));
+   	});
+	$("#value").maskMoney({prefix:"R$ ", allowNegative: true, thousands:".", decimal:",", affixesStay: false});
+	$("#value").maskMoney("mask");
 	$("#start").datepicker({
 	    dateFormat: 'dd/mm/yy',
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],

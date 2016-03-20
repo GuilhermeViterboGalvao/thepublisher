@@ -61,41 +61,19 @@
 		}
 		return product != null ? product.value : 0;
 	}
-	$("#products").change(function() {
-		var newValue = 0;
-		 $("#products option:selected").each(function() {
-			 newValue += getProductValue(this.value);
-		 });
-		 $("#value").val(parseFloat(newValue.toFixed(2)));
-	});	
-	var checkValue = function() {
+   	var checkValue = function() {
 		var value = $("#value");
-		try {
-			if (value && value.val()) {
-				var newValue;
-				if (value.val().indexOf(",") > 0) {
-					newValue = Number(value.val().replace(",", "."));	
-				} else {
-					newValue = Number(value.val());
-				}
-				value.val(parseFloat(newValue.toFixed(2)));
-			}	
-		} catch(exception) {
-			value.val(0.0);
-		}
-	};
-	checkValue();
-	$("#value").keypress(function(event) {
-		var value = this.value;
-		var keyCode = event.keyCode;
-		if ((keyCode >= 48 && keyCode <= 57) || keyCode == 46) {
-			if (value.indexOf(".") > 0 && keyCode == 46) {
-				return false;	
-			}
-			return true;
-		}
-		return false;
-	});	
+		value.val(value.maskMoney("unmasked")[0]);
+   	};   	
+   	$("#products").change(function() {
+   		var newValue = 0;
+   		$("#products option:selected").each(function() {
+			newValue += Number(getProductValue(this.value));
+		});
+   		$("#value").maskMoney("mask", parseFloat(newValue.toFixed(2)));
+   	});
+	$("#value").maskMoney({prefix:"R$ ", allowNegative: true, thousands:".", decimal:",", affixesStay: false});
+	$("#value").maskMoney("mask");
 	$("#start").datepicker({
 	    dateFormat: 'dd/mm/yy',
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
