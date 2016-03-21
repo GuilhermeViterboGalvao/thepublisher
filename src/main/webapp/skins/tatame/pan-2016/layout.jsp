@@ -9,4 +9,8 @@
 	<s:set var="customDfpPathJSP" value="'/skins/tatame/pan-2016/google-dfp-script.jsp'" />
 </s:if>
 
+<s:if test="model != null && model instanceof com.publisher.entity.Category && model.id == 41">
+	<s:set var="customDfpPathJSP" value="'/skins/tatame/pan-2016/google-dfp-script.jsp'" />
+</s:if>
+
 <jsp:include page="/skins/tatame/pan-2016/template.jsp"/>
