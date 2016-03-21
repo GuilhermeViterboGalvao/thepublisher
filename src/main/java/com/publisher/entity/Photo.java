@@ -22,12 +22,14 @@ import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
 import br.com.clubetatame.entity.search.PhotoEventFilterFactory;
+import br.com.clubetatame.entity.search.PhotoGymFilterFactory;
 
 @Entity
 @Indexed
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @FullTextFilterDefs({
-	@FullTextFilterDef(name = "isEvent", impl = PhotoEventFilterFactory.class)
+	@FullTextFilterDef(name = "isEvent", impl = PhotoEventFilterFactory.class),
+	@FullTextFilterDef(name = "isGym", impl = PhotoGymFilterFactory.class)
 })
 public class Photo implements Serializable {
 

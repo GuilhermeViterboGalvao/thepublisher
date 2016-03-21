@@ -204,6 +204,16 @@ public class GymAction extends AbstractAction<Gym> {
 		return gymService.get(id);
 	}
 	
+	public void setPhotoId(long photoId) {
+		if (photoId <= 0) {
+			this.logo = photoService.get(photoId);
+		}
+	}
+	
+	public long getPhotoId() {
+		return logo != null ? logo.getId() : 0l;
+	}
+	
 	//Action properties
 	
 	private PermanentLink oldPermanentLink;
