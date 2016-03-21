@@ -8,4 +8,5 @@
 	<!-- VIEW -->
 	<include file="com/publisher/view/view.xml"/>
 	<include file="br/com/clubetatame/view/view.xml"/>
+	<include file="br/com/clubetatame/view/member/member.xml"/>
 </struts>

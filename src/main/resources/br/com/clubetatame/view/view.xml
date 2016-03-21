@@ -26,9 +26,6 @@
 		<default-interceptor-ref name="viewStack"/>				
  		<action name="academias" class="br.com.clubetatame.view.GymContractAction">
 			<result type="tiles">default</result>
-        </action>
- 		<action name="membros-*" class="br.com.clubetatame.view.MemberAction" method="{1}">
-			<result type="tiles">default</result>
-        </action>             			
+        </action>      			
 	</package>
 </struts>
