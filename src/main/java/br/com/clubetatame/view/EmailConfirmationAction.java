@@ -51,7 +51,8 @@ public class EmailConfirmationAction extends ActionSupport implements ViewAction
 					if (member != null) {
 						if (!member.isActive()) {
 							member.setActive(true);
-							memberService.update(member);	
+							memberService.update(member);
+							EmailUtils.getInstance().removeCode(code);
 						} else {
 							errorMessage = "Membro já está ativo.";
 						}
@@ -74,6 +75,7 @@ public class EmailConfirmationAction extends ActionSupport implements ViewAction
 						if (!gym.isActive()) {
 							gym.setActive(true);
 							gymService.update(gym);
+							EmailUtils.getInstance().removeCode(code);
 						} else {
 							errorMessage = "Academia já está ativa.";	
 						}

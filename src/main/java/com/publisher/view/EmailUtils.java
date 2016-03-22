@@ -90,8 +90,19 @@ public final class EmailUtils {
 		return hash;
 	}
 	
+	public void removeCode(String hash) {
+		EmailUtils.codes.remove(hash);
+	}
+	
 	public boolean validateCode(String hash) {
-		//TODO
+		if (hash != null && hash.isEmpty()) {
+			Date currentDate = new Date();
+			Date date = EmailUtils.codes.get(hash);
+			long expirationTime = 24 * 60 * 60 * 1000;//24h
+			if ((date.getTime() - currentDate.getTime()) <= expirationTime) {
+				return true;
+			}
+		}		
 		return false;
 	}
 	
