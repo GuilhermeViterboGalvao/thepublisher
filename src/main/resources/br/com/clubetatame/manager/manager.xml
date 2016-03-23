@@ -119,6 +119,13 @@
 			<result name="input" type="tiles">event-input</result>
 			<result name="redirect" type="redirectAction">event-list</result>
 		</action>
+		<action name="photo_select" class="com.publisher.manager.feed.PhotoFeedAction">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+        </action>
 		<action name="indexAllFacade-*" class="br.com.clubetatame.manager.IndexAllFacade" method="{1}">
 			<result type="tiles">clube-tatame-indexall-form</result>
 			<result name="index-company" type="json">

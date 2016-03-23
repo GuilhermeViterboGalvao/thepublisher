@@ -1,12 +1,16 @@
 package br.com.clubetatame.manager;
 
 import java.util.Collection;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Account;
 
-public abstract class AbstractAction<T> extends ActionSupport implements AccountAware {
+public abstract class AbstractAction<T> extends ActionSupport implements AccountAware, ServletRequestAware {
 
 	private static final long serialVersionUID = -7860719390991822454L;
 
@@ -23,6 +27,8 @@ public abstract class AbstractAction<T> extends ActionSupport implements Account
 	private Account account;
 	
 	private Collection<T> list;
+	
+	private HttpServletRequest request;
 	
 	@SkipValidation
 	public String edit(){
@@ -130,4 +136,12 @@ public abstract class AbstractAction<T> extends ActionSupport implements Account
 	public void setSearch(String search) {
 		this.search = search.replaceAll("^[^(a-z)(A-Z)(0-9)]*", "");
 	}
+	
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+	
+	public String getSessionId() {
+    	return request.getSession().getId();
+    }
 }

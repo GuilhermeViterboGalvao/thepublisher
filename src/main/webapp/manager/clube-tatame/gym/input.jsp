@@ -3,6 +3,12 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <style type="text/css">
 	#map_canvas { width: 100%; height: 200px; margin-bottom: 15px; }
+	img.photoselector { float: left; margin: 8px 20px 8px 0; }
+	div.fields { margin-bottom: 0; }
+	label.name { overflow: hidden; } 
+	input.name { width: 659px; }
+	label.site { overflow: hidden; } 
+	input.site { width: 659px; }
 </style>
 
 <nav class="ym-hlist">
@@ -33,12 +39,12 @@
 				initialUrl="/manager/clube-tatame/ac-photo-gym"
 				loadingImage="/manager/img/loader.gif" 
 			/>	
-			<label for="name">Nome</label>
-			<s:textfield name="name"/>
+			<label class="name" for="name">Nome</label>
+			<s:textfield name="name" cssClass="name"/>
+			<label class="site" for="site">Site</label>
+			<s:textfield name="site" cssClass="site"/>
 			<label for="description">Descrição</label>
-			<s:textarea name="description"/>
-			<label for="site">Site</label>
-			<s:textfield name="site"/>
+			<s:textarea name="description" rows="3"/>
 			<label for="operation">Funcionamento</label>
 			<s:textfield name="operation"/>
 			<label for="contact">Contato</label>
@@ -112,10 +118,9 @@
 </form>
 
 <script type="text/javascript" src="/frameworks/jquery/plugins/jquery.xmldom-1.0.min.js"></script>
-<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js"></script>
+<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js?1"></script>
 <script type="text/javascript" src="/manager/js/PhotoSelectorDialog.js"></script>
 <script type="text/javascript" src="/manager/js/SwfDialog.js"></script>
-
 
 <script type="text/javascript">
 	function checkPermanentLink() {
@@ -129,7 +134,7 @@
 		}
 	}
 	$(function() {
-	    $("#sortable").sortable({
+		$("#sortable").sortable({
 	        revert: false,
 	        stop: function () {
 		    	var childrens = $("#sortable").children();

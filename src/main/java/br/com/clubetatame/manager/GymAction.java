@@ -1,6 +1,5 @@
 package br.com.clubetatame.manager;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -12,11 +11,11 @@ import com.publisher.service.PermanentLinkService;
 import com.publisher.service.PhotoService;
 import com.publisher.utils.ResultList;
 
-
 import br.com.clubetatame.entity.Gym;
+import br.com.clubetatame.entity.PhotoElement;
 import br.com.clubetatame.service.GymService;
 
-public class GymAction extends AbstractAction<Gym> {
+public class GymAction extends AbstractAction<Gym>  {
 
 	private static final long serialVersionUID = -4976296568486569598L;
 	
@@ -96,20 +95,11 @@ public class GymAction extends AbstractAction<Gym> {
 			entity.setInstagram(instagram);
 			entity.setFacebook(facebook);
 			entity.setLogo(logo);
+			entity.setPhotos(photos);
 			entity.setActive(active);
 			entity.setLat(lat);
 			entity.setLon(lon);
 			entity.setPhone(phone);
-			
-			if (photos != null && photos.size() > 0) {
-				List<Photo> list = new ArrayList<Photo>(photos.size());
-				for (Photo photo : photos) {
-					Photo p = photoService.get(photo.getId());
-					p.setDescription(photo.getDescription());
-					list.add(p);
-				}
-				entity.setPhotos(list);
-			}
 			
 			if (permanentLink != null && permanentLink.length() > 0 
 					&& (entity.getPermanentLink() == null || !permanentLink.equals(entity.getPermanentLink().getUri()))) {
@@ -276,7 +266,7 @@ public class GymAction extends AbstractAction<Gym> {
 	
 	private Photo logo;
 	
-	private List<Photo> photos;
+	private List<PhotoElement> photos;
 	
 	private String permanentLink;
 	
@@ -430,11 +420,11 @@ public class GymAction extends AbstractAction<Gym> {
 		this.logo = logo;
 	}
 
-	public List<Photo> getPhotos() {
+	public List<PhotoElement> getPhotos() {
 		return photos;
 	}
 
-	public void setPhotos(List<Photo> photos) {
+	public void setPhotos(List<PhotoElement> photos) {
 		this.photos = photos;
 	}
 

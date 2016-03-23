@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OrderColumn;
 
@@ -31,6 +31,7 @@ import org.hibernate.search.annotations.Store;
 import com.publisher.entity.Account;
 import com.publisher.entity.PermanentLink;
 import com.publisher.entity.Photo;
+
 
 import br.com.clubetatame.entity.search.ActiveFilterFactory;
 
@@ -102,10 +103,10 @@ public class Gym implements Serializable {
 	private Photo logo;
 	
 	@ListIndexBase(value=1)
-    @OrderColumn(name="position")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Photo> photos;
+	@OrderColumn(name="position")
+	@ElementCollection(fetch = FetchType.LAZY)
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)	
+	private List<PhotoElement> photos;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)	
 	private PermanentLink permanentLink;
@@ -309,11 +310,11 @@ public class Gym implements Serializable {
 		this.logo = logo;
 	}
 
-	public List<Photo> getPhotos() {
+	public List<PhotoElement> getPhotos() {
 		return photos;
 	}
 
-	public void setPhotos(List<Photo> photos) {
+	public void setPhotos(List<PhotoElement> photos) {
 		this.photos = photos;
 	}
 
