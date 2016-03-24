@@ -14,7 +14,7 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	
 	private boolean orderly = true;
 	
-	private Collection<GymContract> list;
+	private Collection<GymContract> contracts;
 	
 	private GymContractService gymContractService;
 	
@@ -42,16 +42,16 @@ public class GymContractAction extends AbstractAction<GymContract> {
     	this.end = end;
     }
     
-	public Collection<GymContract> getList(){
-		return getList(0);
+	public Collection<GymContract> getContracts(){
+		return getContracts(0);
 	}
 
-	public Collection<GymContract> getList(int i){
+	public Collection<GymContract> getContracts(int i){
 		setPageSize(i);
 		setPages((int) Math.floor(gymContractService.count() * 1f / getPageSize()) + 1);
-		list = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
+		contracts = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc", new Date());
       
-        return list;
+        return contracts;
 	}
 
 	@Override
