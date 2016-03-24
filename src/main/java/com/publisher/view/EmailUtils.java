@@ -35,8 +35,8 @@ public final class EmailUtils {
 		memberTemplate += "      <style type=\"text/css\">";
 		memberTemplate += "         .html, body { float: left; width: 100%; }";
 		memberTemplate += "         .message { float: left; width: 100%; margin: 2% 0; }";
-		memberTemplate += "         .message p { float: left; width: 100%; font-size: 1.5em; line-height: 2em; color: #000; }";
-		memberTemplate += "         .message p a { float: left; width: 100%; text-decoration: none; color: red; }";
+		memberTemplate += "         .message p { float: left; width: 100%; font-size: 1.5em; line-height: 2em; color: #000; text-align: center; }";
+		memberTemplate += "         .message p a { text-decoration: none; color: red; }";
 		memberTemplate += "      </style>";
 		memberTemplate += "   </head>";
 		memberTemplate += "   <body>";
@@ -52,8 +52,8 @@ public final class EmailUtils {
 		gymTemplate += "      <style type=\"text/css\">";
 		gymTemplate += "         .html, body { float: left; width: 100%; }";
 		gymTemplate += "         .message { float: left; width: 100%; margin: 2% 0; }";
-		gymTemplate += "         .message p { float: left; width: 100%; font-size: 1.5em; line-height: 2em; color: #000; }";
-		gymTemplate += "         .message p a { float: left; width: 100%; text-decoration: none; color: red; }";
+		gymTemplate += "         .message p { float: left; width: 100%; font-size: 1.5em; line-height: 2em; color: #000; text-align: center; }";
+		gymTemplate += "         .message p a { text-decoration: none; color: red; }";
 		gymTemplate += "      </style>";
 		gymTemplate += "   </head>";
 		gymTemplate += "   <body>";
@@ -130,7 +130,7 @@ public final class EmailUtils {
 				message.setFrom(new InternetAddress(userName));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(member.getEmail()));
 				message.setSubject("Clube Tatame - Confirmação de cadastro de membro");
-				message.setText(memberTemplate.replace("{confirmationLink}", confirmationLink));
+				message.setContent(memberTemplate.replace("{confirmationLink}", confirmationLink), "text/html; charset=utf-8");
 				Transport.send(message);
 				log.info("E-mail send to " + member.getEmail() + " with code " + hash + ".");
 			} catch (Exception e) {
@@ -169,7 +169,7 @@ public final class EmailUtils {
 				message.setFrom(new InternetAddress(userName));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(gym.getEmail()));
 				message.setSubject("Clube Tatame - Confirmação de cadastro de academia");
-				message.setText(gymTemplate.replace("{confirmationLink}", confirmationLink));
+				message.setContent(gymTemplate.replace("{confirmationLink}", confirmationLink), "text/html; charset=utf-8");
 				Transport.send(message);
 				log.info("E-mail send to " + gym.getEmail() + " with code " + hash + ".");
 			} catch (Exception e) {
