@@ -5,8 +5,7 @@
 </div>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 	<div class="ads">
-		<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
-		<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master1&direct=1"></script>
+		<jsp:include page="/skins/tatame/default/advertiser-zone1.jsp"/>
 	</div>
 </s:if>
 <s:else>
