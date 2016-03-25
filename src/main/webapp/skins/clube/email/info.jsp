@@ -8,8 +8,8 @@
 	.expired-code p { float: left; width: 100%; text-align: center; font-size: 1.2em; line-height: 1.4em; color: #000; }
 	.expired-code a { float: left; text-decoration: none; font-size: 1.2em; line-height: 1.4em; color: red;}
 	
-	.message { float: left; }
-	.message p { float: left; }
+	.message { float: left; width: 100%; margin: 5% 0; }
+	.message p { float: left; width: 100%; text-align: center; font-size: 1.2em; line-height: 1.4em; color: #000; }
 </style>
 <s:if test="errorMessage != null && !errorMessage.isEmpty()">
 	<div class="error-message">

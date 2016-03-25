@@ -15,13 +15,13 @@
 	<thead>
 		<tr>
 			<th>
-				<a href="event-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
+				<a href="event-list?orderBy=id&orderly=<s:property value="!orderly"/>">Id</a>
 			</th>
 			<th>
-				<a href="event-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
+				<a href="event-list?orderBy=name&orderly=<s:property value="!orderly"/>">Nome</a>
 			</th>
 			<th>
-				<a href="event-list?orderBy=contact&orderly=<s:property value="!orderly"/>">contato</a>
+				<a href="event-list?orderBy=contact&orderly=<s:property value="!orderly"/>">Contato</a>
 			</th>
 			<th></th>
 		</tr>

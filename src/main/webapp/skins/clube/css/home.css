@@ -1,11 +1,11 @@
 @CHARSET "UTF-8";
 .hightlights { float: left; width: 100%; margin: 25px 0; position: relative; }
-.hightlights form { float: left; position: absolute; width: 30%; margin: 0; padding: 0; background-color: #666; top: 0; left: 60%; }
-.hightlights form .form { float: left; width: 90%; padding: 5%; }
-.hightlights form .form span { float: left; width: 100%; color: #fff; font-size: 1.3em; margin: 0 0 15px 0; text-transform: uppercase; }
-.hightlights form .form label { float: left; width: 100%; color: #fff; margin: 0 0 5px 0; font-size: 1em; }
-.hightlights form .form input[type="text"] { float: left; width: 98%; margin: 0 0 10px 0; height: 15px; font-size: 1em; padding: 1%; border: 0; }
-.hightlights form .form input[type="submit"] { float: left; width: 50%; background-color: #ffcc00; border: 0; padding: 1%; margin: 0 25%; font-size: 0.8em; font-weight: 600; border-radius: 5px; }
+.hightlights .form { float: left; position: absolute; width: 28%; margin: 0; padding: 1%; background-color: #666; top: 0; left: 60%; }
+.hightlights .form span { float: left; width: 100%; color: #fff; font-size: 1.3em; margin: 0 0 15px 0; text-transform: uppercase; }
+.hightlights .form label { float: left; width: 100%; color: #fff; margin: 0 0 5px 0; font-size: 1em; }
+.hightlights .form input[type="text"],
+.hightlights .form input[type="password"] { float: left; width: 98%; margin: 0 0 10px 0; height: 15px; font-size: 1em; padding: 1%; border: 0; }
+.hightlights .form input[type="submit"] { float: left; width: 50%; background-color: #ffcc00; border: 0; padding: 1%; margin: 0 25%; font-size: 0.8em; font-weight: 600; border-radius: 5px; }
 .hightlights .hightlight { float: left; width: 100%; }
 .hightlights .hightlight a { float: left; width: 100%; }
 .hightlights .hightlight a img { float: left; width: 100%; }
@@ -35,11 +35,10 @@
 .indicates .persons .person .text { float: left; width: 80%; line-height: 25px; margin: 5% 10%; font-size: 1em; color: #838282; font-weight: 300; }
 @media screen and (max-width: 800px) {
 	.page .hightlights { margin: 10px 0; }
-	.page .hightlights form { position: relative; width: 98%; margin: 1%; left: 0; top: 0; }
-	.page .hightlights form .form { width: 98%; padding: 1%; }
-	.page .hightlights form .form span { font-size: 1em; margin: 0 0 10px 0; }
-	.page .hightlights form .form label { font-size: 0.8em; }
-	.page .hightlights form .form input[type="text"] { margin: 0 0 5px 0; height: 5px; font-size: 0.8em; }
+	.page .hightlights .form { position: relative; width: 96%; margin: 1%; left: 0; top: 0; padding: 1%; }
+	.page .hightlights .form span { font-size: 1em; margin: 0 0 10px 0; }
+	.page .hightlights .form label { font-size: 0.8em; }
+	.page .hightlights .form input[type="text"] { margin: 0 0 5px 0; height: 5px; font-size: 0.8em; }
 	
 	.page .hightlights .hightlight { width: 98%; margin: 0 1%; }
 	.page .hightlights .hightlight span { font-size: 1.2em; }
@@ -73,7 +72,7 @@
 	.page .indicates .persons .person .text { font-size: 0.6em; }	
 }
 @media screen and (max-width: 375px) {
-	.page .hightlights form .form input[type="text"] { height: 15px; }
+	.page .hightlights .form input[type="text"] { height: 15px; }
 }
 @media screen and (max-width: 320px) {
 	.page .indicates .header .line { margin: 40px 0;}	

@@ -15,13 +15,16 @@
 	<thead>
 		<tr>
 			<th>
-				<a href="member-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
+				<a href="member-list?orderBy=id&orderly=<s:property value="!orderly"/>">Id</a>
 			</th>
 			<th>
-				<a href="member-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
+				<a href="member-list?orderBy=name&orderly=<s:property value="!orderly"/>">Nome</a>
 			</th>
 			<th>
-				<a href="member-list?orderBy=email&orderly=<s:property value="!orderly"/>">email</a>
+				<a href="member-list?orderBy=email&orderly=<s:property value="!orderly"/>">E-mail</a>
+			</th>
+			<th>
+				<a href="member-list?orderBy=active&orderly=<s:property value="!orderly"/>">Publicado</a>
 			</th>
 			<th></th>
 		</tr>
@@ -38,6 +41,14 @@
 				<td>
 					<s:property value="email"/>
 				</td>
+				<td>
+					<s:if test="active">
+						<img src="/manager/img/on.png" alt="Publicado"/>
+					</s:if>
+					<s:else>
+						<img src="/manager/img/off.png" alt="Despublicado"/>
+					</s:else>
+				</td>				
 				<td class="td">
 					<s:if test="isAdmin() || id == account.id">
 						<a href="member-edit?id=<s:property value="id"/>">Editar</a>

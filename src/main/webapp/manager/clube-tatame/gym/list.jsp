@@ -15,14 +15,17 @@
 	<thead>
 		<tr>
 			<th>
-				<a href="gym-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
+				<a href="gym-list?orderBy=id&orderly=<s:property value="!orderly"/>">Id</a>
 			</th>
 			<th>
-				<a href="gym-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
+				<a href="gym-list?orderBy=name&orderly=<s:property value="!orderly"/>">Nome</a>
 			</th>
 			<th>
-				<a href="gym-list?orderBy=email&orderly=<s:property value="!orderly"/>">email</a>
+				<a href="gym-list?orderBy=email&orderly=<s:property value="!orderly"/>">E-mail</a>
 			</th>
+			<th>
+				<a href="gym-list?orderBy=active&orderly=<s:property value="!orderly"/>">Publicado</a>
+			</th>			
 			<th></th>
 		</tr>
 	</thead>
@@ -38,6 +41,14 @@
 				<td>
 					<s:property value="email"/>
 				</td>
+				<td>
+					<s:if test="active">
+						<img src="/manager/img/on.png" alt="Publicado"/>
+					</s:if>
+					<s:else>
+						<img src="/manager/img/off.png" alt="Despublicado"/>
+					</s:else>
+				</td>				
 				<td class="td">
 					<a href="gym-edit?id=<s:property value="id"/>">Editar</a>
 				</td>
