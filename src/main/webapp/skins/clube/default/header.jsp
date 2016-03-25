@@ -2,9 +2,9 @@
 <header>
 	<img class="logo" alt="Logo" src="/skins/clube/img/logo.jpg"/>
 	<section class="menu">
-		<form action="#" method="post">
-			<input type="text" name="login" placeholder="Usuário"/>
-			<input type="text" name="password" placeholder="Senha"/>
+		<form action="/clube/membros/login" method="post">
+			<input type="text" name="email" placeholder="Usuário"/>
+			<input type="password" name="password" placeholder="Senha"/>
 			<input type="submit" value="ENTRAR"/>
 		</form>
 		<img class="btnFacebook" alt="Login com o Facebook" src="/skins/clube/img/btnFacebook.png"/>	

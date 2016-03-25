@@ -5,7 +5,6 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 import br.com.clubetatame.entity.Member;
-import br.com.clubetatame.manager.AccountAware;
 
 public class AuthenticationInterceptor implements Interceptor {
 
@@ -17,7 +16,7 @@ public class AuthenticationInterceptor implements Interceptor {
 	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
         Action action = (Action)actionInvocation.getAction();
-        if (action instanceof AccountAware) {
+        if (action instanceof MemberAware) {
             Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
             Object obj = session != null ? session.get("member") : null;
             if (obj != null && obj instanceof Member) {

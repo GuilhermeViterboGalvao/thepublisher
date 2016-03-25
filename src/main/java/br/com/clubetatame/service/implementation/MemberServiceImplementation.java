@@ -98,7 +98,7 @@ public class MemberServiceImplementation extends TransactionalService implements
             List<Member> result = query.getResultList();
             if (result != null && !result.isEmpty()) {
             	member = result.iterator().next();
-                if (!member.getHash().equals(hash(password))) {
+                if (!member.getHash().equals(password)) {
                 	member = null;
                 }
             }        	
