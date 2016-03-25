@@ -5,11 +5,11 @@
 .page .title { float:left; position:relative; font-size: 23px; font-family: Roboto; margin-bottom: 30px; }
 
 .page .premium {  float:left; position:relative; width: 100%; max-width: 864px; height: 130px; background-color: #f2f2f2; margin-top: 15px; }
-.page .premium .logo {  float:left; position:relative;  width: 100%; max-width: 220px; height: 130px; }
+.page .premium .logo {  float:left; position:relative;  width: 100%; max-width: 183px; height: 106px; margin: 12px 18px; }
 .page .premium .info {  float:left; position:relative;  width: 100%; max-width: 423px; height: 130px; border-left: 1px solid #8a8a8a;}
 .page .premium .info span { float:left; position:relative; width: 85%; }
 .page .premium .info .name { height: 20px; font-size: 15px; text-transform: uppercase; margin: 15px 0 0 20px; }
-.page .premium .info .description { height: 38px; font-size: 14px; text-overflow: ellipsis; overflow: hidden; margin: 56px 0 0 20px; }
+.page .premium .info .description { height: 38px; font-size: 14px; text-overflow: ellipsis; overflow: hidden; margin: 40px 0 0 20px; }
 .page .premium .detail {  float:left; position:relative;  width: 100%; max-width: 220px; height: 130px; background-color: #dadada; }
 .page .premium .detail a { text-decoration: none; color: #000; font-size: 13px; float: left; position: relative; width: 132px; margin: 34px 0 0 15px; line-height: 21px; }
 .page .premium .detail strong { font-weight: bold; }

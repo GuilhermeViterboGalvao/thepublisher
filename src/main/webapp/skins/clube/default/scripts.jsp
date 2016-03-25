@@ -11,4 +11,8 @@
 	<s:elseif test="model instanceof com.publisher.entity.Article">
 		<script type="text/javascript" src="/skins/clube/js/Article.js"></script>
 	</s:elseif>
+	<s:elseif  test="model != null && model instanceof br.com.clubetatame.entity.Gym">
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="/skins/clube/js/Gym.js"></script>
+	</s:elseif>
 </s:if>

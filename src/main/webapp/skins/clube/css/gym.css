@@ -1,1 +1,42 @@
 @CHARSET "UTF-8";
+
+.boxs { display: table; margin: 30px auto; width: 100%; max-width: 944px; }
+.border-top { border-top: 1px solid #000;  }
+
+.page .info { float: left; position: relative; width: 100%; max-width: 484px; padding: 20px 0 0; }
+.page .info .name { float: left; position: relative; text-transform: uppercase; font-size: 30px; width: 85%; font-family: Roboto; }
+.page .info .description { float: left; position: relative; font-size: 15px; width: 85%; margin-top: 50px; color: #0c0c0c; height: 230px }
+.page .info .site { float: left; position: relative; font-size: 17px; width: 85%; margin-top: 20px }
+.page .info .site a { text-decoration: none; color: #ff0300; }
+
+.page .gallery  { float: right; position: relative; width: 100%; max-width: 459px; }
+.page .gallery .bigphotoholder { float: left; height: 290px; width: 459px; overflow: hidden; position: relative; padding-top: 20px; }
+.page .gallery .bigphotoholder .holder { float: left; width: 459px; }
+.page .gallery .bigphotoholder .holder img { margin: 0 auto; display: table; }
+
+.page .gallery .bigphotoholder-thumbs { float: left; margin-top: 5px; overflow: hidden; width: 459px; position: relative; }
+.page .gallery .bigphotoholder-thumbs .left { float: left; padding: 44px 4px; width: 25px; position: absolute; z-index: 99; }
+.page .gallery .bigphotoholder-thumbs .right { float: right; padding: 44px 0; width: 25px; position: absolute; z-index: 99; margin-left: 431px; }
+.page .gallery .bigphotoholder-thumbs .left img,
+.page .gallery .bigphotoholder-thumbs .right img { width: 25px; }
+.page .gallery .bigphotoholder-thumbs .photoholder { float: left; height: 114px; overflow: hidden; width: 459px; }
+.page .gallery .bigphotoholder-thumbs .photoholder a { float: left; position: relative; }
+.page .gallery .bigphotoholder-thumbs .photoholder img { border: float: left; height: 114px; margin-left: 3px; width: 151px; }
+.page .gallery .bigphotoholder-thumbs .photoholder img.no-margin { margin-left: 0; }
+
+.page .gallery .hide { display: none; }
+.page .gallery .show { display: block; }
+
+.page .sub-info { float: left; position: relative; width: 100%; max-width: 944px; height: 120px; background-color: #000; margin: 30px 0;  }
+.page .sub-info .operation { float: left; position: relative; width: 47%; height: 38px; margin: 22px 0 0 22px; }
+.page .sub-info .address { float: left; position: relative; width: 95%; height: 45px; margin: 8px 0 0 22px; }
+.page .sub-info .modality { float: right; position: relative; width: 40%; height: 40px; margin: 22px 22px 0 0; }
+.page .sub-info span { float: left; position: relative; color: #fefaff; font-size: 16px; }
+.page .sub-info .red { color:#ff0300; font-family: Roboto; margin-right: 5px;  }
+
+.page .map { float: left; height: 385px; width: 490px; }
+.page .map .map-title { float:left; position:relative; font-size: 16px; margin-bottom: 10px; text-transform: uppercase; }
+.page .map > div { float: left; height: 385px; width: 490px; }
+
+.page .facebook { float: left; width: 432px; margin: 26px 0 0 20px;  }
+.page .facebook .fb-page { margin: 0 auto; width: 432px; display: block; }
