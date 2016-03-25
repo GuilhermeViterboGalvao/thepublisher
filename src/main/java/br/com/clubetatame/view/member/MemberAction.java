@@ -95,7 +95,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			session.clear();
 			return;
 		}
-		if (model.getId().longValue() != member.getId().longValue()) {
+		if (member.getId().longValue() != model.getId().longValue()) {
 			addFieldError("id", "Valor inválido para o campo ID.");
 		}
 		//Security validation - end
@@ -108,6 +108,11 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 		}
 		if (model.getDocument() == null || model.getDocument().isEmpty()) {
 			addFieldError("document", "O campo \"cpf\" é obrigatório!");
+		} else {
+			Member member = memberService.getByDocument(model.getDocument());
+			if (!this.member.getDocument().equals(member.getDocument()) && member != null) {
+				addFieldError("document", "CPF já cadastrado!");	
+			}
 		}
 		if (model.getEmail() == null || model.getEmail().isEmpty()) {
 			addFieldError("email", "O campo \"e-mail\" é obrigatório!");

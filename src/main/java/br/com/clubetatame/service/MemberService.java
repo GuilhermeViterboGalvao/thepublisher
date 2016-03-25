@@ -15,6 +15,8 @@ public interface MemberService extends Service<Member> {
 	
 	Member getByEmail(String email);
 	
+	Member getByDocument(String document);
+	
 	List<Member> getByName(String name);
     
     Collection<Member> list(Boolean active);

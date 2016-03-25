@@ -1,6 +1,12 @@
 (function(window, undefined) {
 	var name = $("#memberName");
 	var document = $("#memberDocument");
+	document.keypress(function(e) {
+		if (e && e.keyCode >= 48 && e.keyCode <= 57) {
+			return true;
+		}
+		return false;
+	});
 	var email = $("#memberEmail");
 	var password = $("#memberPassword");
 	var password2 = $("#memberPassword2");	

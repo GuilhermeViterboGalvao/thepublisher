@@ -31,6 +31,12 @@ public class MemberSimpleRegister extends ActionSupport {
 		if (document == null || document.isEmpty()) {
 			result += "O campo 'cpf' é obirgtório.\n";
 			hasError = true;
+		} else {
+			Member member = memberService.getByDocument(document);
+			if (member != null) {
+				result += "Já existe um usuário cadastrado com esse cpf.";
+				hasError = true;				
+			}
 		}
 		if (email == null || email.isEmpty()) {
 			result += "O campo 'e-mail' é obrigatório.\n";
