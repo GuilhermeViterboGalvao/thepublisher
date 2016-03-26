@@ -24,10 +24,11 @@
 			<result name="login" type="tiles">default</result>
 			<result name="input" type="tiles">default</result>
 			<result type="redirectAction">membro-input</result>			
-		</action>		
+		</action>
 		<action name="logout" class="br.com.clubetatame.view.member.LogoutAction"/>
 		<action name="membro-*" class="br.com.clubetatame.view.member.MemberAction" method="{1}">
 		    <result type="tiles">default</result>
+		    <result name="input" type="tiles">default</result>
 		</action>								
 	</package>
 </struts>

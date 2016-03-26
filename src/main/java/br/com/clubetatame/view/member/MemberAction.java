@@ -49,7 +49,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			model.setActive(member.isActive());
 			model.setAddress(member.getAddress());
 			model.setBirth(member.getBirth());
-			model.setCEP(member.getCEP());
+			model.setCep(member.getCep());
 			model.setCreated(member.getCreated());
 			model.setCreatedBy(member.getCreatedBy());
 			model.setDocument(member.getDocument());
@@ -62,6 +62,8 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			model.setLastModified(member.getLastModified());
 			model.setLastModifiedBy(member.getLastModifiedBy());
 			model.setName(member.getName());
+		} else if (model == null) {
+			model = new Member();
 		}
 		return model;
 	}
@@ -83,7 +85,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 	}
 	
 	public String save() {
-		memberService.persist(model);
+		memberService.update(model);
 		return SUCCESS;
 	}
 	
@@ -110,7 +112,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			addFieldError("document", "O campo \"cpf\" é obrigatório!");
 		} else {
 			Member member = memberService.getByDocument(model.getDocument());
-			if (!this.member.getDocument().equals(member.getDocument()) && member != null) {
+			if (member != null && !this.member.getDocument().equals(member.getDocument())) {
 				addFieldError("document", "CPF já cadastrado!");	
 			}
 		}
@@ -120,7 +122,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			addFieldError("email", "E-mail inválido.");
 		} else if (model.getEmail() != null && model.getEmail().contains("@")) {
 			Member member = memberService.getByEmail(model.getEmail());
-			if (member != null && member.isActive()) {
+			if (member != null && !this.member.getEmail().equals(member.getEmail())) {
 				addFieldError("email", "Já existe um usuário cadastrado com esse e-mail.");
 			}
 		}

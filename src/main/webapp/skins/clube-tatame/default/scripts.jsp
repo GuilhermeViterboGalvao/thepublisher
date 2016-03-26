@@ -12,8 +12,12 @@
 	<s:elseif test="model instanceof com.publisher.entity.Article">
 		<script type="text/javascript" src="/skins/clube-tatame/js/Article.js"></script>
 	</s:elseif>
-	<s:elseif  test="model != null && model instanceof br.com.clubetatame.entity.Gym">
+	<s:elseif  test="model instanceof br.com.clubetatame.entity.Gym">
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript" src="/skins/clube-tatame/js/Gym.js"></script>
+	</s:elseif>
+	<s:elseif test="model instanceof br.com.clubetatame.entity.Member">
+		<script type="text/javascript" src="/frameworks/jquery/plugins/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/skins/clube-tatame/js/Member.js"></script>
 	</s:elseif>
 </s:if>

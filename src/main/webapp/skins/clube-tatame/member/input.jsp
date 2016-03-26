@@ -1,6 +1,16 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"              %>
-<form action="" method="post">
+<section class="message">
+	<p class="title">Seja bem vindo <s:property value="name"/>.</p>
+	<p class="text">Aqui é o seu local onde você pode alterar as suas informações, e pegar o seu</p>
+	<p class="text">cumpo de desconto para aproveitar as vantagens de um membro do Clube Tatame.</p>
+</section>
+<s:if test="hasFieldErrors()">
+	<section class="errors-messages">
+		<s:fielderror cssClass="error"/>
+	</section>
+</s:if>
+<form class="memberForm" action="/clube/membros/membro-save" method="post">
 	<s:hidden name="id"/>	
 	<label for="name">Nome</label>
 	<s:textfield name="name"/>	
@@ -14,7 +24,7 @@
 		<option value="feminino">Feminino</option>
 	</select>	
 	<label for="birth">Data de nascimento</label>
-	<s:textfield name="birth"/>	
+	<s:textfield id="birth" name="birth"/>	
 	<label for="address">Endereço</label>
 	<s:textfield name="address"/>	
 	<label for="cep">CEP</label>
