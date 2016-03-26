@@ -19,10 +19,7 @@
 	<label for="document">CPF</label>
 	<s:textfield name="document"/>	
 	<label for="gender">Sexo</label>
-	<select name="gender">
-		<option value="masculino">Masculino</option>
-		<option value="feminino">Feminino</option>
-	</select>	
+	<s:select name="gender" list="listGenders" listKey="id" listValue="value" headerKey="0" headerValue="Selecione seu sexo"/>
 	<label for="birth">Data de nascimento</label>
 	<s:textfield id="birth" name="birth"/>	
 	<label for="address">Endereço</label>

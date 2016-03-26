@@ -1,11 +1,15 @@
 package br.com.clubetatame.view.member;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.publisher.utils.Option;
+
 import br.com.clubetatame.entity.Member;
 import br.com.clubetatame.service.MemberService;
 import br.com.clubetatame.view.ViewAction;
@@ -44,24 +48,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 	@Override
 	public Member getModel() {
 		if (model == null && member != null) {
-			model = new Member();
-			model.setId(member.getId());
-			model.setActive(member.isActive());
-			model.setAddress(member.getAddress());
-			model.setBirth(member.getBirth());
-			model.setCep(member.getCep());
-			model.setCreated(member.getCreated());
-			model.setCreatedBy(member.getCreatedBy());
-			model.setDocument(member.getDocument());
-			model.setEmail(member.getEmail());
-			model.setFacebookAccessToken(member.getFacebookAccessToken());
-			model.setFacebookAccessTokenExpiration(member.getFacebookAccessTokenExpiration());
-			model.setFbid(member.getFbid());
-			model.setGender(member.getGender());
-			model.setHash(member.getHash());
-			model.setLastModified(member.getLastModified());
-			model.setLastModifiedBy(member.getLastModifiedBy());
-			model.setName(member.getName());
+			model = memberService.get(member.getId());
 		} else if (model == null) {
 			model = new Member();
 		}
@@ -127,5 +114,13 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			}
 		}
 		//Default validation - end
+	}
+	
+	//Only for Select of genders	
+	public List<Option> getListGenders() {
+		List<Option> options = new ArrayList<Option>();
+		options.add(new Option("Masculino", "Masculino"));
+		options.add(new Option("Feminino", "Feminino"));
+		return options;
 	}
 }
