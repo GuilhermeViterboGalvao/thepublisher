@@ -9,20 +9,20 @@
 <s:if test="#titlePage != null">
 	<title><s:property value="%{titlePage}"/></title>
 </s:if>
-<link href="/skins/clube/css/main.css" rel="stylesheet" type="text/css"/>
+<link href="/skins/clube-tatame/css/main.css" rel="stylesheet" type="text/css"/>
 
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 6">
-	<link href="/skins/clube/css/home.css" rel="stylesheet" type="text/css"/>
+	<link href="/skins/clube-tatame/css/home.css" rel="stylesheet" type="text/css"/>
 </s:if>
 
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
-	<link href="/skins/clube/css/article.css" rel="stylesheet" type="text/css"/>	
+	<link href="/skins/clube-tatame/css/article.css" rel="stylesheet" type="text/css"/>	
 </s:if>
 
 <s:if test="model != null && model instanceof br.com.clubetatame.entity.Gym">
-	<link href="/skins/clube/css/gym.css" rel="stylesheet" type="text/css"/>	
+	<link href="/skins/clube-tatame/css/gym.css" rel="stylesheet" type="text/css"/>	
 </s:if>
 
 <s:if test="contracts != null">
-	<link href="/skins/clube/css/gymContracts.css" rel="stylesheet" type="text/css"/>	
+	<link href="/skins/clube-tatame/css/gymContracts.css" rel="stylesheet" type="text/css"/>	
 </s:if>

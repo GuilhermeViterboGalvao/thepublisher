@@ -72,11 +72,11 @@ public class LoginAction extends ActionSupport implements ViewAction, SessionAwa
 
 	@Override
 	public String getLayoutPath() {
-		return "/skins/clube/default/layout.jsp";
+		return "/skins/clube-tatame/default/layout.jsp";
 	}
 
 	@Override
 	public String getContentPath() {
-		return "/skins/clube/member/loginform.jsp";
+		return "/skins/clube-tatame/member/loginform.jsp";
 	}
 }

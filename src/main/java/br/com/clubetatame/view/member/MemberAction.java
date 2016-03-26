@@ -68,12 +68,12 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 
 	@Override
 	public String getLayoutPath() {
-		return "/skins/clube/default/layout.jsp";
+		return "/skins/clube-tatame/default/layout.jsp";
 	}
 
 	@Override
 	public String getContentPath() {
-		return "/skins/clube/member/input.jsp";
+		return "/skins/clube-tatame/member/input.jsp";
 	}
 	
 	@Override
