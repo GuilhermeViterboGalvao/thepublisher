@@ -32,7 +32,7 @@ public class MemberAction extends AbstractAction<Member> {
 			this.gender = entity.getGender();
 			this.birth = entity.getBirth();
 			this.address = entity.getAddress();
-			this.cep = entity.getCEP();
+			this.cep = entity.getCep();
 			this.active = entity.isActive();
 			this.createdBy = entity.getCreatedBy();
 			this.created = entity.getCreated();
@@ -50,7 +50,7 @@ public class MemberAction extends AbstractAction<Member> {
 			entity.setGender(gender);
 			entity.setBirth(birth);
 			entity.setAddress(address);
-			entity.setCEP(cep);
+			entity.setCep(cep);
 			entity.setActive(active);
 			if (entity.getCreatedBy() == null) {
 				entity.setCreatedBy(getAccount());

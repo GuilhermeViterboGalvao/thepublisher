@@ -101,11 +101,11 @@ public class EmailTestAction extends ActionSupport implements ViewAction {
 
 	@Override
 	public String getLayoutPath() {
-		return "/skins/clube/default/layout.jsp";
+		return "/skins/clube-tatame/default/layout.jsp";
 	}
 
 	@Override
 	public String getContentPath() {
-		return "/skins/clube/email/test.jsp";
+		return "/skins/clube-tatame/email/test.jsp";
 	}
 }

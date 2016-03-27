@@ -138,11 +138,11 @@ public class Member implements Serializable {
 		this.address = address;
 	}
 
-	public String getCEP() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCEP(String cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 

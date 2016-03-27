@@ -32,6 +32,13 @@
         </action>
  		<action name="emailTest" class="br.com.clubetatame.view.EmailTestAction">
 			<result type="tiles">default</result>
-        </action>             
+        </action>        
+ 		<action name="memberSimpleRegister" class="br.com.clubetatame.view.MemberSimpleRegister">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+        </action>                     
 	</package>
 </struts>

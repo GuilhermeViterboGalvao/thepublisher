@@ -18,16 +18,16 @@
 	<thead>
 		<tr>
 			<th>
-				<a href="contracts_company-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
+				<a href="contracts_company-list?orderBy=id&orderly=<s:property value="!orderly"/>">Id</a>
 			</th>
 			<th>
-				<a href="contracts_company-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
+				<a href="contracts_company-list?orderBy=name&orderly=<s:property value="!orderly"/>">Nome</a>
 			</th>
 			<th>
-				<a href="contracts_company-list?orderBy=start&orderly=<s:property value="!orderly"/>">data de inicio</a>
+				<a href="contracts_company-list?orderBy=start&orderly=<s:property value="!orderly"/>">Data de inicio</a>
 			</th>
 			<th>
-				<a href="contracts_company-list?orderBy=end&orderly=<s:property value="!orderly"/>">data de fim</a>
+				<a href="contracts_company-list?orderBy=end&orderly=<s:property value="!orderly"/>">Data de fim</a>
 			</th>
 			<th></th>
 		</tr>

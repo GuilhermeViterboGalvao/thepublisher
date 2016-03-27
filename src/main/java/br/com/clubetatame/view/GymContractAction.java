@@ -61,11 +61,11 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	
 	@Override
 	public String getLayoutPath() {
-		return "/skins/clube/default/layout.jsp";
+		return "/skins/clube-tatame/default/layout.jsp";
 	}
 
 	@Override
 	public String getContentPath() {
-		return "/skins/clube/gym/contracts.jsp";
+		return "/skins/clube-tatame/gym/contracts.jsp";
 	}
 }

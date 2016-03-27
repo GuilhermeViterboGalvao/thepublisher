@@ -1,11 +1,15 @@
 package br.com.clubetatame.view.member;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.publisher.utils.Option;
+
 import br.com.clubetatame.entity.Member;
 import br.com.clubetatame.service.MemberService;
 import br.com.clubetatame.view.ViewAction;
@@ -44,36 +48,21 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 	@Override
 	public Member getModel() {
 		if (model == null && member != null) {
+			model = memberService.get(member.getId());
+		} else if (model == null) {
 			model = new Member();
-			model.setId(member.getId());
-			model.setActive(member.isActive());
-			model.setAddress(member.getAddress());
-			model.setBirth(member.getBirth());
-			model.setCEP(member.getCEP());
-			model.setCreated(member.getCreated());
-			model.setCreatedBy(member.getCreatedBy());
-			model.setDocument(member.getDocument());
-			model.setEmail(member.getEmail());
-			model.setFacebookAccessToken(member.getFacebookAccessToken());
-			model.setFacebookAccessTokenExpiration(member.getFacebookAccessTokenExpiration());
-			model.setFbid(member.getFbid());
-			model.setGender(member.getGender());
-			model.setHash(member.getHash());
-			model.setLastModified(member.getLastModified());
-			model.setLastModifiedBy(member.getLastModifiedBy());
-			model.setName(member.getName());
 		}
 		return model;
 	}
 
 	@Override
 	public String getLayoutPath() {
-		return "/skins/clube/default/layout.jsp";
+		return "/skins/clube-tatame/default/layout.jsp";
 	}
 
 	@Override
 	public String getContentPath() {
-		return "/skins/clube/member/input.jsp";
+		return "/skins/clube-tatame/member/input.jsp";
 	}
 	
 	@Override
@@ -83,7 +72,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 	}
 	
 	public String save() {
-		memberService.persist(model);
+		memberService.update(model);
 		return SUCCESS;
 	}
 	
@@ -95,7 +84,7 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			session.clear();
 			return;
 		}
-		if (model.getId().longValue() != member.getId().longValue()) {
+		if (member.getId().longValue() != model.getId().longValue()) {
 			addFieldError("id", "Valor inválido para o campo ID.");
 		}
 		//Security validation - end
@@ -108,6 +97,11 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 		}
 		if (model.getDocument() == null || model.getDocument().isEmpty()) {
 			addFieldError("document", "O campo \"cpf\" é obrigatório!");
+		} else {
+			Member member = memberService.getByDocument(model.getDocument());
+			if (member != null && !this.member.getDocument().equals(member.getDocument())) {
+				addFieldError("document", "CPF já cadastrado!");	
+			}
 		}
 		if (model.getEmail() == null || model.getEmail().isEmpty()) {
 			addFieldError("email", "O campo \"e-mail\" é obrigatório!");
@@ -115,10 +109,18 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 			addFieldError("email", "E-mail inválido.");
 		} else if (model.getEmail() != null && model.getEmail().contains("@")) {
 			Member member = memberService.getByEmail(model.getEmail());
-			if (member != null && member.isActive()) {
+			if (member != null && !this.member.getEmail().equals(member.getEmail())) {
 				addFieldError("email", "Já existe um usuário cadastrado com esse e-mail.");
 			}
 		}
 		//Default validation - end
+	}
+	
+	//Only for Select of genders	
+	public List<Option> getListGenders() {
+		List<Option> options = new ArrayList<Option>();
+		options.add(new Option("Masculino", "Masculino"));
+		options.add(new Option("Feminino", "Feminino"));
+		return options;
 	}
 }

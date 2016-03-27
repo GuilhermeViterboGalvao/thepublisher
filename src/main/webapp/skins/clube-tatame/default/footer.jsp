@@ -22,7 +22,7 @@
 			<span>Todos os direitos reservados (c) Tatame</span>
 		</section>
 		<section class="col3">
-			<img alt="Clube Tatame" src="/skins/clube/img/logoFooter.png"/>
+			<img alt="Clube Tatame" src="/skins/clube-tatame/img/logoFooter.png"/>
 		</section>	
 	</section>
 </footer>

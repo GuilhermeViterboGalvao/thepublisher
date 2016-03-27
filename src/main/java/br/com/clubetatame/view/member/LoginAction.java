@@ -29,23 +29,23 @@ public class LoginAction extends ActionSupport implements ViewAction, SessionAwa
 	
 	@Override
 	public String execute() throws Exception {
-		Member member = memberService.authenticate(email, memberService.hash(password));
-		if (member == null || !member.isActive()) {
-			return LOGIN;
-		}
-		session.put("member", member);
-		return SUCCESS;
-	}
-	
-	@Override
-	public void validate() {
-		super.validate();
+		String returnType = LOGIN;
 		if (email == null || email.isEmpty()) {
 			addFieldError("email", "O campo \"E-mail\" é obrigatório.");
+			returnType = INPUT;
 		}
 		if (password == null || password.isEmpty()) {
 			addFieldError("password", "O campo \"Senha\" é obrigatório.");
+			returnType = INPUT;
 		}
+		if (email != null && !email.isEmpty() && password != null && !password.isEmpty()) {
+			Member member = memberService.authenticate(email, memberService.hash(password));
+			if (member != null && member.isActive()) {
+				session.put("member", member);
+				returnType = SUCCESS;
+			}
+		}
+		return returnType;		
 	}
 	
 	//Action properties
@@ -72,11 +72,11 @@ public class LoginAction extends ActionSupport implements ViewAction, SessionAwa
 
 	@Override
 	public String getLayoutPath() {
-		return "/skins/clube/default/layout.jsp";
+		return "/skins/clube-tatame/default/layout.jsp";
 	}
 
 	@Override
 	public String getContentPath() {
-		return "/skins/clube/member/loginform.jsp";
+		return "/skins/clube-tatame/member/loginform.jsp";
 	}
 }

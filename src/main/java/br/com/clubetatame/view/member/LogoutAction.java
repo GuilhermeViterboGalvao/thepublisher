@@ -20,6 +20,6 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 		session.clear();
-		return SUCCESS;
+		return LOGIN;
 	}
 }

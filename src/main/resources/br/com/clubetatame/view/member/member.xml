@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="clube-membros-view" namespace="/clube/membros" extends="clube-view">
+	<package name="clube-membros-view" namespace="/clube/membros" extends="struts-default">
 		<result-types>
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="false" />
 			<result-type name="json"  class="org.apache.struts2.json.JSONResult" />
@@ -22,11 +22,13 @@
 		<action name="login" class="br.com.clubetatame.view.member.LoginAction">
 			<interceptor-ref name="defaultStack"/>
 			<result name="login" type="tiles">default</result>
+			<result name="input" type="tiles">default</result>
 			<result type="redirectAction">membro-input</result>			
 		</action>
 		<action name="logout" class="br.com.clubetatame.view.member.LogoutAction"/>
 		<action name="membro-*" class="br.com.clubetatame.view.member.MemberAction" method="{1}">
 		    <result type="tiles">default</result>
+		    <result name="input" type="tiles">default</result>
 		</action>								
 	</package>
 </struts>
