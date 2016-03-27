@@ -90,6 +90,15 @@
 		    <result name="input" type="tiles">photo-event-multi-input</result>
 			<result name="redirect" type="redirectAction">photoEvent-list</result>
 		</action>
+		<action name="photoGym-*" class="br.com.clubetatame.manager.PhotoGymAction" method="{1}">
+			<result type="tiles">photo-gym-list</result>
+			<result name="input" type="tiles">photo-gym-input</result>
+			<result name="redirect" type="redirectAction">photoGym-list</result>
+		</action>
+		<action name="photoGymMulti-*" class="br.com.clubetatame.manager.PhotoGymMultiUploadAction" method="{1}">
+		    <result name="input" type="tiles">photo-gym-multi-input</result>
+			<result name="redirect" type="redirectAction">photoGym-list</result>
+		</action>
 		<action name="ac-photo-event" class="br.com.clubetatame.utils.autocomplete.PhotoEventAutoCompleteAction">
 			<result name="login" type="httpheader">
 				<param name="error">401</param>

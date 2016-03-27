@@ -48,18 +48,24 @@
    	
    	<div class="boxs border-top">
    		<div class="sub-info">
-   			<div class="operation">
-   				<span class="red">FUNCIONAMENTO:</span>
-   				<span><s:property value="operation"/></span>
-   			</div>
-   			<div class="modality">
-   				<span class="red">MODALIDADES:</span>
-   				<span><s:property value="modality"/></span>
-   			</div>
-   			<div class="address">
-   				<span class="red">LOCAL:</span>
-   				<span><s:property value="address"/></span>
-   			</div>
+   			<s:if test="operation != null && !operation.isEmpty()">
+	   			<div class="operation">
+	   				<span class="red">FUNCIONAMENTO:</span>
+	   				<span><s:property value="operation"/></span>
+	   			</div>
+   			</s:if>
+   			<s:if test="modality != null && !modality.isEmpty()">
+	   			<div class="modality">
+	   				<span class="red">MODALIDADES:</span>
+	   				<span><s:property value="modality"/></span>
+	   			</div>
+   			</s:if>
+   			<s:if test="address != null && !address.isEmpty()">
+	   			<div class="address">
+	   				<span class="red">LOCAL:</span>
+	   				<span><s:property value="address"/></span>
+	   			</div>
+   			</s:if>
    		</div>
    	</div>
    	

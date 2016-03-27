@@ -47,6 +47,8 @@
 			<s:textarea name="description" rows="3"/>
 			<label for="operation">Funcionamento</label>
 			<s:textfield name="operation"/>
+			<label for="modality">Modalidades</label>
+			<s:textfield name="modality"/>
 			<label for="contact">Contato</label>
 			<s:textfield name="contact"/>			
 			<label for="document">CNPJ</label>
