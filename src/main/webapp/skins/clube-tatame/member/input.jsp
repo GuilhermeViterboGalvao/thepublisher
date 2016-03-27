@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"              %>
+<s:include value="/skins/clube-tatame/member/menu.jsp"/>
 <section class="message">
 	<p class="title">Seja bem vindo <s:property value="name"/>.</p>
 	<p class="text">Aqui é o seu local onde você pode alterar as suas informações, e pegar o seu</p>
