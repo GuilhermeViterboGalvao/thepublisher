@@ -7,7 +7,7 @@
 		<a href="/clube/membros/resetPassword">Alterar senha</a>
 	</li>
 	<li>
-		<a href="/clube/membros/cupom">Cupom de desconto</a>
+		<a href="/clube/membros/cupom">Cupons</a>
 	</li>	
 	<li>
 		<a href="/clube/membros/logout">Sair</a>

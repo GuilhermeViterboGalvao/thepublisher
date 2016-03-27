@@ -33,6 +33,10 @@
 		<action name="resetPassword" class="br.com.clubetatame.view.member.ResetPasswordAction">
 		    <result type="tiles">default</result>
 		    <result name="input" type="tiles">default</result>
-		</action>							
+		</action>
+		<action name="cupom" class="br.com.clubetatame.view.member.CupomAction">
+		    <result type="tiles">default</result>
+		    <result name="login" type="redirectAction">login</result>
+		</action>
 	</package>
 </struts>

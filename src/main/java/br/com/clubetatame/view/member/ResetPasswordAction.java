@@ -3,11 +3,13 @@ package br.com.clubetatame.view.member;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
 import br.com.clubetatame.entity.Member;
 import br.com.clubetatame.service.MemberService;
 import br.com.clubetatame.view.ViewAction;
 
-public class ResetPasswordAction extends ActionSupport implements ViewAction, MemberAware, SessionAware{
+public class ResetPasswordAction extends ActionSupport implements ViewAction, MemberAware, SessionAware, ModelDriven<Member> {
 
 	private static final long serialVersionUID = -6524385497733332474L;
 	
@@ -22,7 +24,19 @@ public class ResetPasswordAction extends ActionSupport implements ViewAction, Me
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-	}	
+	}
+	
+	private Member model;
+	
+	@Override
+	public Member getModel() {
+		if (model == null && member != null) {
+			model = memberService.get(member.getId());
+		} else if (model == null) {
+			model = new Member();
+		}
+		return model;
+	}
 
 	private Member member;
 	

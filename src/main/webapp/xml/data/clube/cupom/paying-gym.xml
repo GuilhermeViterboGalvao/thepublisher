@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <items form="clube/cupom/paying-gym" max="10" min="1" name="Cupons de desconto para academias pagantes" version="1447212590916">
   <item>
-  	<message></message>
+  	<text></text>
   	<code></code>
   </item>
 </items>

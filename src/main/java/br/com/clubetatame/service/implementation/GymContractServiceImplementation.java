@@ -11,7 +11,7 @@ import br.com.clubetatame.service.GymContractService;
 
 public class GymContractServiceImplementation extends AbstractContractServiceImplementation<GymContract> implements GymContractService {
 	
-	GymContractServiceImplementation(){
+	public GymContractServiceImplementation(){
 		genericClass = GymContract.class;
 		entityName 	 = GymContract.class.getName();
 	}
