@@ -15,11 +15,13 @@
 	<bean id="companyContractService" class="br.com.clubetatame.service.implementation.CompanyContractServiceImplementation"/>
 	<bean id="gymService" class="br.com.clubetatame.service.implementation.GymServiceImplementation"/>
 	<bean id="gymContractService" class="br.com.clubetatame.service.implementation.GymContractServiceImplementation"/>
+	<bean id="photoGymService" class="br.com.clubetatame.service.implementation.PhotoGymServiceImplementation"/>
 	<bean id="memberService" class="br.com.clubetatame.service.implementation.MemberServiceImplementation"/>
 	<bean id="memberContractService" class="br.com.clubetatame.service.implementation.MemberContractServiceImplementation"/>
 	<bean id="productService" class="br.com.clubetatame.service.implementation.ProductServiceImplementation"/>
 	<bean id="eventService" class="br.com.clubetatame.service.implementation.EventServiceImplementation"/>
 	<bean id="photoEventService" class="br.com.clubetatame.service.implementation.PhotoEventServiceImplementation"/>
+	
 	<!-- The Publisher -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>	
 	<bean id="accountService" class="com.publisher.service.implementation.AccountServiceImplementation"/>	

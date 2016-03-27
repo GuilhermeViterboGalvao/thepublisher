@@ -46,12 +46,25 @@
     <definition name="company-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/company/input.jsp"/>
     </definition>
+    
+	<!--     GYM      -->
     <definition name="gym-list" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/gym/list.jsp"/>
     </definition>    
     <definition name="gym-input" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/gym/input.jsp"/>
     </definition>
+    <definition name="photo-gym-list" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo-gym/list.jsp"/>
+    </definition>    
+    <definition name="photo-gym-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo-gym/input.jsp"/>
+    </definition>
+    <definition name="photo-gym-multi-input" extends="manager-clube-tatame-layout">
+        <put-attribute name="content" value="/manager/clube-tatame/photo-gym/multi.jsp"/>
+    </definition>
+    <!--     GYM      -->
+    
     <definition name="product-list" extends="manager-clube-tatame-layout">
         <put-attribute name="content" value="/manager/clube-tatame/product/list.jsp"/>
     </definition>    

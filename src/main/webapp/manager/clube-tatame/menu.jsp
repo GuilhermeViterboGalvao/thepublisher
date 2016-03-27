@@ -10,7 +10,7 @@
 		<li><a href="/manager/clube-tatame/gym-input">Cadastrar</a></li>
 		<li><a href="/manager/clube-tatame/gym-list">Listar</a></li>
 		<li><a href="/manager/clube-tatame/contracts_gym-list">Contratos</a></li>
-		<li><a href="/manager/clube-tatame/gymPhoto-list">Fotos</a></li>
+		<li><a href="/manager/clube-tatame/photoGym-list">Fotos</a></li>
 	</ul>	
 	<h6 class="ym-vtitle">Empresas</h6>
 	<ul>
