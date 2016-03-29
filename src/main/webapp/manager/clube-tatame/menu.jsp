@@ -12,6 +12,13 @@
 		<li><a href="/manager/clube-tatame/contracts_gym-list">Contratos</a></li>
 		<li><a href="/manager/clube-tatame/photoGym-list">Fotos</a></li>
 	</ul>	
+	<h6 class="ym-vtitle">Cupons</h6>
+	<ul>
+		<li><a href="/manager/clube-tatame/gxml-edit?path=clube/cupom/free-gym">Para academias gratuitas</a></li>
+		<li><a href="/manager/clube-tatame/gxml-edit?path=clube/cupom/paying-gym">Para academias pagantes</a></li>
+		<li><a href="/manager/clube-tatame/gxml-edit?path=clube/cupom/free-member">Para membros gratuitas</a></li>
+		<li><a href="/manager/clube-tatame/gxml-edit?path=clube/cupom/paying-member">Para membros pagantes</a></li>
+	</ul>			
 	<h6 class="ym-vtitle">Empresas</h6>
 	<ul>
 		<li><a href="/manager/clube-tatame/company-input">Cadastrar</a></li>

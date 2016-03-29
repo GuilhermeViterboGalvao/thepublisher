@@ -1,0 +1,14 @@
+<% if (info && info.item && info.item.size() >= 1) { %>
+<section class="codes">		
+		<% info.item.eachWithIndex { item, index -> %>
+			<div class="code">
+				<p class="text">${item.text}</p>
+				<p class="code">${item.code}</p>
+			</div>
+		<% } %>
+</section>
+<% } else { %>
+<section class="code-message">
+	<p>Por enquanto não existem código promocionais.</p>
+</section>
+<% } %>
