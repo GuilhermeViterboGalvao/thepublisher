@@ -1,9 +1,12 @@
 package br.com.clubetatame.manager;
 
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import com.publisher.entity.Account;
+import com.publisher.entity.PermanentLink;
 import com.publisher.entity.Photo;
+import com.publisher.service.PermanentLinkService;
 import com.publisher.service.PhotoService;
 import com.publisher.utils.ResultList;
 import br.com.clubetatame.entity.Company;
@@ -33,6 +36,12 @@ public class EventAction extends AbstractAction<Event> {
 		this.companyService = companyService;
 	}
 	
+	private PermanentLinkService permanentLinkService;
+	
+	public void setPermanentLinkService(PermanentLinkService permanentLinkService) {
+		this.permanentLinkService = permanentLinkService;
+	}
+	
 	@Override
 	protected void indexAll() {
 		eventService.indexAll();
@@ -41,52 +50,69 @@ public class EventAction extends AbstractAction<Event> {
 	@Override
 	protected void populateForm(Event entity) {
 		if (entity != null) {
-			entity.setActive(active);
-			entity.setAddress(address);
-			entity.setCity(city);
-			entity.setCompany(company);
-			entity.setContact(contact);
-			if (entity.getCreated() != null) {
-				entity.setCreated(new Date());	
+			this.name = entity.getName();
+			this.description = entity.getDescription();
+			this.contact = entity.getContact();
+			this.state = entity.getState();
+			this.city = entity.getCity();
+			this.address = entity.getAddress();
+			this.start = getDate(entity.getStart());
+			this.end = getDate(entity.getEnd());
+			this.lat = entity.getLat();
+			this.lon = entity.getLon();
+			this.zoomGoogleMaps = entity.getZoomGoogleMaps();
+			this.active = entity.isActive();
+			this.company = entity.getCompany();
+			this.photo = entity.getPhoto();
+			
+			this.createdBy = entity.getCreatedBy();
+			this.created = entity.getCreated();
+			this.lastModifiedBy = entity.getLastModifiedBy();
+			this.lastModified = entity.getLastModified();
+			
+			if (entity.getPermanentLink() != null) {
+				permanentLink = entity.getPermanentLink().getUri();
 			}
-			if (entity.getCreatedBy() != null) {
-				entity.setCreatedBy(getAccount());	
-			}
-			entity.setDescription(description);
-			entity.setEnd(end);
-			entity.setLastModified(new Date());
-			entity.setLastModifiedBy(getAccount());
-			entity.setLat(lat);
-			entity.setLon(lon);
-			entity.setName(name);
-			entity.setPhoto(photo);
-			entity.setStart(start);
-			entity.setState(state);
-			entity.setZoomGoogleMaps(zoomGoogleMaps);
 		}
 	}
 
 	@Override
 	protected Event updateObject(Event entity) {
 		if (entity != null) {
-			this.active = entity.isActive();
-			this.address = entity.getAddress();
-			this.city = entity.getCity();
-			this.company = entity.getCompany();
-			this.contact = entity.getContact();
-			this.created = entity.getCreated();
-			this.createdBy = entity.getCreatedBy();
-			this.description = entity.getDescription();
-			this.end = entity.getEnd();
-			this.lastModified = entity.getLastModified();
-			this.lastModifiedBy = entity.getLastModifiedBy();
-			this.lat = entity.getLat();
-			this.lon = entity.getLon();
-			this.name = entity.getName();
-			this.photo = entity.getPhoto();
-			this.start = entity.getStart();
-			this.state = entity.getState();
-			this.zoomGoogleMaps = entity.getZoomGoogleMaps();
+			entity.setName(name);
+			entity.setDescription(description);
+			entity.setContact(contact);
+			entity.setState(state);
+			entity.setCity(city);
+			entity.setAddress(address);
+			entity.setStart(getDate(start));
+			entity.setEnd(getDate(end));
+			entity.setLat(lat);
+			entity.setLon(lon);
+			entity.setZoomGoogleMaps(zoomGoogleMaps);
+			entity.setActive(active);
+			entity.setCompany(company);
+			entity.setPhoto(photo);
+			
+			if (permanentLink != null && permanentLink.length() > 0 
+					&& (entity.getPermanentLink() == null || !permanentLink.equals(entity.getPermanentLink().getUri()))) {
+				newPermanentLink = new PermanentLink();
+				newPermanentLink.setUri(permanentLink);
+				newPermanentLink.setCreated(new Date());
+				newPermanentLink.setType("event");
+				if (permanentLink != null) {
+					oldPermanentLink = entity.getPermanentLink();
+				}
+			}
+			
+			if (entity.getCreatedBy() == null) {
+				entity.setCreatedBy(getAccount());
+			}
+			if (entity.getCreated() == null) {
+				entity.setCreated(new Date());
+			}
+			entity.setLastModifiedBy(getAccount());
+			entity.setLastModified(new Date());
 			
 		}
 		return entity;
@@ -100,9 +126,48 @@ public class EventAction extends AbstractAction<Event> {
 	@Override
 	protected void saveObject(Event entity, boolean isNew) {
 		if (isNew) {
+			if (newPermanentLink != null){
+				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
+				entity.setPermanentLink(newPermanentLink);
+			}
+			
 			eventService.persist(entity);
 		} else {
-			eventService.update(entity);
+			if (newPermanentLink!=null) {
+				permanentLinkService.removeFromCacheIfIsNotPermanent(newPermanentLink.getUri());
+				newPermanentLink.setParam(entity.getId());
+				newPermanentLink.setCreated(new Date());
+				entity.setPermanentLink(newPermanentLink);
+			}
+			if (oldPermanentLink != null) {
+				eventService.update(entity, oldPermanentLink);	
+			} else {
+				eventService.update(entity);
+			}
+			if (oldPermanentLink != null)
+				permanentLinkService.change(oldPermanentLink, entity.getPermanentLink());
+		}
+	}
+	
+	@Override
+	public void validate() {
+		if (permanentLink != null && permanentLink.length() > 0) {			
+			//Validation for removing the first character if it is equal to '/'
+			while(permanentLink.charAt(0) == '/' && permanentLink.length() > 0) {				
+				permanentLink = permanentLink.substring(1);			
+			}			
+			Event entity = eventService.get(id);
+			if (entity != null) {
+				if(entity.getPermanentLink() != null && !permanentLink.equals(entity.getPermanentLink().getUri())) {
+					if (permanentLinkService.get(permanentLink) != null) {
+						addFieldError("permanentLink", "Link já cadastrado.");	
+					}						
+				}
+			} else {
+				if (permanentLinkService.get(permanentLink) != null)  {
+					addFieldError("permanentLink", "Link já cadastrado.");
+				}					
+			}
 		}
 	}
 
@@ -125,6 +190,10 @@ public class EventAction extends AbstractAction<Event> {
 	}
 	
 	//Action properties and methods
+	
+	private PermanentLink oldPermanentLink;
+	
+	private PermanentLink newPermanentLink;
 	
 	public void setPhotoId(long photoId) {
 		if (photoId <= 0) {
@@ -160,6 +229,47 @@ public class EventAction extends AbstractAction<Event> {
 		return companyService.list(true);
 	}
 	
+	private String getDate(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		String d = null;
+		int year  = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH) + 1;
+		int day   = calendar.get(Calendar.DAY_OF_MONTH);
+		d  = day < 10 ? "0" + String.valueOf(day) : String.valueOf(day);
+		d += "/" + (month < 10 ? "0" + String.valueOf(month) : String.valueOf(month));
+		d += "/" + String.valueOf(year);
+		return d;
+	}
+	
+	private Date getDate(String date) {
+		if (date != null && !date.isEmpty() && date.length() == 10) {
+			String[] d = date.split("/");
+			if (d != null && d.length == 3) {
+				int year  = 0;
+				int month = 0;
+				int day   = 0;
+				try {
+					year  = Integer.parseInt(d[2]);
+					month = Integer.parseInt(d[1]) - 1;
+					day   = Integer.parseInt(d[0]);
+				} catch (Exception e) { }
+				if (year > 0 && month >= 0 && day > 0) {
+					Calendar calendar = Calendar.getInstance();
+					calendar.set(Calendar.YEAR,        year);
+					calendar.set(Calendar.MONTH,      month);
+					calendar.set(Calendar.DAY_OF_MONTH, day);
+					calendar.set(Calendar.HOUR_OF_DAY,    0);
+					calendar.set(Calendar.MINUTE,         0);
+					calendar.set(Calendar.SECOND,         0);
+					calendar.set(Calendar.MILLISECOND,    0);
+					return calendar.getTime();
+				}
+			}
+		}
+		return null;
+	}
+	
 	//POJO
 	
 	private long id = -1;
@@ -176,15 +286,17 @@ public class EventAction extends AbstractAction<Event> {
 	
 	private String address;
 	
-	private Date start;
+	private String start;
 	
-	private Date end;
+	private String end;
 	
 	private Float lat;
 	
 	private Float lon;
 	
 	private int zoomGoogleMaps;
+	
+	private String permanentLink;
 	
 	private boolean active = false;
 	
@@ -256,19 +368,19 @@ public class EventAction extends AbstractAction<Event> {
 		this.address = address;
 	}
 
-	public Date getStart() {
-		return start != null ? start : new Date();
+	public String getStart() {
+		return start;
 	}
-
-	public void setStart(Date start) {
+	
+	public void setStart(String start) {
 		this.start = start;
 	}
 
-	public Date getEnd() {
-		return end != null ? end : new Date();
+	public String getEnd() {
+		return end;
 	}
 
-	public void setEnd(Date end) {
+	public void setEnd(String end) {
 		this.end = end;
 	}
 
@@ -296,6 +408,14 @@ public class EventAction extends AbstractAction<Event> {
 		this.zoomGoogleMaps = zoomGoogleMaps;
 	}
 
+	public String getPermanentLink() {
+		return permanentLink;
+	}
+
+	public void setPermanentLink(String permanentLink) {
+		this.permanentLink = permanentLink;
+	}
+
 	public boolean isActive() {
 		return active;
 	}
@@ -303,13 +423,13 @@ public class EventAction extends AbstractAction<Event> {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
-	public Company getCompany() {
-		return company;
+	
+	public long getCompany() {
+		return company != null ? company.getId() : 0;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public void setCompany(long id) {
+		this.company = companyService.get(id);
 	}
 
 	public Photo getPhoto() {

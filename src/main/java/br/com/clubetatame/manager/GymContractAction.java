@@ -55,6 +55,7 @@ public class GymContractAction extends AbstractAction<GymContract> {
 			this.end = getDate(entity.getEnd());
 			this.gym = entity.getGym();
 			this.products = entity.getProducts();
+			
 			this.createdBy = entity.getCreatedBy();
 			this.created = entity.getCreated();
 			this.lastModifiedBy = entity.getLastModifiedBy();

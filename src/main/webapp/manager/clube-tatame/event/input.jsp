@@ -43,15 +43,18 @@
 			<label for="address">Endereço</label>
 			<s:textfield name="address"/>
 			<label for="start">Data de início</label>
-			<s:textfield id="start" name="start" value="%{getText('date.format', {start})}"/>			
+			<s:textfield id="start" name="start" />
 			<label for="end">Data de término</label>
-			<s:textfield id="end" name="end" value="%{getText('date.format', {end})}"/>
+			<s:textfield id="end" name="end" />
 			<label for="lat">Latitude</label>
 			<s:textfield id="lat" name="lat"/>
 			<label for="lon">Longitude</label>
 			<s:textfield id="lon" name="lon"/>
 			<label for="zoomGoogleMaps">Zoom do Google Maps</label>
 			<s:textfield id="zoomGoogleMaps" name="zoomGoogleMaps"/>
+			<label for="permanentLink">Link Permanent:</label>
+			<s:hidden id="link" name="link" value="%{permanentLink}"/>
+			<s:textfield id="permanentLink" name="permanentLink" />	
 	        <label for="company.id">Empresa</label>
 	        <s:select name="company.id" list="companys" listKey="id" listValue="name" headerKey="0" headerValue="Selecione uma empresa"/>						
 			<div class="ym-fbox-check" style="padding-top: 10px;">
@@ -120,3 +123,29 @@
 		});		
 	</script>
 </s:if>
+
+<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js?1"></script>
+<script type="text/javascript">
+	$(function() {
+		PermanentLinkSelectorDialog({
+			'element_target': 'published',
+			'on_confirm' : function(permanentLink){	
+				$('#permanentLink').val(convertToPermanentLink(permanentLink)); 
+			},
+			'on_show' : function(element, permanentLinkSelectorDialog){	
+				if(element.checked) permanentLinkSelectorDialog.show($('#permanentLink').val());
+			}
+		});
+	});
+
+	function checkPermanentLink() {
+		var value = $('#link').val();
+		var permanentLink = $('#permanentLink').val();
+		if ((value == undefined || value == null || value == "") 
+		&& (permanentLink == undefined || permanentLink == null || permanentLink == "")) {
+			$('#permanentLink').val(convertToPermanentLink(suggestPermanentLink()));	
+		} else if (permanentLink != value) {
+			$('#permanentLink').val(convertToPermanentLink($('#permanentLink').val()));
+		}
+	}
+</script>

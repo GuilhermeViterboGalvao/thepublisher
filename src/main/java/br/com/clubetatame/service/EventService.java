@@ -2,6 +2,8 @@ package br.com.clubetatame.service;
 
 import java.util.Date;
 import java.util.List;
+
+import com.publisher.entity.PermanentLink;
 import com.publisher.service.Service;
 import com.publisher.utils.ResultList;
 
@@ -11,6 +13,8 @@ import net.bull.javamelody.MonitoredWithSpring;
 
 @MonitoredWithSpring
 public interface EventService extends Service<Event> {
+	
+	void update (Event entity, PermanentLink oldPermanentLink);
 	
 	ResultList<Event> search(String query, int page, int pageSize, Boolean isActive);
 

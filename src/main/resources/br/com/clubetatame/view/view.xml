@@ -27,6 +27,9 @@
  		<action name="academias" class="br.com.clubetatame.view.GymContractAction">
 			<result type="tiles">default</result>
         </action>
+        <action name="eventos" class="br.com.clubetatame.view.EventAction">
+			<result type="tiles">default</result>
+        </action>
  		<action name="emailConfirmation" class="br.com.clubetatame.view.EmailConfirmationAction">
 			<result type="tiles">default</result>
         </action>
