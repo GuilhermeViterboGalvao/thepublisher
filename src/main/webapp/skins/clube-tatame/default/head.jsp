@@ -26,3 +26,6 @@
 	<link rel="stylesheet" type="text/css" href="/frameworks/jquery/plugins/jquery-ui.min.css"/>
 	<link href="/skins/clube-tatame/css/member.css" rel="stylesheet" type="text/css"/>
 </s:elseif>
+<s:elseif test="events != null">
+	<link href="/skins/clube-tatame/css/events.css" rel="stylesheet" type="text/css"/>
+</s:elseif>
