@@ -19,12 +19,15 @@
 <s:elseif test="model != null && model instanceof br.com.clubetatame.entity.Gym">
 	<link href="/skins/clube-tatame/css/gym.css" rel="stylesheet" type="text/css"/>
 </s:elseif>
-<s:elseif test="contracts != null">
-	<link href="/skins/clube-tatame/css/gymContracts.css" rel="stylesheet" type="text/css"/>
-</s:elseif>
 <s:elseif test="model != null && model instanceof br.com.clubetatame.entity.Member">
 	<link rel="stylesheet" type="text/css" href="/frameworks/jquery/plugins/jquery-ui.min.css"/>
 	<link href="/skins/clube-tatame/css/member.css" rel="stylesheet" type="text/css"/>
+</s:elseif>
+<s:elseif test="model != null && model instanceof br.com.clubetatame.entity.Event">
+	<link href="/skins/clube-tatame/css/event.css" rel="stylesheet" type="text/css"/>
+</s:elseif>
+<s:elseif test="contracts != null">
+	<link href="/skins/clube-tatame/css/gymContracts.css" rel="stylesheet" type="text/css"/>
 </s:elseif>
 <s:elseif test="events != null">
 	<link href="/skins/clube-tatame/css/events.css" rel="stylesheet" type="text/css"/>
