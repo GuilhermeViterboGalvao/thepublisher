@@ -69,10 +69,10 @@ public class Event implements Serializable {
 	
 	private Float lon;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE} )
-	private PermanentLink permanentLink;
-	
 	private int zoomGoogleMaps;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private PermanentLink permanentLink;
 	
 	@Field(index = Index.YES, store = Store.YES)
 	private boolean active = true;	

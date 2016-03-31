@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+.boxs { display: table; margin: 30px auto; width: 100%; max-width: 944px; }
+.border-top { border-top: 1px solid #000;  }
+
+.page .info { float: left; position: relative; width: 100%; max-width: 580px; padding: 20px 0 0; }
+.page .info .name { float: left; position: relative; text-transform: uppercase; font-size: 30px; width: 85%; color: #0c0c0c; font-family: Roboto; }
+.page .info .end { float: left; position: relative; font-size: 15px; width: 85%; margin-top: 30px; height: 22px }
+.page .info .address { float: left; position: relative; font-size: 15px; width: 85%; margin-top: 30px; height: 22px }
+.page .info .description { float: left; position: relative; font-size: 15px; width: 85%; margin: 30px 0px 15px; height: 210px }
+.page .info span { float: left; position: relative; color: #a8a8a8; font-size: 16px; }
+.page .info .black { color:#000; font-family: Roboto; margin-right: 5px;  }
+
+.page .info .map { float: left; height: 395px; width: 580px; }
+.page .info .map .map-title { float:left; position:relative; font-size: 16px; margin-bottom: 10px; text-transform: uppercase; color: #000; }
+.page .info .map > div { float: left; height: 369px; width: 580px; }
+
+
+.page .sub-info { float: right; position: relative; width: 100%; max-width: 360px; margin: 30px 0;  }
+.page .sub-info .photo { float: right; position: relative; width: 100%; max-width: 350px; height: 440px; background-color: #86906d; }
+.page .sub-info .detail { float:right; position:relative; background-color: #e80000; width: 100%; max-width: 350px; height: 100px; margin-top: 60px;  }
+.page .sub-info .detail span { float:left; color: #faf9f5; width: 100%; font-size: 16px; }
+.page .sub-info .detail .start { margin: 22px 30px 0; }
+.page .sub-info .detail .link { margin: 15px 30px 0; }
+.page .sub-info .detail span a { text-decoration: none; color: #faf9f5; font-weight: bold; }
+

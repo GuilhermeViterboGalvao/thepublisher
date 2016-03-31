@@ -9,12 +9,16 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
+
+import com.publisher.entity.PermanentLink;
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
 import br.com.clubetatame.entity.Company;
 import br.com.clubetatame.entity.Event;
 import br.com.clubetatame.service.EventService;
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
 
 public class EventServiceImplementation extends TransactionalService implements EventService {
 
@@ -29,6 +33,12 @@ public class EventServiceImplementation extends TransactionalService implements 
 	public void persist(Event entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
+			if(entity.getPermanentLink() != null){
+				entityManager.flush();
+				entity.getPermanentLink().setParam(entity.getId());
+				entityManager.merge(entity.getPermanentLink());
+				entityManager.flush();
+			}
 		}
 	}
 
@@ -37,6 +47,12 @@ public class EventServiceImplementation extends TransactionalService implements 
 		if (entity != null) {
 			entityManager.merge(entity);
 		}
+	}
+	
+	@Override
+	public void update(Event entity, PermanentLink oldPermanentLink) {
+		entityManager.merge(entity);
+		cleanCache(oldPermanentLink);
 	}
 
 	@Override
@@ -340,5 +356,18 @@ public class EventServiceImplementation extends TransactionalService implements 
 			query.setParameter("isActive", isActive);
 		}
 		return (Long)query.getSingleResult();
+	}
+	
+	private void cleanCache(PermanentLink permanentLink) {
+		if (permanentLink != null && permanentLink.getUri() != null) {
+			try {
+				Cache cache = CacheManager.getInstance().getCache("pageCache");
+				if (cache != null) {
+					cache.remove(permanentLink.getUri());	
+				}	
+			} catch (Exception e) {
+				log.error(e);
+			}
+		}
 	}
 }

@@ -20,4 +20,8 @@
 		<script type="text/javascript" src="/frameworks/jquery/plugins/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="/skins/clube-tatame/js/Member.js"></script>
 	</s:elseif>
+	<s:elseif  test="model instanceof br.com.clubetatame.entity.Event">
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="/skins/clube-tatame/js/Event.js"></script>
+	</s:elseif>
 </s:if>

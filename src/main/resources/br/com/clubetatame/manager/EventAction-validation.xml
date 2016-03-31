@@ -46,8 +46,9 @@
           <message>Formato inválido para o campo 'Data de término'. Por favor coloque no seguinte padrão DD/MM/AAAA ou DD/MM/AAAA HH:MM</message>
       </field-validator>        
     </field>    
-    <field name="zoomGoogleMaps">
-        <field-validator type="requiredstring">
+    <field name="zoomGoogleMaps">        
+        <field-validator type="int">
+        	<param name="min">1</param>
             <message>O campo 'Zoom do Google maps' é obrigatório.</message>
         </field-validator>
     </field>
@@ -71,8 +72,9 @@
 			<message>A Longitude deve ser entre ${minExclusive} a ${maxExclusive}.</message>
 	    </field-validator>        
     </field>
-    <field name="company">
-        <field-validator type="requiredstring">
+    <field name="company">        
+        <field-validator type="long">
+        	<param name="min">1</param>
             <message>É obrigatório selecionar a empresa organizadora do evento.</message>
         </field-validator>
     </field>    

@@ -9,14 +9,14 @@
 	<s:iterator value="contracts" status="st">
 		<s:if test="end.after(CurrentDate) && value > 0">
 			<div class="premium">
-				<img class="logo" src="/img/gym.logo.id_220x130.jpg" />
+				<img class="logo" src="/img/${gym.logo.id}_220x130.jpg" />
 				
 				<div class="info">
 					<span class="name"><s:property value="gym.name"/></span>
 					<span class="description"><s:property value="gym.description"/></span>
 				</div>
 				<div class="detail">
-					<a href="gym.permanentLink">
+					<a href="/${gym.permanentLink.uri}">
 						<strong>Detalhes e fotos como chegar</strong> (maps)
 					</a>
 				</div>

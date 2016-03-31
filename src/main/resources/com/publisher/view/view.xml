@@ -58,6 +58,9 @@
         <action name="gym" class="br.com.clubetatame.view.GymAction">
 		    <result type="tiles">default</result>
 		</action>
+		<action name="event" class="br.com.clubetatame.view.EventAction">
+		    <result type="tiles">default</result>
+		</action>
 		<!--CLUBE-TATAME -->           			
 	</package>
 </struts>

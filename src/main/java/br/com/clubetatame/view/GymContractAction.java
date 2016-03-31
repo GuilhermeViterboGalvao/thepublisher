@@ -21,26 +21,6 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	public void setGymContractService(GymContractService gymContractService) {
 		this.gymContractService = gymContractService;
 	}
-	
-    private Date start;
-    
-    public Date getStart(){
-    	return start;
-    }
-    
-    public void setStart(Date start) {
-    	this.start = start;
-    }    
-    
-    private Date end;
-    
-    public Date getEnd (){
-    	return end;
-    }
-    
-    public void setEnd(Date end) {
-    	this.end = end;
-    }
     
 	public Collection<GymContract> getContracts(){
 		return getContracts(0);
