@@ -39,6 +39,14 @@
 				<param name="root">result</param>
 				<param name="enableGZIP">true</param>
 			</result>
-        </action>                     
+        </action>
+ 		<action name="forgotPassword-*" class="br.com.clubetatame.view.ForgotPasswordAction" method="{1}">
+ 		    <result type="tiles">default</result>
+ 		    <result name="input" type="tiles">default</result>
+			<result name="error" type="tiles">default</result>			
+			<result name="form-reset" type="tiles">default</result>
+			<result name="form-input" type="tiles">default</result>
+			<result name="redirect" type="redirectAction">forgotPassword-formReset</result>
+        </action>                           
 	</package>
 </struts>
