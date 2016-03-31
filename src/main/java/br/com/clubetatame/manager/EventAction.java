@@ -196,7 +196,7 @@ public class EventAction extends AbstractAction<Event> {
 	private PermanentLink newPermanentLink;
 	
 	public void setPhotoId(long photoId) {
-		if (photoId <= 0) {
+		if (photoId > 0) {
 			this.photo = photoService.get(photoId);
 		}
 	}

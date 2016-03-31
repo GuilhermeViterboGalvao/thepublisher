@@ -1,7 +1,5 @@
 package br.com.clubetatame.service.implementation;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -87,23 +85,6 @@ public class CompanyServiceImplementation extends TransactionalService implement
         	log.error(e);
             e.printStackTrace();
         }
-	}
-	
-	@Override
-	@SuppressWarnings("unchecked")
-	public Company authenticate(String email, String password) {
-        Company company = null;
-        Query query = entityManager.createQuery("from Company where email=:email").setParameter("email", email);
-        if (query != null) {
-            List<Company> result = query.getResultList();
-            if (result != null && !result.isEmpty()) {
-            	company = result.iterator().next();
-                if (!company.getHash().equals(hash(password))) {
-                	company = null;
-                }
-            }        	
-        }
-        return company;
 	}
 
 	@Override
@@ -231,20 +212,5 @@ public class CompanyServiceImplementation extends TransactionalService implement
         result.setPageSize(pageSize);
         log.info("COMPANY SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
         return result;
-	}
-
-	@Override
-	public String hash(String password) {
-        String newPassword = "ThePublisher" + password;
-        String hash = null;
-        try {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            md5.update(newPassword.getBytes(), 0, newPassword.length());
-            hash = new BigInteger(1, md5.digest()).toString(16);
-        } catch (Exception e) {
-        	log.error(e);
-            e.printStackTrace();
-        }
-        return hash;
 	}
 }

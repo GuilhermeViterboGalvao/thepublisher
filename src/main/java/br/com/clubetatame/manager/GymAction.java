@@ -195,7 +195,7 @@ public class GymAction extends AbstractAction<Gym>  {
 	}
 	
 	public void setPhotoId(long photoId) {
-		if (photoId <= 0) {
+		if (photoId > 0) {
 			this.logo = photoService.get(photoId);
 		}
 	}

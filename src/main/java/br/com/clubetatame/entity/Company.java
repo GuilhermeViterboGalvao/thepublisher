@@ -61,8 +61,6 @@ public class Company implements Serializable {
 	@Field
 	private String cep;
 	
-	private String hash;
-	
 	private String instagram;
 	
 	private String facebook;
@@ -156,14 +154,6 @@ public class Company implements Serializable {
 		this.cep = cep;
 	}
 
-	public String getHash() {
-		return hash;
-	}
-
-	public void setHash(String hash) {
-		this.hash = hash;
-	}
-
 	public String getInstagram() {
 		return instagram;
 	}
@@ -243,13 +233,6 @@ public class Company implements Serializable {
 	public void setLastModified(Date lastModified) {
 		this.lastModified = lastModified;
 	}
-
-	@Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
 	
 	@Override
     public boolean equals(Object object) {

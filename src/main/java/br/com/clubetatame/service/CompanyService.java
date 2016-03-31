@@ -9,8 +9,6 @@ import net.bull.javamelody.MonitoredWithSpring;
 
 @MonitoredWithSpring
 public interface CompanyService extends Service<Company> {
-
-	Company authenticate(String email, String password);
 	
 	Collection<Company> list(Boolean active);
 	
@@ -25,6 +23,4 @@ public interface CompanyService extends Service<Company> {
     ResultList<Company> search(String query, int page, int pageSize);
     
     ResultList<Company> search(String query, int page, int pageSize, Boolean active);
-    
-    String hash(String password);
 }
