@@ -124,6 +124,17 @@ public class GymServiceImplementation extends TransactionalService implements Gy
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
+	public Gym getByEmail(String email) {
+        Query query = entityManager.createQuery("from Gym where email = :email").setParameter("email", email);
+		List<Gym> result = query.getResultList();
+        if (result == null || result.isEmpty()) {
+        	return null;
+        }
+        return result.get(0);
+	}
+	
+	@Override
 	public long count(Boolean active){
         StringBuilder sql = new StringBuilder();
         sql.append("select count(g) from Gym g");

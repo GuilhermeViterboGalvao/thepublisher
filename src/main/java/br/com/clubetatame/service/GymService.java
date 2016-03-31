@@ -16,6 +16,8 @@ public interface GymService extends Service<Gym> {
 
 	Gym authenticate(String email, String password);
 	
+	Gym getByEmail(String email);
+	
 	long count(Boolean active);
 	
 	Collection<Gym> list(Boolean active);
