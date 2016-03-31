@@ -4,6 +4,15 @@
 <s:set name="count" value="0"/>
 
 <div class="boxs">
+	<div class="background-gym">
+		<img src="/skins/clube-tatame/img/background-gym.jpg">
+	</div>
+	<div class="country-map">
+		<img  src="/skins/clube-tatame/img/country-map.png">
+	</div>
+</div>
+
+<div class="boxs">
 	<span class="title">ACADEMIAS PREMIUM</span>
 
 	<s:iterator value="contracts" status="st">
@@ -19,7 +28,25 @@
 					<a href="/${gym.permanentLink.uri}">
 						<strong>Detalhes e fotos como chegar</strong> (maps)
 					</a>
+					<div class="social-media">
+						<s:if test="facebook != null">
+							<a class="icon" href="https://www.facebook.com/${facebook}">
+								<img src="/skins/clube-tatame/img/icon-facebook.png">
+							</a>
+						</s:if>
+						<s:if test="twitter != null">
+							<a class="icon" href="https://twitter.com/${twitter}">
+								<img src="/skins/clube-tatame/img/icon-twitter.png">
+							</a>
+						</s:if>
+						<s:if test="instagram != null">
+							<a class="icon" href="https://www.instagram.com/${instagram}">
+								<img src="/skins/clube-tatame/img/icon-instagram.png">
+							</a>
+						</s:if>
+					</div>
 				</div>
+				<div class="arrow-black2"><img src="/skins/clube-tatame/img/arrow-black2.png"> </div>
 			</div>
 		</s:if>
 		<s:else>
