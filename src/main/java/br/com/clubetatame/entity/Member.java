@@ -81,6 +81,10 @@ public class Member implements Serializable {
 	private Account lastModifiedBy;
 	
 	private Date lastModified;
+	
+	//TODO remover esse campo após a promoção;
+	//Não esquecer de dar um drop nessa coluna no banco de dados;
+	private String answer;
 
 	public Long getId() {
 		return id;
@@ -216,6 +220,14 @@ public class Member implements Serializable {
 
 	public void setLastModified(Date lastModified) {
 		this.lastModified = lastModified;
+	}
+	
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	@Override

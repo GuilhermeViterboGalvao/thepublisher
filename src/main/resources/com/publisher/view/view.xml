@@ -61,6 +61,13 @@
 		<action name="event" class="br.com.clubetatame.view.EventAction">
 		    <result type="tiles">default</result>
 		</action>
-		<!--CLUBE-TATAME -->           			
+		<!--CLUBE-TATAME -->
+		
+        <!-- Remove this after the promotion -->
+		<action name="promotion" class="br.com.clubetatame.view.PromotionAction">
+			<interceptor-ref name="defaultStack"/>
+		    <result type="tiles">default</result>
+		    <result name="input" type="tiles">default</result>
+		</action> 		       			
 	</package>
 </struts>
