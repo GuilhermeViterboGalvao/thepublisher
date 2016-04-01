@@ -29,5 +29,26 @@
 			<s:set name="count" value="#count+1"/>
 		</s:if>
 	</s:iterator>
+	
+	<div class="page-list">
+		<s:bean name="com.publisher.utils.PageList" id="counter">
+		    <s:param name="selectedPage" value="currentPage"/>
+		    <s:param name="numberOfPages" value="pages"/>
+		</s:bean>
+		<s:iterator value="counter" >											    	
+		     <s:if test="top == currentPage">
+		         <span class="current">
+		         	<s:property value="currentPage"/>
+		         </span> 
+		     </s:if>
+		     <s:else>
+		         <s:url id="url" value="/clube/eventos">
+		             <s:param name="currentPage" value="top"/>
+		             <s:param name="pageSize" value="pageSize"/>
+		         </s:url>
+		         <s:a cssClass="inactive" href="%{url}"><s:property/></s:a>
+		     </s:else>
+		 </s:iterator>													
+	</div>	
 </div>
 	

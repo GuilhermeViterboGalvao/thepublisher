@@ -44,11 +44,6 @@ public class EventAction extends AbstractAction<Event> {
     }
 	
 	public Collection<Event> getEvents(){
-		return getEvents(0);
-	}
-
-	public Collection<Event> getEvents(int i){
-		setPageSize(i);
 		setPages((int) Math.floor(eventService.count() * 1f / getPageSize()) + 1);
 		events = eventService.listByDate(start, end, true, getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc");
       

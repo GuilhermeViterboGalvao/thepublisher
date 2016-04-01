@@ -23,11 +23,6 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	}
     
 	public Collection<GymContract> getContracts(){
-		return getContracts(0);
-	}
-
-	public Collection<GymContract> getContracts(int i){
-		setPageSize(i);
 		setPages((int) Math.floor(gymContractService.count() * 1f / getPageSize()) + 1);
 		contracts = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc", new Date());
       
