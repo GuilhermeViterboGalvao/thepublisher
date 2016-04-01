@@ -52,6 +52,12 @@
         </action>
  		<action name="terra-feed" class="com.publisher.view.feed.TerraFeedAction">
 			<result name="success">/skins/feed/terra-feed.jsp</result>
-        </action>                			
+        </action>
+        <!-- Remove this after the promotion -->
+		<action name="promotion" class="br.com.clubetatame.view.PromotionAction">
+			<interceptor-ref name="defaultStack"/>
+		    <result type="tiles">default</result>
+		    <result name="input" type="tiles">default</result>
+		</action>                      			
 	</package>
 </struts>
