@@ -48,7 +48,7 @@
 		</div>
 	</s:if>
 	<form action="/promotion" method="post">
-		<input type="text" name="name" value="${name}" placeholder="Nome"/>
+		<input type="text" name="memberName" value="${memberName}" placeholder="Nome"/>
 		<input type="text" name="document" value="${document}" placeholder="CPF"/>
 		<input type="text" name="email" value="${email}" placeholder="E-mail"/>
 		<input type="password" name="password" value="${password}" placeholder="Senha"/>
