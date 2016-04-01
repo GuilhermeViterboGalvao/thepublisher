@@ -33,7 +33,7 @@
 		<p></p>
 		<p>Será escolhido o top 10 das respostas mais criativas. As duas melhores respostas</p>
 		<p>levam um relógio EWC e os oito restantes um Almanaque Combate. Seja criativo!</p>
-		<p class="click">confira o regulamento do concurso <a href="">aqui</a></p>
+		<p class="click">confira o regulamento do concurso <a href="/promocoes/2016/minotauro-lenda-do-mma/regulamento">aqui</a></p>
 	</div>
 </div>
 <s:if test="success">
