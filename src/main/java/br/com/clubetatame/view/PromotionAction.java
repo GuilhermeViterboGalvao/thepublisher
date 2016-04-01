@@ -20,7 +20,7 @@ public class PromotionAction extends ActionSupport implements ViewAction {
 	@Override
 	public String execute() throws Exception {
 		Member member = new Member();
-		member.setName(name);
+		member.setName(memberName);
 		member.setActive(true);
 		member.setEmail(email);		
 		member.setAnswer(answer);
@@ -36,7 +36,7 @@ public class PromotionAction extends ActionSupport implements ViewAction {
 	@Override
 	public void validate() {
 		super.validate();
-		if (name == null || name.isEmpty()) {
+		if (memberName == null || memberName.isEmpty()) {
 			addFieldError("name", "O campo \"Nome\" não pode ser nulo ou vazio.");
 		}
 		if (document == null || document.isEmpty()) {
@@ -74,7 +74,7 @@ public class PromotionAction extends ActionSupport implements ViewAction {
 	
 	//Action properties
 	
-	private String name;
+	private String memberName;
 	
 	private String document;
 	
@@ -88,12 +88,12 @@ public class PromotionAction extends ActionSupport implements ViewAction {
 	
 	private String answer;
 
-	public String getName() {
-		return name;
+	public String getMemberName() {
+		return memberName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 
 	public String getDocument() {
