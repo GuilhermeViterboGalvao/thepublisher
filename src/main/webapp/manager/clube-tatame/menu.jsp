@@ -4,6 +4,7 @@
 	<h6 class="ym-vtitle">Ediar capa do site</h6>
 	<ul>
 		<li><a href="/manager/clube-tatame/home">Editar</a></li>
+		<li><a href="/manager/clube-tatame/gxml-edit?path=clube/pages/partners">Parceiros</a></li>
 	</ul>
 	<h6 class="ym-vtitle">Academias</h6>
 	<ul>
