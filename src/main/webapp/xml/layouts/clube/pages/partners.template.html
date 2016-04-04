@@ -1,0 +1,26 @@
+<%
+def hash = (int)(Math.floor(Math.random() * 100000))
+if (info && info.item && info.item.size() >= 0) {
+%>
+
+<div class="partners">		
+<%
+	info.item.eachWithIndex { item, index ->
+		def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+			text = item.text,
+		    link = ""			   	    
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}
+%>
+	<div class="partner">
+		<a href="${link}">
+			<img alt="${photoId}" src="http://tatame.com.br/img/${photoId}_140x140.jpg?${hash}" />
+		</a>
+	</div>
+<% } %>
+</div>	
+
+<%}%>

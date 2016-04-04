@@ -113,7 +113,7 @@ public class ForgotPasswordAction extends ActionSupport implements ViewAction {
 	public void validate() {
 		super.validate();
 		if (!isMember && !isGym) {
-			addFieldError("isMember", "É necessário seleciona uma das opções \"sou membro\" ou \"sou uma academia\"");
+			addFieldError("isMember", "É necessário selecionar uma das opções \"sou membro\" ou \"sou uma academia\".");
 		}
 		if (email == null || email.isEmpty()) {
 			addFieldError("email", "O campo e-mail não pode ser nulo ou vazio!");
@@ -124,7 +124,7 @@ public class ForgotPasswordAction extends ActionSupport implements ViewAction {
 			}
 		}
 		if (isGym && email != null && !email.isEmpty()) {
-			if (gymService.getByEmail(email) != null) {
+			if (gymService.getByEmail(email) == null) {
 				addFieldError("email", "Academia não encontrada com o e-mail \"" + email + "\".");
 			}
 		}
@@ -164,7 +164,7 @@ public class ForgotPasswordAction extends ActionSupport implements ViewAction {
 		return isMember;
 	}
 
-	public void setMember(boolean isMember) {
+	public void setIsMember(boolean isMember) {
 		this.isMember = isMember;
 	}
 
@@ -172,7 +172,7 @@ public class ForgotPasswordAction extends ActionSupport implements ViewAction {
 		return isGym;
 	}
 
-	public void setGym(boolean isGym) {
+	public void setIsGym(boolean isGym) {
 		this.isGym = isGym;
 	}
 

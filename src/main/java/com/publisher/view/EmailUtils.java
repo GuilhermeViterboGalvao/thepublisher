@@ -223,9 +223,10 @@ public final class EmailUtils {
 						return new javax.mail.PasswordAuthentication(userName, password);
 					}
 				});
-				String confirmationLink = "http://clube.tatame.com.br/clube/forgotPassword-fromInput";
+				String confirmationLink = "http://clube.tatame.com.br/clube/forgotPassword-fromConfirm";
 				confirmationLink += "?isMember=true";
-				confirmationLink += "&code=" + hash;
+				confirmationLink += "&hash=" + hash;
+				confirmationLink += "&email=" + email;
 				Message message = new MimeMessage(session);
 				message.setFrom(new InternetAddress(userName));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
@@ -261,9 +262,10 @@ public final class EmailUtils {
 						return new javax.mail.PasswordAuthentication(userName, password);
 					}
 				});
-				String confirmationLink = "http://clube.tatame.com.br/clube/forgotPassword-fromInput";
+				String confirmationLink = "http://clube.tatame.com.br/clube/forgotPassword-fromConfirm";
 				confirmationLink += "?isGym=true";
-				confirmationLink += "&code=" + hash;
+				confirmationLink += "&hash=" + hash;
+				confirmationLink += "&email=" + email;
 				Message message = new MimeMessage(session);
 				message.setFrom(new InternetAddress(userName));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
