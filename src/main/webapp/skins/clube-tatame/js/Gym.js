@@ -72,7 +72,7 @@ $(function() {
 	links.each(function() {
 		$(this).click(function() {
 			var link = $(this);
-			$("div.holder img").attr("src", "http://cdn-tatame.trrsf.com/img/" + link.attr("id") + ".jpg");
+			$("div.holder img").attr("src", "/img/" + link.attr("id") + ".jpg");
 			$("div.bigphotonote").html(link.children().attr("alt"));
 		});
 	});
@@ -91,7 +91,7 @@ $(function() {
 		if (imageIndex < links.length) {
 			var nextPhoto = $(links[imageIndex]);
 			var nextPhotoId = nextPhoto.attr("id");
-			$("img.bigphoto").attr("src", "http://cdn-tatame.trrsf.com/img/" + nextPhotoId + ".jpg");
+			$("img.bigphoto").attr("src", "/img/" + nextPhotoId + ".jpg");
 			$("div.bigphotonote").html(nextPhoto.children().attr("alt"));
 			if (nextPhoto.attr("class") == "hide") {
 				right.click();
