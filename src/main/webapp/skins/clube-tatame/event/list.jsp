@@ -19,6 +19,7 @@
 					<strong>Detalhes e fotos como chegar</strong> (maps)
 				</a>
 			</div>
+			<div class="arrow-black2"><img src="/skins/clube-tatame/img/arrow-black2.png"> </div>
 		</div>
 			
 		<s:if test="#count == 0 && #st.count > 2">
