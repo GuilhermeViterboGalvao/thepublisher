@@ -21,10 +21,10 @@
 				<a href="#">SEJA MEMBRO</a>
 			</li>
 			<li>
-				<a href="#">PARCEIROS</a>
+				<a href="/clube/parceiros">PARCEIROS</a>
 			</li>
 			<li>
-				<a href="#">EVENTOS</a>
+				<a href="/clube/eventos">EVENTOS</a>
 			</li>
 			<li>
 				<a href="#">LOJA VIRTUAL</a>
