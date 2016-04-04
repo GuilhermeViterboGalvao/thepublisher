@@ -5,7 +5,7 @@
 
 .page .info { float: left; position: relative; width: 100%; max-width: 484px; padding: 20px 0 0; }
 .page .info .name { float: left; position: relative; text-transform: uppercase; font-size: 30px; width: 85%; font-family: Roboto; }
-.page .info .description { float: left; position: relative; font-size: 15px; width: 85%; margin-top: 50px; color: #0c0c0c; max-height: 230px; line-height: 21px; text-align: justify; }
+.page .info .description { float: left; position: relative; font-size: 15px; width: 85%; margin-top: 50px; color: #0c0c0c; max-height: 230px; line-height: 21px; text-align: justify; overflow: hidden; }
 .page .info .site { float: left; position: relative; font-size: 17px; width: 85%; margin-top: 50px }
 .page .info .site a { text-decoration: none; color: #ff0300; }
 
