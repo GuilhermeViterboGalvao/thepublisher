@@ -37,7 +37,7 @@
 			        <div class="photoholder">
 			            <s:iterator value="photos" status="st">
 			                <a class="<s:if test="#st.count>3">hide</s:if><s:else>show</s:else>" id="<s:property value="photo.id"/>_459x290" href="javascript:void(0);">
-			                	<img class="<s:if test="#st.count==0 || #st.count%3==1">no-margin</s:if>" src="http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>_151x114.jpg" alt="<s:property value="description"/>"/>
+			                	<img class="<s:if test="#st.count==0 || #st.count%3==1">no-margin</s:if>" src="/img/<s:property value="photo.id"/>_151x114.jpg" alt="<s:property value="description"/>"/>
 			                </a>
 			            </s:iterator>
 			        </div>
