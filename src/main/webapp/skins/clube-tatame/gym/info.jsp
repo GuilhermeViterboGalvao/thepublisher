@@ -20,7 +20,7 @@
 	   		<s:if test="photos != null && photos.size() > 0">
 			    <div class="bigphotoholder">
 			        <div class="holder">
-			        	<img class="bigphoto" src="http://cdn-tatame.trrsf.com/img/<s:property value="photos[0].photo.id"/>_459x290.jpg" alt="<s:property value="photos[0].description"/>"/>
+			        	<img class="bigphoto" src="/img/<s:property value="photos[0].photo.id"/>_459x290.jpg" alt="<s:property value="photos[0].description"/>"/>
 			        </div>
 			    </div>	    
 			    <div class="bigphotoholder-thumbs">		    	
@@ -96,7 +96,7 @@
 					data-href="https://www.facebook.com/${facebook}" 
 					data-tabs="timeline" 
 					data-width="432" 
-					data-height="386" 
+					data-height="369" 
 					data-small-header="false" 
 					data-adapt-container-width="true" 
 					data-hide-cover="false" 

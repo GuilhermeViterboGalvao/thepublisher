@@ -6,6 +6,8 @@
 <section class="guide-gym">
 	<span>Quer saber onde encontrar uma academia assiciada?</span>
 	<input type="text" name="query" placeholder="Estado, Cidade ou Modalidade"/>
-	<input type="submit" value="Buscas"/>	
+	<form action="/clube/academias">
+		<input type="submit" value="Buscas"/>
+	</form>	
 </section>
 <p:tile xml="clube/home/indica"/>
