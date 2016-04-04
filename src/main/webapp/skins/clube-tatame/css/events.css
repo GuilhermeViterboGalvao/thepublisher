@@ -9,7 +9,7 @@
 .page .event .info {  float:left; position:relative;  width: 100%; max-width: 423px; height: 130px; border-left: 1px solid #8a8a8a;}
 .page .event .info span { float:left; position:relative; width: 85%; }
 .page .event .info .name { height: 20px; font-size: 15px; text-transform: uppercase; margin: 15px 0 0 20px; }
-.page .event .info .description { height: 38px; font-size: 14px; text-overflow: ellipsis; overflow: hidden; margin: 40px 0 0 20px; }
+.page .event .info .description { height: 43px; font-size: 14px; text-overflow: ellipsis; overflow: hidden; margin: 40px 0 0 20px; line-height: 20px; }
 .page .event .detail {  float:left; position:relative;  width: 100%; max-width: 220px; height: 130px; background-color: #dadada; }
 .page .event .detail a { text-decoration: none; color: #000; font-size: 13px; float: left; position: relative; width: 132px; margin: 34px 0 0 15px; line-height: 21px; }
 .page .event .detail strong { font-weight: bold; }

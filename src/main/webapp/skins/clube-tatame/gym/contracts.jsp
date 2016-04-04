@@ -29,18 +29,18 @@
 						<strong>Detalhes e fotos como chegar</strong> (maps)
 					</a>
 					<div class="social-media">
-						<s:if test="facebook != null">
-							<a class="icon" href="https://www.facebook.com/${facebook}">
+						<s:if test="gym.facebook != null">
+							<a class="icon" href="https://www.facebook.com/${gym.facebook}">
 								<img src="/skins/clube-tatame/img/icon-facebook.png">
 							</a>
 						</s:if>
-						<s:if test="twitter != null">
-							<a class="icon" href="https://twitter.com/${twitter}">
+						<s:if test="gym.twitter != null">
+							<a class="icon" href="https://twitter.com/${gym.twitter}">
 								<img src="/skins/clube-tatame/img/icon-twitter.png">
 							</a>
 						</s:if>
-						<s:if test="instagram != null">
-							<a class="icon" href="https://www.instagram.com/${instagram}">
+						<s:if test="gym.instagram != null">
+							<a class="icon" href="https://www.instagram.com/${gym.instagram}">
 								<img src="/skins/clube-tatame/img/icon-instagram.png">
 							</a>
 						</s:if>

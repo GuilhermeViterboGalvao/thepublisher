@@ -12,7 +12,7 @@
 .page .premium .info {  float:left; position:relative;  width: 100%; max-width: 423px; height: 130px; border-left: 1px solid #8a8a8a;}
 .page .premium .info span { float:left; position:relative; width: 85%; }
 .page .premium .info .name { height: 20px; font-size: 15px; text-transform: uppercase; margin: 15px 0 0 20px; }
-.page .premium .info .description { height: 38px; font-size: 14px; text-overflow: ellipsis; overflow: hidden; margin: 40px 0 0 20px; }
+.page .premium .info .description { height: 43px; font-size: 14px; text-overflow: ellipsis; overflow: hidden; margin: 40px 0 0 20px; line-height: 20px; }
 .page .premium .detail {  float:left; position:relative;  width: 100%; max-width: 220px; height: 130px; background-color: #dadada; }
 .page .premium .detail a { text-decoration: none; color: #000; font-size: 13px; float: left; position: relative; width: 132px; margin: 34px 0 0 15px; line-height: 21px; }
 .page .premium .detail .social-media { float: left; position:relative; width: 100%; margin-top: 10px; }
@@ -25,7 +25,7 @@
 .page .free span { float:left; position:relative; width: 85%; text-overflow: ellipsis; overflow: hidden; }
 .page .free .name { height: 20px; font-size: 14px; text-transform: uppercase; margin: 15px 0 0 12px;  }
 .page .free .location { height: 38px; font-size: 14px; margin: 2px 0 0 12px; }
-.page .free .modality { height: 17px; font-size: 14px; margin: 23px 0 0 12px; }
+.page .free .modality { height: 15px; font-size: 14px; margin: 23px 0 0 12px; }
 
 .page .promo { float:left; position:relative; width: 100%; max-width: 855px; height: 55px; border: 5px solid #ffb407; background-color: #000; margin: 27px 0; }
 .page .promo span { color: #fff; font-weight: bold; font-size: 20px; text-transform: uppercase; float: left; margin: 17px 16px; }
