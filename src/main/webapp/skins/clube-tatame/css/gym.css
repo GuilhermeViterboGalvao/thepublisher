@@ -5,8 +5,8 @@
 
 .page .info { float: left; position: relative; width: 100%; max-width: 484px; padding: 20px 0 0; }
 .page .info .name { float: left; position: relative; text-transform: uppercase; font-size: 30px; width: 85%; font-family: Roboto; }
-.page .info .description { float: left; position: relative; font-size: 15px; width: 85%; margin-top: 50px; color: #0c0c0c; height: 230px }
-.page .info .site { float: left; position: relative; font-size: 17px; width: 85%; margin-top: 20px }
+.page .info .description { float: left; position: relative; font-size: 15px; width: 85%; margin-top: 50px; color: #0c0c0c; max-height: 230px; line-height: 21px; text-align: justify; }
+.page .info .site { float: left; position: relative; font-size: 17px; width: 85%; margin-top: 50px }
 .page .info .site a { text-decoration: none; color: #ff0300; }
 
 .page .gallery  { float: right; position: relative; width: 100%; max-width: 459px; }
@@ -31,12 +31,12 @@
 .page .sub-info .operation { float: left; position: relative; width: 47%; height: 38px; margin: 22px 0 0 22px; }
 .page .sub-info .address { float: left; position: relative; width: 95%; height: 45px; margin: 8px 0 0 22px; }
 .page .sub-info .modality { float: right; position: relative; width: 40%; height: 40px; margin: 22px 22px 0 0; }
-.page .sub-info span { float: left; position: relative; color: #fefaff; font-size: 16px; }
+.page .sub-info span { float: left; position: relative; color: #fefaff; font-size: 16px; line-height: 21px; max-height: 44px; overflow: hidden; }
 .page .sub-info .red { color:#ff0300; font-family: Roboto; margin-right: 5px;  }
 
-.page .map { float: left; height: 385px; width: 490px; }
+.page .map { float: left; height: 395px; width: 490px; }
 .page .map .map-title { float:left; position:relative; font-size: 16px; margin-bottom: 10px; text-transform: uppercase; }
-.page .map > div { float: left; height: 385px; width: 490px; }
+.page .map > div { float: left; height: 369px; width: 490px; }
 
 .page .facebook { float: left; width: 432px; margin: 26px 0 0 20px;  }
 .page .facebook .fb-page { margin: 0 auto; width: 432px; display: block; }
