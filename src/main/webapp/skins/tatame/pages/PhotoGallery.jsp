@@ -56,8 +56,12 @@
 	    			<s:property value="articleContent" escapeHtml="false"/>
 	    		</div>
 	    		<div class="tags">
-					<b>Tags</b>
-					<s:property value="tags"/>
+					<b>Tags&nbsp;</b>
+					<s:set var="tagsText" value="tagsText"/>
+					<s:set var="tagsUrl" value="%{getTagsUrl('http://www.tatame.com.br/search?query=')}"/>
+					<s:iterator value="#tagsText" status="st">
+						<a href="<s:property value="#tagsUrl.get(#st.index)"/>"><s:property value="top"/>&nbsp;</a>
+					</s:iterator>
 				</div>
 				<s:if test="forumEnabled">
 					<div class="fb-comments margin-top-15" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="714"></div>

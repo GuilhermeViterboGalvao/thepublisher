@@ -1,6 +1,9 @@
 package com.publisher.view;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -61,6 +64,40 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			}
 			ViewsListener.getInstace().count(id);
 		}
+	}
+	
+	public List<String> getTagsUrl(String searchUrl) {
+		if (model != null && model.getTags() != null && !model.getTags().isEmpty() && searchUrl != null && !searchUrl.isEmpty()) {
+			String[] tags = model.getTags().split(" ");
+			List<String> tagsUrl = new ArrayList<String>();
+			for (String tag : tags) {				
+				if (tag != null) { 
+					tag = tag.trim();
+					if (!tag.isEmpty() && tag.length() >= 3) {
+						tagsUrl.add(searchUrl + tag);
+					}
+				}
+			}
+			return tagsUrl;			
+		}
+		return null;
+	}
+	
+	public List<String> getTagsText() {
+		if (model != null && model.getTags() != null && !model.getTags().isEmpty()) {
+			String[] tags = model.getTags().split(" ");
+			List<String> newTags = new ArrayList<String>();
+			for (String tag : tags) {
+				if (tag != null) { 
+					tag = tag.trim();
+					if (!tag.isEmpty() && tag.length() >= 3) {
+						newTags.add(tag);
+					}
+				}
+			}
+			return newTags;
+		}
+		return null;
 	}
 	
 	//Action properties
