@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Metrophobic" type="text/css"/>
 <link rel="stylesheet" href="/skins/tatame/css/main.css?17" type="text/css"/>
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
-	<link rel="stylesheet" href="/skins/tatame/css/ArticleMain.css" type="text/css"/>
+	<link rel="stylesheet" href="/skins/tatame/css/ArticleMain.css?1" type="text/css"/>
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">
 		<link rel="stylesheet" href="/skins/tatame/css/PhotoGallery.css" type="text/css"/>		
 	</s:if>
