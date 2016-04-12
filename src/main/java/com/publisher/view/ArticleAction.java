@@ -89,7 +89,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 			List<String> newTags = new ArrayList<String>();
 			for (String tag : tags) {
 				if (tag != null) { 
-					tag = tag.trim();
+					tag = tag.trim().replace("+", " ");
 					if (!tag.isEmpty() && tag.length() >= 3) {
 						newTags.add(tag);
 					}
