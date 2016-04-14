@@ -14,6 +14,8 @@ public class GymContractServiceImplementation extends AbstractContractServiceImp
 	public GymContractServiceImplementation(){
 		genericClass = GymContract.class;
 		entityName 	 = GymContract.class.getName();
+
+		setSearchFields(new String [] {"gym.name", "gym.modality", "gym.state", "gym.city"});
 	}
 	
 	@Override

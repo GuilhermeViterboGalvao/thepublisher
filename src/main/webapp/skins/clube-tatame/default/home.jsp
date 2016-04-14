@@ -4,9 +4,9 @@
 <p:tile xml="clube/home/destaque"/>
 <p:tile xml="clube/home/chamadas"/>
 <section class="guide-gym">
-	<span>Quer saber onde encontrar uma academia assiciada?</span>
-	<input type="text" name="query" placeholder="Estado, Cidade ou Modalidade"/>
+	<span>Quer saber onde encontrar uma academia associada?</span>
 	<form action="/clube/academias">
+		<input type="text" name="query" placeholder="Estado, Cidade ou Modalidade"/>
 		<input type="submit" value="Buscas"/>
 	</form>	
 </section>

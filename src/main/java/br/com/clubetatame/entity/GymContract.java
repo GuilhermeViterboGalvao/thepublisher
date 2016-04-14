@@ -50,6 +50,7 @@ public class GymContract implements Serializable {
 	
 	private Date end;
 	
+	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Gym gym;
 	

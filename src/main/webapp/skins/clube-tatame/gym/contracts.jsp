@@ -13,6 +13,16 @@
 </div>
 
 <div class="boxs">
+	<section class="guide-gym">
+		<span>Quer saber onde encontrar uma academia associada?</span>
+		<form action="/clube/academias">
+			<input type="text" name="query" placeholder="Estado, Cidade ou Modalidade"/>
+			<input type="submit" value="BUSCAR"/>
+		</form>	
+	</section>
+</div>
+
+<div class="boxs">
 	<span class="title">ACADEMIAS PREMIUM</span>
 
 	<s:iterator value="contracts" status="st">

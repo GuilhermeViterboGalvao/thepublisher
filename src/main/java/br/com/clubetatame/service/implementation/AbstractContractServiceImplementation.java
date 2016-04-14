@@ -130,13 +130,19 @@ public abstract class AbstractContractServiceImplementation<E> extends Transacti
         return query.getResultList();
 	}
 	
+	private String[] searchFields = { "name", "description" };
+	
+	public void setSearchFields(String[] searchFields){
+		this.searchFields = searchFields;
+	}
+	
 	@Override
 	@SuppressWarnings("unchecked")
 	public ResultList<E> search(String query, int page, int pageSize) {
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(genericClass).get();
-		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "description").createQuery();
+		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, searchFields).createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, genericClass);
         if (pageSize > 0) {
         	fullTextQuery.setMaxResults(pageSize);

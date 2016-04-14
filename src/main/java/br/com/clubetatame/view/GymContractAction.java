@@ -23,10 +23,20 @@ public class GymContractAction extends AbstractAction<GymContract> {
 	}
     
 	public Collection<GymContract> getContracts(){
-		setPages((int) Math.floor(gymContractService.count() * 1f / getPageSize()) + 1);
-		contracts = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc", new Date());
-      
+		if (query != null && !query.isEmpty()) {
+			contracts = gymContractService.search(query, getCurrentPage(), getPageSize()).getResult();
+		}else{
+			setPages((int) Math.floor(gymContractService.count() * 1f / getPageSize()) + 1);
+			contracts = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc", new Date());
+		}
+		
         return contracts;
+	}
+	
+	private String query;
+	
+	public void setQuery(String query){
+		this.query = query;
 	}
 
 	@Override
