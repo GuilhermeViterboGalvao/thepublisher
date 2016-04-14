@@ -58,6 +58,7 @@ public class GymAction extends AbstractAction<Gym>  {
 			this.city = entity.getCity();
 			this.address = entity.getAddress();
 			this.cep = entity.getCEP();
+			this.twitter = entity.getTwitter();
 			this.instagram = entity.getInstagram();
 			this.facebook = entity.getFacebook();
 			this.logo = entity.getLogo();
@@ -92,6 +93,7 @@ public class GymAction extends AbstractAction<Gym>  {
 			entity.setCity(city);
 			entity.setAddress(address);
 			entity.setCEP(cep);
+			entity.setTwitter(twitter);
 			entity.setInstagram(instagram);
 			entity.setFacebook(facebook);
 			entity.setLogo(logo);
@@ -260,6 +262,8 @@ public class GymAction extends AbstractAction<Gym>  {
 	
 	private String cep;
 	
+	private String twitter;
+	
 	private String instagram;
 	
 	private String facebook;
@@ -394,6 +398,14 @@ public class GymAction extends AbstractAction<Gym>  {
 
 	public void setCep(String cep) {
 		this.cep = cep;
+	}
+
+	public String getTwitter() {
+		return twitter;
+	}
+
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
 	}
 
 	public String getInstagram() {

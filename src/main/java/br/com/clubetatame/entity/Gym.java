@@ -89,6 +89,8 @@ public class Gym implements Serializable {
 	
 	private String hash;
 	
+	private String twitter;
+	
 	private String instagram;
 	
 	private String facebook;
@@ -260,6 +262,14 @@ public class Gym implements Serializable {
 
 	public void setHash(String hash) {
 		this.hash = hash;
+	}
+
+	public String getTwitter() {
+		return twitter;
+	}
+
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
 	}
 
 	public String getInstagram() {

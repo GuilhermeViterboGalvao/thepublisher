@@ -15,10 +15,10 @@
 				<a href="#">O CLUBE</a>
 			</li>
 			<li>
-				<a href="#">VANTAGENS</a>
+				<a href="#">SEJA MEMBRO</a>
 			</li>
 			<li>
-				<a href="#">SEJA MEMBRO</a>
+				<a href="/clube/academias">GUIA DE ACADEMIAS</a>
 			</li>
 			<li>
 				<a href="/clube/parceiros">PARCEIROS</a>
@@ -27,7 +27,7 @@
 				<a href="/clube/eventos">EVENTOS</a>
 			</li>
 			<li>
-				<a href="#">LOJA VIRTUAL</a>
+				<a href="http://www.tatameshop.com.br">LOJA VIRTUAL</a>
 			</li>			
 		</ul>
 	</nav>

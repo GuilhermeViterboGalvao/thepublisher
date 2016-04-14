@@ -38,7 +38,7 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 .page header .menu .btnFacebook { float: left; max-width: 175px; width: 100%; height: auto; }
 .page header nav { float: left; width: 100%; height: 45px; max-width: 733px; }
 .page header nav ul { float: left; width: 100%; height: 45px; }
-.page header nav ul li { float: left; width: 16.666%; height: 45px; }
+.page header nav ul li { float: left; width: auto; height: 45px; margin: 0 0 0 3%; }
 .page header nav ul li a { float: left; width: 100%; text-align: center; text-decoration: none; color: #000; font-weight: 600; line-height: 45px; font-size: 1em; color: #414142; }
 .page main { display: table; width: 100%; }
 .page footer { display: table; width: 100%; background-color: #333; }

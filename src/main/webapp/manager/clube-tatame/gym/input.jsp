@@ -64,7 +64,9 @@
 			<label for="address">Endereço</label>
 			<s:textfield name="address"/>
 			<label for="cep">CEP</label>
-			<s:textfield name="cep"/>			
+			<s:textfield name="cep"/>
+			<label for="twitter">Twitter</label>
+			<s:textfield name="twitter"/>		
 			<label for="instagram">Instagram</label>
 			<s:textfield name="instagram"/>
 			<label for="facebook">Facebook</label>
