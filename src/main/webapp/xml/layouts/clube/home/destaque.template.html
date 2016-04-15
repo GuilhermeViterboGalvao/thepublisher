@@ -17,6 +17,7 @@ if (info && info.item && info.item.size() >= 1) {
 			<input type="password" id="memberPassword2" name="password2"/>					
 			<input type="submit" id="btnConfirm" value="CONTINUAR"/>
 		</div>
+		
 		<%
 			info.item.eachWithIndex { item, index ->
 				def photoId = (item.photoId =~ /\d{1,999999}/)[0],

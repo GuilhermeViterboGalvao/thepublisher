@@ -5,10 +5,10 @@
 
 <div class="boxs">
 	<div class="background-gym">
-		<img src="/skins/clube-tatame/img/background-gym.jpg">
+		<img src="/skins/clube-tatame/img/background-gym.jpg" />
 	</div>
 	<div class="country-map">
-		<img  src="/skins/clube-tatame/img/country-map.png">
+		<img src="/skins/clube-tatame/img/country-map.png" />
 	</div>
 </div>
 
