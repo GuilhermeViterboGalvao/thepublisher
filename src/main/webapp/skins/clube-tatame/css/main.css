@@ -96,7 +96,7 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 	.page header nav,
 	.page header nav ul,
 	.page header nav ul li { height: auto; } 
-	.page header nav ul li { width: 100%; line-height: 30px; }	
+	.page header nav ul li { width: 97%; line-height: 30px; }	
 	
 	.page footer > section .col1,
 	.page footer > section .col2,
