@@ -8,8 +8,9 @@
 
 	<s:iterator value="events" status="st">
 		<div class="event">
-			<img class="logo" src="/img/${photo.id}_220x130.jpg" />
-			
+			<div class="logo">
+				<img src="/img/${photo.id}_220x130.jpg" />
+			</div>
 			<div class="info">
 				<span class="name"><s:property value="name"/></span>
 				<span class="description"><s:property value="description"/></span>
