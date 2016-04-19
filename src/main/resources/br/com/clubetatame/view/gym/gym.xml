@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="clube-academias-view" namespace="/clube/academias" extends="struts-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="false" />
+			<result-type name="json"  class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<interceptors>
+			<interceptor name="gymAuthenticationInteceptor" class="br.com.clubetatame.view.gym.AuthenticationInterceptor" />
+			<interceptor name="monitoring" class="net.bull.javamelody.StrutsInterceptor"/> 
+			<interceptor-stack name="gymSecureManager">
+			    <interceptor-ref name="monitoring"/>			    
+				<interceptor-ref name="gymAuthenticationInteceptor"/>
+				<interceptor-ref name="paramsPrepareParamsStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="gymSecureManager"/>
+		<global-results>
+			<result name="login" type="redirectAction">login</result>
+		</global-results>		
+		<action name="login" class="br.com.clubetatame.view.gym.LoginAction">
+			<interceptor-ref name="defaultStack"/>
+			<result name="login" type="tiles">default</result>
+			<result name="input" type="tiles">default</result>
+			<result type="redirectAction">gym-input</result>			
+		</action>
+		<action name="logout" class="br.com.clubetatame.view.gym.LogoutAction"/>
+		<action name="gym-*" class="br.com.clubetatame.view.gym.GymAction" method="{1}">
+		    <result type="tiles">default</result>
+		    <result name="input" type="tiles">default</result>
+		</action>
+		<action name="resetPassword" class="br.com.clubetatame.view.gym.ResetPasswordAction">
+		    <result type="tiles">default</result>
+		    <result name="input" type="tiles">default</result>
+		</action>
+		<action name="cupom" class="br.com.clubetatame.view.gym.CupomAction">
+		    <result type="tiles">default</result>
+		    <result name="login" type="redirectAction">login</result>
+		</action>
+	</package>
+</struts>

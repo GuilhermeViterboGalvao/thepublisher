@@ -133,6 +133,17 @@ public class GymServiceImplementation extends TransactionalService implements Gy
         }
         return result.get(0);
 	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public Gym getByDocument(String document) {
+        Query query = entityManager.createQuery("from Gym where document = :document").setParameter("document", document);
+		List<Gym> result = query.getResultList();
+        if (result == null || result.isEmpty()) {
+        	return null;
+        }
+        return result.get(0);		
+	}
 	
 	@Override
 	public long count(Boolean active){

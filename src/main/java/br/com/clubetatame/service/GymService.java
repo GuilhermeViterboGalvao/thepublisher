@@ -18,6 +18,8 @@ public interface GymService extends Service<Gym> {
 	
 	Gym getByEmail(String email);
 	
+	Gym getByDocument(String document);
+	
 	long count(Boolean active);
 	
 	Collection<Gym> list(Boolean active);
