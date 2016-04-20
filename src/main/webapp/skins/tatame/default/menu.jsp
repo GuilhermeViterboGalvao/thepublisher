@@ -16,7 +16,10 @@
 				</li>
 				<li>
 					<a href="/tatame/jiu-jitsu/pan-2016">PAN JJ 2016</a>
-				</li>		
+				</li>
+				<li>
+					<a href="/tatame/jiu-jitsu/abu-dhabi-2016">Abu Dhabi Pro</a>
+				</li>			
 			</ul>
 		</li>					
 	</ul>
