@@ -2,9 +2,7 @@ package br.com.clubetatame.service.implementation;
 
 import java.util.Collection;
 import java.util.Date;
-
 import javax.persistence.Query;
-
 import br.com.clubetatame.entity.Gym;
 import br.com.clubetatame.entity.GymContract;
 import br.com.clubetatame.service.GymContractService;
@@ -58,4 +56,27 @@ public class GymContractServiceImplementation extends AbstractContractServiceImp
         }        
         return query.getResultList();
 	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public Collection<GymContract> list(Gym gym){
+		if (gym != null) {
+			StringBuilder sql = new StringBuilder();
+			sql.append("from GymContract where gym=:gym ");
+			sql.append("order by start desc");
+			Query query = entityManager.createQuery(sql.toString());
+			query.setParameter("gym", gym);
+			return query.getResultList();
+		}
+		return null;
+	}
+
+	@Override
+	public boolean validateContract(GymContract contract) {
+		if (contract != null) {
+			Date today = new Date();
+			return contract.getEnd() != null && contract.getEnd().after(today);
+		}
+		return false;
+	}	
 }
