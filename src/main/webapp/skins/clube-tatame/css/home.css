@@ -76,13 +76,25 @@
 	.page .guide-gym { width: 98%; margin: 0 1%; float: left; display: block; }
 	
 	.page .indicates { width: 98%; margin: 0 1%; }	
+	
+	.club { max-width: none; }
+	.club .header { height: auto; }
+	
+	.advantages { max-width: none; margin-top: 2%; }
+	.advantages .header { height: auto; }
 }
 @media screen and (max-width: 600px) {
 	.page .hightlights .hightlight span { font-size: 1em; line-height: 25px; }
 	
 	.page .guide-gym span { margin: 2% 1%; line-height: normal; height: auto; }
 	
-	.page .indicates .header .text { font-size: 0.8em; }	
+	.page .indicates .header .text { font-size: 0.8em; }
+	
+	.club .header span { font-size: 0.8em }	
+	.club .header .title { font-size: 1.3em; }
+	
+	.advantages .header span { font-size: 0.8em }
+	.advantages .header .title { font-size: 1.3em; }
 }
 @media screen and (max-width: 500px) {
 	.page .indicates .persons .person .text { font-size: 0.7em; line-height: 18px; }
@@ -96,6 +108,10 @@
 }
 @media screen and (max-width: 375px) {
 	.page .hightlights .form input[type="text"] { height: 15px; }
+	
+	.club .header .title { line-height: 1.7em; }
+	
+	.advantages .header .title { line-height: 1.7em; }
 }
 @media screen and (max-width: 320px) {
 	.page .indicates .header .line { margin: 40px 0;}	
