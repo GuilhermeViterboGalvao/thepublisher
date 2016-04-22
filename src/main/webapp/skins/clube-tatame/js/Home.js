@@ -1,6 +1,9 @@
 (function(window, undefined) {
 	var name = $("#memberName");
 	var document = $("#memberDocument");
+	
+	var windowWidth = window.document.body.offsetWidth || screen.width;
+	
 	document.keypress(function(e) {
 		if (e && e.keyCode >= 48 && e.keyCode <= 57) {
 			return true;
@@ -62,5 +65,33 @@
 				}
 			});
 		}
+	});
+	
+	$(".header .member-free").click(function() {
+		var left = "14%";
+		
+		if(windowWidth < 800) left = "13%";
+		
+		$(".grey-arrow").css("left", left);
+		
+		$(".content .member-free").css("display","table-cell");
+		$(".content .member-premium").css("display","none");
+	});
+	
+	$(".header .member-premium").click(function() {
+		var left = "45%";
+		
+		if(windowWidth < 800 && windowWidth > 600) {
+			left = "37%";
+		}else if(windowWidth <= 600 && windowWidth > 414){
+			left = "43%";
+		}else if(windowWidth <= 414){
+			left = "49%";
+		}
+		
+		$(".grey-arrow").css("left", left);
+		
+		$(".content .member-free").css("display","none");
+		$(".content .member-premium").css("display","table-cell");
 	});
 })(window);
