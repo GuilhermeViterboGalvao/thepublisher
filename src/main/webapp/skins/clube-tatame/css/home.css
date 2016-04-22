@@ -33,6 +33,29 @@
 .indicates .persons .person .image { float: left; width: 100%; }
 .indicates .persons .person .image img { margin: 0 auto; width: 100%; max-width: 112px; display: table; }
 .indicates .persons .person .text { float: left; width: 80%; line-height: 25px; margin: 5% 10%; font-size: 1em; color: #838282; font-weight: 300; }
+
+.club { width: 100%; max-width: 472px; float: left; }
+.club .header { width: 85%; background-color: #920000; padding: 1% 3% 3% 12%; height: 155px; float: left; }
+.club .header span { color: #fff; font-size: 13.5px; line-height:21px; width: 88%; float: left;  }
+.club .header .title { font-size: 25px; text-transform: uppercase; line-height:50px; }
+.club .content { width: 100%; float: left; background-color: #ffffd9; }
+.club .content table { width: 80%; float: left; margin-left: 15% }
+.club .content table tr { border-bottom: 1px solid #cccccc; float: left; padding: 3% 0; }
+.club .content table .no-border { border-bottom: none; }
+.club .content table tr td { vertical-align: middle; font-size: 13.5px; color: #787878; line-height: 22px; }
+.club .content table tr td img { width: 70px; margin-right: 10%; }
+
+.advantages { width: 100%; max-width: 472px; float: left; }
+.advantages .header { width: 85%; background-color: #666666; padding:1% 3% 3% 12%; height: 155px; float: left; }
+.advantages .header span { color: #fff; font-size: 13.5px; line-height:21px; width: 88%; float: left; }
+.advantages .header .title { font-size: 25px; text-transform: uppercase; line-height:50px; }
+.advantages .content { width: 100%; float: left; }
+.advantages .content table { width: 80%; float: left; margin-left: 15% }
+.advantages .content table tr { border-bottom: 1px solid #cccccc; float: left; padding: 3% 0; }
+.advantages .content table .no-border { border-bottom: none; }
+.advantages .content table tr td { vertical-align: middle; font-size: 13.5px; color: #787878; line-height: 22px; }
+.advantages .content table tr td img { width: 70px; margin-right: 10%; }
+
 @media screen and (max-width: 800px) {
 	.page .hightlights { margin: 10px 0; }
 	.page .hightlights .form { position: relative; width: 96%; margin: 1%; left: 0; top: 0; padding: 1%; }
