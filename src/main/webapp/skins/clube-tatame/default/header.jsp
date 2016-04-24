@@ -12,7 +12,7 @@
 				<a href="/clube/home">O CLUBE</a>
 			</li>
 			<li>
-				<a href="#">SEJA MEMBRO</a>
+				<a href="/clube/memberRegister?fromMenu=true">SEJA MEMBRO</a>
 			</li>
 			<li>
 				<a href="/clube/academias">GUIA DE ACADEMIAS</a>

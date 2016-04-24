@@ -123,8 +123,4 @@ public class MemberSimpleRegister extends ActionSupport {
 	public void setPassword2(String password2) {
 		this.password2 = password2;
 	}
-
-	public MemberService getMemberService() {
-		return memberService;
-	}
 }	
