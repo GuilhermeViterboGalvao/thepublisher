@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+.erro-messages { float: left; width: 50%; margin: 5% 25% 0 25%; }
+.erro-messages .error { float: left; width: 100%; }
+.erro-messages .error li { float: left; width: 100%; }
+.erro-messages .error li span { float: left; width: 100%; text-align: center; color: red; font-size: 1.2em; line-height: 1.4em; margin: 0 0 1% 0; }
+.info { float: left; width: 50%; margin: 5% 25% 0 25%; }
+.info label { float: left; width: 100%; font-size: 1.2em; line-height: 1.4em; text-align: center; }	
+.form { float: left; width: 50%; margin: 5% 25% 0 25%; }
+.form label { float: left; width: 100%; font-size: 1.2em; margin: 0 0 1% 0; line-height: 1.4em; }
+.form input[type="email"],
+.form input[type="password"] { float: left; width: 98%; margin: 0 0 5% 0; border: none; font-size: 1em; padding: 1%; line-height: 1.2em; background-color: rgb(250, 255, 189); }
+.form input[type="submit"] { float: left; width: 100%; padding: 1%; background-color: #ffefa3; font-size: 1em; line-height: 1.2em; text-align: center; font-weight: 800; color: #414142; border: 0.01em solid #414142; border-radius: 5px; }
+.info2 { float: left; width: 50%; margin: 5% 25% 0 25%; }
+.info2 label { float: left; width: 100%; font-size: 1.2em; margin: 0 0 5% 0; line-height: 1.4em; text-align: center; }
+@media screen and (max-width: 800px) {
+	.erro-messages { width: 98%; margin: 5% 1% 0 1%; }
+	.erro-messages .error li span { font-size: 1em; line-height: 1.2em; }
+	.info { width: 98%; margin: 5% 1% 0 1%; }
+	.info label { font-size: 1em; line-height: 1.2em; }	
+	.form { width: 98%; margin: 5% 1% 0 1%; }
+	.form label { font-size: 1em; line-height: 1.2em; } 
+	.info2 { width: 98%; margin: 5% 1% 0 1%; }
+	.info2 label { font-size: 1em; line-height: 1.2em; } 
+}

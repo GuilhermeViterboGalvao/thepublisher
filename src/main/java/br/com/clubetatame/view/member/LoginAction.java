@@ -53,6 +53,8 @@ public class LoginAction extends ActionSupport implements ViewAction, SessionAwa
 	private String email;
 	
 	private String password;
+	
+	private boolean fromMenu = false;
 
 	public String getEmail() {
 		return email;
@@ -68,6 +70,14 @@ public class LoginAction extends ActionSupport implements ViewAction, SessionAwa
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public boolean isFromMenu() {
+		return fromMenu;
+	}
+
+	public void setFromMenu(boolean fromMenu) {
+		this.fromMenu = fromMenu;
 	}
 
 	@Override
