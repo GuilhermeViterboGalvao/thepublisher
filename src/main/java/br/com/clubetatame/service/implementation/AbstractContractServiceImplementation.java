@@ -63,8 +63,21 @@ public abstract class AbstractContractServiceImplementation<E> extends Transacti
 
 	@Override
 	public long count() {
-        Query query = entityManager.createQuery(String.format("select count(c) from %s c", entityName));
-        return query != null ? (Long)query.getSingleResult() : 0;
+        return count(null);
+	}
+	
+	@Override
+	public long count(Date end) {        
+        StringBuilder sql = new StringBuilder();
+		sql.append(String.format("select count(c) from %s c", entityName));
+		if (end != null) {
+			sql.append(" where c.end >=:end");			
+		}
+		Query query = entityManager.createQuery(sql.toString());
+	    if (end != null) {
+	        query.setParameter("end", end);	
+	    }
+		return query != null ? (Long)query.getSingleResult() : 0;
 	}
 	
 	@Override

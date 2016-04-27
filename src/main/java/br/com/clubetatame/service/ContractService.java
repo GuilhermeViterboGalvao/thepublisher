@@ -11,6 +11,8 @@ import net.bull.javamelody.MonitoredWithSpring;
 @MonitoredWithSpring
 public interface ContractService<E> extends Service<E> {
 	
+	long count(Date end);
+	
     Collection<E> list(int page, int pageSize);
     
     Collection<E> list(int page, int pageSize, String orderBy, String order);

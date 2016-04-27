@@ -1,7 +1,6 @@
 package br.com.clubetatame.view;
 
 import java.util.Collection;
-import java.util.Date;
 
 import br.com.clubetatame.entity.GymContract;
 import br.com.clubetatame.service.GymContractService;
@@ -26,8 +25,8 @@ public class GymContractAction extends AbstractAction<GymContract> {
 		if (query != null && !query.isEmpty()) {
 			contracts = gymContractService.search(query, getCurrentPage(), getPageSize()).getResult();
 		}else{
-			setPages((int) Math.floor(gymContractService.count() * 1f / getPageSize()) + 1);
-			contracts = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc", new Date());
+			setPages((int) Math.floor(gymContractService.count(getCurrentDate()) / getPageSize()) +1);
+			contracts = gymContractService.list(getCurrentPage(), getPageSize(), orderBy, orderly ? "desc" : "asc", getCurrentDate());
 		}
 		
         return contracts;
