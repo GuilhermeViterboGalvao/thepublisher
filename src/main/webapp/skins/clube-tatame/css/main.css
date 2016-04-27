@@ -30,12 +30,12 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 .page { float: left; width: 100%; }
 .page header { display: table; width: 100%; max-width: 944px; margin: 1% auto 0 auto; }
 .page header .logo { float: left; max-width: 211px; width: 100%; height: auto; }
-.page header .menu { float: left; height: auto; margin: 15px 0 0 218px; width: 515px; }
-.page header .menu form { float: left; height: 37px; border: 1px solid #e2e2e2; border-radius: 6px; width: 310px; background-color: #f5f5f5; margin: 0 28px 0 0; }
-.page header .menu form input[type="text"],
-.page header .menu form input[type="password"]  { float: left; width: 100px; margin: 11px 5px; height: 15px; border: 1px solid #b8b8b8; padding: 0 0 0 5px; border-radius: 5px; }
-.page header .menu form input[type="submit"] { float: left; margin: 11px 0; width: 70px; padding: 0; height: 15px; }
-.page header .menu .btnFacebook { float: left; max-width: 175px; width: 100%; height: auto; }
+.page header .login { float: left; width: 100%; max-width: 650px; height: 54px; border: 1px solid #414142; border-radius: 5px; margin: 0 0 0 80px; position: relative; }
+.page header .login label { text-align: center; font-size: 18px; line-height: 20px; position: absolute; left: 304px; top: -12px; background-color: #fff; color: #414142; }
+.page header .login a { float: left; width: 50%; text-align: center; height: 54px; line-height: 54px; font-size: 1em; color: #414142; text-decoration: none; background-color: #fff; border-radius: 5px; }
+.page header .menu-mobile { display: none; width: 100%; padding: 0; margin: 0; border: 0.01em solid #ccc; border-radius: 3px; overflow: hidden; background-color: #fff; background: #fff url("/skins/clube-tatame/img/select-arrow-down.gif") no-repeat 98% 50%; }
+.page header .menu-mobile select { padding: 5px 8px; width: 100%; border: none; box-shadow: none; background-color: transparent; background-image: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+.page header .menu-mobile select:focus { outline: none; }
 .page header nav { float: left; width: 100%; height: 45px; max-width: 733px; }
 .page header nav ul { float: left; width: 100%; height: 45px; }
 .page header nav ul li { float: left; width: auto; height: 45px; margin: 0 0 0 3%; }
@@ -62,29 +62,19 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 	.page main,
 	.page footer { float: left; }
 	
-	.page header .logo { float: none; display: table; margin: 0 auto; }
-	.page header .menu { width: 96%; margin: 2%; }
-	.page header .menu form { width: 100%; margin: 0 0 2% 0; height: auto; border: 0.01em solid #e2e2e2; }
-	.page header .menu form input[type="text"],
-	.page header .menu form input[type="password"] { margin: 1%; width: 31.33%; height: 30px; border: 0.01em solid #b8b8b8; }
-	.page header .menu form input[type="submit"] { margin: 1%; width: 29.33%; height: 30px; border: none; border-radius: 5px; }
-	.page header .menu .btnFacebook { float: none; margin: 0 auto; display: table; }
+	.page header .logo { float: none; display: table; margin: 0 auto 5% auto; }
+
+	.page header .login { width: 98%; max-width: none; border: 0.01px solid #414142; margin: 0 1% 5% 1%; }
+	.page header .login label { font-size: 0.9em; position: relative; width: 100%; top: 0; left: 0; margin: 0; text-align: center; line-height: 22px; float: left; border-radius: 5px; height: 22px; }
+	.page header .login a { font-size: 0.9em; height: 32px; line-height: 32px; }
 		
-	.page header nav { max-width: none; }
+	.page header nav { display: none; }
 	
-	.page header nav,
-	.page header nav ul,
-	.page header nav ul li { height: auto; }
+	.page header .menu-mobile { display: block; width: 98%; margin: 0 1% 5% 1%; font-size: 1em; line-height: 1.2em; }
 }
-@media screen and (max-width: 600px) {
-	.page header .menu form input[type="submit"] { width: 28.33%; }	
-}
-@media screen and (max-width: 500px) {
-	.page header nav ul li a { font-size: 0.7em; }	
-}
-@media screen and (max-width: 420px) {	
-	.page header .menu form input[type="submit"] { width: 27.33%; }
-	
+@media screen and (max-width: 600px) { }
+@media screen and (max-width: 500px) { }
+@media screen and (max-width: 420px) {		
 	.page footer > section .col1 h1 { font-size: 1em; }
 	.page footer > section .col1 h2 { font-size: 0.8em; }
 	.page footer > section .col2 .address li,
@@ -92,12 +82,7 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 	.page footer > section .col2 .email li,
 	.page footer > section .col2 span { font-size: 0.6em; }	
 }
-@media screen and (max-width: 375px) {
-	.page header nav,
-	.page header nav ul,
-	.page header nav ul li { height: auto; } 
-	.page header nav ul li { width: 97%; line-height: 30px; }	
-	
+@media screen and (max-width: 375px) {	
 	.page footer > section .col1,
 	.page footer > section .col2,
 	.page footer > section .col3 { width: 100%; margin: 10px 0; }
@@ -107,11 +92,5 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 	.page footer > section .col2 span { text-align: center; }
 	.page footer > section .col3 img { margin: 15px auto; }	
 }
-@media screen and (max-width: 360px) {
-	.page header .menu form input[type="text"],
-	.page header .menu form input[type="password"] { width: 45.33%; }
-	.page header .menu form input[type="submit"] { width: 96.33%; }
-}
-@media screen and (max-width: 320px) {
-
-}
+@media screen and (max-width: 360px) { }
+@media screen and (max-width: 320px) { }

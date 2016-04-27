@@ -51,6 +51,11 @@
 			<result name="form-reset" type="tiles">default</result>
 			<result name="form-confirm" type="tiles">default</result>
 			<result name="redirect" type="redirectAction">forgotPassword-formReset</result>
-        </action>                           
+        </action>
+ 		<action name="memberRegister" class="br.com.clubetatame.view.MemberRegisterAction">
+ 			<interceptor-ref name="defaultStack"/>
+ 			<result name="input" type="tiles">default</result>
+ 		    <result type="tiles">default</result> 			
+        </action>                                   
 	</package>
 </struts>
