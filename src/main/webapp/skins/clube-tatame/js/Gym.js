@@ -7,6 +7,11 @@
 	var lon = Number($("#lon").val());
 	var zoom = 15;			
 	this.map = new google.maps.Map(document.getElementById("google-maps-canvas"), {
+		scrollwheel 	  : false,
+		navigationControl : false,
+		mapTypeControl 	  : false,
+		scaleControl 	  : false,
+		draggable 		  : false,
 		center: new google.maps.LatLng(lat, lon),
 		zoom: zoom,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
