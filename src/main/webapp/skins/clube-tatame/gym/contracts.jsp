@@ -3,13 +3,8 @@
 
 <s:set name="count" value="0"/>
 
-<div class="boxs remove-mobile">
-	<div class="background-gym">
-		<img src="/skins/clube-tatame/img/background-gym.jpg" />
-	</div>
-	<div class="country-map">
-		<img src="/skins/clube-tatame/img/country-map.png" />
-	</div>
+<div class="boxs">
+	<img class="gym-header" src="/skins/clube-tatame/img/gym-header.jpg" />
 </div>
 
 <div class="boxs">
