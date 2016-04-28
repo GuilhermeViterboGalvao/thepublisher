@@ -15,7 +15,7 @@
 	<div class="club">
 		<div class="header">
 			<span class="title">O que é o clube?</span>
-			<span>É uma área de convivência para quem gosta de luta com diversas vantagens para o associado. Marcas, academias, eventos, praticantes e aficionados vão participar, de graça, desse novo conceito de obter informação, descontos, prêmios, conteúdo exclusivo e muito mais.</span>
+			<span>É uma área de convivência para quem gosta de luta com diversas vantagens para o associado. Marcas, academias, eventos, praticantes e fãs vão participar, de graça, desse novo conceito de obter informação, descontos, prêmios, conteúdo exclusivo e muito mais.</span>
 		</div>
 		
 		<div class="content">
