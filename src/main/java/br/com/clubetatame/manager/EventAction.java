@@ -58,6 +58,7 @@ public class EventAction extends AbstractAction<Event> {
 			this.address = entity.getAddress();
 			this.start = getDate(entity.getStart());
 			this.end = getDate(entity.getEnd());
+			this.deadline = getDate(entity.getDeadline());
 			this.lat = entity.getLat();
 			this.lon = entity.getLon();
 			this.zoomGoogleMaps = entity.getZoomGoogleMaps();
@@ -86,6 +87,7 @@ public class EventAction extends AbstractAction<Event> {
 			entity.setCity(city);
 			entity.setAddress(address);
 			entity.setStart(getDate(start));
+			entity.setDeadline(getDate(deadline));
 			entity.setEnd(getDate(end));
 			entity.setLat(lat);
 			entity.setLon(lon);
@@ -230,16 +232,19 @@ public class EventAction extends AbstractAction<Event> {
 	}
 	
 	private String getDate(Date date) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
 		String d = null;
-		int year  = calendar.get(Calendar.YEAR);
-		int month = calendar.get(Calendar.MONTH) + 1;
-		int day   = calendar.get(Calendar.DAY_OF_MONTH);
-		d  = day < 10 ? "0" + String.valueOf(day) : String.valueOf(day);
-		d += "/" + (month < 10 ? "0" + String.valueOf(month) : String.valueOf(month));
-		d += "/" + String.valueOf(year);
-		return d;
+		if(date != null){
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+	
+			int year  = calendar.get(Calendar.YEAR);
+			int month = calendar.get(Calendar.MONTH) + 1;
+			int day   = calendar.get(Calendar.DAY_OF_MONTH);
+			d  = day < 10 ? "0" + String.valueOf(day) : String.valueOf(day);
+			d += "/" + (month < 10 ? "0" + String.valueOf(month) : String.valueOf(month));
+			d += "/" + String.valueOf(year);
+		}
+		return (d != null ? d : "");
 	}
 	
 	private Date getDate(String date) {
@@ -289,6 +294,8 @@ public class EventAction extends AbstractAction<Event> {
 	private String start;
 	
 	private String end;
+	
+	private String deadline;
 	
 	private Float lat;
 	
@@ -382,6 +389,14 @@ public class EventAction extends AbstractAction<Event> {
 
 	public void setEnd(String end) {
 		this.end = end;
+	}
+
+	public String getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
 	}
 
 	public Float getLat() {

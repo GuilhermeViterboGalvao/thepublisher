@@ -31,7 +31,7 @@
    		
    		<div class="detail">
    			<span class="start">
-   				INSCRIÇÕES ATÉ: <s:date name="start" format="dd/MM/yyyy"/>
+   				INSCRIÇÕES ATÉ: <s:date name="deadline" format="dd/MM/yyyy"/>
    			</span>
    			<span class="link">
    				Para fazer sua inscrição <a href="/${link}">clique aqui</a> 

@@ -65,6 +65,8 @@ public class Event implements Serializable {
 	
 	private Date end;
 	
+	private Date deadline;
+	
 	private Float lat;
 	
 	private Float lon;
@@ -168,6 +170,14 @@ public class Event implements Serializable {
 
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+
+	public Date getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(Date deadline) {
+		this.deadline = deadline;
 	}
 
 	public Float getLat() {

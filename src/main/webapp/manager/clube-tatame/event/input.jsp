@@ -44,7 +44,9 @@
 			<s:textfield name="address"/>
 			<label for="start">Data de início</label>
 			<s:textfield id="start" name="start" />
-			<label for="end">Data de término</label>
+			<label for="deadline">Término das inscrições</label>
+			<s:textfield id="deadline" name="deadline" />
+			<label for="end">Data do evento</label>
 			<s:textfield id="end" name="end" />
 			<label for="lat">Latitude</label>
 			<s:textfield id="lat" name="lat"/>
@@ -96,6 +98,16 @@
 	    prevText: 'Anterior'
 	});
 	$("#end").datepicker({
+	    dateFormat: 'dd/mm/yy',
+	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+	    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+	    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+	    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+	    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+	    nextText: 'Próximo',
+	    prevText: 'Anterior'
+	});
+	$("#deadline").datepicker({
 	    dateFormat: 'dd/mm/yy',
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
 	    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
