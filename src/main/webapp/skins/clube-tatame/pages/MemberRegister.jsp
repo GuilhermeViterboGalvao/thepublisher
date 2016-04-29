@@ -11,7 +11,9 @@
 	
 	.boxs { margin: 0 auto; width: 100%; max-width: 944px; }
 	
-	.content { float: left; width: 100%; height: auto; background-color: #f6f5f5; margin: 3% 0 0; }
+	.content { float: left; width: 100%; height: auto; background-color: #f6f5f5; margin: 0; }
+	
+	.title-page { float: left; text-transform: uppercase; width: 100%; text-align: center; font-size: 2em; margin: 2% 0; }
 	
 	.form { float:left; width: 55%; padding: 2% 5%; }
 	.form  .title { float: left; font-size: 1.2em; text-transform: uppercase;  }
@@ -21,18 +23,24 @@
 	.form form input[type="password"] { float: left; width: 98%; margin: 0 0 6% 0; border: 1px solid #999999; font-size: 0.7em; padding: 1% 2%; line-height: 1.1em; border-radius: 14px; }
 	.form form input[type="submit"] { float: left; padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 8% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
 	
-	.info { float:left; width: 25%; padding: 2% 4%; border-left: 1px solid #000; }
+	.info { float:left; width: 22%; padding: 0 5% 4%; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
 	.info .premium { float: left; text-align: center; }
 	.info .premium img { width: 100px; }
-	.info .premium p { font-size: 0.8em; line-height: 1.4em; }
+	.info .premium p { font-size: 0.7em; line-height: 1.4em; }
 	
-	.info .important { float:left; font-size: 0.9em; margin: 8% 0; text-align: center; line-height: 1.3em }
+	.info .important { float:left; font-size: 0.8em; margin: 8% 0; text-align: center; line-height: 1.3em }
 	
 	.info .free { float: left; text-align: center; }
 	.info .free img { width: 100px; }
-	.info .free p { font-size: 0.8em; line-height: 1.4em; }
+	.info .free p { font-size: 0.7em; line-height: 1.4em; }
 	
 	.grey { color: #787878; }
+	
+	.sub-info { width: 100%; max-width: 255px; float: left; margin: 4% 3%; text-align: center; }
+	.sub-info img { margin-bottom: 5%; }
+	.sub-info span { font-size: 0.9em; width: 100%; float: left; line-height: 1.5em; }
+	
+	.register-header { float: left; width: 100%; margin: 2% 0; text-align: center; }
 	
 	@media screen and (max-width: 800px) {
 		.erro-messages { width: 98%; margin: 5% 1% 0 1%; }
@@ -48,6 +56,12 @@
 		.form form input[type="submit"] { width: 100%; } 
 		
 		.info { display: none; }
+		
+		.sub-info { display: none; }
+		
+		.title-page { display: none; }
+		
+		.register-header img { width: 100%; }
 	}
 	
 	@media screen and (max-width: 414px) {
@@ -65,6 +79,29 @@
 	</div>
 </s:if>
 <s:else>
+	<div class="register-header">
+		<img src="/skins/clube-tatame/img/header-register-member.jpg">
+	</div>
+	<span class="title-page"> torne-se um membro premium</span>
+	
+	<div class="boxs">
+		<div class="sub-info">
+			<img src="/skins/clube-tatame/img/icon-people.png">
+			<span>DESTAQUE</span>
+			<span class="grey">Chegando ao seu vigésimo ano no mercado, a Revista TATAME, líder disparado no segmento de luta no Brasil, é mundialmente.</span>
+		</div>
+		<div class="sub-info">
+			<img src="/skins/clube-tatame/img/icon-kimono.png">
+			<span>EVENTOS</span>
+			<span class="grey">TATAME, líder disparado no segmento de luta no Brasil, é mundialmente respeitada e considerada referência nada disso.</span>
+		</div>
+		<div class="sub-info">
+			<img src="/skins/clube-tatame/img/icon-weight-black.png">
+			<span>ACADEMIAS</span>
+			<span class="grey">América Latina seu pioneirismo e imparcialidade fazem dela um produto sem igual é mundialmente respeitonsino mercado.​</span>
+		</div>
+	</div>
+	
 	<div class="boxs">
 		<div class="content">
 			<div class="form">
