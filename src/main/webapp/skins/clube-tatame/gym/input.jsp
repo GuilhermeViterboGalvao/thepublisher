@@ -11,12 +11,12 @@
 		<s:fielderror cssClass="error"/>
 	</section>
 </s:if>
-<form class="gymForm" action="/clube/academias/gym-save" method="post">
+<form class="memberForm" action="/clube/academias/gym-save" method="post">
 	<s:hidden name="id"/>	
 	<label for="name">Nome</label>
 	<s:textfield name="name"/>	
 	<label for="description">Descrição</label>
-	<s:textarea name="description"/>
+	<s:textarea name="description" rows="4"/>
 	<label for="site">Site</label>
 	<s:textfield name="site"/>	
 	<label for="contact">Contato</label>

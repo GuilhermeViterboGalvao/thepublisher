@@ -56,6 +56,11 @@
  			<interceptor-ref name="defaultStack"/>
  			<result name="input" type="tiles">default</result>
  		    <result type="tiles">default</result> 			
-        </action>                                   
+        </action>  
+         <action name="gymRegister" class="br.com.clubetatame.view.GymRegisterAction">
+ 			<interceptor-ref name="defaultStack"/>
+ 			<result name="input" type="tiles">default</result>
+ 		    <result type="tiles">default</result> 			
+        </action>                                     
 	</package>
 </struts>

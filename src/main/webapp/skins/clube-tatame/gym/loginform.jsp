@@ -18,5 +18,5 @@
 </form>
 <div class="info2">
 	<label>Esqueceu a sua senha? Clique <a href="/clube/forgotPassword-formReset">aqui</a> para recuperá-la.</label>
-	<label>Ainda não possui cadastro? Clique <a href="#">aqui</a>, e cadastre-se gratuitamente.</label>
+	<label>Ainda não possui cadastro? Clique <a href="/clube/gymRegister?fromMenu=true">aqui</a>, e cadastre-se gratuitamente.</label>
 </div>

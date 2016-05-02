@@ -115,7 +115,7 @@ public class GymServiceImplementation extends TransactionalService implements Gy
             List<Gym> result = query.getResultList();
             if (result != null && !result.isEmpty()) {
             	gym = result.iterator().next();
-                if (!gym.getHash().equals(hash(password))) {
+                if (!gym.getHash().equals(password)) {
                 	gym = null;
                 }
             }        	

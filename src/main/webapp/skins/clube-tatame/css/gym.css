@@ -59,6 +59,7 @@
 
 .memberForm { float: left; width: 50%; margin: 1% 25% 5% 25%; }
 .memberForm label { float: left; width: 100%; font-size: 1em; line-height: 1.2em; color: #414142; margin: 0 0 1% 0; }
+.memberForm textarea,
 .memberForm input[type="text"] { float: left; width: 97%; border: 0.01em solid #414142; padding: 1%; margin: 0 0 1.5% 0; }
 .memberForm select { float: left; width: 99%; -webkit-appearance: none; padding: 1%; -moz-appearance: none; border: 0.01em solid #414142; border-radius: 0px; margin: 0 0 1.5% 0; background-color: rgb(248, 248, 248); background-image: url("/skins/clube-tatame/img/arrow-down.png"); background-repeat: no-repeat; background-position: 99% 0;background-size: 26px; }
 .memberForm input[type="submit"] { float: left; width: 99.3%; font-size: 1em; border: 0.01em solid #414142; padding: 1%; color: #fff; background-color: #333; font-weight: 600; margin: 2% 0 0 0; }
