@@ -46,16 +46,6 @@
 </noscript>
 <!-- End Facebook Pixel Code -->
 
-<!-- Voxus/Budweiser Code -->
-<s:if test="model != null && model instanceof com.publisher.entity.Article">
-	<script type="text/javascript">
-		var VOXUS_CHANNEL_ID=327;
-		var MidContentMainParagraph = '.text p:eq(0)';
-	</script>
-	<script async type="text/javascript" src="http://voxus-static-voxusmidia.netdna-ssl.com/midcontent_min.js"></script> 
-</s:if>
-<!-- Voxus/Budweiser Code -->
-
 <!-- WebSpectator -->
 <script type="text/javascript" src="//wfpscripts.webspectator.com/bootstrap/ws-68AA2D64.js"></script>
 <!-- WebSpectator -->
