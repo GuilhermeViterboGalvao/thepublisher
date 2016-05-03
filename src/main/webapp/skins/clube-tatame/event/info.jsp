@@ -27,7 +27,7 @@
 	  	</div>
   	</div>
    	<div class="sub-info">
-   		<img class="photo" src="/img/<s:property value="photo.id"/>_459x290.jpg" alt="<s:property value="photo.description"/>"/>
+   		<img class="photo" src="/img/<s:property value="photo.id"/>_360x504.jpg" alt="<s:property value="photo.description"/>"/>
    		
    		<div class="detail">
    			<span class="start">
