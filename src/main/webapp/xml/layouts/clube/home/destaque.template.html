@@ -5,17 +5,37 @@ if (info && info.item && info.item.size() >= 1) {
 <section class="hightlights">
 		<div class="form">
 			<span>Fa&ccedil;a j&aacute; seu cadastro</span>
-			<label for="name">Nome completo</label>
-			<input type="text" id="memberName" name="name"/>
-			<label for="cpf">CPF (apenas n&uacute;meros sem tra&ccedil;o)</label>
-			<input type="text" id="memberDocument" name="cpf"/>
-			<label for="email">E-mail</label>
-			<input type="text" id="memberEmail" name="email"/>
-			<label for="password">Senha</label>
-			<input type="password" id="memberPassword" name="password"/>
-			<label for="password2">Redigite a senha</label>
-			<input type="password" id="memberPassword2" name="password2"/>					
-			<input type="submit" id="btnConfirm" value="CONTINUAR"/>
+			<div class="control">
+				<span class="control-member">membros</span>
+				<span class="control-gym">academias</span>
+			</div>
+			<div class="member">
+				<label for="name">Nome completo</label>
+				<input type="text" id="memberName" name="name"/>
+				<label for="cpf">CPF (apenas n&uacute;meros sem tra&ccedil;o)</label>
+				<input type="text" id="memberDocument" name="cpf"/>
+				<label for="email">E-mail</label>
+				<input type="text" id="memberEmail" name="email"/>
+				<label for="password">Senha</label>
+				<input type="password" id="memberPassword" name="password"/>
+				<label for="password2">Redigite a senha</label>
+				<input type="password" id="memberPassword2" name="password2"/>					
+				<input type="submit" id="btnMemberConfirm" value="CONTINUAR"/>
+			</div>
+			
+			<div class="gym">
+				<label for="name">Nome fantasia</label>
+				<input type="text" id="gymName" name="name"/>
+				<label for="cnpj">CNPJ (apenas n&uacute;meros sem tra&ccedil;o)</label>
+				<input type="text" id="gymDocument" name="cnpj"/>
+				<label for="email">E-mail</label>
+				<input type="text" id="gymEmail" name="email"/>
+				<label for="password">Senha</label>
+				<input type="password" id="gymPassword" name="password"/>
+				<label for="password2">Redigite a senha</label>
+				<input type="password" id="gymPassword2" name="password2"/>					
+				<input type="submit" id="btnGymConfirm" value="CONTINUAR"/>
+			</div>
 		</div>
 		
 		<%

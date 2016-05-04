@@ -1,18 +1,13 @@
 (function(window, undefined) {
-	var name = $("#memberName");
-	var document = $("#memberDocument");
 	
+	var name 	  = "";
+	var document  = "";
+	var email 	  = "";
+	var password  = "";
+	var password2 = "";	
+
 	var windowWidth = window.document.body.offsetWidth || screen.width;
 	
-	document.keypress(function(e) {
-		if (e && e.keyCode >= 48 && e.keyCode <= 57) {
-			return true;
-		}
-		return false;
-	});
-	var email = $("#memberEmail");
-	var password = $("#memberPassword");
-	var password2 = $("#memberPassword2");	
 	var validate = function() {
 		var hasError = false;
 		var message = "";
@@ -49,7 +44,14 @@
 		}
 		return true;
 	};
-	$("#btnConfirm").click(function() {
+	
+	$("#btnMemberConfirm").click(function() {
+		name 	  = $("#memberName");
+		document  = $("#memberDocument");
+		email 	  = $("#memberEmail");
+		password  = $("#memberPassword");
+		password2 = $("#memberPassword2");	
+		
 		if (validate()) {
 			$.ajax({
 				url : "/clube/memberSimpleRegister?name=" + name.val() + "&document=" + document.val() + "&email=" + email.val() + "&password=" + password.val() + "&password2=" + password2.val(),
@@ -65,6 +67,46 @@
 				}
 			});
 		}
+	});
+	
+	$("#btnGymConfirm").click(function() {
+		name 	  = $("#gymName");
+		document  = $("#gymDocument");
+		email 	  = $("#gymEmail");
+		password  = $("#gymPassword");
+		password2 = $("#gymPassword2");	
+		
+		if (validate()) {
+			$.ajax({
+				url : "/clube/gymSimpleRegister?name=" + name.val() + "&document=" + document.val() + "&email=" + email.val() + "&password=" + password.val() + "&password2=" + password2.val(),
+				cache : false,
+				success : function(data) {
+					if (data) {
+						if (data == "success") {
+							alert("Para finalizar o seu cadastro, acesse o seu e-mail e confirme.");
+						} else {
+							alert(data);
+						}
+					}
+				}
+			});
+		}
+	});
+	
+	$(".control-member").click(function() {
+		$(".control-member").css("background-color", "#666");
+		$(".control-gym").css("background-color", "#2e2e2e");
+		
+		$(".form .member").css("display", "block");
+		$(".form .gym").css("display", "none");
+	});
+	
+	$(".control-gym").click(function() {
+		$(".control-member").css("background-color", "#2e2e2e");
+		$(".control-gym").css("background-color", "#666");
+		
+		$(".form .member").css("display", "none");
+		$(".form .gym").css("display", "block");
 	});
 	
 	$(".header .member-free").click(function() {
