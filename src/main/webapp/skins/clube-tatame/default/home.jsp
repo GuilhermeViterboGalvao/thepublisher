@@ -82,4 +82,6 @@
 	</div>
 </div>
 
+<p:tile xml="clube/home/note"/>
+
 <p:tile xml="clube/home/indica"/>

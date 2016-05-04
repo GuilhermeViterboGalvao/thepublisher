@@ -70,6 +70,14 @@
 .advantages .content table tr .margin { padding-left: 2%; }
 .advantages .content table tr td img { width: 70px; margin-right: 10%; }
 
+.note { width: 100%; max-width: 944px; display: table; margin: 25px auto; background-color: #f6f4f5; }
+
+.note img { width: auto; height: auto; float: left; } 
+.note .note-info { float: left; width: 554px; background-color: #f6f4f5; height: 18.45em; }
+.note .note-info span { font-size: 1em; line-height: 1.6em; width: 82%; float: left; margin: 1% 9%; color: #020202; overflow: hidden; max-height: 8em; } 
+.note .note-info .header { font-size: 2.4em; line-height: 1.5em; margin-top: 3%; }
+.note a { float:left; text-decoration: none; color: #000; background-color: #ffeea8; font-size: 0.8em; padding: 1.5%; text-align: center; font-weight: 600; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; margin: 5% 8%; }
+
 @media screen and (max-width: 800px) {
 	.page .hightlights { margin: 10px 0; }
 	.page .hightlights .form { position: relative; width: 96%; margin: 1%; left: 0; top: 0; padding: 1%; }
@@ -97,6 +105,18 @@
 	.advantages { max-width: none; margin-top: 2%; }
 	.advantages .header { height: auto; }
 	.advantages .header .grey-arrow { left: 37%; }
+	
+	.note { margin: 2% 0;  }
+	.note img { width: 50%; } 
+	.note .note-info { width: 50%; height: auto; }
+	.note .note-info span { font-size: 0.8em; width: 88%; margin: 1% 6%;  }
+	.note .note-info .header { font-size: 1.5em; line-height: 1.2em; margin-top: 2%; }
+	.note a { margin: 4% 25%;  }
+}
+@media screen and (max-width: 650px) {
+	.note .note-info span { font-size: 0.7em; }
+	.note .note-info .header { font-size: 1.2em; }
+	.note a { line-height: 1.2em; }
 }
 @media screen and (max-width: 600px) {
 	.page .hightlights .hightlight span { font-size: 1em; line-height: 25px; }
@@ -113,6 +133,9 @@
 	
 	.advantages .header .grey-arrow { left: 43%; }
 }
+@media screen and (max-width: 550px) {
+	.note .note-info span { max-height: 3em;  }
+}
 @media screen and (max-width: 500px) {
 	.page .indicates .persons .person .text { font-size: 0.7em; line-height: 18px; }
 }
@@ -124,6 +147,10 @@
 	.page .indicates .persons .person .text { font-size: 0.6em; }	
 	
 	.advantages .header .grey-arrow { bottom: -6%; left: 49%;  }
+	
+	.note .note-info span { max-height: 2em;  }
+	.note .note-info .header { font-size: 1em; display: block; max-height: none; }
+	.note a { font-size: 0.7em; line-height: 1.1em; }
 }
 @media screen and (max-width: 375px) {
 	.page .hightlights .form input[type="text"] { height: 15px; }

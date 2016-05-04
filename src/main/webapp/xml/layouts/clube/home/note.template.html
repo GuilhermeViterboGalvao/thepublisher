@@ -1,0 +1,24 @@
+<%
+def hash = (int)(Math.floor(Math.random() * 100000))
+if (info && info.item && info.item.size() >= 1) {
+%>
+<section class="note">
+		<%
+			info.item.eachWithIndex { item, index ->
+				def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+				 	header = item.header,
+					text = item.text
+			   	   			   	    
+		%>
+
+			<img alt="${photoId}" src="http://tatame.com.br/img/${photoId}_390x295.jpg?${hash}"/>
+			
+			<div class="note-info">
+				<span class="header">${header}</span>			
+				<span>${text}</span>
+				
+				<a href="/clube/gymRegister?fromMenu=true">quero ser premium</a>
+			</div>
+		<% } %>	
+</section>
+<%}%>
