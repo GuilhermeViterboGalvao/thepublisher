@@ -17,22 +17,22 @@
 	
 	.form { float:left; width: 55%; padding: 2% 5%; }
 	.form  .title { float: left; font-size: 1.2em; text-transform: uppercase;  }
-	.form form { float: left; width: 57%; margin: 7% 0; }
+	.form form { float: left; width: 57%; margin: 7% 0 2%; }
 	.form form input[type="text"],
 	.form form input[type="email"],
 	.form form input[type="password"] { float: left; width: 98%; margin: 0 0 6% 0; border: 1px solid #999999; font-size: 0.7em; padding: 1% 2%; line-height: 1.1em; border-radius: 14px; }
 	.form form input[type="submit"] { float: left; padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 8% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
 	
-	.info { float:left; width: 22%; padding: 0 5% 4%; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
-	.info .premium { float: left; text-align: center; }
+	.info { float:left; width: 25%; padding: 0 4% 0; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
+	.info .premium { float: left; text-align: center; margin-top: 8%; }
 	.info .premium img { width: 100px; }
-	.info .premium p { font-size: 0.7em; line-height: 1.4em; }
+	.info .premium p { font-size: 0.8em; line-height: 1.4em; }
 	
-	.info .important { float:left; font-size: 0.8em; margin: 8% 0; text-align: center; line-height: 1.3em }
+	.info .important { float:left; font-size: 0.9em; margin: 8% 0; text-align: center; line-height: 1.3em }
 	
 	.info .free { float: left; text-align: center; }
 	.info .free img { width: 100px; }
-	.info .free p { font-size: 0.7em; line-height: 1.4em; }
+	.info .free p { font-size: 0.8em; line-height: 1.4em; }
 	
 	.grey { color: #787878; }
 	
@@ -82,6 +82,39 @@
 	<div class="register-header">
 		<img src="/skins/clube-tatame/img/header-register-member.jpg">
 	</div>
+	
+	<div class="boxs">
+		<div class="content">
+			<div class="form">
+				<span class="title">faça seu cadastro grátis no clube tatame</span>
+			
+				<form action="/clube/memberRegister" method="post">
+					<input type="text" name="name" placeholder="nome completo"/>
+					<input type="text" name="document" placeholder="CPF (apenas n&uacute;meros sem traços e pontos)"/>
+					<input type="text" name="email" placeholder="e-mail" />
+					<input type="password" name="password" placeholder="senha"/>
+					<input type="password" name="password2" placeholder="confirme sua senha"/>					
+					<input type="submit" value="Avançar"/>
+				</form>
+			</div>
+			<div class="info">
+				<div class="free">
+					<img src="/skins/clube-tatame/img/white-belt.png">
+					<p>MEMBRO FREE</p>
+					<p class="grey">Plano básico. Receba e-mail com as ofertas da loja e com descontos na inscrição de eventos.</p>
+				</div>
+				
+				<div class="premium">
+					<img src="/skins/clube-tatame/img/black-belt.png">
+					<p>MEMBRO PREMIUM</p>
+					<p class="grey">Receba a revista TATAME em casa e ganhe descontos nos produtos da loja virtual, academias e eventos.</p>
+				</div>
+				
+				<span class="important">Garanta já a sua condição de membro PREMIUM e comece a desfrutar em poucos minutos!</span>
+			</div>
+		</div>
+	</div>
+	
 	<span class="title-page"> torne-se um membro premium</span>
 	
 	<div class="boxs">
@@ -99,38 +132,6 @@
 			<img src="/skins/clube-tatame/img/icon-weight-black.png">
 			<span>ACADEMIAS</span>
 			<span class="grey">América Latina seu pioneirismo e imparcialidade fazem dela um produto sem igual é mundialmente respeitonsino mercado.​</span>
-		</div>
-	</div>
-	
-	<div class="boxs">
-		<div class="content">
-			<div class="form">
-				<span class="title">faça seu cadastro grátis no clube tatame</span>
-			
-				<form action="/clube/memberRegister" method="post">
-					<input type="text" name="name" placeholder="nome completo"/>
-					<input type="text" name="document" placeholder="CPF (apenas n&uacute;meros sem traços e pontos)"/>
-					<input type="text" name="email" placeholder="e-mail" />
-					<input type="password" name="password" placeholder="senha"/>
-					<input type="password" name="password2" placeholder="confirme sua senha"/>					
-					<input type="submit" value="Avançar"/>
-				</form>
-			</div>
-			<div class="info">
-				<div class="premium">
-					<img src="/skins/clube-tatame/img/black-belt.png">
-					<p>MEMBRO PREMIUM</p>
-					<p class="grey">Receba a revista TATAME em casa e ganhe descontos nos produtos da loja virtual, academias e eventos.</p>
-				</div>
-				
-				<span class="important">Garanta já a sua condição de membro PREMIUM e comece a desfrutar em poucos minutos!</span>
-				
-				<div class="free">
-					<img src="/skins/clube-tatame/img/white-belt.png">
-					<p>MEMBRO FREE</p>
-					<p class="grey">Plano básico. Receba e-mail com as ofertas da loja e com descontos na inscrição de eventos.</p>
-				</div>
-			</div>
 		</div>
 	</div>
 </s:else>

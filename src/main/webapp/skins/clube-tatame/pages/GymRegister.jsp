@@ -15,6 +15,9 @@
 	
 	.title-page { float: left; text-transform: uppercase; width: 100%; text-align: center; font-size: 2em; margin: 2% 0; }
 	
+	.sub-title-page { width: 38%; margin: 0 auto; }
+	.sub-title-page span { float: left; width: 100%; font-size: 1.1em; margin: 4% 0; line-height: 1.3em; text-align: center; }
+	
 	.form { float:left; width: 55%; padding: 2% 5%; }
 	.form  .title { float: left; font-size: 1.2em; width: 100%;  }
 	.form  .sub-title { float: left; font-size: 1.2em; width: 100%; margin: 5% 0; }
@@ -28,16 +31,14 @@
 	.form form .sub-title { margin: 8% 0; }
 	
 	
-	.info { float:left; width: 22%; padding: 0 5% 4%; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
-	.info .premium { float: left; text-align: center; }
+	.info { float:left; width: 25%; padding: 0 4% 2%; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
+	.info .premium { float: left; text-align: center; margin-top: 3em; }
 	.info .premium img { width: 100px; }
-	.info .premium p { font-size: 0.7em; line-height: 1.4em; }
-	
-	.info .important { float:left; font-size: 0.8em; margin: 8% 0; text-align: center; line-height: 1.3em }
+	.info .premium p { font-size: 0.8em; line-height: 1.4em; }
 	
 	.info .free { float: left; text-align: center; }
 	.info .free img { width: 100px; }
-	.info .free p { font-size: 0.7em; line-height: 1.4em; }
+	.info .free p { font-size: 0.8em; line-height: 1.4em; }
 	
 	.grey { color: #787878; }
 	
@@ -65,7 +66,10 @@
 		
 		.sub-info { display: none; }
 		
-		.title-page { display: none; }
+		.title-page { font-size: 1.5em;  }
+		
+		.sub-title-page { width: 100%; margin: 0;  }
+		.sub-title-page span { font-size: 1em; margin: 2% 0; }
 		
 		.register-header img { width: 100%; }
 	}
@@ -73,6 +77,10 @@
 	@media screen and (max-width: 414px) {
 		.form  .title { font-size: 1em;  }
 		.form  .sub-title { font-size: 1em;  }
+		
+		.title-page { font-size: 1em;  }
+		
+		.sub-title-page span{ font-size: 0.8em;  }
 	}
 </style>
 <s:if test="hasFieldErrors() && !fromMenu">
@@ -89,26 +97,7 @@
 	<div class="register-header">
 		<img src="/skins/clube-tatame/img/header-register-gym.jpg">
 	</div>
-	<span class="title-page">torne-se uma academia premium</span>
-	
-	<div class="boxs">
-		<div class="sub-info">
-			<img src="/skins/clube-tatame/img/icon-people.png">
-			<span>DESTAQUE</span>
-			<span class="grey">Chegando ao seu vigésimo ano no mercado, a Revista TATAME, líder disparado no segmento de luta no Brasil, é mundialmente.</span>
-		</div>
-		<div class="sub-info">
-			<img src="/skins/clube-tatame/img/icon-kimono.png">
-			<span>EVENTOS</span>
-			<span class="grey">TATAME, líder disparado no segmento de luta no Brasil, é mundialmente respeitada e considerada referência nada disso.</span>
-		</div>
-		<div class="sub-info">
-			<img src="/skins/clube-tatame/img/icon-weight-black.png">
-			<span>ACADEMIAS</span>
-			<span class="grey">América Latina seu pioneirismo e imparcialidade fazem dela um produto sem igual é mundialmente respeitonsino mercado.​</span>
-		</div>
-	</div>
-	
+
 	<div class="boxs">
 		<div class="content">
 			<div class="form">
@@ -129,26 +118,49 @@
 					
 					<span class="sub-title grey">Dados do responsável</span>
 					
+					<input type="text" name="contact" placeholder="nome"/>
 					<input type="text" name="phone" placeholder="telefone"/>
 									
 					<input type="submit" value="Avançar"/>
 				</form>
 			</div>
 			<div class="info">
-				<div class="premium">
-					<img src="/skins/clube-tatame/img/black-belt.png">
-					<p>ACADEMIA PREMIUM</p>
-					<p class="grey">Tenha destaque na pesquisa e ganhe uma página com fotos, detalhes, links e redes sociais.</p>
-				</div>
-	
-				<span class="important">Garanta já a sua condição de membro PREMIUM e comece a desfrutar em poucos minutos!</span>
-				
 				<div class="free">
 					<img src="/skins/clube-tatame/img/white-belt.png">
 					<p>ACADEMIA FREE</p>
 					<p class="grey">Plano básico. Apareça na busca feito pelo cliente e seja encontrado. Cadastre-se ao lado gratuitamente.</p>
 				</div>
+				
+				<div class="premium">
+					<img src="/skins/clube-tatame/img/black-belt.png">
+					<p>ACADEMIA PREMIUM</p>
+					<p class="grey">Tenha destaque na pesquisa e ganhe uma página com fotos, detalhes, links e redes sociais.</p>
+				</div>
 			</div>
+		</div>
+	</div>
+	
+	<span class="title-page">torne-se uma academia premium</span>
+	
+	<div class="sub-title-page">
+		<span>Entre em contato com nossos representantes: clube@tatame.com.br</span>
+	</div>
+	
+	<div class="boxs">
+		<div class="sub-info">
+			<img src="/skins/clube-tatame/img/icon-people.png">
+			<span>DESTAQUE</span>
+			<span class="grey">Chegando ao seu vigésimo ano no mercado, a Revista TATAME, líder disparado no segmento de luta no Brasil, é mundialmente.</span>
+		</div>
+		<div class="sub-info">
+			<img src="/skins/clube-tatame/img/icon-kimono.png">
+			<span>EVENTOS</span>
+			<span class="grey">TATAME, líder disparado no segmento de luta no Brasil, é mundialmente respeitada e considerada referência nada disso.</span>
+		</div>
+		<div class="sub-info">
+			<img src="/skins/clube-tatame/img/icon-weight-black.png">
+			<span>ACADEMIAS</span>
+			<span class="grey">América Latina seu pioneirismo e imparcialidade fazem dela um produto sem igual é mundialmente respeitonsino mercado.​</span>
 		</div>
 	</div>
 </s:else>

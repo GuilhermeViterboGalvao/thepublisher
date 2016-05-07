@@ -29,6 +29,7 @@ public class GymRegisterAction extends ActionSupport implements ViewAction {
 		gym.setEmail(email);
 		gym.setActive(false);
 		gym.setHash(gymService.hash(password));
+		gym.setContact(contact);
 		gym.setPhone(phone);
 		gymService.persist(gym);
 		EmailUtils.getInstance().sendEmailConfirmationToGym(gym);	
@@ -90,6 +91,8 @@ public class GymRegisterAction extends ActionSupport implements ViewAction {
 	private String password;
 	
 	private String password2;
+	
+	private String contact;
 	
 	private String phone;
 	
@@ -175,6 +178,14 @@ public class GymRegisterAction extends ActionSupport implements ViewAction {
 
 	public void setPassword2(String password2) {
 		this.password2 = password2;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 	public String getPhone() {
