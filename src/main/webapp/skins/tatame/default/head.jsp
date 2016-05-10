@@ -2,7 +2,8 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta http-equiv="refresh" content="1200">
+<meta http-equiv="refresh" content="1200"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes"/>
 <s:if test="title != null || note != null || tags != null">
 	<title>${title}</title>	
 	<meta name="title" content="${title}"/>
@@ -24,7 +25,7 @@
 <link href="/frameworks/jquery/plugins/perfect-scrollbar.min.css" rel="stylesheet" type="text/css"/>
 <link rel="shortcut icon" href="http://cdn-tatame.trrsf.com/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Metrophobic" type="text/css"/>
-<link rel="stylesheet" href="/skins/tatame/css/main.css?17" type="text/css"/>
+<link rel="stylesheet" href="/skins/tatame/css/main.css?19" type="text/css"/>
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
 	<link rel="stylesheet" href="/skins/tatame/css/ArticleMain.css?1" type="text/css"/>
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">

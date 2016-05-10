@@ -1,16 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="p" uri="/publisher-tags" %>
-<div id="ad_300_300-widget-11" class="widget ad_300_300">
+<div id="ad_300_300-widget-11" class="widget ad_300_300 mobile-hidden">
 	<div class="widget-inner video-box clearfix">
 		<div class="ads300">
 			<div class="ads-content">
 				<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
-				<s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">					
-					<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.right4&direct=1"></script>				
+				<s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
+					<script type="text/javascript">
+						if (windowWidth > 800) {
+							var terraAdsScript  = "<script type=\"text/javascript\" src=\"http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.right4&direct=1\">";
+								terraAdsScript += "<\/script>";
+							document.write(terraAdsScript);
+						}
+					</script>				
 				</s:if>
 				<s:else>
-					<script type="text/javascript" src="http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.articles.right4&direct=1"></script>				
+					<script type="text/javascript">
+						if (windowWidth > 800) {
+							var terraAdsScript  = "<script type=\"text/javascript\" src=\"http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.articles.right4&direct=1\">";
+								terraAdsScript += "<\/script>";
+							document.write(terraAdsScript);
+						}
+					</script>
 				</s:else>
 			</div>
 		</div>
@@ -43,12 +55,16 @@
 	</s:if>
 </div>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
-	<div id="ad_300_300-widget-11" class="widget ad_300_300">
+	<div id="ad_300_300-widget-11" class="widget ad_300_300 mobile-hidden">
 		<div class="widget-inner video-box clearfix">
 			<div class="ads300">
 				<div class="ads-content">
 					<div id="tatame_300x100_ros" style="width:300px; height:100px;"> 
-						<script type="text/javascript">googletag.cmd.push(function(){googletag.display("tatame_300x100_ros");});</script> 
+						<script type="text/javascript">
+							if (windowWidth > 800) {
+								googletag.cmd.push(function(){googletag.display("tatame_300x100_ros");});
+							}
+						</script> 
 					</div>
 				</div>
 			</div>
@@ -61,11 +77,15 @@
 	</div>
 	<p:tile xml="home/revista"/>
 </div>
-<div id="ad_300_300-widget-10" class="widget ad_300_300">
+<div id="ad_300_300-widget-10" class="widget ad_300_300 mobile-hidden">
 	<div class="ads300">
 		<div class="ads-content">
 			<div id="tatame_300x250_ros" style="width:300px; height:250px;"> 
-				<script type="text/javascript">googletag.cmd.push(function(){googletag.display("tatame_300x250_ros");});</script> 
+				<script type="text/javascript">
+					if (windowWidth > 800) {
+						googletag.cmd.push(function(){googletag.display("tatame_300x250_ros");});
+					}
+				</script> 
 			</div>
 		</div>
 	</div>
@@ -107,11 +127,15 @@
 		</div>
 	</div>
 </div>
-<div id="ad_300_300-widget-6" class="widget ad_300_300">
+<div id="ad_300_300-widget-6" class="widget ad_300_300 mobile-hidden">
 	<div class="ads300">
 		<div class="ads-content">
 			<div id="tatame_300x600_ros" style="width:300px; height:600px;"> 
-				<script type="text/javascript">googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});</script> 
+				<script type="text/javascript">
+					if (windowWidth > 800) {
+						googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
+					}
+				</script> 
 			</div>
 		</div>
 	</div>
