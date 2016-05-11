@@ -26,8 +26,20 @@
 	<a href="/tatame/agenda" class="diary">AGENDA</a>
 	<a href="/tatame/colunas" class="columns">COLUNAS</a>
 	<a href="/tatame/videos" class="videos">VÍDEOS</a>
-	<a href="http://www.tatameshop.com.br/" target="_blank" class="tatameshop">TATAMESHOP</a>
-	<a href="http://www.tatameshop.com.br/tatame-f65/" target="_blank" class="subscribe">ASSINE</a>
+	<a href="http://www.tatameshop.com.br/" target="_blank" class="subscribe">ASSINE</a>
+	
+	<a href="https://play.google.com/store/apps/details?id=com.msngr.chat&hl=pt_BR" target="_blank" class="icon">
+		<img  src="/skins/tatame/img/versy-logo-button.png">
+	</a>
+	<a href="https://www.facebook.com/Tatame/" target="_blank" class="icon">
+		<img  src="/skins/tatame/img/facebook-logo-button.png">
+	</a>
+	<a href="http://www.instagram.com/tatamemagazine/" target="_blank" class="icon">
+		<img  src="/skins/tatame/img/instagram-logo-button.png">
+	</a>
+	<a href="http://www.twitter.com/tatamemagazine" target="_blank" class="icon">
+		<img  src="/skins/tatame/img/twitter-logo-button.png">
+	</a>
 	<div class="search">
 		<form action="/search" method="get">
 			<input type="text" name="query" placeholder="Buscar...">

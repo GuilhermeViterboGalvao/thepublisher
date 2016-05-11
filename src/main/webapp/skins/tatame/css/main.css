@@ -43,7 +43,7 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .header .menu { float: left; width: 1024px; background-color: #2b2b2b; margin-bottom: 3px; position: relative; padding: 10px 0; }
 .header .menu .logo { float: left; max-height: 58px; height: auto; max-width: 194px; width: 15%; padding: 5px 3px 0 5px; }
 .header .menu .logo img { float: left; width: 100%; height: auto; }
-.header .menu .categories { float: left; width: 10%; height: 58px; margin-left: 0.6%; }
+.header .menu .categories { float: left; width: 10%; height: 58px; margin-left: 1.2%; }
 .header .menu .categories li { float: left; width: 100%; height: 100%; line-height: 58px; position: relative; }
 .header .menu .categories li a { float: left; color: #fff; text-decoration: none; width: 100%; text-align: center; font-size: 20px; }
 .header .menu .categories li ul { float: left; width: 100%; overflow: hidden; position: relative; display: none; }
@@ -52,11 +52,12 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .header .menu .categories li:HOVER a { background-color: #979797; }
 .header .menu .categories li:HOVER > ul { display: block; position: absolute; top: 58px; left: 0px; z-index: 999; }
 .header .menu .categories li:HOVER > ul li a { background-color: #979797; }
-.header .menu .diary { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 10%; text-align: center; margin-left: 1.1%; }
-.header .menu .columns { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 10%; text-align: center; margin-left: 1.1%; }
-.header .menu .videos { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 10%; text-align: center; margin-left: 1.1%; }
-.header .menu .tatameshop { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 12%; text-align: center; margin-left: 1.1%; }
-.header .menu .subscribe { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 10%; text-align: center; margin-left: 1.1%; }
+.header .menu .diary { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 10%; text-align: center; margin-left: 1%; }
+.header .menu .columns { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 10%; text-align: center; margin-left: 1%; }
+.header .menu .videos { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 9%; text-align: center; margin-left: 1%; }
+.header .menu .subscribe { float: left; font-size: 20px; color: #fff; text-decoration: none; line-height: 58px; height: 58px; width: 9%; text-align: center; margin: 0 1%; }
+.header .menu .icon { float: left; text-decoration: none; }
+.header .menu .icon img { width: 23px; height: auto; margin: 18px 5px 0; }
 .header .menu .search { float: left; width: 15%; height: 58px; margin-left: 1.1%; }
 .header .menu .search form { float: left; width: 100%; height: 100%; }
 .header .menu .search form input { float: left; border: none; padding: 0 0 0 4%; margin: 0; width: 96%; height: 100%; font-size: 20px; color: #fff; background-color: #2b2b2b; font-family: Metrophobic, sans-serif; background-image: url("/skins/tatame/img/search.png"); background-repeat: no-repeat; background-position: 95% 50%; background-size: 15px 15px; }
@@ -97,6 +98,7 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .footer .pages { float: left; width: 33.33%; }
 .footer .pages .title { float: left; width: 96%; padding: 2% 2% 4% 2%; font-size: 20px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 .footer .pages p { float: left; width: 96%; margin: 0 2% 4% 2%; color: #fff; font-size: 16px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+.footer .pages p a { text-decoration: none; color: #fff; } 
 .footer .address { float: left; width: 33.33%; }
 .footer .address .title { float: left; width: 96%; padding: 2% 2% 4% 2%; font-size: 20px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 .footer .address p { float: left; width: 96%; margin: 0 2% 4% 2%; color: #fff; font-size: 16px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
