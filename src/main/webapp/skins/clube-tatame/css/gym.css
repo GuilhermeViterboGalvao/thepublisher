@@ -73,9 +73,9 @@
 .resetPasswordForm input[type="submit"] { float: left; width: 99.3%; font-size: 1em; border: 0.01em solid #414142; padding: 1%; color: #fff; background-color: #333; font-weight: 600; margin: 2% 0 0 0; }
 
 .codes { float: left; width: 50%; margin: 1% 25% 5% 25%; }
-.codes .code { float: left; width: 100%; background-color: #ccc; margin: 1% 0; }
-.codes .code .text { float: left; width: 98%; margin: 1%; font-size: 1em; line-height: 1.4em; color: #414142; font-weight: 600; text-align: center; }
-.codes .code .code { float: left; width: 98%; text-align: center; font-size: 1.5em; line-height: 2.8em; margin: 0 1%; color: #cf2b1f; font-weight: 800; }
+.codes .code { float: left; width: 100%; margin: 1% 0; }
+.codes .code img { float: left; width:98%; margin: 0 1%;  }
+
 @media screen and (max-width: 800px) {
 	
 	.boxs { width: 98%; padding: 0 1%; float: left; display: block; margin: 8% 0 0; }

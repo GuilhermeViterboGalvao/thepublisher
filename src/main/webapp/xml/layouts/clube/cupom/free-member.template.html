@@ -1,9 +1,21 @@
 <% if (info && info.item && info.item.size() >= 1) { %>
 <section class="codes">		
-		<% info.item.eachWithIndex { item, index -> %>
+		<% info.item.eachWithIndex { item, index ->
+			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+					text = item.text,
+			   	    link = ""			   	    
+				if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+					link = item.link.toString()
+				} else if (!item.link.toString().isEmpty()) {
+					link = "/" + item.link.toString() 
+				} else {
+					link = "#"
+				}
+		 %>
 			<div class="code">
-				<p class="text">${item.text}</p>
-				<p class="code">${item.code}</p>
+				<a href="${link}">
+					<img alt="${photoId}" src="/img/${photoId}_693x219.jpg" />
+				</a>	
 			</div>
 		<% } %>
 </section>
