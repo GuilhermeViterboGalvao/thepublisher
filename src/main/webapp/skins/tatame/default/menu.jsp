@@ -19,6 +19,9 @@
 				</li>
 				<li>
 					<a href="/tatame/jiu-jitsu/abu-dhabi-2016">Abu Dhabi Pro</a>
+				</li>
+				<li>
+					<a href="/tatame/ufc-198">UFC 198</a>
 				</li>			
 			</ul>
 		</li>					

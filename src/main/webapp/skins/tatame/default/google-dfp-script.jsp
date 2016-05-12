@@ -41,7 +41,7 @@
 		googletag.cmd.push(function(){googletag.display("tatame_300x250_ros");});
 		googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
 		googletag.cmd.push(function(){googletag.display("tatame_1680x912_home");});
-		//googletag.cmd.push(function(){googletag.display("tatame_728x90_cob_cust");});
+		googletag.cmd.push(function(){googletag.display("tatame_728x90_cob_cust");});
 	</script>
 </s:if>
 <s:else>

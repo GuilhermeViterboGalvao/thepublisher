@@ -19,9 +19,9 @@
 	</div>
 </div>
 
-<!-- <div class="ads-1024"> -->
-<!-- 	<div id="tatame_728x90_cob_cust"></div> -->
-<!-- </div> -->
+<div class="ads-1024">
+	<div id="tatame_728x90_cob_cust"></div>
+</div>
 	
 <p:tile xml="home/destaques"/>
 
