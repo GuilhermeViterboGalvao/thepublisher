@@ -1,6 +1,7 @@
 package br.com.clubetatame.view.member;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +73,11 @@ public class MemberAction extends ActionSupport implements ViewAction, ModelDriv
 	}
 	
 	public String save() {
+		if (model.getCreated() == null) {
+			model.setCreated(new Date());
+		}
+		model.setLastModified(new Date());
+		
 		memberService.update(model);
 		return SUCCESS;
 	}

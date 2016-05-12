@@ -1,5 +1,7 @@
 package br.com.clubetatame.view;
 
+import java.util.Date;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.view.EmailUtils;
 
@@ -31,6 +33,7 @@ public class GymRegisterAction extends ActionSupport implements ViewAction {
 		gym.setHash(gymService.hash(password));
 		gym.setContact(contact);
 		gym.setPhone(phone);
+		gym.setCreated(new Date());
 		gymService.persist(gym);
 		EmailUtils.getInstance().sendEmailConfirmationToGym(gym);	
 		createWithSuccess = true;

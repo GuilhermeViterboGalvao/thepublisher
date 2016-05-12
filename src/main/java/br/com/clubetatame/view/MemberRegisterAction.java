@@ -1,5 +1,7 @@
 package br.com.clubetatame.view;
 
+import java.util.Date;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.view.EmailUtils;
 
@@ -24,6 +26,7 @@ public class MemberRegisterAction extends ActionSupport implements ViewAction {
 		member.setDocument(document);
 		member.setActive(false);
 		member.setHash(memberService.hash(password));
+		member.setCreated(new Date());
 		memberService.persist(member);
 		EmailUtils.getInstance().sendEmailConfirmationToMember(member);	
 		createWithSuccess = true;

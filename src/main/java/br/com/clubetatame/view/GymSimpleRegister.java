@@ -1,5 +1,7 @@
 package br.com.clubetatame.view;
 
+import java.util.Date;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.view.EmailUtils;
 import br.com.clubetatame.entity.Gym;
@@ -67,6 +69,7 @@ public class GymSimpleRegister extends ActionSupport {
 			gym.setDocument(document);
 			gym.setActive(false);
 			gym.setHash(gymService.hash(password));
+			gym.setCreated(new Date());
 			gymService.persist(gym);
 			EmailUtils.getInstance().sendEmailConfirmationToGym(gym);
 			result = SUCCESS;

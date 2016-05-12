@@ -1,5 +1,6 @@
 package br.com.clubetatame.view.gym;
 
+import java.util.Date;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.interceptor.validation.SkipValidation;
@@ -67,7 +68,13 @@ public class GymAction extends ActionSupport implements ViewAction, ModelDriven<
 	}
 	
 	public String save() {
+		if (model.getCreated() == null) {
+			model.setCreated(new Date());
+		}
+		model.setLastModified(new Date());
+		
 		gymService.update(model);
+		
 		return SUCCESS;
 	}
 	

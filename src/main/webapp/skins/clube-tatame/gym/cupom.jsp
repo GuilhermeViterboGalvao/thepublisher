@@ -2,13 +2,28 @@
 <%@ taglib prefix="s" uri="/struts-tags" 											 %>
 <%@ taglib prefix="p" uri="/publisher-tags" 										 %>
 <s:include value="/skins/clube-tatame/gym/menu.jsp"/>
+
 <section class="message">
 	<p class="title">Bem vindo a sua área de descontos.</p>
 	<p class="text">Aqui você encontra todos os descontos que o Clube Tatame lhe oferece.</p>
 </section>
+
 <s:if test="freeMember">
-	<p:tile xml="clube/cupom/free-gym"/>
+	<div class="content">
+		<div class="avatar">
+			<img src="/skins/clube-tatame/img/avatar-membro-free.jpg">
+			<span class="name"><s:property value="gym.name"/></span>
+			<span class="date"> membro desde <s:date name="gym.created" format="dd/MM/yyyy"/></span>
+			<span class="description">Quer descontos maiores e ainda mais vantagens? torne-se um membro premium <a href="#">aqui</a> </span>
+		</div>
+		<p:tile xml="clube/cupom/free-gym"/>
+	</div>	
 </s:if>
 <s:else>
+		<div class="avatar">
+			<img src="/skins/clube-tatame/img/avatar-membro-premium.jpg">
+			<span class="name"><s:property value="gym.name"/></span>
+			<span class="date"> membro desde <s:date name="gym.created" format="dd/MM/yyyy"/></span>
+		</div>
 	<p:tile xml="clube/cupom/paying-gym"/>
 </s:else>

@@ -44,37 +44,47 @@
 /***********************/
 /* CSS for Gym manager */
 /***********************/
-.member-menu { float: left; width: 50%; margin: 5% 25% 1% 25%; }
+.member-menu { float: left; width: 60%; margin: 5% 20% 1% 20%; }
 .member-menu li { float: left; width: 25%; }
 .member-menu li a { float: left; width: 99%; text-align: center; font-size: 1em; line-height: 1.4em; text-decoration: none; color: #fff; padding: 2% 0; background-color: #414142; margin-left: 1%; }
 
-.message { float: left; width: 50%; margin: 1% 25%; }
+.message { float: left; width: 60%; margin: 1% 20%; }
 .message .title { float: left; width: 100%; font-size: 1.2em; line-height: 1.4em; text-align: center; font-weight: 600; margin: 0 0 1.5% 0; }
 .message .text { float: left; width: 100%; font-size: 1em; margin: 0 0 1% 0; text-align: center; color: #414142; }
 
-.errors-messages { float: left; width: 50%; margin: 1% 25%; }
+.errors-messages { float: left; width: 60%; margin: 1% 20%; }
 .errors-messages .error { float: left; width: 100%; }
 .errors-messages .error li { float: left; width: 100%; }
 .errors-messages .error li span { float: left; width: 100%; font-size: 1em; text-align: center; color: red; line-height: 1.2em; }
 
-.memberForm { float: left; width: 50%; margin: 1% 25% 5% 25%; }
+.memberForm { float: left; width: 60%; margin: 1% 20% 5% 20%; }
 .memberForm label { float: left; width: 100%; font-size: 1em; line-height: 1.2em; color: #414142; margin: 0 0 1% 0; }
 .memberForm textarea,
 .memberForm input[type="text"] { float: left; width: 97%; border: 0.01em solid #414142; padding: 1%; margin: 0 0 1.5% 0; }
 .memberForm select { float: left; width: 99%; -webkit-appearance: none; padding: 1%; -moz-appearance: none; border: 0.01em solid #414142; border-radius: 0px; margin: 0 0 1.5% 0; background-color: rgb(248, 248, 248); background-image: url("/skins/clube-tatame/img/arrow-down.png"); background-repeat: no-repeat; background-position: 99% 0;background-size: 26px; }
 .memberForm input[type="submit"] { float: left; width: 99.3%; font-size: 1em; border: 0.01em solid #414142; padding: 1%; color: #fff; background-color: #333; font-weight: 600; margin: 2% 0 0 0; }
 
-.resetPassword-message { float: left; width: 50%; margin: 1% 25%; }
+.resetPassword-message { float: left; width: 60%; margin: 1% 20%; }
 .resetPassword-message p { float: left; width: 100%; font-size: 1.2em; line-height: 1.4em; text-align: center; font-weight: 600; margin: 15% 0; }
 
-.resetPasswordForm { float: left; width: 50%; margin: 1% 25% 5% 25%; }
+.resetPasswordForm { float: left; width: 60%; margin: 1% 20% 5% 20%; }
 .resetPasswordForm label { float: left; width: 100%; font-size: 1em; line-height: 1.2em; color: #414142; margin: 0 0 1% 0; }
 .resetPasswordForm input[type="password"] { float: left; width: 97%; border: 0.01em solid #414142; padding: 1%; margin: 0 0 1.5% 0; }
 .resetPasswordForm input[type="submit"] { float: left; width: 99.3%; font-size: 1em; border: 0.01em solid #414142; padding: 1%; color: #fff; background-color: #333; font-weight: 600; margin: 2% 0 0 0; }
 
-.codes { float: left; width: 50%; margin: 1% 25% 5% 25%; }
+.content { float: left; width: 60%; margin: 1% 20% 5% 20%; }
+
+.avatar { float:left; width: 25%;  }
+.avatar img { float:left; width: 100%; }
+.avatar span { float:left; width: 98%; line-height: 1.5em; font-size: 0.8em; margin-left: 1% } 
+.avatar .name { font-size: 1.2em; font-weight: bold; margin-top: 10%; }
+.avatar .description { font-weight: bold; margin-top: 10%; }
+
+.codes { float: left; width: 70%; margin-left: 2%; padding-left: 2%; border-left: 1px solid #999; }
 .codes .code { float: left; width: 100%; margin: 1% 0; }
 .codes .code img { float: left; width:98%; margin: 0 1%;  }
+
+.code-message { float: left; padding: 8% 6%; font-size: 1.5em; width: 60%; }
 
 @media screen and (max-width: 800px) {
 	
@@ -120,6 +130,18 @@
 	.resetPasswordForm,
 	.codes { float: left; width: 98%; margin: 5% 1%; }
 	
+	.codes { padding: 0; border: none; }
+	
+	.avatar { width: 70%; margin: 2% 15%; }
+	.avatar img { width: 35%; }
+	.avatar span { width: 60%; font-size: 1.1em; padding-left: 2%; }
+	.avatar .name { margin-top: 2%; font-size: 1.4em; }
+	.avatar .description { margin-top: 3%; }
+	
+	.content { width: 98%; margin: 0 1%; }
+	
+	.code-message { width: 100%;  padding: 3% 0; text-align: center; }
+	
 	.message,
 	.errors-messages { margin: 1%; }
 }
@@ -129,7 +151,16 @@
 	.message .text { font-size: 0.7em; }
 	.errors-messages .error li span { font-size: 0.8em; }
 	
-	.codes .code .text { font-size: 0.8em; }	
+	.avatar span { font-size: 0.8em; }
+	.avatar .name { font-size: 1.2em; margin-top: 0; }
+	
+	.code-message { font-size: 1.2em; }
+}
+@media screen and (max-width: 427px) {
+	.avatar { width: 80%; margin: 2% 10%; }
+	.avatar span { font-size: 0.7em; }
+	.avatar .name { font-size: 1em; }
+	.avatar .description { margin-top: 1%; }
 }
 @media screen and (max-width: 375px) {
 	.member-menu li { width: 98%; margin: 0.5% 1%; }

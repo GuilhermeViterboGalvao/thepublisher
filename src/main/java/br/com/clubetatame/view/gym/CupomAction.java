@@ -68,7 +68,11 @@ public class CupomAction extends ActionSupport implements ViewAction, SessionAwa
 	}
 	
 	public boolean isFreeMember() {
-		Collection<GymContract> contracts = gymContractService.list(gym);
+		Collection<GymContract> contracts = null;
+		try {
+			contracts = gymContractService.list(gym);
+		} catch (Exception e) { }
+		
 		if (contracts != null && contracts.size() > 0) {
 			return gymContractService.validateContract(contracts.iterator().next()) ? false : true;
 		}		

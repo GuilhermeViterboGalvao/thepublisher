@@ -1,5 +1,7 @@
 package br.com.clubetatame.view;
 
+import java.util.Date;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.view.EmailUtils;
 import br.com.clubetatame.entity.Member;
@@ -67,6 +69,7 @@ public class MemberSimpleRegister extends ActionSupport {
 			member.setDocument(document);
 			member.setActive(false);
 			member.setHash(memberService.hash(password));
+			member.setCreated(new Date());
 			memberService.persist(member);
 			EmailUtils.getInstance().sendEmailConfirmationToMember(member);
 			result = SUCCESS;
