@@ -132,7 +132,7 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
         		log.info("Facebook Login: " + accessToken + " [" + expires + "]");	
         	}
         	
-            URL url = new URL("https://graph.facebook.com/me?access_token=" + accessToken);
+            URL url = new URL("https://graph.facebook.com/me?access_token=" + accessToken + "&fields=email,name,birthday,gender");
             
             JSONObject json = new JSONObject(readURL(url));
             
@@ -159,7 +159,13 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
         		}
         		if (!json.isNull("email")) {
         			member.setEmail(json.getString("email"));
-        		}            			
+        		}       
+        		if (!json.isNull("birthday")) {
+        			System.out.println(json.getString("birthday"));
+        		} 
+        		if (!json.isNull("gender")) {
+        			System.out.println(json.getString("gender"));
+        		} 
             	if (accessToken != null && !accessToken.isEmpty()) {
             		member.setFacebookAccessToken(accessToken);	
             	}        	
