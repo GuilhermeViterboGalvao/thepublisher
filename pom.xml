@@ -119,6 +119,10 @@
   		<groupId>javax.mail</groupId>
   		<artifactId>mail</artifactId>
   	</dependency>
+  	<dependency>
+  		<groupId>org.json</groupId>
+  		<artifactId>json</artifactId>
+  	</dependency>
   </dependencies>
   <dependencyManagement>
   	<dependencies>
@@ -226,6 +230,11 @@
   			<groupId>javax.mail</groupId>
   			<artifactId>mail</artifactId>
   			<version>1.4.7</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.json</groupId>
+  			<artifactId>json</artifactId>
+  			<version>20151123</version>
   		</dependency>
   	</dependencies>
   </dependencyManagement>

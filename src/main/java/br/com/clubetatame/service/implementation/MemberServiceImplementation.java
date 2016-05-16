@@ -1,6 +1,7 @@
 package br.com.clubetatame.service.implementation;
 
 import java.math.BigInteger;
+
 import java.security.MessageDigest;
 import java.util.Collection;
 import java.util.List;
@@ -10,6 +11,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
+
 import com.publisher.service.implementation.TransactionalService;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
@@ -223,5 +225,16 @@ public class MemberServiceImplementation extends TransactionalService implements
             e.printStackTrace();
         }
         return hash;
+	}
+
+	
+	@SuppressWarnings("unchecked")
+	public Member getByFacebookId(Long fbid) {
+		if (fbid == null) return null;
+        Member member = null;
+        Query query = entityManager.createQuery("from Member where fbid=:fbid").setParameter("fbid", fbid);
+        List<Member> result = query.getResultList();
+        if (!result.isEmpty()) member = result.iterator().next();
+        return member;
 	}
 }
