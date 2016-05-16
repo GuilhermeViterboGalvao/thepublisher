@@ -26,10 +26,10 @@
         <field-validator type="requiredstring">
             <message>O campo 'data de nascimento' é obrigatório.</message>
         </field-validator>
-        <field-validator type="date">
-            <message>Data de nascimento inválido.</message>
-        </field-validator>        
-    </field>
+      <field-validator type="date">
+          <message>Formato inválido para o campo 'Data de nascimento'. Por favor coloque no seguinte padrão DD/MM/AAAA ou DD/MM/AAAA HH:MM</message>
+      </field-validator>        
+    </field>    
     <field name="address">
         <field-validator type="requiredstring">
             <message>O campo 'endereço' é obrigatório.</message>

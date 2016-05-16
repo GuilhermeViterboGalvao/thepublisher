@@ -20,12 +20,9 @@
 				<label for="email">E-mail</label>
 				<s:textfield name="email"/>		
 				<label for="gender">Gênero</label>
-				<select name="gender">
-					<option value="masculino">Masculino</option>
-					<option value="feminino">Feminino</option>
-				</select>
+				<s:select name="gender" list="listGenders" listKey="id" listValue="value" headerKey="0" headerValue="Selecione seu sexo"/>
 				<label for="birth">Data de nascimento</label>
-				<s:textfield name="birth" value="%{getText('date.format',{birth})}"/>		
+				<s:textfield name="birth" id="birth" />		
 				<label for="address">Endereço</label>
 				<s:textfield name="address"/>
 				<label for="cep">CEP</label>
@@ -46,6 +43,19 @@
 			<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy.name" /> em <s:property value="%{getText('date.format', {lastModified})}"/>.</p>			
 		</s:if>	
 	</form>
+	
+	<script type="text/javascript">
+		$("#birth").datepicker({
+		    dateFormat: 'dd/mm/yy',
+		    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+		    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+		    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+		    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+		    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+		    nextText: 'Próximo',
+		    prevText: 'Anterior'
+		});	
+	</script>
 </s:if>
 <s:else>
 	<div class="ym-form">

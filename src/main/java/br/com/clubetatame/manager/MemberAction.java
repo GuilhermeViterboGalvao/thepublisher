@@ -1,8 +1,13 @@
 package br.com.clubetatame.manager;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+
 import com.publisher.entity.Account;
+import com.publisher.utils.Option;
 import com.publisher.utils.ResultList;
 import br.com.clubetatame.entity.Member;
 import br.com.clubetatame.service.MemberService;
@@ -30,7 +35,7 @@ public class MemberAction extends AbstractAction<Member> {
 			this.document = entity.getDocument();
 			this.email = entity.getEmail();
 			this.gender = entity.getGender();
-			this.birth = entity.getBirth();
+			this.birth = getDate(entity.getBirth());
 			this.address = entity.getAddress();
 			this.cep = entity.getCep();
 			this.active = entity.isActive();
@@ -48,7 +53,7 @@ public class MemberAction extends AbstractAction<Member> {
 			entity.setDocument(document);
 			entity.setEmail(email);
 			entity.setGender(gender);
-			entity.setBirth(birth);
+			entity.setBirth(getDate(birth));
 			entity.setAddress(address);
 			entity.setCep(cep);
 			entity.setActive(active);
@@ -96,6 +101,55 @@ public class MemberAction extends AbstractAction<Member> {
 		return memberService.get(id);
 	}
 	
+	private String getDate(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		String d = null;
+		int year  = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH) + 1;
+		int day   = calendar.get(Calendar.DAY_OF_MONTH);
+		d  = day < 10 ? "0" + String.valueOf(day) : String.valueOf(day);
+		d += "/" + (month < 10 ? "0" + String.valueOf(month) : String.valueOf(month));
+		d += "/" + String.valueOf(year);
+		return d;
+	}
+	
+	private Date getDate(String date) {
+		if (date != null && !date.isEmpty() && date.length() == 10) {
+			String[] d = date.split("/");
+			if (d != null && d.length == 3) {
+				int year  = 0;
+				int month = 0;
+				int day   = 0;
+				try {
+					year  = Integer.parseInt(d[2]);
+					month = Integer.parseInt(d[1]) - 1;
+					day   = Integer.parseInt(d[0]);
+				} catch (Exception e) { }
+				if (year > 0 && month >= 0 && day > 0) {
+					Calendar calendar = Calendar.getInstance();
+					calendar.set(Calendar.YEAR,        year);
+					calendar.set(Calendar.MONTH,      month);
+					calendar.set(Calendar.DAY_OF_MONTH, day);
+					calendar.set(Calendar.HOUR_OF_DAY,    0);
+					calendar.set(Calendar.MINUTE,         0);
+					calendar.set(Calendar.SECOND,         0);
+					calendar.set(Calendar.MILLISECOND,    0);
+					return calendar.getTime();
+				}
+			}
+		}
+		return null;
+	}
+	
+	//Only for Select of genders	
+	public List<Option> getListGenders() {
+		List<Option> options = new ArrayList<Option>();
+		options.add(new Option("Masculino", "Masculino"));
+		options.add(new Option("Feminino", "Feminino"));
+		return options;
+	}
+	
 	//Action properties
 	
 	private String orderBy = "created";
@@ -130,7 +184,7 @@ public class MemberAction extends AbstractAction<Member> {
 	
 	private String gender;
 	
-	private Date birth;
+	private String birth;
 	
 	private String address;
 	
@@ -186,11 +240,11 @@ public class MemberAction extends AbstractAction<Member> {
 		this.gender = gender;
 	}
 
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
 
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 

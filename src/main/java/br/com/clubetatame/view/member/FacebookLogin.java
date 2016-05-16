@@ -161,8 +161,7 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
         			member.setEmail(json.getString("email"));
         		}       
         		if (!json.isNull("gender")) {
-        			member.setGender((json.getString("gender").equals("male") ? "masculino" : "feminino"));
-        			System.out.println(member.getGender());
+        			member.setGender((json.getString("gender").equals("male") ? "Masculino" : "Feminino"));
         		} 
             	if (accessToken != null && !accessToken.isEmpty()) {
             		member.setFacebookAccessToken(accessToken);	
