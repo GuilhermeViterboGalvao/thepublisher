@@ -28,7 +28,7 @@
         <action name="facebookLogin" class="br.com.clubetatame.view.member.FacebookLogin">
        		<interceptor-ref name="defaultStack"/>
             <result name="login" type="tiles">default</result>
-            <result name="redirect" type="redirectAction">membro-input</result>      
+            <result type="redirectAction">membro-input</result>      
         </action>	
 		<action name="logout" class="br.com.clubetatame.view.member.LogoutAction"/>
 		<action name="membro-*" class="br.com.clubetatame.view.member.MemberAction" method="{1}">

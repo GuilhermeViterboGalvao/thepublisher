@@ -53,7 +53,7 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
 	public String execute() throws Exception {
 		String returnType = LOGIN;
 		
-        if (code == null){
+        if (code != null){
 	        Member smember = (Member)session.get("member");
 	        
 	        if (smember == null) {
@@ -65,7 +65,7 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
 	        		appId = "515364881999582";        		        		
 	        		member = facebookAuthentication(code);
 				}
-	            if (member != null && member.isActive()){
+	            if (member != null){
 		            session.put("member", member);
 		            returnType = SUCCESS;
 	            }
