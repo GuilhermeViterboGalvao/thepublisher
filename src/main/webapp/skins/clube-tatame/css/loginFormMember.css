@@ -12,6 +12,9 @@
 .form input[type="submit"] { float: left; width: 100%; padding: 1%; background-color: #ffefa3; font-size: 1em; line-height: 1.2em; text-align: center; font-weight: 800; color: #414142; border: 0.01em solid #414142; border-radius: 5px; }
 .info2 { float: left; width: 50%; margin: 5% 25% 0 25%; }
 .info2 label { float: left; width: 100%; font-size: 1.2em; margin: 0 0 5% 0; line-height: 1.4em; text-align: center; }
+
+.btnFacebook { float:left; width: 80%; margin: 0 10% 3%; }
+
 @media screen and (max-width: 800px) {
 	.erro-messages { width: 98%; margin: 5% 1% 0 1%; }
 	.erro-messages .error li span { font-size: 1em; line-height: 1.2em; }

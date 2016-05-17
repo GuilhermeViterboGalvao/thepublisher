@@ -17,7 +17,7 @@
 	
 	.form { float:left; width: 55%; padding: 2% 5%; }
 	.form  .title { float: left; font-size: 1.2em; text-transform: uppercase;  }
-	.form form { float: left; width: 57%; margin: 7% 0 2%; }
+	.form form { float: left; width: 57%; margin: 3% 0 2%; }
 	.form form input[type="text"],
 	.form form input[type="email"],
 	.form form input[type="password"] { float: left; width: 98%; margin: 0 0 6% 0; border: 1px solid #999999; font-size: 0.7em; padding: 1% 2%; line-height: 1.1em; border-radius: 14px; }
@@ -42,6 +42,9 @@
 	
 	.register-header { float: left; width: 100%; margin: 2% 0; text-align: center; }
 	
+	.pluginFacebook { float: left; width: 100%; }
+	.btnFacebook { float:left; width: 40%; margin: 4% 0 2%; }
+	
 	@media screen and (max-width: 800px) {
 		.erro-messages { width: 98%; margin: 5% 1% 0 1%; }
 		.erro-messages .error li span { font-size: 1em; line-height: 1.2em; }
@@ -62,6 +65,8 @@
 		.title-page { display: none; }
 		
 		.register-header img { width: 100%; }
+		
+		.btnFacebook { float:left; width: 60%; margin: 3% 20%; }
 	}
 	
 	@media screen and (max-width: 414px) {
@@ -87,6 +92,10 @@
 		<div class="content">
 			<div class="form">
 				<span class="title">faça seu cadastro grátis no clube tatame</span>
+				
+				<a class="pluginFacebook" href="https://www.facebook.com/dialog/oauth?client_id=515364881999582&display=page&scope=email&redirect_uri=http://homolog.tatame.terra.com.br/clube/membros/facebookLogin">
+					<img class="btnFacebook" alt="" src="/skins/clube-tatame/img/btnFacebookLarge.png">
+				</a>
 			
 				<form action="/clube/memberRegister" method="post">
 					<input type="text" name="name" placeholder="nome completo"/>
