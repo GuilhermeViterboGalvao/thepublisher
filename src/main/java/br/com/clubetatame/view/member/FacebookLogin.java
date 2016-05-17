@@ -13,7 +13,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.json.JSONObject;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.publisher.view.EmailUtils;
 
 import br.com.clubetatame.entity.Member;
 import br.com.clubetatame.service.MemberService;
@@ -65,7 +64,7 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
 	        		appId = "515364881999582";        		        		
 	        		member = facebookAuthentication(code);
 				}
-	            if (member != null){
+	            if (member != null && member.isActive()){
 		            session.put("member", member);
 		            returnType = SUCCESS;
 	            }
@@ -149,9 +148,8 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
             	member = memberService.getByFacebookId(fbid);
             	if (member == null) {
             		member = new Member();
-            		member.setActive(false);
+            		member.setActive(true);
             		member.setCreated(new Date());
-            		EmailUtils.getInstance().sendEmailConfirmationToMember(member);	
             	}
             	member.setFbid(fbid);
         		if (!json.isNull("name")) {
