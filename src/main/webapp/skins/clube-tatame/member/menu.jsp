@@ -10,6 +10,11 @@
 			<a href="/clube/membros/resetPassword">Alterar senha</a>
 		</li>
 	</s:if>
+	<s:else>
+		<li>
+			<a href="http://www.tatameshop.com.br/">Loja Virtual</a>
+		</li>
+	</s:else>
 	<li>
 		<a href="/clube/membros/cupom">Cupons</a>
 	</li>	
