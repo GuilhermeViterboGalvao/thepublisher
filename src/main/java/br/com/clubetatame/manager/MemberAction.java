@@ -35,7 +35,11 @@ public class MemberAction extends AbstractAction<Member> {
 			this.document = entity.getDocument();
 			this.email = entity.getEmail();
 			this.gender = entity.getGender();
-			this.birth = getDate(entity.getBirth());
+			
+			if(entity.getBirth() != null){
+				this.birth = getDate(entity.getBirth());
+			}
+
 			this.address = entity.getAddress();
 			this.cep = entity.getCep();
 			this.active = entity.isActive();

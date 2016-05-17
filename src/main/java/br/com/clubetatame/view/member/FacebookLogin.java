@@ -17,9 +17,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import br.com.clubetatame.entity.Member;
 import br.com.clubetatame.service.MemberService;
 import br.com.clubetatame.service.implementation.MemberServiceImplementation;
+import br.com.clubetatame.view.ViewAction;
 
 
-public class FacebookLogin extends ActionSupport implements SessionAware {
+public class FacebookLogin extends ActionSupport implements  ViewAction, SessionAware {
 
 	private static final long serialVersionUID = 7982474673172814773L;
 	
@@ -131,7 +132,7 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
         		log.info("Facebook Login: " + accessToken + " [" + expires + "]");	
         	}
         	
-            URL url = new URL("https://graph.facebook.com/me?access_token=" + accessToken + "&fields=email,name,gender");
+            URL url = new URL("https://graph.facebook.com/me?access_token=" + accessToken + "&fields=name,gender,email");
             
             JSONObject json = new JSONObject(readURL(url));
             
@@ -161,6 +162,7 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
         		if (!json.isNull("gender")) {
         			member.setGender((json.getString("gender").equals("male") ? "Masculino" : "Feminino"));
         		} 
+
             	if (accessToken != null && !accessToken.isEmpty()) {
             		member.setFacebookAccessToken(accessToken);	
             	}        	
@@ -197,4 +199,14 @@ public class FacebookLogin extends ActionSupport implements SessionAware {
     	}
         return url;
     }
+    
+    @Override
+	public String getLayoutPath() {
+		return "/skins/clube-tatame/default/layout.jsp";
+	}
+
+	@Override
+	public String getContentPath() {
+		return "/skins/clube-tatame/member/loginform.jsp";
+	}
 }
