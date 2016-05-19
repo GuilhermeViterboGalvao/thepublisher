@@ -45,9 +45,4 @@
 	<img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=641946129239872&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
-
-<!-- WebSpectator -->
-<script type="text/javascript" src="//wfpscripts.webspectator.com/bootstrap/ws-68AA2D64.js"></script>
-<!-- WebSpectator -->
-
 <jsp:include page="/skins/tatame/default/google-analytics-script.jsp"/>

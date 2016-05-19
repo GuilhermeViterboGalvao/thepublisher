@@ -91,3 +91,7 @@
 
 .facebook { float: left; height: 600px; width: 714px; background-color: #f6f6f6; }
 .facebook > div { height: 580px; width: 500px; margin: 10px 107px; }
+
+@media screen and (max-width: 800px){
+	.highlights { width: 100%; height: auto; }
+}
