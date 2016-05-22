@@ -55,3 +55,67 @@ div.related-posts div.related-item div.info { float: left; width: 300px; height:
 div.related-posts div.related-item div.info .title { float: left; width: 290px; height: 38px; padding: 0 0 0 5px; line-height: 18px; overflow: hidden; }
 div.related-posts div.related-item div.info .title a {  text-decoration:none; font-size: 13px; color: #fff;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 div.related-posts div.related-item div.info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 13px; color: #fff; padding: 0 0 0 5px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+
+@media screen and (max-width: 800px){
+	div.content div.title { width: 100%; height: auto; font-size: 1.2em; line-height: 1.4em; margin: 0 0 2.5% 0; }
+	div.content div.credits,
+	div.content div.credits div.info,
+	div.content div.credits div.info p,
+	div.content div.credits div.info p a,
+	div.content div.credits div.social-plugins { width: 100%; height: auto; }
+	div.content div.credits { margin: 0 0 2.5% 0; }
+	div.content div.credits div.info { width: 98%; padding: 1%; }
+	div.content div.credits div.info p { font-size: 1em; line-height: 1.2em; margin: 0 0 1% 0; padding: 0 1%; width: 98%; }
+	div.content div.credits div.social-plugins > div { width: 98%; padding: 1%; height: auto; }
+	
+	div.content div.text { width: 100%; height: auto; padding: 0; margin: 0 0 2.5% 0; }
+	div.content div.text p { width: 100%; height: auto; padding: 0; margin: 0 0 5% 0; font-size: 1.3em; line-height: 1.8em; }
+	
+	div.content div.text > div,
+	div.content div.size670,
+	div.content div.size670 div,
+	div.content div.size670 > img,
+	div.content div.size670 > div,
+	div.content div.size360,
+	div.content div.size360 div,
+	div.content div.size360 > img,
+	div.content div.size360 > div,
+	div.content div.size320,
+	div.content div.size320 div,
+	div.content div.size320 > img,
+	div.content div.size320 > div,
+	div.content div.size210,
+	div.content div.size210 div,
+	div.content div.size210 > div,
+	div.content div.size210 > div,
+	div.content div.size320 > div,
+	div.content div.size360 > div,
+	div.content div.size670 > div,
+	div.content div.center,
+	div.content div.center img,
+	div.content div.center div,
+	div.content div.right,
+	div.content div.left { float: left; width: 100%; height: auto; padding: 0; margin: 0; position: relative; }
+	
+	div.content div.text > div { margin: 0 0 5% 0; }
+	
+	div.content div.size670 > div,
+	div.content div.size360 > div,
+	div.content div.size320 > div,
+	div.content div.size210 > div { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; max-height: none; }
+	
+	div.content div.tags { width: 100%; height: auto; font-size: 1.3em; line-height: 1.8em; margin: 0 0 2.5% 0; }
+	
+	div.black-belt-post-related { width: 100%; margin: 2.5% 0 1% 0; height: auto; }
+	div.black-belt-post-related div.dan { font-size: 1em; height: auto; line-height: normal; margin-left: 5%; width: auto; padding: 1.5% 2.5%; text-align: center; }
+	
+	div.related-posts,
+	div.related-posts div.related-item,
+	div.related-posts div.related-item > a,
+	div.related-posts div.related-item > a > img,
+	div.related-posts div.related-item .note { width: 100%; height: auto; }
+	div.related-posts div.related-item { margin: 0 0 2.5% 0; }
+	div.related-posts div.related-item div.info { width: 100%; height: auto; }
+	div.related-posts div.related-item div.info .title,
+	div.related-posts div.related-item div.info .date { width: 96%; height: auto; padding: 2%; background-color: #2b2b2b; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; margin: 0; }	
+}

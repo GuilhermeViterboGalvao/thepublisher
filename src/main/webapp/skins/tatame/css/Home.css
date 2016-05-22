@@ -132,7 +132,7 @@
 	.other-highlights .highlight > a > img { width: 100%; height: auto; }
 	.other-highlights .highlight .info { width: 100%; height: auto; }
 	.other-highlights .highlight .info .note,
-	.other-highlights .highlight .info .date { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; }
+	.other-highlights .highlight .info .date { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; }
 	
 	.jiu-jitsu-articles,
 	.jiu-jitsu-articles .jiu-jitsu-article,
@@ -140,7 +140,7 @@
 	.jiu-jitsu-articles .jiu-jitsu-article > a > img,
 	.jiu-jitsu-articles .jiu-jitsu-article .note { float: left; width: 100%; height: auto; }
 	.jiu-jitsu-articles .jiu-jitsu-article { margin: 0 0 2.5% 0; }	
-	.jiu-jitsu-articles .jiu-jitsu-article .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; }
+	.jiu-jitsu-articles .jiu-jitsu-article .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; }
 	
 	.colunas-articles,
 	.colunas-articles .coluna,
@@ -149,7 +149,7 @@
 	.colunas-articles .coluna > a { background-color: #2b2b2b; }	
 	.colunas-articles .coluna > a > img { float: none; width: 50%; height: auto; margin: 0 auto; display: block; }
 	.colunas-articles .coluna .transparence { display: none; }
-	.colunas-articles .coluna .title { position: relative; width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; left: 0; top: 0; max-height: none; }
+	.colunas-articles .coluna .title { position: relative; width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; left: 0; top: 0; max-height: none; }
 	
 	.last-news,
 	.last-news .article,
@@ -160,7 +160,7 @@
 	.last-news .article .info .note { float: left; width: 100%; height: auto; }
 	.last-news .article { margin: 0 0 2.5% 0; }
 	.last-news .article .info .date,
-	.last-news .article .info .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	.last-news .article .info .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; max-height: none; }
 	
 	.agenda-articles,
 	.agenda-articles div.article,
@@ -174,20 +174,20 @@
 	.videos .video > a > img,
 	.videos .video .note { width: 100%; height: auto; }
 	.videos .video { margin: 0 0 2.5% 0; }
-	.videos .video .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	.videos .video .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; max-height: none; }
 	
 	.big-video,
 	.big-video iframe,
 	.big-video .note { width: 100%; height: auto; }
 	.big-video { margin: 0 0 2.5% 0; }
 	.big-video iframe { min-height: 250px; }
-	.big-video .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }	
+	.big-video .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; max-height: none; }	
 		
 	.magazine,
 	.magazine > a,
 	.magazine > a > img,
 	.magazine .note { width: 100%; height: auto; }
-	.magazine .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	.magazine .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; max-height: none; }
 	.magazine { margin: 0 0 2.5% 0; }
 	
 	.facebook,
