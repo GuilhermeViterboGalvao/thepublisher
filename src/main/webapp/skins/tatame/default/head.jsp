@@ -25,7 +25,7 @@
 <link href="/frameworks/jquery/plugins/perfect-scrollbar.min.css" rel="stylesheet" type="text/css"/>
 <link rel="shortcut icon" href="http://cdn-tatame.trrsf.com/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Metrophobic" type="text/css"/>
-<link rel="stylesheet" href="/skins/tatame/css/main.css?20" type="text/css"/>
+<link rel="stylesheet" href="/skins/tatame/css/main.css?21" type="text/css"/>
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
 	<link rel="stylesheet" href="/skins/tatame/css/ArticleMain.css?1" type="text/css"/>
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">
@@ -33,7 +33,7 @@
 	</s:if>
 </s:if>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
-	<link rel="stylesheet" href="/skins/tatame/css/Home.css?11" type="text/css"/>
+	<link rel="stylesheet" href="/skins/tatame/css/Home.css?12" type="text/css"/>
 </s:elseif>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Category">
 	<link rel="stylesheet" href="/skins/tatame/css/Category.css" type="text/css"/>
