@@ -134,7 +134,6 @@ $(function() {
 	
 	
 	//Colunas
-	
 	$("div.colunas-articles").mouseover(function() {
 		$("img.colunas-arrow-left").add("img.colunas-arrow-right").css("display", "block");
 	}).mouseout(function() {

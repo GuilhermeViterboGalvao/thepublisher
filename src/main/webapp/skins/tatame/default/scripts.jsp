@@ -3,7 +3,7 @@
 <script type="text/javascript">terra_stats_metrics();</script>
 <script type="text/javascript" src="http://cdn-tatame.trrsf.com/skins/tatame/js/jquery-1.7.2-min.js"></script>
 <script type="text/javascript" src="/frameworks/jquery/plugins/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="/skins/tatame/js/main.js?1"></script>
+<script type="text/javascript" src="/skins/tatame/js/main.js?2"></script>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 	<script type="text/javascript" src="/skins/tatame/js/Home.js?15"></script>
 </s:if>
@@ -45,5 +45,4 @@
 	<img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=641946129239872&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
-
 <jsp:include page="/skins/tatame/default/google-analytics-script.jsp"/>

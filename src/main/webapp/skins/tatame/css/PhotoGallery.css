@@ -14,3 +14,24 @@ div.content div.bigphotoholder-thumbs div.photoholder { float: left; height: 78p
 div.content div.bigphotoholder-thumbs div.photoholder img { border: 1px solid #babaca; float: left; height: 75px; margin: 0 2px; width: 101px; }
 div.content .hide { display: none; }
 div.content .show { display: block; }
+
+@media screen and (max-width: 800px){
+	div.content div.bigphotoholder,
+	div.content div.bigphotoholder div.holder,
+	div.content div.bigphotoholder div.holder img,
+	div.content div.bigphotoholder div.bigphotonote { float: left; width: 100%; height: auto; display: block; }
+	div.content div.bigphotoholder div.transparent { display: none; }
+	div.content div.bigphotoholder div.bigphotonote{ position: relative; width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; left: 0; top: 0; max-height: none; }
+	
+	div.content div.bigphotoholder-thumbs,
+	div.content div.bigphotoholder-thumbs div.photoholder,
+	div.content div.bigphotoholder-thumbs div.photoholder img { float: left; width: 100%; height: auto; display: block; }
+	
+	div.content div.bigphotoholder-thumbs div.photoholder { width: 80%; }
+	div.content div.bigphotoholder-thumbs div.photoholder img { width: 15.66666666666667%; margin: 0 0.5%; border: 0; }
+	
+	div.content div.bigphotoholder-thumbs div.left,
+	div.content div.bigphotoholder-thumbs div.right { width: 10%; height: auto; padding: 0; }
+	div.content div.bigphotoholder-thumbs div.left img, 
+	div.content div.bigphotoholder-thumbs div.right img { width: 100%; height: auto; min-height: 1px; }
+}

@@ -32,3 +32,56 @@ div.content div.page-list a { text-decoration: none; color: #2b2b2b; font-size: 
 div.content div.magazine { float: left; height: 600px; width: 300px; overflow: hidden; }
 div.content div.magazine img { float: left; height: 402px; width: 300px; }
 div.content div.magazine .note { float: left; height: 187px; width: 290px; padding: 10px 0 0 10px; font-size: 30px; background-color: #f6f6f6; color: #000; border-top: 1px solid #a2393c; line-height: 35px; }
+
+@media screen and (max-width: 800px){
+	div.content span.category-name { width: 100%; font-size: 1em; }
+	
+	div.content div.first-article,
+	div.content div.first-article > a,
+	div.content div.first-article > a > img,
+	div.content div.first-article div.info,
+	div.content div.first-article div.info p.title,
+	div.content div.first-article div.info p.author,
+	div.content div.first-article div.info p.note { width: 100%; height: auto; }
+	div.content div.first-article { margin: 0 0 2.5% 0; }
+	div.content div.first-article div.info { padding: 0; }
+	div.content div.first-article div.info p.title,
+	div.content div.first-article div.info p.author,
+	div.content div.first-article div.info p.note { width: 96%; height: auto; padding: 2%; background-color: #000; font-size: 1em; line-height: 1.25em; max-height: none; }
+	div.content div.first-article div.info p.title > a,
+	div.content div.first-article div.info p.author > a,
+	div.content div.first-article div.info p.note > a { color: #fff; }
+	div.content div.first-article div.info p.author span { border: none; }
+	
+	div.content div.articles,
+	div.content div.articles div.article,
+	div.content div.articles div.article > a,
+	div.content div.articles div.article > a > img,
+	div.content div.articles div.article div.info,
+	div.content div.articles div.article div.info p.title,
+	div.content div.articles div.article div.info p.author,
+	div.content div.articles div.article div.info p.note { width: 100%; height: auto; }
+	div.content div.articles div.article { margin: 0 0 2.5% 0; }
+	div.content div.articles div.article div.info { padding: 0; }
+	div.content div.articles div.article div.info p.title,
+	div.content div.articles div.article div.info p.author,
+	div.content div.articles div.article div.info p.note { width: 96%; height: auto; padding: 2%; background-color: #000; font-size: 1em; line-height: 1.25em; max-height: none; }
+	div.content div.articles div.article div.info p.title > a,
+	div.content div.articles div.article div.info p.author > a,
+	div.content div.articles div.article div.info p.note > a { color: #fff; }
+	div.content div.articles div.article div.info p.author span { border: none; }	
+	
+	div.content div.page-list,
+	div.content div.page-list span.current,
+	div.content div.page-list a { width: 100%; height: auto; }
+	div.content div.page-list { margin: 0 0 2.5% 0; padding: 0; }
+	div.content div.page-list span.current,
+	div.content div.page-list a { margin: 0; font-size: 1em; padding: 2%; text-align: center; line-height: 1.2em; }
+	
+	div.content div.magazine,
+	div.content div.magazine > a,
+	div.content div.magazine > a > img,
+	div.content div.magazine .note { width: 100%; height: auto; }
+	div.content div.magazine .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	div.content div.magazine { margin: 2.5% 0; }		
+}

@@ -61,6 +61,7 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .header .menu .search { float: left; width: 15%; height: 58px; margin-left: 1.1%; }
 .header .menu .search form { float: left; width: 100%; height: 100%; }
 .header .menu .search form input { float: left; border: none; padding: 0 0 0 4%; margin: 0; width: 96%; height: 100%; font-size: 20px; color: #fff; background-color: #2b2b2b; font-family: Metrophobic, sans-serif; background-image: url("/skins/tatame/img/search.png"); background-repeat: no-repeat; background-position: 95% 50%; background-size: 15px 15px; }
+.header .menu-mobile { display: none; width: 0px; height:  0px; }
 
 .content { float: left; height: auto; width: 100%; background-color: #fff; padding: 10px 0; }
 
@@ -102,3 +103,62 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .footer .address { float: left; width: 33.33%; }
 .footer .address .title { float: left; width: 96%; padding: 2% 2% 4% 2%; font-size: 20px; color: #fff; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 .footer .address p { float: left; width: 96%; margin: 0 2% 4% 2%; color: #fff; font-size: 16px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+
+.mobile-hidden { display: block; }
+
+@media screen and (max-width: 800px){
+	.ads,
+	.mobile-hidden,
+	.header .menu,
+	.ads-300-100,
+	.ads-300-250,
+	.ads-300-600 { display: none; width: 0px; height: 0px; }
+	.box-shadow { box-shadow: none; }
+		
+	.page { float: left; padding: 1%; width: 98%; display: block; }
+
+	.header { overflow: hidden; }
+	.header .terra-bar iframe { height: 24px; width: 101%; }	
+	.header .menu-mobile { float: left; display: block; width: 100%; height: auto; background-color: #2b2b2b; }
+	.header .menu-mobile .logo { float: left; width: 100%; height: auto; margin: 0 0 1% 0; }
+	.header .menu-mobile .logo img { width: 100%; height: auto; max-width: 194px; margin: 1% auto; display: block; }
+	.header .menu-mobile .search { float: left; width: 98%; height: auto; margin: 0 0 1% 0; padding: 0 1%; }
+	.header .menu-mobile .search form { float: left; width: 100%; height: auto; }
+	.header .menu-mobile .search form input { float: left; width: 98%; height: auto; margin: 0; border: none; padding: 1%; font-size: 1em; line-height: 1.2em; color: #fff; font-family: Metrophobic, sans-serif; background-image: url("/skins/tatame/img/search.png"); background-repeat: no-repeat; background-position: 98% 50%; background-size: 15px 15px; }
+	.header .menu-mobile .categories { float: left; display: block; width: 98%; padding: 0; margin: 0 1% 1% 1%; border: 0.01em solid #ccc; border-radius: 3px; overflow: hidden; background-color: #fff; background: #fff url("/skins/tatame/img/select-arrow-down.gif") no-repeat 98% 50%; }
+	.header .menu-mobile .categories select { float: left; font-size: 0.8em; padding: 1%; width: 100%; border: none; box-shadow: none; background-color: transparent; background-image: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+	.header .menu-mobile .categories select:focus { outline: none; }
+	
+	.content { overflow: hidden; }
+	
+	.box-1024,
+	.box-714,
+	.box-507,
+	.box-300 { width: 100%; }
+	
+	.margin-right-5,
+	.margin-right-10,
+	.margin-right-15,
+	.margin-left-2,
+	.margin-left-5,
+	.margin-left-9,
+	.margin-left-10,
+	.margin-left-15,
+	.margin-top-5,
+	.margin-top-10,
+	.margin-top-15,
+	.margin-bottom-5,
+	.margin-bottom-10,
+	.margin-bottom-15 { margin: 0; }
+	
+	.footer .logo,
+	.footer .pages,
+	.footer .address { width: 100%; height: auto; }
+	
+	.footer .logo img { max-width: none; width: 50%; float: none; display: block; margin: 5% auto; }
+	
+	.footer .pages .title,
+	.footer .address .title { text-align: center; font-size: 1.4em; }
+	.footer .pages p,
+	.footer .address p { text-align: center; font-size: 1em; }
+}
