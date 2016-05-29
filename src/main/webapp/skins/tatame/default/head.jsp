@@ -29,11 +29,11 @@
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
 	<link rel="stylesheet" href="/skins/tatame/css/ArticleMain.css?2" type="text/css"/>
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">
-		<link rel="stylesheet" href="/skins/tatame/css/PhotoGallery.css" type="text/css"/>		
+		<link rel="stylesheet" href="/skins/tatame/css/PhotoGallery.css?2" type="text/css"/>		
 	</s:if>
 </s:if>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
-	<link rel="stylesheet" href="/skins/tatame/css/Home.css?12" type="text/css"/>
+	<link rel="stylesheet" href="/skins/tatame/css/Home.css?13" type="text/css"/>
 </s:elseif>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Category">
 	<link rel="stylesheet" href="/skins/tatame/css/Category.css?1" type="text/css"/>
