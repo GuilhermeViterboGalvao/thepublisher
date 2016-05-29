@@ -102,7 +102,7 @@ div.related-posts div.related-item div.info .date { float: left; width: 295px; h
 	div.content div.size670 > div,
 	div.content div.size360 > div,
 	div.content div.size320 > div,
-	div.content div.size210 > div { width: 96%; height: auto; padding: 2%; background-color: #000; color: #2b2b2b; font-size: 1em; line-height: 1.25em; max-height: none; }
+	div.content div.size210 > div { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
 	
 	div.content div.tags { width: 100%; height: auto; font-size: 1.3em; line-height: 1.8em; margin: 0 0 2.5% 0; }
 	
