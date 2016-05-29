@@ -19,6 +19,9 @@
 				</li>
 				<li>
 					<a href="/tatame/jiu-jitsu/abu-dhabi-2016">Abu Dhabi Pro</a>
+				</li>
+				<li>
+					<a href="/tatame/ufc-198">UFC 198</a>
 				</li>			
 			</ul>
 		</li>					
@@ -28,7 +31,7 @@
 	<a href="/tatame/videos" class="videos">VÍDEOS</a>
 	<a href="http://www.tatameshop.com.br/" target="_blank" class="subscribe">ASSINE</a>
 	
-	<a href="https://play.google.com/store/apps/details?id=com.msngr.chat&hl=pt_BR" target="_blank" class="icon">
+	<a href="https://versy.com/z/p12" target="_blank" class="icon">
 		<img  src="/skins/tatame/img/versy-logo-button.png">
 	</a>
 	<a href="https://www.facebook.com/Tatame/" target="_blank" class="icon">
