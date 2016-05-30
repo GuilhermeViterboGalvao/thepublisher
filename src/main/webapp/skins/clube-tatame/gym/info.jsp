@@ -93,7 +93,7 @@
 				</script>	
 				<div 
 					class="fb-page" 
-					data-href="https://www.facebook.com/${facebook}" 
+					data-href="${facebook}" 
 					data-tabs="timeline" 
 					data-width="432" 
 					data-height="369" 
