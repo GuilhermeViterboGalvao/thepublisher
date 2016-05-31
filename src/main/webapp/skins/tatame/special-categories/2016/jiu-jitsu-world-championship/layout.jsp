@@ -9,7 +9,7 @@
 	<s:set var="customDfpPathJSP" value="'/skins/tatame/special-categories/2016/jiu-jitsu-world-championship/google-dfp-script.jsp'" />
 </s:if>
 
-<s:if test="model != null && model instanceof com.publisher.entity.Category && model.id == 43">
+<s:if test="model != null && model instanceof com.publisher.entity.Category && model.id == 44">
 	<s:set var="customDfpPathJSP" value="'/skins/tatame/special-categories/2016/jiu-jitsu-world-championship/google-dfp-script.jsp'" />
 </s:if>
 
