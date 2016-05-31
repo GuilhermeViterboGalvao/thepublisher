@@ -25,7 +25,7 @@
 			googletag.defineSlot("/13554095/Tatame_300x250_ros", [300, 250], "tatame_300x250_ros").addService(googletag.pubads());
 			googletag.defineSlot("/13554095/Tatame_300x600_ros", [300, 600], "tatame_300x600_ros").addService(googletag.pubads());
 			googletag.defineSlot("/13554095/Tatame_1680x912_Home", [1680, 912], "tatame_1680x912_home").addService(googletag.pubads());
-			//googletag.defineSlot("/13554095/Tatame_728x90_Cob_Cust_Home", [728, 90], "tatame_728x90_cob_cust").addService(googletag.pubads());
+			googletag.defineSlot("/13554095/Tatame_728x90_Cob_Cust_Home", [728, 90], "tatame_728x90_cob_cust").addService(googletag.pubads());
 			googletag.pubads().setTargeting("pageType", "home");
 			googletag.pubads().enableSingleRequest();
 			googletag.enableServices();
@@ -41,7 +41,7 @@
 		googletag.cmd.push(function(){googletag.display("tatame_300x250_ros");});
 		googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
 		googletag.cmd.push(function(){googletag.display("tatame_1680x912_home");});
-		//googletag.cmd.push(function(){googletag.display("tatame_728x90_cob_cust");});
+		googletag.cmd.push(function(){googletag.display("tatame_728x90_cob_cust");});
 	</script>
 </s:if>
 <s:else>
