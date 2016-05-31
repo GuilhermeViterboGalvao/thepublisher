@@ -22,6 +22,9 @@
 				</li>
 				<li>
 					<a href="/tatame/ufc-198">UFC 198</a>
+				</li>
+				<li>
+					<a href="/tatame/jiu-jitsu/mundial-2016">Mundial 2016</a>
 				</li>			
 			</ul>
 		</li>					
