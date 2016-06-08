@@ -7,7 +7,7 @@
 	</div>
 </s:if>
 <div class="info">
-	<label>Área restria à academias parceiras do Clube Tatame.</label>
+	<label>Área restrita à academias parceiras do Clube Tatame.</label>
 </div>
 <form class="form" action="/clube/academias/login" method="post">
 	<label for="email">E-mail</label>

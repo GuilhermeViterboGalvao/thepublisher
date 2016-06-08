@@ -55,25 +55,25 @@
 			<table>
 				<tr>
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-people.png"></td>
-					<td class="member-premium margin">Desconto de 20% no TATAMEShop e em diversas lojas parceiras</td>
+					<td class="member-premium margin">Grandes descontos no TATAMEShop e em diversas lojas parceiras</td>
 					<td class="member-free"><img src="/skins/clube-tatame/img/icon-medal.png"></td>
 					<td class="member-free margin">Desconto em produtos em diversas lojas virtuais</td>
 				</tr>
 				<tr>
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-kimono.png"></td>
-					<td class="member-premium margin">Concurso cultural valendo uma passagem para o Mundial de Jiu-Jitsu nos EUA</td>
+					<td class="member-premium margin">Concurso cultural valendo uma passagem para o Abu Dhabi Pro</td>
 					<td class="member-free"><img src="/skins/clube-tatame/img/icon-trophy.png"></td>
 					<td class="member-free margin">Concursos culturais com produtos exclusivos para os membros do Clube</td>
 				</tr>
 				<tr>
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-medal.png"></td>
-					<td class="member-premium margin">Uma semana de treino grátis em diversas academias afiliadas ao Clube</td>
+					<td class="member-premium margin">Treine grátis em diversas academias afiliadas ao Clube</td>
 					<td class="member-free"><img src="/skins/clube-tatame/img/icon-weight-black.png"></td>
 					<td class="member-free margin">Desconto para frequentar academias em todo o território nacional</td>
 				</tr>
 				<tr class="no-border">
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-magazine.png"></td>
-					<td class="member-premium margin">Todas as vantagens do membro FREE e ainda recebe a revista em casa</td>
+					<td class="member-premium margin">Receba a revista em casa e tenha muito mais vantagens</td>
 					<td class="member-free"><img src="/skins/clube-tatame/img/icon-people.png"></td>
 					<td class="member-free margin">Entreviste seu lutador preferido formulando e enviando perguntas</td>
 				</tr>

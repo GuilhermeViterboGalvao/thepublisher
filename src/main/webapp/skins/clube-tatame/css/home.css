@@ -16,7 +16,7 @@
 .hightlights .hightlight { float: left; width: 100%; }
 .hightlights .hightlight a { float: left; width: 100%; }
 .hightlights .hightlight a img { float: left; width: 100%; }
-.hightlights .hightlight span { float: left; width: 100%; font-size: 1.5em; text-align: center; padding: 30px 0; background-color: #fdf991; font-weight: 600; }
+.hightlights .hightlight span { float: left; width: 100%; font-size: 1.5em; text-align: center; padding: 30px 0; background-color: #cacaca; font-weight: 600; }
 
 .boxs { display: table; margin: 25px auto; width: 100%; max-width: 944px; }
 .boxs .box { float: left; width: 33.33%; max-width: 291px; }
@@ -76,7 +76,8 @@
 .note .note-info { float: left; width: 554px; background-color: #f6f4f5; height: 18.45em; }
 .note .note-info span { font-size: 1em; line-height: 1.6em; width: 82%; float: left; margin: 1% 9%; color: #020202; overflow: hidden; max-height: 8em; } 
 .note .note-info .header { font-size: 2.4em; line-height: 1.5em; margin-top: 3%; }
-.note a { float:left; text-decoration: none; color: #000; background-color: #ffeea8; font-size: 0.8em; padding: 1.5%; text-align: center; font-weight: 600; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; margin: 5% 8%; }
+.note a { float:left; text-decoration: none; color: #000; background-color: #d5d5d5; font-size: 0.8em; padding: 1.5%; text-align: center; font-weight: 600; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; margin: 5% 8%; }
+.note a.premium { background-color: #ffeea8; }
 
 @media screen and (max-width: 800px) {
 	.page .hightlights { margin: 10px 0; }

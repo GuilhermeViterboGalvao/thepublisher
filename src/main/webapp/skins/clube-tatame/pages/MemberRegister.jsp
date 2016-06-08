@@ -124,23 +124,23 @@
 		</div>
 	</div>
 	
-	<span class="title-page"> torne-se um membro premium</span>
+	<span class="title-page"> ou torne-se um membro premium</span>
 	
 	<div class="boxs">
 		<div class="sub-info">
 			<img src="/skins/clube-tatame/img/icon-people.png">
 			<span>DESTAQUE</span>
-			<span class="grey">Chegando ao seu vigésimo ano no mercado, a Revista TATAME, líder disparado no segmento de luta no Brasil, é mundialmente.</span>
+			<span class="grey">Grandes descontos no TATAMEShop e em diversas lojas parceiras</span>
 		</div>
 		<div class="sub-info">
 			<img src="/skins/clube-tatame/img/icon-kimono.png">
 			<span>EVENTOS</span>
-			<span class="grey">TATAME, líder disparado no segmento de luta no Brasil, é mundialmente respeitada e considerada referência nada disso.</span>
+			<span class="grey">Concurso cultural valendo uma passagem para o Abu Dhabi Pro</span>
 		</div>
 		<div class="sub-info">
 			<img src="/skins/clube-tatame/img/icon-weight-black.png">
 			<span>ACADEMIAS</span>
-			<span class="grey">América Latina seu pioneirismo e imparcialidade fazem dela um produto sem igual é mundialmente respeitonsino mercado.​</span>
+			<span class="grey">Treine grátis em diversas academias afiliadas ao Clube​</span>
 		</div>
 	</div>
 </s:else>

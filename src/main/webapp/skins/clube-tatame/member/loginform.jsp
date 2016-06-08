@@ -7,7 +7,7 @@
 	</div>
 </s:if>
 <div class="info">
-	<label>Área restria aos membros do Clube Tatame.</label>
+	<label>Área restrita aos membros do Clube Tatame.</label>
 </div>
 <form class="form" action="/clube/membros/login" method="post">
 	<label for="email">E-mail</label>
