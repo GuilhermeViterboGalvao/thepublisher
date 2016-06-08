@@ -20,9 +20,9 @@
 			<li>
 				<a href="/clube/parceiros">PARCEIROS</a>
 			</li>
-			<li>
-				<a href="/clube/eventos">EVENTOS</a>
-			</li>
+<!-- 			<li> -->
+<!-- 				<a href="/clube/eventos">EVENTOS</a> -->
+<!-- 			</li> -->
 			<li>
 				<a href="http://www.tatameshop.com.br">LOJA VIRTUAL</a>
 			</li>			
