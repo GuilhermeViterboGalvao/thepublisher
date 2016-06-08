@@ -6,6 +6,8 @@
 	.erro-messages .error li { float: left; width: 100%; }
 	.erro-messages .error li span { float: left; width: 100%; text-align: center; color: red; font-size: 1.2em; line-height: 1.4em; margin: 0 0 1% 0; }
 	
+	a { text-decoration: none; color: #000; }
+	
 	.success { float: left; width: 50%; margin: 2.5% 25% 0 25%; }
 	.success label { float: left; width: 100%; font-size: 1.2em; line-height: 1.4em; text-align: center; }
 	
@@ -23,16 +25,20 @@
 	.form form input[type="password"] { float: left; width: 98%; margin: 0 0 6% 0; border: 1px solid #999999; font-size: 0.7em; padding: 1% 2%; line-height: 1.1em; border-radius: 14px; }
 	.form form input[type="submit"] { float: left; padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 8% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
 	
-	.info { float:left; width: 25%; padding: 0 4% 0; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
+	.info { float:left; width: 25%; padding: 0 4% 0; border-left: 1px solid #000; margin: 2% 0 5% 0; text-align: center; }
+	
 	.info .premium { float: left; text-align: center; margin-top: 8%; }
 	.info .premium img { width: 100px; }
-	.info .premium p { font-size: 0.8em; line-height: 1.4em; }
+	.info .premium a { width: 100%; float: left; }
+	.info .premium span { font-size: 0.8em; line-height: 1.4em; width: 100%; float: left; }
 	
-	.info .important { float:left; font-size: 0.9em; margin: 8% 0; text-align: center; line-height: 1.3em }
+	.info .important { float:left; font-size: 0.9em; margin: 8% 0; text-align: center; line-height: 1.3em;  }
 	
 	.info .free { float: left; text-align: center; }
 	.info .free img { width: 100px; }
-	.info .free p { font-size: 0.8em; line-height: 1.4em; }
+	.info .free span { font-size: 0.8em; line-height: 1.4em; width: 100%; float: left; }
+	
+	.info button { padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 4% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
 	
 	.grey { color: #787878; }
 	
@@ -109,22 +115,28 @@
 			<div class="info">
 				<div class="free">
 					<img src="/skins/clube-tatame/img/white-belt.png">
-					<p>MEMBRO FREE</p>
-					<p class="grey">Plano básico. Receba e-mail com as ofertas da loja e com descontos na inscrição de eventos.</p>
+					<span>MEMBRO FREE</span>
+					<span class="grey">Plano básico. Receba e-mail com as ofertas da loja e com descontos na inscrição de eventos.</span>
 				</div>
 				
 				<div class="premium">
-					<img src="/skins/clube-tatame/img/black-belt.png">
-					<p>MEMBRO PREMIUM</p>
-					<p class="grey">Receba a revista TATAME em casa e ganhe descontos nos produtos da loja virtual, academias e eventos.</p>
+					<a href="http://www.tatameshop.com.br/search/?q=assinatura" target="_blank">
+						<img src="/skins/clube-tatame/img/black-belt.png">
+						<span>MEMBRO PREMIUM</span>
+					</a>
+					<span class="grey">Receba a revista TATAME em casa e ganhe descontos nos produtos da loja virtual, academias e eventos.</span>
 				</div>
 				
 				<span class="important">Garanta já a sua condição de membro PREMIUM e comece a desfrutar em poucos minutos!</span>
+				
+				<button onClick="window.open('http://www.tatameshop.com.br/search/?q=assinatura', '_blank');">quero ser premium</button>
 			</div>
 		</div>
 	</div>
 	
-	<span class="title-page"> ou torne-se um membro premium</span>
+	<a href="http://www.tatameshop.com.br/search/?q=assinatura" target="_blank">
+		<span class="title-page">ou torne-se um membro premium</span>
+	</a>
 	
 	<div class="boxs">
 		<div class="sub-info">

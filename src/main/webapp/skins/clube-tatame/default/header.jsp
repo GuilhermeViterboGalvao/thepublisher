@@ -4,7 +4,7 @@
 	<section class="login">
 		<label>Login</label>
 		<a href="/clube/membros/login?fromMenu=true">Membros</a>
-		<a href="/clube/academias/login?fromMenu=true">Academias</a>	
+<!-- 		<a href="/clube/academias/login?fromMenu=true">Academias</a>	 -->
 	</section>
 	<nav>
 		<ul>

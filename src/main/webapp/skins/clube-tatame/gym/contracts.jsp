@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="p" uri="/publisher-tags" %>
 
 <s:set name="count" value="0"/>
 
@@ -16,6 +17,8 @@
 		</form>	
 	</section>
 </div>
+
+<p:tile xml="clube/home/note"/>
 
 <div class="boxs">
 	<span class="title">ACADEMIAS PREMIUM</span>

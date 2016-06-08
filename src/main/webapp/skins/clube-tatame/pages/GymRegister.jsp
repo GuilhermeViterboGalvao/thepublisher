@@ -34,11 +34,12 @@
 	.info { float:left; width: 25%; padding: 0 4% 2%; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
 	.info .premium { float: left; text-align: center; margin-top: 3em; }
 	.info .premium img { width: 100px; }
-	.info .premium p { font-size: 0.8em; line-height: 1.4em; }
+	.info .premium a { text-decoration: none; color: #000; width: 100%; float: left; }
+	.info .premium span { font-size: 0.8em; line-height: 1.4em; width: 100%; float: left;  }
 	
 	.info .free { float: left; text-align: center; }
 	.info .free img { width: 100px; }
-	.info .free p { font-size: 0.8em; line-height: 1.4em; }
+	.info .free span { font-size: 0.8em; line-height: 1.4em; width: 100%; float: left;  }
 	
 	.grey { color: #787878; }
 	
@@ -127,14 +128,16 @@
 			<div class="info">
 				<div class="free">
 					<img src="/skins/clube-tatame/img/white-belt.png">
-					<p>ACADEMIA FREE</p>
-					<p class="grey">Plano básico. Apareça na busca feito pelo cliente e seja encontrado. Cadastre-se ao lado gratuitamente.</p>
+					<span>ACADEMIA FREE</span>
+					<span class="grey">Plano básico. Apareça na busca feito pelo cliente e seja encontrado. Cadastre-se ao lado gratuitamente.</span>
 				</div>
 				
 				<div class="premium">
-					<img src="/skins/clube-tatame/img/black-belt.png">
-					<p>ACADEMIA PREMIUM</p>
-					<p class="grey">Tenha destaque na pesquisa e ganhe uma página com fotos, detalhes, links e redes sociais.</p>
+					<a href="http://www.tatameshop.com.br/produtos/academia-premium/" target="_blank">
+						<img src="/skins/clube-tatame/img/black-belt.png">
+						<span>ACADEMIA PREMIUM</span>
+					</a>
+					<span class="grey">Tenha destaque na pesquisa e ganhe uma página com fotos, detalhes, links e redes sociais.</span>
 				</div>
 			</div>
 		</div>

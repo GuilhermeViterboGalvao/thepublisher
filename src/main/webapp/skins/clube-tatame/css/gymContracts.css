@@ -4,10 +4,10 @@
 
 .page .gym-header { float: left; height: auto;  }
 
-.guide-gym { width: 100%; max-width: 864px; display: table; margin: 30px auto; height: 68px; background-color: #b0acab; }
-.guide-gym span { float: left; color: #000; height: auto; line-height: normal; font-size: 1em; margin: 1.5% 1%; width: 43%; text-align: center; overflow: hidden; font-weight: bold; }
+.guide-gym { width: 100%; max-width: 944px; display: table; margin: 30px auto; height: 68px; background-color: #000; }
+.guide-gym span { float: left; color: #fff; height: auto; line-height: normal; font-size: 1em; margin: 2.4% 1%; width: 43%; text-align: center; overflow: hidden; font-weight: bold; }
 .guide-gym input[type="text"] { float: left; width: 30%; height: 20px; line-height: 20px; margin: 24px 1%; padding: 0 1%; border: none; }
-.guide-gym input[type="submit"] { float: left; width: 19%; margin: 24px 1%; height: 20px; color: #fff; background-color: #000; border: none; padding: 0; font-size: 0.8em; font-weight: 600; border-radius: 5px; }
+.guide-gym input[type="submit"] { float: left; width: 19%; margin: 24px 1%; height: 20px; color: #000; background-color: #ffb401; border: none; padding: 0; font-size: 0.8em; font-weight: 600; border-radius: 5px; }
 
 .page .title { float:left; position:relative; font-size: 23px; font-family: Roboto; margin-bottom: 30px; }
 
@@ -39,18 +39,26 @@
 .page .page-list span.current { border-bottom: 3px solid #a2393c; font-size: 25px; padding: 0 0 0 2px; margin: 0 8px; }
 .page .page-list a { text-decoration: none; color: #2b2b2b; font-size: 21px; padding: 0 8px; }
 
+.note { width: 100%; max-width: 944px; display: table; margin: 25px auto; background-color: #f6f4f5; }
+
+.note img { width: auto; height: auto; float: left; } 
+.note .note-info { float: left; width: 554px; background-color: #f6f4f5; height: 18.45em; }
+.note .note-info span { font-size: 1em; line-height: 1.6em; width: 82%; float: left; margin: 1% 9%; color: #020202; overflow: hidden; max-height: 8em; } 
+.note .note-info .header { font-size: 2.4em; line-height: 1.5em; margin-top: 3%; }
+.note a { float:left; text-decoration: none; color: #000; background-color: #d5d5d5; font-size: 0.8em; padding: 1.5%; text-align: center; font-weight: 600; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; margin: 5% 8%; }
+.note a.button-premium { background-color: #ffeea8; }
 
 @media screen and (max-width: 800px) {
 	
 	.page main { display: block; }
 	
-	.boxs { display: block; margin: 5% 0; float: left; }
+	.boxs { display: block; margin: 3% 0; float: left; }
 	
 	.remove-mobile { display: none; }
 	
 	.page .gym-header { width: 100%; }
 	
-	.page .guide-gym { width: 98%; margin: 0 1%; float: left; display: block; }
+	.page .guide-gym { width: 100%; margin: 0; float: left; display: block; }
 	
 	.page .premium { height: 10em; margin: 2% 1%; width: 98%; }
 	.page .premium .logo { width: 29%; height: 100%;  }
@@ -75,6 +83,13 @@
 	
 	.page .promo { margin: 5% 1%; height: auto; width: 95%; }
 	.page .promo span { margin: 2.5% 4%; font-size: 1em; width: 90%; text-align: justify; }
+	
+	.note { margin: 3% 0; float: left;  }
+	.note img { width: 50%; } 
+	.note .note-info { width: 50%; height: auto; }
+	.note .note-info span { font-size: 0.8em; width: 88%; margin: 1% 6%;  }
+	.note .note-info .header { font-size: 1.5em; line-height: 1.2em; margin-top: 2%; }
+	.note a { margin: 4% 25%;  }
 }
 
 @media screen and (max-width: 780px) {
@@ -85,8 +100,18 @@
 	.page .arrow-black2 { right: 0%; }
 }
 
+@media screen and (max-width: 650px) {
+	.note .note-info span { font-size: 0.7em; }
+	.note .note-info .header { font-size: 1.2em; }
+	.note a { line-height: 1.2em; }
+}
+
 @media screen and (max-width: 600px) {
 	.page .guide-gym span { margin: 2% 1%; height: auto; }
+}
+
+@media screen and (max-width: 550px) {
+	.note .note-info span { max-height: 3em;  }
 }
 
 @media screen and (max-width: 500px) {
@@ -101,6 +126,10 @@
 	.page .arrow-black2 { right: -0.5%; }
 	
 	.page .promo span { font-size: 0.8em; }
+	
+	.note .note-info span { max-height: 2em;  }
+	.note .note-info .header { font-size: 1em; display: block; max-height: none; }
+	.note a { font-size: 0.7em; line-height: 1.1em; }
 }
 
 @media screen and (max-width: 375px) { }

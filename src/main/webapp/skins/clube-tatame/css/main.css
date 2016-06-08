@@ -30,9 +30,12 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 .page { float: left; width: 100%; }
 .page header { display: table; width: 100%; max-width: 944px; margin: 1% auto 0 auto; }
 .page header .logo { float: left; max-width: 211px; width: 100%; height: auto; }
-.page header .login { float: left; width: 100%; max-width: 650px; height: 54px; border: 1px solid #414142; border-radius: 5px; margin: 0 0 0 80px; position: relative; }
-.page header .login label { text-align: center; font-size: 18px; line-height: 20px; position: absolute; left: 304px; top: -12px; background-color: #fff; color: #414142; }
-.page header .login a { float: left; width: 50%; text-align: center; height: 54px; line-height: 54px; font-size: 1em; color: #414142; text-decoration: none; background-color: #fff; border-radius: 5px; }
+/* .page header .login { float: left; width: 100%; max-width: 650px; height: 54px; border: 1px solid #414142; border-radius: 5px; margin: 0 0 0 80px; position: relative; } */
+.page header .login { float: right; width: 100%; max-width: 220px; height: 47px; border: 1px solid #414142; border-radius: 5px; margin: 0; position: relative; }
+/* .page header .login label { text-align: center; font-size: 18px; line-height: 20px; position: absolute; left: 304px; top: -12px; background-color: #fff; color: #414142; } */
+.page header .login label { text-align: center; font-size: 18px; line-height: 20px; position: absolute; left: 90px; top: -12px; background-color: #fff; color: #414142; }
+/* .page header .login a { float: left; width: 50%; text-align: center; height: 54px; line-height: 54px; font-size: 1em; color: #414142; text-decoration: none; background-color: #fff; border-radius: 5px; } */
+.page header .login a { float: left; width: 100%; text-align: center; height: 47px; line-height: 49px; font-size: 1em; color: #414142; text-decoration: none; background-color: #fff; border-radius: 5px; }
 .page header .menu-mobile { display: none; width: 100%; padding: 0; margin: 0; border: 0.01em solid #ccc; border-radius: 3px; overflow: hidden; background-color: #fff; background: #fff url("/skins/clube-tatame/img/select-arrow-down.gif") no-repeat 98% 50%; }
 .page header .menu-mobile select { padding: 5px 8px; width: 100%; border: none; box-shadow: none; background-color: transparent; background-image: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 .page header .menu-mobile select:focus { outline: none; }
@@ -64,7 +67,7 @@ html, body { float: left; width: 100%; padding: 0; margin: 0; z-index: 1; font-s
 	
 	.page header .logo { float: none; display: table; margin: 0 auto 5% auto; }
 
-	.page header .login { width: 98%; max-width: none; border: 0.01px solid #414142; margin: 0 1% 5% 1%; }
+	.page header .login { width: 98%; max-width: none; border: 0.01px solid #414142; margin: 0 1% 5% 1%; height: auto; }
 	.page header .login label { font-size: 0.9em; position: relative; width: 100%; top: 0; left: 0; margin: 0; text-align: center; line-height: 22px; float: left; border-radius: 5px; height: 22px; }
 	.page header .login a { font-size: 0.9em; height: 32px; line-height: 32px; }
 		
