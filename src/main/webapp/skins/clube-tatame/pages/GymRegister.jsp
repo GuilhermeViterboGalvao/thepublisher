@@ -31,7 +31,7 @@
 	.form form .sub-title { margin: 8% 0; }
 	
 	
-	.info { float:left; width: 25%; padding: 0 4% 2%; border-left: 1px solid #000; margin-top: 2%; font-weight:  }
+	.info { float:left; width: 25%; padding: 0 4% 2%; border-left: 1px solid #000; margin-top: 2%; text-align: center;  }
 	.info .premium { float: left; text-align: center; margin-top: 3em; }
 	.info .premium img { width: 100px; }
 	.info .premium a { text-decoration: none; color: #000; width: 100%; float: left; }
@@ -40,6 +40,8 @@
 	.info .free { float: left; text-align: center; }
 	.info .free img { width: 100px; }
 	.info .free span { font-size: 0.8em; line-height: 1.4em; width: 100%; float: left;  }
+	
+	.info button { padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 15% 0 4%; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
 	
 	.grey { color: #787878; }
 	
@@ -67,7 +69,7 @@
 		
 		.sub-info { display: none; }
 		
-		.title-page { font-size: 1.5em;  }
+		.title-page { display: none;  }
 		
 		.sub-title-page { width: 100%; margin: 0;  }
 		.sub-title-page span { font-size: 1em; margin: 2% 0; }
@@ -78,8 +80,6 @@
 	@media screen and (max-width: 414px) {
 		.form  .title { font-size: 1em;  }
 		.form  .sub-title { font-size: 1em;  }
-		
-		.title-page { font-size: 1em;  }
 		
 		.sub-title-page span{ font-size: 0.8em;  }
 	}
@@ -139,15 +139,13 @@
 					</a>
 					<span class="grey">Tenha destaque na pesquisa e ganhe uma página com fotos, detalhes, links e redes sociais.</span>
 				</div>
+				
+				<button onClick="window.open('http://www.tatameshop.com.br/produtos/academia-premium/', '_blank');">quero ser premium</button>
 			</div>
 		</div>
 	</div>
 	
 	<span class="title-page">torne-se uma academia premium</span>
-	
-	<div class="sub-title-page">
-		<span>Entre em contato com nossos representantes: clube@tatame.com.br</span>
-	</div>
 	
 	<div class="boxs">
 		<div class="sub-info">
