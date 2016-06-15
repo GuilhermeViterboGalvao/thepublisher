@@ -96,7 +96,9 @@
 	.ads-highlights,
 	.ads-1024 { display: none; }
 	
-	.highlights,
+	.highlights { display: none; width: 0; height: 0; }
+/* 	Já implementado o layout responsivo nesse elemento.	
+ 	.highlights,
 	.highlights .highlight { width: 100%; height: auto; }
 	.highlights .highlight .card-50 { width: 100%; height: auto; margin: 0 0 2.5% 0; }
 	.highlights .highlight .card-50 > a { float: left; width: 100%; height: auto; background-color: #2b2b2b; }
@@ -107,7 +109,7 @@
 	.highlights .highlight .card-50 .card-50 > a,
 	.highlights .highlight .card-50 .card-50 > a > img { width: 100%; height: auto; }
 	.highlights .highlight .card-50 .card-50 .transparence { display: none; }
-	.highlights .highlight .card-50 .card-50 .note { position: relative; background-color: #000; left: 0; top: 0; width: 96%; font-size: 1em; line-height: 1.25em; max-height: none; height: auto; float: left; padding: 2%; }
+	.highlights .highlight .card-50 .card-50 .note { position: relative; background-color: #000; left: 0; top: 0; width: 96%; font-size: 1em; line-height: 1.25em; max-height: none; height: auto; float: left; padding: 2%; } */
 	
 	.black-belt-highlights,
 	.black-belt-jiu-jitsu,
@@ -126,22 +128,31 @@
 	.black-belt-vidoes .dan,
 	.black-belt-big-video .dan { font-size: 1em; height: auto; line-height: normal; margin-left: 5%; width: auto; padding: 1.5% 2.5%; text-align: center; }
 	
+	.black-belt-highlights,
+	.other-highlights { display: none; width: 0; height: 0; }
+/* 	Já implementado o layout responsivo nesse elemento.
 	.other-highlights { width: 100%; height: auto; }
 	.other-highlights .highlight { width: 100%; height: auto; margin: 0 0 2.5% 0; }
 	.other-highlights .highlight > a { width: 100%; height: auto; }
 	.other-highlights .highlight > a > img { width: 100%; height: auto; }
 	.other-highlights .highlight .info { width: 100%; height: auto; }
 	.other-highlights .highlight .info .note,
-	.other-highlights .highlight .info .date { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; }
+	.other-highlights .highlight .info .date { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; } */
 	
+	.black-belt-jiu-jitsu,
+	.jiu-jitsu-articles { display: none; width: 0; height: 0; }	
+/* 	Já implementado o layout responsivo nesse elemento.
 	.jiu-jitsu-articles,
 	.jiu-jitsu-articles .jiu-jitsu-article,
 	.jiu-jitsu-articles .jiu-jitsu-article > a,
 	.jiu-jitsu-articles .jiu-jitsu-article > a > img,
 	.jiu-jitsu-articles .jiu-jitsu-article .note { float: left; width: 100%; height: auto; }
 	.jiu-jitsu-articles .jiu-jitsu-article { margin: 0 0 2.5% 0; }	
-	.jiu-jitsu-articles .jiu-jitsu-article .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; }
+	.jiu-jitsu-articles .jiu-jitsu-article .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; } */
 	
+	.black-belt-colunas,
+	.colunas-articles { display: none; width: 0; height: 0; }
+/* 	Já implementado o layout responsivo nesse elemento.
 	.colunas-articles,
 	.colunas-articles .coluna,
 	.colunas-articles .coluna > a { float: left; width: 100%; height: auto; }
@@ -149,7 +160,7 @@
 	.colunas-articles .coluna > a { background-color: #2b2b2b; }	
 	.colunas-articles .coluna > a > img { float: none; width: 50%; height: auto; margin: 0 auto; display: block; }
 	.colunas-articles .coluna .transparence { display: none; }
-	.colunas-articles .coluna .title { position: relative; width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; left: 0; top: 0; max-height: none; }
+	.colunas-articles .coluna .title { position: relative; width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; left: 0; top: 0; max-height: none; } */
 	
 	.last-news,
 	.last-news .article,
@@ -162,6 +173,9 @@
 	.last-news .article .info .date,
 	.last-news .article .info .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
 	
+	.black-belt-most-vieweds,
+	.most-vieweds { display: none; width: 0; height: 0; }	
+/* 	Já implementado o layout responsivo nesse elemento. 	
 	.most-vieweds,
 	.most-vieweds .most-viewed,
 	.most-vieweds .most-viewed > a,
@@ -171,21 +185,26 @@
 	.most-vieweds .most-viewed .info .header { float: left; width: 100%; height: auto; }
 	.most-vieweds .most-viewed { margin: 0 0 2.5% 0; }
 	.most-vieweds .most-viewed .info .date,
-	.most-vieweds .most-viewed .info .header { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	.most-vieweds .most-viewed .info .header { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; } */
 	
+	.black-belt-agenda,
+	.agenda-articles { display: none; width: 0; height: 0; }	
+/* 	Já implementado o layout responsivo nesse elemento.
 	.agenda-articles,
 	.agenda-articles div.article,
 	.agenda-articles div.article > a,
 	.agenda-articles div.article > a > img { width: 100%; height: auto; }
-	.agenda-articles div.article { margin: 0 0 2.5% 0; }
+	.agenda-articles div.article { margin: 0 0 2.5% 0; } */
 	
-	.videos,
+	.black-belt-vidoes,
+	.videos { display: none; width: 0; height: 0; }
+/* 	.videos,
 	.videos .video,
 	.videos .video > a,
 	.videos .video > a > img,
 	.videos .video .note { width: 100%; height: auto; }
 	.videos .video { margin: 0 0 2.5% 0; }
-	.videos .video .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	.videos .video .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; } */
 	
 	.big-video,
 	.big-video iframe,
