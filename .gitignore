@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /target/
 /.settings/
 <<<<<<< HEAD
@@ -7,3 +8,18 @@
 /.project
 /.classpath
 >>>>>>> refs/heads/master
+=======
+**/target
+**/classes
+########## Project Files ##########
+**default-folders.properties
+########## InteliJ IDEA ##########
+**.iml
+########## Eclipse IDEA ##########
+.settings
+.classpath
+.project
+.metadata
+########## MAC OS ##########
+**.DS_Store
+>>>>>>> refs/heads/LayoutResponsivo
