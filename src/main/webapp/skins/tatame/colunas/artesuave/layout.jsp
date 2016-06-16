@@ -2,5 +2,5 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <jsp:include page="/skins/tatame/default/scope.jsp"/>
 <s:set var="customHeadPathJSP" value="'/skins/tatame/colunas/custom-head.jsp'" />
-<s:set var="customHeaderImagePath" value="'/skins/tatame/img/coluna-arte-suave.jpg'" />
+<s:set var="customHeaderImagePath" value="'/skins/tatame/img/colunas/coluna-arte-suave.jpg'" />
 <jsp:include page="/skins/tatame/colunas/template.jsp"/>

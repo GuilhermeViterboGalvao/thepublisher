@@ -20,6 +20,7 @@
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
 			var link = document.getElementById("link" + id);
+			var linkShop = document.getElementById("linkShop" + id);
 			var title = document.getElementById("title" + id);
 			
 			id--;
@@ -30,17 +31,21 @@
 			var cloneInputUp = inputUp.cloneNode(true);
 			var linkUp = document.getElementById("link" + id);
 			var cloneLinkUp = linkUp.cloneNode(true);
+			var linkShopUp = document.getElementById("linkShop" + id);
+			var cloneLinkShopUp = linkShopUp.cloneNode(true);
 			var titleUp = document.getElementById("title" + id);
 			var cloneTitleUp = titleUp.cloneNode(true);
 			
 			imgUp.src = img.src;
 			inputUp.value = input.value;
 			linkUp.value = link.value;
+			linkShopUp.value = linkShop.value;
 			titleUp.value = title.value;
 			
 			img.src = cloneImgUp.src;
 			input.value = cloneInputUp.value;
 			link.value = cloneLinkUp.value;
+			linkShop.value = cloneLinkShopUp.value;
 			title.value = cloneTitleUp.value;
 		}
 	}
@@ -50,6 +55,7 @@
 			var img = document.getElementById("photoId" + id + "_ACS");
 			var input = document.getElementById("photoId" + id);
 			var link = document.getElementById("link" + id);
+			var linkShop = document.getElementById("linkShop" + id);
 			var title = document.getElementById("title" + id);
 			
 			id++;
@@ -60,17 +66,21 @@
 			var cloneInputUp = inputUp.cloneNode(true);
 			var linkUp = document.getElementById("link" + id);
 			var cloneLinkUp = linkUp.cloneNode(true);
+			var linkShopUp = document.getElementById("linkShop" + id);
+			var cloneLinkShopUp = linkShopUp.cloneNode(true);
 			var titleUp = document.getElementById("title" + id);
 			var cloneTitleUp = titleUp.cloneNode(true);
 			
 			imgUp.src = img.src;
 			inputUp.value = input.value;
 			linkUp.value = link.value;
+			linkShopUp.value = linkShop.value;
 			titleUp.value = title.value;
 			
 			img.src = cloneImgUp.src;
 			input.value = cloneInputUp.value;
 			link.value = cloneLinkUp.value;
+			linkShop.value = cloneLinkShopUp.value;
 			title.value = cloneTitleUp.value;
 		}
 	}
@@ -142,6 +152,11 @@
 					<s:textfield id="link%{#st.count}" name="link" value="%{top['link']}"/>
 				</div>					
 
+				<div class="field">
+					<label for="linkShop">Link Tatame Shop:</label>
+					<s:textfield id="linkShop%{#st.count}" name="linkShop" value="%{top['linkShop']}"/>
+				</div>
+				
 				<hr/>
 			</s:div>
 		</s:iterator>

@@ -87,7 +87,8 @@
 
 .magazine { float: left; height: 600px; width: 300px; overflow: hidden; }
 .magazine img { float: left; height: 402px; width: 300px; }
-.magazine .note { float: left; height: 187px; width: 290px; padding: 10px 0 0 10px; font-size: 30px; background-color: #f6f6f6; color: #000; border-top: 1px solid #a2393c; line-height: 35px; }
+.magazine .note { float: left; height: 128px; width: 290px; padding: 10px 0 0 10px; font-size: 24px; background-color: #f6f6f6; color: #000; border-top: 1px solid #a2393c; line-height: 32px; }
+.magazine .shop { width: 92%;  padding: 11% 4% 3%; height: 3%; background-color: #f6f6f6; font-size: 0.85em; font-weight: bold; float: left; position: relative; color:#000;  }
 
 .facebook { float: left; height: 600px; width: 714px; background-color: #f6f6f6; }
 .facebook > div { height: 580px; width: 500px; margin: 10px 107px; }
