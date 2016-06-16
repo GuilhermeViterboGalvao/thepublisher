@@ -1,4 +1,13 @@
-/target/
-/.settings/
-/.project
-/.classpath
+**/target
+**/classes
+########## Project Files ##########
+**default-folders.properties
+########## InteliJ IDEA ##########
+**.iml
+########## Eclipse IDEA ##########
+.settings
+.classpath
+.project
+.metadata
+########## MAC OS ##########
+**.DS_Store
