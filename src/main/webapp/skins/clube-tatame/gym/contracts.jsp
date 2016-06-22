@@ -13,7 +13,7 @@
 		<span>Quer saber onde encontrar uma academia associada?</span>
 		<form action="/clube/academias">
 			<input type="text" name="query" placeholder="Estado, Cidade ou Modalidade"/>
-			<input type="submit" value="BUSCAR"/>
+			<input type="submit" value="Buscar"/>
 		</form>	
 	</section>
 </div>

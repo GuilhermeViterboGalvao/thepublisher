@@ -105,7 +105,7 @@
 	
 	.page .guide-gym { width: 98%; margin: 1%; float: left; display: block; }
 	
-	.page .indicates { width: 98%; margin: 1%; }	
+	.page .indicates { width: 98%; margin: 1%; display: none; }	
 	
 	.club { max-width: none; }
 	.club .header { height: auto; }
