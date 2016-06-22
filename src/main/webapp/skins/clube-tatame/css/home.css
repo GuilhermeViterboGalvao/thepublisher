@@ -26,6 +26,10 @@
 .boxs .box .title { float: left; width: 100%; margin: 2% 0; line-height: 30px; font-size: 1.2em; font-weight: 600; }
 .boxs .box .text { float: left; width: 100%; font-size: 1em; line-height: 25px; font-weight: 300; }
 
+.guide-title { width: 100%; max-width: 944px; display: table; margin: 25px auto; height: 68px; text-align: center; }
+.guide-title .line { width: 35%; height: 50%; border-bottom: 2px solid #6e6e6e; float: left; }
+.guide-title span { width: 30%; color: #636363; font-size: 1.7em; float: left; margin: 1.8% 0 0;  }
+
 .guide-gym { width: 100%; max-width: 944px; display: table; margin: 25px auto; height: 68px; border: 0.01em solid #222222; background-color: #000; }
 .guide-gym span { float: left; color: #fff; height: 68px; line-height: 68px; font-size: 1em; margin: 0 1%; width: 43%; text-align: center; }
 .guide-gym input[type="text"] { float: left; width: 30%; height: 20px; line-height: 20px; margin: 24px 1%; padding: 0 1%; border: none; }
@@ -96,9 +100,12 @@
 	.page .boxs .box .title { text-align: center; margin: 2% 1%; width: 98%; }
 	.page .boxs .box .text { width: 98%; margin: 2% 1%; }
 	
-	.page .guide-gym { width: 98%; margin: 0 1%; float: left; display: block; }
+	.page .guide-title { width: 98%; margin: 1%; float: left; }
+	.page .guide-title span { font-size: 1.3em; margin: 3% 0 0; }
 	
-	.page .indicates { width: 98%; margin: 0 1%; }	
+	.page .guide-gym { width: 98%; margin: 1%; float: left; display: block; }
+	
+	.page .indicates { width: 98%; margin: 1%; }	
 	
 	.club { max-width: none; }
 	.club .header { height: auto; }
@@ -107,7 +114,7 @@
 	.advantages .header { height: auto; }
 	.advantages .header .grey-arrow { left: 37%; }
 	
-	.note { margin: 2% 0;  }
+	.note { margin: 1%; width: 98%; float: left;  }
 	.note img { width: 50%; } 
 	.note .note-info { width: 50%; height: auto; }
 	.note .note-info span { font-size: 0.8em; width: 88%; margin: 1% 6%;  }
@@ -141,6 +148,8 @@
 	.page .indicates .persons .person .text { font-size: 0.7em; line-height: 18px; }
 }
 @media screen and (max-width: 414px) {
+	.page .guide-title span { font-size: 1em; margin: 4% 0 0; }
+	
 	.page .guide-gym span { margin: 4% 1%; font-size: 0.8em; }
 	
 	.page .indicates .header .text { width: 60%; margin: 10px 20%; }
@@ -167,4 +176,10 @@
 	.page .guide-gym span { width: 98%; margin: 2% 1%; }	
 	.page .guide-gym input[type="text"] { width: 96%; margin: 2% 1%; }
 	.page .guide-gym input[type="submit"] { width: 98%; margin: 2% 1%; }
+	
+	.note .note-info .header { font-size: 0.9em; }
+	.note .note-info span { max-height: 1.8em;  }
+}
+@media screen and (max-width: 310px) {
+	.page .guide-title span { font-size: 0.9em; white-space: nowrap; text-overflow:ellipsis; overflow:hidden; margin: 9% 1%; width: 28%; }
 }

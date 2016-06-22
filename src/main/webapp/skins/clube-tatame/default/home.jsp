@@ -76,6 +76,12 @@
 	</div>
 </div>
 
+<div class="guide-title">
+	<div class="line"></div>
+	<span>Guia de Academias</span>
+	<div class="line"></div>
+</div>
+
 <section class="guide-gym">
 	<span>Quer saber onde encontrar uma academia associada?</span>
 	<form action="/clube/academias">

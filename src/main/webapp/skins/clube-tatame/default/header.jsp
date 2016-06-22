@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <header>
-	<img class="logo" alt="Logo" src="/skins/clube-tatame/img/logo.jpg"/>
+	<a href="/clube/home">
+		<img class="logo" alt="Logo" src="/skins/clube-tatame/img/logo.jpg"/>
+	</a>
 	<section class="login">
 		<label>Login</label>
 		<a href="/clube/membros/login?fromMenu=true">Membros</a>

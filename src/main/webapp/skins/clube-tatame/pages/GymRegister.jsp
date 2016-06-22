@@ -6,6 +6,8 @@
 	.erro-messages .error li { float: left; width: 100%; }
 	.erro-messages .error li span { float: left; width: 100%; text-align: center; color: red; font-size: 1.2em; line-height: 1.4em; margin: 0 0 1% 0; }
 	
+	a { text-decoration: none; color: #000; }
+	
 	.success { float: left; width: 50%; margin: 2.5% 25% 0 25%; }
 	.success label { float: left; width: 100%; font-size: 1.2em; line-height: 1.4em; text-align: center; }
 	
@@ -25,7 +27,7 @@
 	.form form input[type="text"],
 	.form form input[type="email"],
 	.form form input[type="password"] { float: left; width: 96%; margin: 0 0 6% 0; border: 1px solid #999999; font-size: 0.7em; padding: 1% 2%; line-height: 1.1em; border-radius: 14px; }
-	.form form input[type="submit"] { float: left; padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 8% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
+	.form form input[type="submit"] { float: left; padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 8% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; cursor: pointer; }
 	.form form input.city { width: 60%; margin-right: 2%; }
 	.form form input.state{ width: 20%; float: right; }
 	.form form .sub-title { margin: 8% 0; }
@@ -41,11 +43,11 @@
 	.info .free img { width: 100px; }
 	.info .free span { font-size: 0.8em; line-height: 1.4em; width: 100%; float: left;  }
 	
-	.info button { padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 15% 0 4%; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
+	.info button { padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 15% 0 4%; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; cursor: pointer; }
 	
 	.grey { color: #787878; }
 	
-	.sub-info { width: 100%; max-width: 255px; float: left; margin: 4% 3%; text-align: center; }
+	.sub-info { width: 100%; max-width: 255px; float: left; margin: 4% 3%; text-align: center; display: none; }
 	.sub-info img { margin-bottom: 5%; }
 	.sub-info span { font-size: 0.9em; width: 100%; float: left; line-height: 1.5em; }
 	
@@ -145,7 +147,9 @@
 		</div>
 	</div>
 	
-	<span class="title-page">torne-se uma academia premium</span>
+	<a href="http://www.tatameshop.com.br/produtos/academia-premium/" target="_blank">
+		<span class="title-page">ou torne-se uma academia premium</span>
+	</a>
 	
 	<div class="boxs">
 		<div class="sub-info">

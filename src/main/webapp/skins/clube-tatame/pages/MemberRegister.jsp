@@ -23,7 +23,7 @@
 	.form form input[type="text"],
 	.form form input[type="email"],
 	.form form input[type="password"] { float: left; width: 98%; margin: 0 0 6% 0; border: 1px solid #999999; font-size: 0.7em; padding: 1% 2%; line-height: 1.1em; border-radius: 14px; }
-	.form form input[type="submit"] { float: left; padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 8% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
+	.form form input[type="submit"] { float: left; padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 8% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; cursor: pointer; }
 	
 	.info { float:left; width: 25%; padding: 0 4% 0; border-left: 1px solid #000; margin: 2% 0 5% 0; text-align: center; }
 	
@@ -38,7 +38,7 @@
 	.info .free img { width: 100px; }
 	.info .free span { font-size: 0.8em; line-height: 1.4em; width: 100%; float: left; }
 	
-	.info button { padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 4% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; }
+	.info button { padding: 1.5% 2%; background-color: #ffefa3; font-size: 0.7em; margin: 4% 0; text-align: center; font-weight: 600; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; cursor: pointer; }
 	
 	.grey { color: #787878; }
 	
