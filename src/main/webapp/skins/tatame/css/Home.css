@@ -172,7 +172,7 @@
 	.last-news .article .info .note { float: left; width: 100%; height: auto; }
 	.last-news .article { margin: 0 0 2.5% 0; }
 	.last-news .article .info .date,
-	.last-news .article .info .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	.last-news .article .info .note { width: 96%; height: auto; padding: 2%; background-color: #f6f6f6; color: #000; font-size: 1em; line-height: 1.25em; max-height: none; }
 	
 	.black-belt-most-vieweds,
 	.most-vieweds { display: none; width: 0; height: 0; }	
@@ -212,13 +212,13 @@
 	.big-video .note { width: 100%; height: auto; }
 	.big-video { margin: 0 0 2.5% 0; }
 	.big-video iframe { min-height: 250px; }
-	.big-video .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }	
+	.big-video .note { width: 96%; height: auto; padding: 2%; background-color: #f6f6f6; color: #000; font-size: 1em; line-height: 1.25em; max-height: none; }	
 		
 	.magazine,
 	.magazine > a,
 	.magazine > a > img,
 	.magazine .note { width: 100%; height: auto; }
-	.magazine .note { width: 96%; height: auto; padding: 2%; background-color: #000; color: #fff; font-size: 1em; line-height: 1.25em; max-height: none; }
+	.magazine .note { width: 96%; height: auto; padding: 2%; background-color: #f6f6f6; color: #000; font-size: 1em; line-height: 1.25em; max-height: none; }
 	.magazine { margin: 0 0 2.5% 0; }
 	
 	.facebook,
