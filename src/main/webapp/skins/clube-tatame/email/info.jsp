@@ -19,10 +19,10 @@
 		<div class="expired-code">
 			<p>Seu código expirou!</p>
 			<s:if test="memberId > 0">
-				<a href="http://clube.tatame.com.br/emailConfirmation?memberId=${memberId}&code=${newCode}">Clique aqui para confirmar seu cadastro.</a>
+				<a href="http://tatame.com.br/emailConfirmation?memberId=${memberId}&code=${newCode}">Clique aqui para confirmar seu cadastro.</a>
 			</s:if>
 			<s:else>
-				<a href="http://clube.tatame.com.br/emailConfirmation?gymId=${gymId}&code=${newCode}">Clique aqui para confirmar seu cadastro.</a>
+				<a href="http://tatame.com.br/emailConfirmation?gymId=${gymId}&code=${newCode}">Clique aqui para confirmar seu cadastro.</a>
 			</s:else>			
 		</div>
 	</s:if>

@@ -17,7 +17,7 @@
 	<input type="submit" value="Enviar"/>	
 </form>
 <div class="info2">
-	<a href="https://www.facebook.com/dialog/oauth?client_id=515364881999582&display=page&scope=email&redirect_uri=http://homolog.tatame.terra.com.br/clube/membros/facebookLogin">
+	<a href="https://www.facebook.com/dialog/oauth?client_id=515364881999582&display=page&scope=email&redirect_uri=http://tatame.com.br/clube/membros/facebookLogin">
 		<img class="btnFacebook" alt="" src="/skins/clube-tatame/img/btnFacebookLarge.png">
 	</a>
 	<label>Esqueceu a sua senha? Clique <a href="/clube/forgotPassword-formReset">aqui</a> para recuperá-la.</label>

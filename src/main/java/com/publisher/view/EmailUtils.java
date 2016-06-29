@@ -146,7 +146,7 @@ public final class EmailUtils {
 						return new javax.mail.PasswordAuthentication(userName, password);
 					}
 				});
-				String confirmationLink = "http://clube.tatame.com.br/clube/emailConfirmation";
+				String confirmationLink = "http://tatame.com.br/clube/emailConfirmation";
 				confirmationLink += "?memberId=" + member.getId();
 				confirmationLink += "&code=" + hash;
 				Message message = new MimeMessage(session);
@@ -185,7 +185,7 @@ public final class EmailUtils {
 						return new javax.mail.PasswordAuthentication(userName, password);
 					}
 				});
-				String confirmationLink = "http://clube.tatame.com.br/clube/emailConfirmation";
+				String confirmationLink = "http://tatame.com.br/clube/emailConfirmation";
 				confirmationLink += "?gymId=" + gym.getId();
 				confirmationLink += "&code=" + hash;
 				Message message = new MimeMessage(session);
@@ -223,7 +223,7 @@ public final class EmailUtils {
 						return new javax.mail.PasswordAuthentication(userName, password);
 					}
 				});
-				String confirmationLink = "http://clube.tatame.com.br/clube/forgotPassword-fromConfirm";
+				String confirmationLink = "http://tatame.com.br/clube/forgotPassword-fromConfirm";
 				confirmationLink += "?isMember=true";
 				confirmationLink += "&hash=" + hash;
 				confirmationLink += "&email=" + email;
@@ -262,7 +262,7 @@ public final class EmailUtils {
 						return new javax.mail.PasswordAuthentication(userName, password);
 					}
 				});
-				String confirmationLink = "http://clube.tatame.com.br/clube/forgotPassword-fromConfirm";
+				String confirmationLink = "http://tatame.com.br/clube/forgotPassword-fromConfirm";
 				confirmationLink += "?isGym=true";
 				confirmationLink += "&hash=" + hash;
 				confirmationLink += "&email=" + email;

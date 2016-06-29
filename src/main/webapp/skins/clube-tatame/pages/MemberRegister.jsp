@@ -99,7 +99,7 @@
 			<div class="form">
 				<span class="title">faça seu cadastro grátis no clube tatame</span>
 				
-				<a class="pluginFacebook" href="https://www.facebook.com/dialog/oauth?client_id=515364881999582&display=page&scope=email&redirect_uri=http://homolog.tatame.terra.com.br/clube/membros/facebookLogin">
+				<a class="pluginFacebook" href="https://www.facebook.com/dialog/oauth?client_id=515364881999582&display=page&scope=email&redirect_uri=http://tatame.com.br/clube/membros/facebookLogin">
 					<img class="btnFacebook" alt="" src="/skins/clube-tatame/img/btnFacebookLarge.png">
 				</a>
 			

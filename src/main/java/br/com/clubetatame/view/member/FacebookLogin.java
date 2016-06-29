@@ -60,7 +60,7 @@ public class FacebookLogin extends ActionSupport implements  ViewAction, Session
 	        	Member member = null;
 	        	
 	        	synchronized (memberService) {
-	        		myFacebookUrl = "http://homolog.tatame.terra.com.br/clube/membros/facebookLogin";
+	        		myFacebookUrl = "http://tatame.com.br/clube/membros/facebookLogin";
 	        		appSecret = "2e797a2f2dd5de7cbe8865d2816744ad";
 	        		appId = "515364881999582";        		        		
 	        		member = facebookAuthentication(code);
