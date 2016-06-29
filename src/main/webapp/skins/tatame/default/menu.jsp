@@ -32,7 +32,7 @@
 	<a href="/tatame/agenda" class="diary">AGENDA</a>
 	<a href="/tatame/colunas" class="columns">COLUNAS</a>
 	<a href="/tatame/videos" class="videos">VÍDEOS</a>
-	<a href="/clube/home" class="clube">CLUBE</a>
+	<a href="/clube/home" target="_blank" class="clube">CLUBE</a>
 	<a href="http://www.tatameshop.com.br/" target="_blank" class="subscribe">ASSINE</a>
 	
 	<a href="https://versy.com/z/p12" target="_blank" class="icon">
