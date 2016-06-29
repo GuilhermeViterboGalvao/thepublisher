@@ -72,6 +72,7 @@
 			<option value="/tatame/jiu-jitsu/abu-dhabi-2016">Abu Dhabi Pro</option>
 			<option value="/tatame/agenda">AGENDA</option>
 			<option value="/tatame/colunas">COLUNAS</option>
+			<option value="/clube/home">CLUBE</option>
 			<option value="http://www.tatameshop.com.br/">ASSINE</option>
 		</select>	
 	</div>
