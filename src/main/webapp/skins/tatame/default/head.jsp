@@ -31,6 +31,9 @@
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">
 		<link rel="stylesheet" href="/skins/tatame/css/PhotoGallery.css?2" type="text/css"/>		
 	</s:if>
+	<s:if test="#withoutRight">
+		<link rel="stylesheet" href="/skins/tatame/css/ArticleWithoutRight.css" type="text/css"/>		
+	</s:if>
 </s:if>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 	<link rel="stylesheet" href="/skins/tatame/css/Home.css?14" type="text/css"/>

@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+div.content div.title { width: 1024px; text-align: center; }
+
+div.content div.credits { width: 1024px; }
+div.content div.credits div.info { width: 900px; }
+
+div.content div.text { width: 1020px; margin: 15px 2px 0; }
+div.content div.text p { max-width: 1018px; }
+
+div.content div.tags { width: 1024px; }
+
+@media screen and (max-width: 800px){
+	div.content div.title { width: 100%; text-align: left; }
+
+	div.content div.credits { width: 100%; }
+	div.content div.credits div.info { width: 98%; }
+	
+	div.content div.text { width: 100%; margin: 0 0 2.5% 0; }
+	div.content div.text p { width: 100%; }
+	
+	div.content div.tags { width: 100%;  }
+}
