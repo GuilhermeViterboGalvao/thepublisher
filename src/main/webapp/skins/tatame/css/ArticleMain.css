@@ -27,6 +27,8 @@ div.content div.left { float: left; clear: left; margin-right: 10px; }
 
 div.content div.text strong { font-weight: bold; }
 
+div.content div.text h2 { font-size: 21px; line-height: 25px; }
+
 div.content div.title { float: left; position: relative; font-size: 28px; line-height: 33px; font-weight: bold; color: #000; }
 
 div.content div.credits { width: 714px; float: left; position: relative; background-color: #2b2b2b; }
