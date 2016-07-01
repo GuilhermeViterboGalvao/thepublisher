@@ -23,3 +23,5 @@
 <s:else>
 	<div id="tatame_1680x912_ros"></div>
 </s:else>
+
+<div id="tatame_codigo_ros"></div>
