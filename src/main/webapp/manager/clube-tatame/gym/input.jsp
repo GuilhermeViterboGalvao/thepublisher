@@ -198,7 +198,7 @@
 </script>
 
 <s:if test="lat != null && lon != null">
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyBt2XicrROjhdH9ytrn3n9rTW6LKc2CkkA"></script>
 	<script type="text/javascript">
 		var latlon = new google.maps.LatLng(Number(lat.val().replace(",", ".")), Number(lon.val().replace(",", ".")));
 		var options = {
