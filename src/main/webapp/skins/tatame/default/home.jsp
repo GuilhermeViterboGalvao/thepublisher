@@ -10,17 +10,8 @@
 		<div class="ads-highlights">
 			<div id="tatame_300x100_prime1_home" class="ads-300-100 box-shadow mobile-hidden"></div>
 			<div id="tatame_300x100_prime2_home" class="ads-300-100 box-shadow margin-top-15 mobile-hidden"></div>
-			<div class="ads-300-250 box-shadow box-shadow margin-top-15 mobile-hidden">
-				<div  id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
-				<script type="text/javascript">
-					if (windowWidth > 800) {
-						var terraAdsScript  = "<script type=\"text/javascript\" src=\"http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.articles.right4&direct=1\">";
-							terraAdsScript += "<\/script>";
-						document.write(terraAdsScript);
-					}
-				</script>		
-			</div>			
-			<div id="tatame_300x100_prime3_home" class="ads-300-100 box-shadow box-shadow margin-top-15 mobile-hidden"></div>
+			<div id="tatame_300x250_ros" 		 class="ads-300-250 box-shadow margin-top-15 mobile-hidden"></div>			
+			<div id="tatame_300x100_prime3_home" class="ads-300-100 box-shadow margin-top-15 mobile-hidden"></div>
 		</div>				
 	</div>
 </div>
@@ -41,17 +32,10 @@
 		<p:tile xml="home/recente"/>
 	</div>
 </div>	
-	
-<div class="ads-1024 mobile-hidden">
-	<div id="TerraAdvertising" data-keyvalues="" data-clicktag=""></div>
-	<script type="text/javascript">
-		if (windowWidth > 800) {
-			var terraAdsScript  = "<script type=\"text/javascript\" src=\"http://p2.trrsf.com/tagmanfe/ShowArea.aspx?key=br.cobranded_tatame.home.master2&direct=1\">";
-				terraAdsScript += "<\/script>";
-			document.write(terraAdsScript);
-		}
-	</script>	
-</div>	
+
+<div class="ads-1024">
+	<div id="tatame_728x90_home" class="ads-728-90 box-shadow mobile-hidden"></div>			
+</div>
 
 <div class="box-1024">
 	<div class="box-300 box-shadow margin-top-15">

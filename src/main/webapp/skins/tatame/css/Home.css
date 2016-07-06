@@ -14,9 +14,6 @@
 
 .ads-highlights { float: left; height: 595px; width: 300px; }
 
-.ads-1024 { float: left; width: 1024px; }
-.ads-1024 > div { width: 728px; height: 90px; margin: 15px auto 0; box-shadow: 3px 3px 3px #777; overflow: hidden; }
-
 #tatame_1680x912_home { display: none; }
 
 .black-belt-highlights { float: left; background-color: #2b2b2b; height: 25px; width: 1024px; margin: 15px 0 5px; }
@@ -94,8 +91,7 @@
 .facebook > div { height: 580px; width: 500px; margin: 10px 107px; }
 
 @media screen and (max-width: 800px){
-	.ads-highlights,
-	.ads-1024 { display: none; }
+	.ads-highlights { display: none; }
 	
 	.highlights { display: none; width: 0; height: 0; }
 /* 	Já implementado o layout responsivo nesse elemento.	

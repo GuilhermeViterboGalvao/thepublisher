@@ -77,6 +77,9 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 .ads-300-250 { float: left; height: 250px; width: 300px; overflow: hidden;}
 .ads-300-600 { float: left; height: 600px; width: 300px; }
 
+.ads-1024 { float:left; width: 1024px; }
+.ads-1024 .ads-728-90 { width: 728px; height: 90px; margin: 15px auto 0; overflow: hidden; }
+
 #tatame_1680x912_ros { display: none; }
 
 .margin-right-5 { margin-right: 5px; }
