@@ -184,12 +184,12 @@
 		</s:if>
 	</div>
 </form>
-<script type="text/javascript" src="/frameworks/jquery/plugins/jquery.xmldom-1.0.min.js"></script>
-<script type="text/javascript" src="/frameworks/tinymce/tiny_mce.js"></script>
-<script type="text/javascript" src="/frameworks/tinymce/plugins/photogallery/editor_plugin_src.js"></script>
-<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js"></script>
-<script type="text/javascript" src="/manager/js/PhotoSelectorDialog.js"></script>
-<script type="text/javascript" src="/manager/js/SwfDialog.js?1"></script>
+<script type="text/javascript" src="/frameworks/jquery/plugins/jquery.xmldom-1.0.min.js?1"></script>
+<script type="text/javascript" src="/frameworks/tinymce/tiny_mce.js?1"></script>
+<script type="text/javascript" src="/frameworks/tinymce/plugins/photogallery/editor_plugin_src.js?1"></script>
+<script type="text/javascript" src="/manager/js/PermanentLinkSelectorDialog.js?1"></script>
+<script type="text/javascript" src="/manager/js/PhotoSelectorDialog.js?1"></script>
+<script type="text/javascript" src="/manager/js/SwfDialog.js?2"></script>
 <script type="text/javascript">
 	function checkPermanentLink() {
 		var value = $('#link').val();
