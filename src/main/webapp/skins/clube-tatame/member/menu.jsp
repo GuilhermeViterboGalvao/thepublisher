@@ -5,7 +5,7 @@
 	<li>
 		<a href="/clube/membros/membro-input">Minha Home</a>
 	</li>
-	<s:if test="member.fbid == null">
+	<s:if test="fbid == null">
 		<li>
 			<a href="/clube/membros/resetPassword">Alterar senha</a>
 		</li>
