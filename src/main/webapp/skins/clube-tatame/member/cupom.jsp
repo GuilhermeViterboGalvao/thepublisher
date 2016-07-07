@@ -12,8 +12,8 @@
 	<div class="content">
 		<div class="avatar">
 			<img src="/skins/clube-tatame/img/avatar-membro-free.jpg">
-			<span class="name"><s:property value="member.name"/></span>
-			<span class="date"> membro desde <s:date name="member.created" format="dd/MM/yyyy"/></span>
+			<span class="name"><s:property value="name"/></span>
+			<span class="date"> membro desde <s:date name="created" format="dd/MM/yyyy"/></span>
 			<span class="description">Quer descontos maiores e ainda mais vantagens? torne-se um membro premium <a href="#">aqui</a> </span>
 		</div>
 		<p:tile xml="clube/cupom/free-member"/>
@@ -23,8 +23,8 @@
 	<div class="content">
 		<div class="avatar">
 			<img src="/skins/clube-tatame/img/avatar-membro-premium.jpg">
-			<span class="name"><s:property value="member.name"/></span>
-			<span class="date"> membro desde <s:date name="member.created" format="dd/MM/yyyy"/></span>
+			<span class="name"><s:property value="name"/></span>
+			<span class="date"> membro desde <s:date name="created" format="dd/MM/yyyy"/></span>
 		</div>
 		<p:tile xml="clube/cupom/paying-member"/>
 	</div>
