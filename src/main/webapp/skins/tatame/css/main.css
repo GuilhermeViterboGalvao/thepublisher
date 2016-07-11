@@ -128,7 +128,7 @@ html, body { float: left; width: 100%; height: 100%; position: relative; backgro
 	.header .menu-mobile .logo img { width: 100%; height: auto; max-width: 194px; margin: 1% auto; display: block; }
 	.header .menu-mobile .search { float: left; width: 98%; height: auto; margin: 0 0 1% 0; padding: 0 1%; }
 	.header .menu-mobile .search form { float: left; width: 100%; height: auto; }
-	.header .menu-mobile .search form input { float: left; width: 98%; height: auto; margin: 0; border: none; padding: 1%; font-size: 1em; line-height: 1.2em; color: #fff; font-family: Metrophobic, sans-serif; background-image: url("/skins/tatame/img/search.png"); background-repeat: no-repeat; background-position: 98% 50%; background-size: 15px 15px; }
+	.header .menu-mobile .search form input { float: left; width: 98%; height: auto; margin: 0; border: none; padding: 1%; font-size: 1em; line-height: 1.2em; color: #000; font-family: Metrophobic, sans-serif; background-image: url("/skins/tatame/img/search.png"); background-repeat: no-repeat; background-position: 98% 50%; background-size: 15px 15px; }
 	.header .menu-mobile .categories { float: left; display: block; width: 98%; padding: 0; margin: 0 1% 1% 1%; border: 0.01em solid #ccc; border-radius: 3px; overflow: hidden; background-color: #fff; background: #fff url("/skins/tatame/img/select-arrow-down.gif") no-repeat 98% 50%; }
 	.header .menu-mobile .categories select { float: left; font-size: 0.8em; padding: 1%; width: 100%; border: none; box-shadow: none; background-color: transparent; background-image: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 	.header .menu-mobile .categories select:focus { outline: none; }
