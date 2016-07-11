@@ -30,6 +30,7 @@
 	
 	<div class="box-300 margin-left-10 box-shadow margin-top-15">
 		<p:tile xml="home/recente"/>
+		<a class="mobile-more-news" href="/tatame/noticias?currentPage=2">LEIA MAIS NOTÍCIAS</a>
 	</div>
 </div>	
 

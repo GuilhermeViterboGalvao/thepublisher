@@ -42,6 +42,8 @@
 .last-news .article .info .date { float: left; width: 295px; height: 23px; line-height: 23px; font-size: 16px; color: #000; padding: 0 0 0 5px; font-weight: bold; }
 .last-news .article .info .note { float: left; width: 295px; height: 38px; line-height: 18px; font-size: 13px; color: #000; padding: 0 0 0 5px; font-weight: bold; overflow: hidden; }
 
+.mobile-more-news { display: none; float: left; width: 98%; height: auto; font-size: 1.2em; line-height: 1.4em; color: #000; padding: 2% 0 2% 2%; }
+
 .black-belt-most-vieweds { float: left; width: 300px; height: 25px; line-height: 25px; background-color: #2b2b2b; margin: 0 0 5px 0; }
 .black-belt-most-vieweds .dan { float: left; margin-left: 20px; background-color: #a2393c; font-size: 20px; line-height: 25px; height: 25px; color: #fff; width: 90px;  }
 .most-vieweds { float: left; height: 774px; width: 300px; border-bottom: 1px solid #a2393c; }
@@ -169,6 +171,8 @@
 	.last-news .article { margin: 0 0 2.5% 0; }
 	.last-news .article .info .date,
 	.last-news .article .info .note { width: 96%; height: auto; padding: 2%; background-color: #f6f6f6; color: #000; font-size: 1em; line-height: 1.25em; max-height: none; }
+	
+	.mobile-more-news { display: block; } 
 	
 	.black-belt-most-vieweds,
 	.most-vieweds { display: none; width: 0; height: 0; }	
