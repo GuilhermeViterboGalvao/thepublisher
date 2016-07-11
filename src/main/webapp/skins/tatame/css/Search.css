@@ -48,9 +48,6 @@ div.content div.magazine .note { float: left; height: 187px; width: 290px; paddi
 	div.content div.first-article div.info p.title,
 	div.content div.first-article div.info p.author,
 	div.content div.first-article div.info p.note { width: 96%; height: auto; padding: 2%; font-size: 1em; line-height: 1.25em; max-height: none; }
-	div.content div.first-article div.info p.title > a,
-	div.content div.first-article div.info p.author > a,
-	div.content div.first-article div.info p.note > a { color: #fff; }
 	div.content div.first-article div.info p.author span { border: none; }
 	
 	div.content div.articles,
@@ -66,9 +63,6 @@ div.content div.magazine .note { float: left; height: 187px; width: 290px; paddi
 	div.content div.articles div.article div.info p.title,
 	div.content div.articles div.article div.info p.author,
 	div.content div.articles div.article div.info p.note { width: 96%; height: auto; padding: 2%; font-size: 1em; line-height: 1.25em; max-height: none; }
-	div.content div.articles div.article div.info p.title > a,
-	div.content div.articles div.article div.info p.author > a,
-	div.content div.articles div.article div.info p.note > a { color: #fff; }
 	div.content div.articles div.article div.info p.author span { border: none; }	
 	
 	div.content div.page-list,
