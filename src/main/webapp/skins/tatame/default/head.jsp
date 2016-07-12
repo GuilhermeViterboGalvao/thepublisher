@@ -36,7 +36,7 @@
 	</s:if>
 </s:if>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
-	<link rel="stylesheet" href="/skins/tatame/css/Home.css?10" type="text/css"/>
+	<link rel="stylesheet" href="/skins/tatame/css/Home.css?11" type="text/css"/>
 </s:elseif>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Category">
 	<link rel="stylesheet" href="/skins/tatame/css/Category.css?3" type="text/css"/>
