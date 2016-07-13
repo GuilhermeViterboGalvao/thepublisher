@@ -2,6 +2,7 @@ package br.com.clubetatame.view;
 
 import java.util.Date;
 import com.opensymphony.xwork2.ActionSupport;
+import com.publisher.view.EmailUtils;
 import com.publisher.view.ViewAction;
 
 import br.com.clubetatame.entity.Member;
@@ -21,14 +22,14 @@ public class PromotionAction extends ActionSupport implements ViewAction {
 	public String execute() throws Exception {
 		Member member = new Member();
 		member.setName(memberName);
-		member.setActive(true);
+		member.setActive(false);
 		member.setEmail(email);		
 		member.setAnswer(answer);
 		member.setDocument(document);
 		member.setCreated(new Date());
-		member.setLastModified(new Date());
 		member.setHash(memberService.hash(password));
 		memberService.persist(member);
+		EmailUtils.getInstance().sendEmailConfirmationToMember(member);	
 		success = true;
 		return SUCCESS;
 	}
