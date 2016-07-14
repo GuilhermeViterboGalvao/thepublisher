@@ -42,6 +42,7 @@ public class MemberAction extends AbstractAction<Member> {
 
 			this.address = entity.getAddress();
 			this.cep = entity.getCep();
+			this.answer = entity.getAnswer();
 			this.active = entity.isActive();
 			this.createdBy = entity.getCreatedBy();
 			this.created = entity.getCreated();
@@ -194,6 +195,8 @@ public class MemberAction extends AbstractAction<Member> {
 	
 	private String cep;
 	
+	private String answer;
+	
 	private boolean active;
 	
 	private Account createdBy;
@@ -266,6 +269,14 @@ public class MemberAction extends AbstractAction<Member> {
 
 	public void setCep(String cep) {
 		this.cep = cep;
+	}	
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	public boolean isActive() {

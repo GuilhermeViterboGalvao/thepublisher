@@ -26,7 +26,10 @@
 				<label for="address">Endereço</label>
 				<s:textfield name="address"/>
 				<label for="cep">CEP</label>
-				<s:textfield name="cep"/>		
+				<s:textfield name="cep"/>	
+				<label for="cep">Resposta</label>
+				<s:textfield disabled="true" name="answer"/>
+					
 				<div class="ym-fbox-check" style="padding-top: 10px;">
 					<label for="active">Ativo</label>
 					<s:checkbox id="active" name="active"/>
