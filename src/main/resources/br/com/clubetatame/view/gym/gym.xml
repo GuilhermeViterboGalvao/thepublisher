@@ -23,7 +23,7 @@
 			<interceptor-ref name="defaultStack"/>
 			<result name="login" type="tiles">default</result>
 			<result name="input" type="tiles">default</result>
-			<result type="redirectAction">gym-input</result>			
+			<result type="redirectAction">cupom</result>			
 		</action>
 		<action name="logout" class="br.com.clubetatame.view.gym.LogoutAction"/>
 		<action name="gym-*" class="br.com.clubetatame.view.gym.GymAction" method="{1}">

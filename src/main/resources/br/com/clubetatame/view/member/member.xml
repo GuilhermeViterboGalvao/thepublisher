@@ -23,12 +23,12 @@
 			<interceptor-ref name="defaultStack"/>
 			<result name="login" type="tiles">default</result>
 			<result name="input" type="tiles">default</result>
-			<result type="redirectAction">membro-input</result>			
+			<result type="redirectAction">cupom</result>			
 		</action>
         <action name="facebookLogin" class="br.com.clubetatame.view.member.FacebookLogin">
        		<interceptor-ref name="defaultStack"/>
             <result name="login" type="tiles">default</result>
-            <result type="redirectAction">membro-input</result>      
+            <result type="redirectAction">cupom</result>      
         </action>	
 		<action name="logout" class="br.com.clubetatame.view.member.LogoutAction"/>
 		<action name="membro-*" class="br.com.clubetatame.view.member.MemberAction" method="{1}">

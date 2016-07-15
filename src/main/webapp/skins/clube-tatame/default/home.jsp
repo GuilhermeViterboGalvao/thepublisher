@@ -51,7 +51,10 @@
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-people.png"></td>
 					<td class="member-premium margin">Grandes descontos no TATAMEShop e em diversas lojas parceiras</td>
 					<td class="member-free"><img src="/skins/clube-tatame/img/icon-medal.png"></td>
-					<td class="member-free margin">Desconto em produtos em diversas lojas virtuais</td>
+					<td class="member-free margin">
+						Desconto em produtos em diversas lojas virtuais.
+						<a href="http://www.tatame.com.br/clube/memberRegister?fromMenu=true">Cadastre-se gratuitamente e seja membro</a>
+					</td>
 				</tr>
 				<tr>
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-kimono.png"></td>
@@ -67,7 +70,10 @@
 				</tr>
 				<tr class="no-border">
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-magazine.png"></td>
-					<td class="member-premium margin">Receba a revista em casa e tenha muito mais vantagens</td>
+					<td class="member-premium margin">
+						Receba a revista em casa e tenha muito mais vantagens.
+						<a href="http://www.tatameshop.com.br/search/?q=assinatura" target="_blank">Seja membro premium</a>
+					</td>
 					<td class="member-free"><img src="/skins/clube-tatame/img/icon-people.png"></td>
 					<td class="member-free margin">Entreviste seu lutador preferido formulando e enviando perguntas</td>
 				</tr>

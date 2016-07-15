@@ -3,7 +3,7 @@
 
 <ul class="member-menu">
 	<li>
-		<a href="/clube/membros/membro-input">Minha Home</a>
+		<a href="/clube/membros/membro-input">Meus Dados</a>
 	</li>
 	<s:if test="fbid == null">
 		<li>

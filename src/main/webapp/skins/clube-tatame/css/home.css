@@ -70,7 +70,9 @@
 .advantages .content table .no-border { border-bottom: none; }
 .advantages .content table tr td { vertical-align: middle; font-size: 13.5px; color: #787878; line-height: 22px; }
 .advantages .content table tr .member-free { display: none; }
+.advantages .content table tr .member-free a { text-decoration: none; color: #8e0000; font-weight: bold; }
 .advantages .content table tr .member-premium { display: table-cell; }
+.advantages .content table tr .member-premium a { text-decoration: none; color: #8e0000; font-weight: bold; }
 .advantages .content table tr .margin { padding-left: 2%; }
 .advantages .content table tr td img { width: 70px; margin-right: 10%; }
 
