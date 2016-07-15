@@ -27,7 +27,7 @@
 .boxs .box .text { float: left; width: 100%; font-size: 1em; line-height: 25px; font-weight: 300; }
 
 .guide-title { width: 100%; max-width: 944px; display: table; margin: 25px auto; height: 68px; text-align: center; }
-.guide-title .line { width: 35%; height: 50%; border-bottom: 2px solid #6e6e6e; float: left; }
+.guide-title .line { width: 35%; height: 34px; border-bottom: 2px solid #6e6e6e; float: left; }
 .guide-title span { width: 30%; color: #636363; font-size: 1.7em; float: left; margin: 1.8% 0 0;  }
 
 .guide-gym { width: 100%; max-width: 944px; display: table; margin: 25px auto; height: 68px; border: 0.01em solid #222222; background-color: #000; }

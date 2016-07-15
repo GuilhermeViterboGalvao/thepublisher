@@ -11,7 +11,7 @@
 </s:if>
 <link href="/skins/clube-tatame/css/main.css" rel="stylesheet" type="text/css"/>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 6">
-	<link href="/skins/clube-tatame/css/home.css" rel="stylesheet" type="text/css"/>
+	<link href="/skins/clube-tatame/css/home.css?1" rel="stylesheet" type="text/css"/>
 </s:if>
 <s:elseif test="model != null && model instanceof com.publisher.entity.Article">
 	<link href="/skins/clube-tatame/css/article.css" rel="stylesheet" type="text/css"/>
