@@ -1,0 +1,19 @@
+<%
+	if (info && info.item && info.item.size() > 0) {
+		info.item.eachWithIndex { item, index ->
+			def link    = ""
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}
+%>
+	<div class="clube-box2 box-shadow margin-left-10">
+		<div class="title">${item.title}</div>
+		<div class="text">${item.text}</div>
+		<button onClick="window.open('${link}', '_blank');">CADASTRO FREE</button>
+	</div>
+<%
+		}
+	}
+%>

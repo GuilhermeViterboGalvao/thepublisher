@@ -31,5 +31,18 @@
 				<a style="height: 30px; text-align: center; width: 95%;" class="ym-button" href="/manager/gxml-edit?path=home/revista">Revista</a>
 			</div>
 		</div>
+		
+		<h4 class="ym-fbox-heading">Clube</h4>
+		<div class="ym-grid">
+			<div class="ym-gbox">
+				<a style="height: 30px; text-align: center; width: 95%;" class="ym-button" href="/manager/gxml-edit?path=home/clube-box1">Box 1</a>
+			</div>
+			<div class="ym-gbox">
+				<a style="height: 30px; text-align: center; width: 95%;" class="ym-button" href="/manager/gxml-edit?path=home/clube-gyms">Box de Academias</a>
+			</div>
+			<div class="ym-gbox">
+				<a style="height: 30px; text-align: center; width: 95%;" class="ym-button" href="/manager/gxml-edit?path=home/clube-box2">Box 2</a>
+			</div>
+		</div>
 	</div>
 </div>

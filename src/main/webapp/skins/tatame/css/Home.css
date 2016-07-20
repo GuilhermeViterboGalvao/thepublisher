@@ -92,6 +92,23 @@
 .facebook { float: left; height: 600px; width: 714px; background-color: #f6f6f6; }
 .facebook > div { height: 580px; width: 500px; margin: 10px 107px; }
 
+
+.black-belt-clube { float: left; background-color: #2b2b2b; height: 25px; width: 1024px; margin: 15px 0 5px; }
+.black-belt-clube .dan { float: left; background-color: #a2393c; height: 25px; width: 131px; margin-left: 20px; color: #fff; font-size: 20px; line-height: 23px; } 	
+
+.clube-box1 { float: left; width: 335px; height: 224px; padding: 0 18px; }
+.clube-box1 .note { float: left; font-size: 26px; font-weight: bold; color: #c32c23; }
+.clube-box1 a img { margin: 10px 0; }
+
+.clube-box2 { float: left; width: 246px; height: 194px; padding: 30px 18px 0; }
+.clube-box2 .title { float: left; font-size: 18px; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+.clube-box2 .text { float: left; font-size: 16px; line-height: 21px; }
+.clube-box2 button { float:left; padding: 1.5% 2%; font-weight: bold; background-color: #d3d3d3; font-size: 0.7em; margin-top: 21px; font-weight: bold; font-size: 12px; text-align: center; color: #000; border: 0.1em solid #414142; border-radius: 5px; text-transform: uppercase; cursor: pointer; }
+
+.clube-gym { width: 350px; height: 224px; float: left; display: none; }
+.clube-gym .title { font-size: 30px; text-transform: uppercase; padding: 2px; }
+.clube-gym .title a { text-decoration: none; color: #000; }
+
 @media screen and (max-width: 800px){
 	.ads-highlights { display: none; }
 	
@@ -225,4 +242,7 @@
 	.facebook > div { width: 100%; height: auto; }
 	.facebook { margin: 0 0 2.5% 0; max-height: 250px; overflow: hidden; }
 	.facebook > div { margin: 0; }
+	
+
+	.mobile-remove { display: none; }
 }

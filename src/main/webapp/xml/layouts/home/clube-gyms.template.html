@@ -1,0 +1,23 @@
+<%
+	if (info && info.item && info.item.size() >= 1) {
+    
+	    info.item.eachWithIndex { item, index ->
+			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+		   	    link    = ""
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}
+%>
+	<div class="clube-gym box-shadow margin-left-10">
+		<div class="title">
+			<a href="${link}">${item.title}</a>
+		</div>
+		<img alt="${photoId}" src="http://tatame.com.br/img/${photoId}_350x190.jpg"/>
+	</div>	
+
+<%
+		}
+	}
+%>

@@ -163,4 +163,13 @@ $(function() {
 			$("div.colunas-articles div#colunas-" + (currentCId + (cElements -1))).removeClass("hide").addClass("show");
 		}
 	});
+	
+	
+	//Clube random Gyms
+	
+	var gyms = $("div.clube-gym");
+	
+	var position = Math.floor(Math.random() * gyms.length);
+	
+	$(gyms[position]).css("display","block");
 });

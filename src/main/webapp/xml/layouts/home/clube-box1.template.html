@@ -1,0 +1,21 @@
+<%
+	if (info && info.item && info.item.size() > 0) {
+		info.item.eachWithIndex { item, index ->
+			def photoId = (item.photoId =~ /\d{1,999999}/)[0],
+		   	    link    = ""
+			if (item.link.toString().startsWith("http://") || item.link.toString().startsWith("https://")) {
+				link = item.link.toString()
+			} else {
+				link = "/" + item.link.toString() 
+			}
+%>
+	<div class="clube-box1 box-shadow">
+		<a href="${link}">
+			<img alt="${photoId}" src="http://tatame.com.br/img/${photoId}_234x127.jpg"/>
+		</a>	
+		<div class="note">${item.title}</div>
+	</div>
+<%
+		}
+	}
+%>

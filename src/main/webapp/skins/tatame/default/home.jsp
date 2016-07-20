@@ -38,6 +38,15 @@
 	<div id="tatame_728x90_home" class="ads-728-90 box-shadow mobile-hidden"></div>			
 </div>
 
+<div class="box-1024 mobile-remove">
+	<div class="black-belt-clube box-shadow">
+		<div class="dan">Clube TATAME</div>
+	</div>
+	<p:tile xml="home/clube-box1"/>
+	<p:tile xml="home/clube-gyms"/>
+	<p:tile xml="home/clube-box2"/>
+</div>
+
 <div class="box-1024">
 	<div class="box-300 box-shadow margin-top-15">
 		<div class="black-belt-most-vieweds box-shadow">
