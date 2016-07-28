@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans 
+    xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+		
+	<!-- For PermanentLink -->		
+	<beans:bean id="defaultMapper" class="org.apache.struts2.dispatcher.mapper.DefaultActionMapper"/>
+	<beans:bean id="permanentLinkMapper" class="com.publisher.actionmapper.PermanentLinkActionMapper">		
+		<beans:property name="permanentLinkService" ref="permanentLinkService"/>		
+		<beans:property name="backupMapper" ref="defaultMapper"/>		
+	</beans:bean>		
+		
+	<beans:bean id="accountService" class="com.publisher.service.implementation.AccountServiceImplementation"/>	
+	<beans:bean id="articleService" class="com.publisher.service.implementation.ArticleServiceImplementation"/>
+	<beans:bean id="categoryService" class="com.publisher.service.implementation.CategoryServiceImplementation"/>
+	<beans:bean id="pageService" class="com.publisher.service.implementation.PageServiceImplementation"/>
+	<beans:bean id="permanentLinkService" class="com.publisher.service.implementation.PermanentLinkServiceImplementation"/>
+	<beans:bean id="photoService" class="com.publisher.service.implementation.PhotoServiceImplementation"/>
+	<beans:bean id="skinService" class="com.publisher.service.implementation.SkinServiceImplementation"/>		
+</beans:beans>

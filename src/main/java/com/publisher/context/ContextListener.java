@@ -20,8 +20,11 @@ public class ContextListener implements ServletContextListener {
 
 	private static Log log = LogFactory.getLog(ContextListener.class);
 	
+	private String runningContext;
+	
 	@Override
-	public void contextInitialized(ServletContextEvent event) { 
+	public void contextInitialized(ServletContextEvent event) {
+		runningContext = getRunningContext();
         try { 
         	readAndExport(event.getServletContext()); 
         } catch (Exception e) {
@@ -29,6 +32,18 @@ public class ContextListener implements ServletContextListener {
         	e.printStackTrace();
         }
         ViewsListener.start(event.getServletContext());
+	}
+	
+	private String getRunningContext() {
+		String myRunningContext = System.getProperty("running-context");
+		if (myRunningContext == null || myRunningContext.isEmpty()) {
+			myRunningContext = System.getenv("running-context");
+			if (myRunningContext == null || myRunningContext.isEmpty()) {				
+				myRunningContext = "local";
+				System.setProperty("running-context", myRunningContext);
+			}
+		}
+		return myRunningContext;
 	}
 	
 	private void readAndExport(ServletContext context) throws FileNotFoundException, IOException {
@@ -46,7 +61,7 @@ public class ContextListener implements ServletContextListener {
 			if (property != null && !properties.isEmpty()) {
 				home = new File(property);
 			} else {
-				property = properties.getProperty("home-folder");
+				property = properties.getProperty(runningContext + ".home-folder");
 				if (property != null && !properties.isEmpty()) {
 					home = new File(property);	
 				}
@@ -57,17 +72,20 @@ public class ContextListener implements ServletContextListener {
 		Iterator<Object> keyIterator = properties.keySet().iterator();		
 		while(keyIterator.hasNext()) {			
 			File dir = null;			
-			String key = (String)keyIterator.next();			
-			String path = properties.getProperty(key);			
-			File file = new File(path);			
-			if (path != null && !path.isEmpty() && !path.startsWith(File.separator) && !file.isFile()) {
-				dir = init(new File(home, path));
+			String key = (String)keyIterator.next();
+			if (key.contains(runningContext)) {				
+				String path = properties.getProperty(key);
+				key = key.replace(runningContext + ".", "");
+				File file = new File(path);	
+				if (path != null && !path.isEmpty() && !path.startsWith(File.separator) && !file.isFile()) {
+					dir = init(new File(home, path));
+				}
+				if (dir != null) {
+					log.info("Application " + key  + " folder: " + dir.getAbsolutePath());
+		    		System.setProperty(key, dir.getAbsolutePath());
+		            context.setAttribute(key, dir.getAbsolutePath());
+		        }	
 			}
-			if (dir != null) {
-				log.info("Application " + key  + " folder: " + dir.getAbsolutePath());
-	    		System.setProperty(key, dir.getAbsolutePath());
-	            context.setAttribute(key, dir.getAbsolutePath());
-	        }
 		}
 	}
 	
