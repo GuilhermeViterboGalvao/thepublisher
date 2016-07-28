@@ -72,7 +72,7 @@
 					<td class="member-premium"><img src="/skins/clube-tatame/img/icon-magazine.png"></td>
 					<td class="member-premium margin">
 						Receba a revista em casa e tenha muito mais vantagens.
-						<a href="http://www.tatameshop.com.br/search/?q=assinatura" target="_blank">Seja membro premium</a>
+						<a href="http://www.tatameshop.com.br/clube/membro-premium/" target="_blank">Seja membro premium</a>
 					</td>
 					<td class="member-free"><img src="/skins/clube-tatame/img/icon-people.png"></td>
 					<td class="member-free margin">Entreviste seu lutador preferido formulando e enviando perguntas</td>

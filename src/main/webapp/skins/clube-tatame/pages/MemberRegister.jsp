@@ -120,7 +120,7 @@
 				</div>
 				
 				<div class="premium">
-					<a href="http://www.tatameshop.com.br/search/?q=assinatura" target="_blank">
+					<a href="http://www.tatameshop.com.br/clube/membro-premium/" target="_blank">
 						<img src="/skins/clube-tatame/img/black-belt.png">
 						<span>MEMBRO PREMIUM</span>
 					</a>
@@ -129,12 +129,12 @@
 				
 				<span class="important">Garanta já a sua condição de membro PREMIUM e comece a desfrutar em poucos minutos!</span>
 				
-				<button onClick="window.open('http://www.tatameshop.com.br/search/?q=assinatura', '_blank');">quero ser premium</button>
+				<button onClick="window.open('http://www.tatameshop.com.br/clube/membro-premium/', '_blank');">quero ser premium</button>
 			</div>
 		</div>
 	</div>
 	
-	<a href="http://www.tatameshop.com.br/search/?q=assinatura" target="_blank">
+	<a href="http://www.tatameshop.com.br/clube/membro-premium/" target="_blank">
 		<span class="title-page">ou torne-se um membro premium</span>
 	</a>
 	
