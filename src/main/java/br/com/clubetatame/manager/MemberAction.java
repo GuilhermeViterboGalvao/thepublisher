@@ -70,6 +70,8 @@ public class MemberAction extends AbstractAction<Member> {
 			}
 			entity.setLastModifiedBy(getAccount());
 			entity.setLastModified(new Date());
+			
+			setHash(entity);
 		}
 		return entity;
 	}
@@ -87,6 +89,27 @@ public class MemberAction extends AbstractAction<Member> {
 			memberService.update(entity);
 		}
 	}
+	
+	public void validate() {
+		Member member = getObject();
+		if (!(member != null && member.getEmail().equals(email))){
+			Member sameEmail = memberService.getByEmail(email);		
+			if(sameEmail != null && sameEmail.getEmail().equals(email)){				
+				addFieldError("email", "E-mail já cadastrado.");
+			}
+		}
+		if (id <= 0) {
+			if (password == null || password.isEmpty()) {
+				addFieldError("password", "O campo senha é obrigatório!");	
+			}
+			if (password2 == null || password2.isEmpty()) {
+				addFieldError("password2", "É obrigatório repetir a senha!");
+			}			
+		}
+		if (password != null && !password.isEmpty() && password2 != null && !password2.isEmpty() && !password.equals(password2)) {
+			addFieldError("password", "Senhas diferentes. Tente novamente.");
+		}		
+	}	
 
 	@Override
 	protected Collection<Member> generateList() {
@@ -155,11 +178,23 @@ public class MemberAction extends AbstractAction<Member> {
 		return options;
 	}
 	
+	private void setHash(Member entity) {
+		if (password != null && !password.isEmpty()) {
+			entity.setHash(memberService.hash(password));
+		}			
+		password = "";
+		password2 = "";		
+	}
+	
 	//Action properties
 	
 	private String orderBy = "created";
 	
 	private boolean orderly = true;
+	
+	private String password;
+	
+	private String password2;
 	
 	public String getOrderBy() {
 		return orderBy;
@@ -175,7 +210,23 @@ public class MemberAction extends AbstractAction<Member> {
 
 	public void setOrderly(boolean orderly) {
 		this.orderly = orderly;
-	}	
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPassword2() {
+		return password2;
+	}
+
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
 	
 	//POJO
 

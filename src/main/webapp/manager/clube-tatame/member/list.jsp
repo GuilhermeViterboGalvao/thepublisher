@@ -5,6 +5,9 @@
 		<li class="active">
 			<strong>Membros</strong>
 		</li>
+		<li class="active">
+			<a href="member-edit">Novo</a>
+		</li>
 	</ul>
 	<form class="ym-searchform">
 		<input class="ym-searchfield" type="search" name="search" value="<s:property value="search"/>" placeholder="Procurar..." /> 
