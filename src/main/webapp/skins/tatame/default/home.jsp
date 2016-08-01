@@ -38,7 +38,7 @@
 	<div id="tatame_728x90_home" class="ads-728-90 box-shadow mobile-hidden"></div>			
 </div>
 
-<div class="box-1024 mobile-remove hide">
+<div class="box-1024 mobile-remove">
 	<div class="black-belt-clube box-shadow">
 		<div class="dan">Clube TATAME</div>
 	</div>
