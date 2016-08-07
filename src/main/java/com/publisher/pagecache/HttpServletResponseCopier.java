@@ -47,8 +47,10 @@ public class HttpServletResponseCopier extends HttpServletResponseWrapper {
 	public void flushBuffer() throws IOException {
 		if (writer != null) {
 			writer.flush();
+			writer.close();
 		} else if (outputStream != null) {
 			copier.flush();
+			copier.close();
 		}
 	}
 
