@@ -30,12 +30,14 @@ public class ServletOutputStreamCopier extends ServletOutputStream {
     @Override
     public void close() throws IOException {
     	super.close();
-    	copy.close();
+    	outputStream.close();
+    	copy.close();        
     }
     
     @Override
     public void flush() throws IOException {
     	super.flush();
+    	outputStream.flush();
     	copy.flush();
     }
 }
