@@ -20,8 +20,8 @@ public class MemberContractServiceImplementation extends AbstractContractService
 	public Collection<MemberContract> list(Member member){
 		if (member != null) {
 			StringBuilder sql = new StringBuilder();
-			sql.append("from MemberContract where member=:member ");
-			sql.append("order by start desc");
+			sql.append("from MemberContract c where c.member=:member ");
+			sql.append("order by c.start desc");
 			Query query = entityManager.createQuery(sql.toString());
 			query.setParameter("member", member);
 			return query.getResultList();
