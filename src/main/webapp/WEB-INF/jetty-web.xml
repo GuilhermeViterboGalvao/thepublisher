@@ -2,12 +2,17 @@
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
 	<Set name="contextPath">/</Set>
+	<Set name="welcomeFiles">
+		<Array type="String">
+			<Item>/index.jsp</Item>
+		</Array>
+	</Set>
 	<Get name="securityHandler">
 		<Set name="loginService">
 			<New class="org.eclipse.jetty.security.HashLoginService">
-				<Set name="name">Monitoring Realm</Set>
+				<Set name="name">Monitoring</Set>
 				<Set name="config">
-					<SystemProperty name="jetty.home" default="."/>/WEB-INF/realm.properties
+					<SystemProperty name="jetty.home" default="." />/src/main/webapp/WEB-INF/realm.properties
 				</Set>
 			</New>
 		</Set>

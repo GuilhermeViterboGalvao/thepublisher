@@ -19,8 +19,6 @@ fi
 ##################
 # Starting Jetty #
 ##################
-#sudo nohup mvn -s ~/.m2/eclipse-settings.xml clean jetty:run-exploded -Djetty.port=80 -Djcms-log-path=/Users/Guilherme/jcms-data-files/logs -Djcms-running-context=local >> jetty-out.log 2>&1&
-#nohup mvn -s ~/.m2/eclipse-settings.xml clean jetty:run-exploded -Djetty.port=8080 -Djcms-log-path=/Users/Guilherme/jcms-data-files/logs -Djcms-running-context=local >> jetty-out.log 2>&1&
 mavenCommand="mvn clean jetty:run-exploded"
 appParams="-Djetty.port=8080 -Dpublisher-log-path=/Users/Guilherme/publisher-data-files/logs -Drunning-context=guilherme"
 nohup $mavenCommand $appParams >> jetty-out.log 2>&1&
@@ -28,7 +26,7 @@ nohup $mavenCommand $appParams >> jetty-out.log 2>&1&
 #######################
 # Setting PID on file #
 #######################
-if [ -f "jetty.pid" ]; then
-	rm -f jetty.pid
-fi
-echo $! > jetty.pid
+#if [ -f "jetty.pid" ]; then
+#	rm -f jetty.pid
+#fi
+#echo $! > jetty.pid

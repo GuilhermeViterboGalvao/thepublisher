@@ -9,11 +9,13 @@
 #	exit 1
 #fi
 
-kill -9 `cat jetty.pid`
+#kill -9 `cat jetty.pid`
 
 #########################
 # Removing old log file #
 #########################
-if [ -f "jetty.pid" ]; then
-	rm -f jetty.pid
-fi
+#if [ -f "jetty.pid" ]; then
+#	rm -f jetty.pid
+#fi
+
+mvn jetty:stop
