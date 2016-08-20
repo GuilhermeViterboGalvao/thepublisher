@@ -51,7 +51,7 @@ public class ContextListener implements ServletContextListener {
 		String realPath = context.getRealPath(File.separator);
 		realPath = !realPath.endsWith(File.separator)   ? realPath + File.separator : realPath;
 		realPath = !realPath.startsWith(File.separator) ? File.separator + realPath : realPath;
-		properties.load(new FileInputStream(realPath + "WEB-INF/default-folders.properties"));		
+		properties.load(new FileInputStream(realPath + "WEB-INF/config-files/default-folders.properties"));		
 		File home = null;		
 		String property = System.getProperty("home-folder");		
 		if (property != null && !properties.isEmpty()) {

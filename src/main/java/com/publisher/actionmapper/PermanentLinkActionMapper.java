@@ -33,7 +33,7 @@ public class PermanentLinkActionMapper implements ActionMapper, ApplicationConte
 			realPath = !realPath.endsWith(File.separator)   ? realPath + File.separator : realPath;
 			realPath = !realPath.startsWith(File.separator) ? File.separator + realPath : realPath;
 			try {
-				properties.load(new FileInputStream(realPath + "WEB-INF/hosts.properties"));				
+				properties.load(new FileInputStream(realPath + "WEB-INF/config-files/hosts.properties"));				
 				Iterator<Object> keyIterator = properties.keySet().iterator();				
 				hosts = new LinkedHashMap<String, String>();				
 				while (keyIterator.hasNext()) {
