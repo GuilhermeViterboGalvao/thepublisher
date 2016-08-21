@@ -30,6 +30,7 @@
 					<stopPort>8888</stopPort>
 					<stopKey>stop-thepublisher-server</stopKey>
 					<stopWait>10</stopWait>
+					<jettyXml>${project.basedir}/src/main/webapp/WEB-INF/jetty/jetty.xml</jettyXml>
 				</configuration>
 			</plugin>
 		</plugins>
