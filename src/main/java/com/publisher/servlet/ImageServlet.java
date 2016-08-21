@@ -37,38 +37,64 @@ public class ImageServlet extends HttpServlet {
 	
 	private PhotoService photoService;
 	
+	private boolean isJetty = false;
+	
 	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
+		super.init(config);		
 		try { 
 			folderSize = Integer.parseInt(config.getInitParameter("folder-size")); 
 		} catch (Exception e) { 
 			log.error(e);
 		}
-		homeFolder = new File((String)config.getServletContext().getAttribute("home-folder"));		
-		imageFolder = new File((String)config.getServletContext().getAttribute(config.getInitParameter("image-folder")));
-		if (imageFolder == null) {
-			imageFolder = new File(config.getInitParameter("image-folder"));
-			if (!imageFolder.exists()) {
-				imageFolder.mkdirs();
-			}
+		try {
+			homeFolder = new File((String)config.getServletContext().getAttribute("home-folder"));		
+			imageFolder = new File((String)config.getServletContext().getAttribute(config.getInitParameter("image-folder")));
+			if (imageFolder == null) {
+				imageFolder = new File(config.getInitParameter("image-folder"));
+				if (!imageFolder.exists()) {
+					imageFolder.mkdirs();
+				}
+			}	
+		} catch (Exception e) {
+			log.error(e);
 		}
-		imageTempFolder = new File((String)config.getServletContext().getAttribute(config.getInitParameter("image-temp-folder")));
-		if (imageTempFolder == null) {
-			imageTempFolder = new File(config.getInitParameter("image-temp-folder"));
-			if (!imageTempFolder.exists()) {
-				imageTempFolder.mkdirs();
-			}
+		try {
+			imageTempFolder = new File((String)config.getServletContext().getAttribute(config.getInitParameter("image-temp-folder")));
+			if (imageTempFolder == null) {
+				imageTempFolder = new File(config.getInitParameter("image-temp-folder"));
+				if (!imageTempFolder.exists()) {
+					imageTempFolder.mkdirs();
+				}
+			}	
+		} catch (Exception e) {
+			log.error(e);
 		}
-		imageMagickPath = (String)config.getServletContext().getAttribute("bin-path");
-		imageMagickPath = !imageMagickPath.endsWith(File.separator) ? imageMagickPath + File.separator : imageMagickPath;
-		log.info("Image folder: " + imageFolder);
-		log.info("Image temporary folder: " + imageTempFolder);
-		log.info("imageMagick folder path: " + imageMagickPath);		
+		try {
+			imageMagickPath = (String)config.getServletContext().getAttribute("bin-path");
+			imageMagickPath = !imageMagickPath.endsWith(File.separator) ? imageMagickPath + File.separator : imageMagickPath;	
+		} catch (Exception e) {
+			log.error(e);
+		}		
 		try { 
 			quality = Float.parseFloat(config.getInitParameter("quality")); 
 		} catch (Exception e) { 
 			log.error(e);
-		}		
+		}
+		String jettyHome = System.getenv("jetty.home");
+		if (jettyHome == null || jettyHome.isEmpty()) {
+			jettyHome = System.getProperty("jetty.home");
+			if (jettyHome != null && !jettyHome.isEmpty()) {
+				File file = new File(jettyHome);
+				if (file.isDirectory()) {
+					isJetty = true;	
+				}					
+			}			
+		}
+		log.info("Image folder: " + imageFolder);
+		log.info("Image temporary folder: " + imageTempFolder);
+		log.info("imageMagick folder path: " + imageMagickPath);
+		log.info("imageMagick quality: " + quality);
+		log.info("Is Jetty: " + isJetty);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -98,8 +124,18 @@ public class ImageServlet extends HttpServlet {
 		if (!path.startsWith(File.separator)) {
 			path = File.separator + path;
 		}		
-		log.info(path);		
-		request.getRequestDispatcher(path).forward(request, response);		
+		log.info(path);
+		if (isJetty) {
+			String redirectURL = (request.isSecure() ? "https://" : "http://") + request.getServerName();
+			if (request.getServerPort() > 0) {
+				redirectURL += ":" + String.valueOf(request.getServerPort());
+			}
+			redirectURL += path;
+			log.info(redirectURL);
+			response.sendRedirect(redirectURL);			
+		} else {
+			request.getRequestDispatcher(path).forward(request, response);	
+		}				
 	}
 	
 	private File getImage(String uri, File imageFolder, File tempFolder) {

@@ -20,8 +20,18 @@ fi
 # Starting Jetty #
 ##################
 mavenCommand="mvn clean jetty:run-exploded"
-appParams="-Djetty.port=8080 -Dpublisher-log-path=/Users/Guilherme/publisher-data-files/logs -Drunning-context=guilherme"
-nohup $mavenCommand $appParams >> jetty-out.log 2>&1&
+
+jettyParams="-Djetty.port=8080"
+
+appParams="-Dpublisher-log-path=/Users/Guilherme/publisher-data-files/logs -Drunning-context=guilherme"
+
+uploadFilesDir="-Dupload.files.dir=/Users/Guilherme/publisher-data-files/upload-files"
+
+photosDir="-Dphotos.dir=/Users/Guilherme/publisher-data-files/photos"
+
+tempDir="-Dtemp.dir=/Users/Guilherme/publisher-data-files/temp"
+
+nohup $mavenCommand $jettyParams $appParams $uploadFilesDir $photosDir $tempDir >> jetty-out.log 2>&1&
 
 #######################
 # Setting PID on file #

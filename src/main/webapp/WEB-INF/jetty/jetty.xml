@@ -11,11 +11,39 @@
 							<Set name="handler">
 								<New class="org.eclipse.jetty.server.handler.ResourceHandler">
 									<Set name="directoriesListed">true</Set>
-									<Set name="resourceBase">/Users/Guilherme/publisher-data-files/photos</Set>
+									<Set name="resourceBase">
+										<SystemProperty name="photos.dir" default="."/>
+									</Set>
 								</New>
 							</Set>
 						</New>
 					</Item>
+					<Item>
+						<New class="org.eclipse.jetty.server.handler.ContextHandler">
+							<Set name="contextPath">/temp</Set>
+							<Set name="handler">
+								<New class="org.eclipse.jetty.server.handler.ResourceHandler">
+									<Set name="directoriesListed">true</Set>
+									<Set name="resourceBase">
+										<SystemProperty name="temp.dir" default="."/>
+									</Set>
+								</New>
+							</Set>
+						</New>
+					</Item>
+					<Item>
+						<New class="org.eclipse.jetty.server.handler.ContextHandler">
+							<Set name="contextPath">/upload-files</Set>
+							<Set name="handler">
+								<New class="org.eclipse.jetty.server.handler.ResourceHandler">
+									<Set name="directoriesListed">true</Set>
+									<Set name="resourceBase">
+										<SystemProperty name="upload.files.dir" default="."/>
+									</Set>
+								</New>
+							</Set>
+						</New>
+					</Item>					
 					<Item>
 						<New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection"/>
 					</Item>
