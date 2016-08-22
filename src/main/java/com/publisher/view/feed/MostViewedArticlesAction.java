@@ -21,7 +21,7 @@ public class MostViewedArticlesAction extends ActionSupport {
 
 	private static Log log = LogFactory.getLog(MostViewedArticlesAction.class);
 	
-	private static HashMap<Category, ResultInMemory> cache = new HashMap<Category, ResultInMemory>();
+	private static HashMap<Long, ResultInMemory> cache = new HashMap<Long, ResultInMemory>();
 	
 	private ArticleService articleService;
 	
@@ -51,12 +51,12 @@ public class MostViewedArticlesAction extends ActionSupport {
 		calendar.set(Calendar.MILLISECOND, 0);
 		Date currentDate = calendar.getTime();
 		if (category != null) {			
-			ResultInMemory resultInMemory = cache.get(category);
+			ResultInMemory resultInMemory = cache.get(categoryId);
 			if (resultInMemory == null || resultInMemory.getDate().getTime() < currentDate.getTime()) {
 				synchronized(cache) {
-					resultInMemory = cache.get(category);
+					resultInMemory = cache.get(categoryId);
 					if (resultInMemory == null || resultInMemory.getDate().getTime() < currentDate.getTime()) {
-						cache.remove(category);
+						cache.remove(categoryId);
 						calendar.add(Calendar.DAY_OF_MONTH, dayRange);
 						Date start = calendar.getTime();
 						List<Article> articles = articleService.get(category, currentPage, pageSize, start, currentDate, true, "views", "desc");
@@ -67,7 +67,7 @@ public class MostViewedArticlesAction extends ActionSupport {
 							}
 						}
 						resultInMemory = new ResultInMemory(currentDate, result);
-						cache.put(category, resultInMemory);
+						cache.put(categoryId, resultInMemory);
 					}
 				}
 			}
