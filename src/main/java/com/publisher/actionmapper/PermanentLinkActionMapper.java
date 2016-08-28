@@ -114,7 +114,8 @@ public class PermanentLinkActionMapper implements ActionMapper, ApplicationConte
         log.info(uri + " " + (mapping == null ? "mapping not found" : "namespace: " + mapping.getName() + "name: " + mapping.getName()));
         if (mapping == null && backupMapper != null) {
         	mapping = backupMapper.getMapping(request, config);
-        }        	
+        	log.info(mapping);
+        }        
         return mapping;
     }
 }

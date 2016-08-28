@@ -23,7 +23,10 @@
 				<interceptor-ref name="modelDriven"/>
 			</interceptor-stack>
 		</interceptors>
-		<default-interceptor-ref name="viewStack"/>		
+		<default-interceptor-ref name="viewStack"/>
+		<action name="" class="com.publisher.view.IndexAction">
+			<result>/index.jsp</result>
+		</action>
 		<action name="page" class="com.publisher.view.PageAction">
 			<result type="tiles">default</result>
 		</action>
