@@ -23,7 +23,7 @@ mavenCommand="mvn clean jetty:run-exploded"
 
 jettyParams="-Djetty.port=8080"
 
-appParams="-Dpublisher-log-path=/Users/Guilherme/publisher-data-files/logs -Drunning-context=guilherme"
+appParams="-Dpublisher.log.path=/Users/Guilherme/publisher-data-files/logs -Drunning.context=guilherme -Dis.jetty.server=true"
 
 uploadFilesDir="-Dupload.files.dir=/Users/Guilherme/publisher-data-files/upload-files"
 

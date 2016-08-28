@@ -35,12 +35,12 @@ public class ContextListener implements ServletContextListener {
 	}
 	
 	private String getRunningContext() {
-		String myRunningContext = System.getProperty("running-context");
+		String myRunningContext = System.getProperty("running.context");
 		if (myRunningContext == null || myRunningContext.isEmpty()) {
-			myRunningContext = System.getenv("running-context");
+			myRunningContext = System.getenv("running.context");
 			if (myRunningContext == null || myRunningContext.isEmpty()) {				
 				myRunningContext = "local";
-				System.setProperty("running-context", myRunningContext);
+				System.setProperty("running.context", myRunningContext);
 			}
 		}
 		return myRunningContext;

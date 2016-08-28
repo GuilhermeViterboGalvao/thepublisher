@@ -80,14 +80,15 @@ public class ImageServlet extends HttpServlet {
 		} catch (Exception e) { 
 			log.error(e);
 		}
-		String jettyHome = System.getenv("jetty.home");
-		if (jettyHome == null || jettyHome.isEmpty()) {
-			jettyHome = System.getProperty("jetty.home");
-			if (jettyHome != null && !jettyHome.isEmpty()) {
-				File file = new File(jettyHome);
-				if (file.isDirectory()) {
-					isJetty = true;	
-				}					
+		String isJettyServer = System.getenv("is.jetty.server");
+		if (isJettyServer == null || isJettyServer.isEmpty()) {
+			isJettyServer = System.getProperty("is.jetty.server");
+			if (isJettyServer != null && !isJettyServer.isEmpty()) {
+				try {
+					isJetty = Boolean.parseBoolean(isJettyServer);
+				} catch (Exception e) {
+					isJetty = false;
+				}	
 			}			
 		}
 		log.info("Image folder: " + imageFolder);

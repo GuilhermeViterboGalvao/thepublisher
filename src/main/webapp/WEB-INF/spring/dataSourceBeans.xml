@@ -14,7 +14,7 @@
 
 	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<beans:property name="location">
-			<beans:value>/WEB-INF/spring/config/dataSource.#{systemProperties['running-context']}.properties</beans:value>
+			<beans:value>/WEB-INF/spring/config/dataSource.#{systemProperties['running.context']}.properties</beans:value>
 		</beans:property>
 	</beans:bean>
 
