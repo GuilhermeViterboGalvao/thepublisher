@@ -32,7 +32,7 @@
 	<a href="/tatame/agenda" class="diary">AGENDA</a>
 	<a href="/tatame/colunas" class="columns">COLUNAS</a>
 	<a href="/tatame/videos" class="videos">VÍDEOS</a>
-	<a href="/clube/home" target="_blank" class="clube">CLUBE</a>
+<!-- 	<a href="/clube/home" target="_blank" class="clube">CLUBE</a> -->
 	<a href="http://www.tatameshop.com.br/" target="_blank" class="subscribe">ASSINE</a>
 	
 	<a href="https://versy.com/z/p12" target="_blank" class="icon">
@@ -72,7 +72,7 @@
 			<option value="/tatame/jiu-jitsu/abu-dhabi-2016">Abu Dhabi Pro</option>
 			<option value="/tatame/agenda">AGENDA</option>
 			<option value="/tatame/colunas">COLUNAS</option>
-			<option value="/clube/home">CLUBE</option>
+<!-- 			<option value="/clube/home">CLUBE</option> -->
 			<option value="http://www.tatameshop.com.br/">ASSINE</option>
 		</select>	
 	</div>
