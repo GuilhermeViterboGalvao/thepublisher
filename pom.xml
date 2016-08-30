@@ -294,6 +294,18 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Tatame Repository</name>
+			<url>http://homolog.tatame.terra.com.br/nexus/#browse/browse/components:maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Tatame Snapshots</name>
+			<url>http://homolog.tatame.terra.com.br/nexus/#browse/browse/components:maven-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>	
 	<scm>
 		<connection>scm:git:https://bitbucket.org/fazendadesoftwares/thepublisher.git</connection>
 		<developerConnection>scm:git:https://bitbucket.org/fazendadesoftwares/thepublisher.git</developerConnection>
