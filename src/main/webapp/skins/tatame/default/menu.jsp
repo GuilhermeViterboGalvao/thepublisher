@@ -77,3 +77,7 @@
 		</select>	
 	</div>
 </div>
+
+<div class="ads-mobile">
+	<div id="tatame_mobile_728x227_ros"></div>
+</div>
