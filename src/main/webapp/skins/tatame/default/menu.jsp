@@ -41,7 +41,7 @@
 	<a href="https://www.facebook.com/Tatame/" target="_blank" class="icon">
 		<img  src="/skins/tatame/img/facebook-logo-button.png">
 	</a>
-	<a href="http://www.instagram.com/tatamemagazine/" target="_blank" class="icon">
+	<a href="https://www.instagram.com/tatameoficial/" target="_blank" class="icon">
 		<img  src="/skins/tatame/img/instagram-logo-button.png">
 	</a>
 	<a href="http://www.twitter.com/tatamemagazine" target="_blank" class="icon">
