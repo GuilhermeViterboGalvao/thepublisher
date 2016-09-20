@@ -8,7 +8,6 @@ import java.util.Properties;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -23,7 +22,7 @@ public class AppTest {
 	
 	private static Properties properties = new Properties();
 	
-	private static String runningContext = "local";
+	private static String runningContext = "guilherme";
 	
 	static {
 		tryLoadRunningContext();
@@ -103,10 +102,5 @@ public class AppTest {
 			return null;
 		}
 		return file;
-	}
-	
-	@Before
-	private void doBefore() {
-		 
 	}
 }

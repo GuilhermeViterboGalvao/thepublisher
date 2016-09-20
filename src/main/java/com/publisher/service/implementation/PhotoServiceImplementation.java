@@ -42,11 +42,32 @@ public class PhotoServiceImplementation extends TransactionalService implements 
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		WebApplicationContext webApplicationContext = (WebApplicationContext)applicationContext;
 		ServletContext servletContext = webApplicationContext.getServletContext();
-		imageFolder = new File((String)servletContext.getAttribute("image-folder"));
-		imageTempFolder = new File((String)servletContext.getAttribute("image-temp-folder"));
-		uploadFolder = new File((String)servletContext.getAttribute("upload-folder"));
-		uploadTempFolder= new File((String)servletContext.getAttribute("upload-temp-folder"));
-	}	
+		imageFolder = getFile(servletContext, "image-folder");
+		imageTempFolder = getFile(servletContext, "image-temp-folder");
+		uploadFolder = getFile(servletContext, "upload-folder");
+		uploadTempFolder = getFile(servletContext, "upload-temp-folder");
+	}
+	
+	private File getFile(ServletContext servletContext, String name) {
+		File file = null;
+		Object attribute = servletContext.getAttribute(name);
+		if (attribute != null && attribute instanceof String) {
+			file = new File((String)servletContext.getAttribute(name));	
+		} else {
+			String env = System.getenv(name);
+			if (env != null && !env.isEmpty()) {
+				file = new File(env);
+			} else {
+				String propertie = System.getProperty(name);
+				if (propertie != null && !propertie.isEmpty()) {
+					file = new File(propertie);
+				} else {
+					throw new RuntimeException("PhotoServiceImplementation.getFile(): Not found \"" + name + "\" propertie.");
+				}
+			}
+		}		
+		return file;
+	}
 	
 	@Override
 	public Photo get(Long id) {
