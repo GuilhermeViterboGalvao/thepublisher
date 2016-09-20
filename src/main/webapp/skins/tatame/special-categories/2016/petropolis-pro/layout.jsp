@@ -6,11 +6,11 @@
 <s:set var="customHeaderImagePath" value="'/skins/tatame/special-categories/2016/petropolis-pro/img/banner-top.jpg'" />
 
 <s:if test="model != null && model instanceof com.publisher.entity.Article">
-	<s:set var="customDfpPathJSP" value="'/skins/tatame/special-categories/2016/petropolis-pro/google-dfp-script.jsp'" />
+	<s:set var="dfpPathJSP" value="'/skins/tatame/special-categories/2016/petropolis-pro/google-dfp-script.jsp'" />
 </s:if>
 
 <s:if test="model != null && model instanceof com.publisher.entity.Category && model.id == 48">
-	<s:set var="customDfpPathJSP" value="'/skins/tatame/special-categories/2016/petropolis-pro/google-dfp-script.jsp'" />
+	<s:set var="dfpPathJSP" value="'/skins/tatame/special-categories/2016/petropolis-pro/google-dfp-script.jsp'" />
 </s:if>
 
 <jsp:include page="/skins/tatame/special-categories/template.jsp"/>
