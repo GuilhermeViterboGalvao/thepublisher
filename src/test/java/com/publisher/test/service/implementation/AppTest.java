@@ -18,7 +18,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
 public class AppTest {
 	
-	private static Log log = LogFactory.getLog(AppTest.class);
+	protected static Log LOGGER = LogFactory.getLog(AppTest.class);
 	
 	private static Properties properties = new Properties();
 	
@@ -84,7 +84,7 @@ public class AppTest {
 					dir = init(new File(home, path));
 				}
 				if (dir != null) {
-					log.info("Application " + key  + " folder: " + dir.getAbsolutePath());
+					LOGGER.info("Application " + key  + " folder: " + dir.getAbsolutePath());
 		    		System.setProperty(key, dir.getAbsolutePath());
 		        }
 			}
@@ -94,11 +94,11 @@ public class AppTest {
 	private static File init(File file) {
 		if (file.exists()) {
 			if (!file.isDirectory() || !file.canRead()) {
-				log.info("Can not use " + file.getAbsolutePath());
+				LOGGER.info("Can not use " + file.getAbsolutePath());
 				return null;
 			}
 		} else if (!file.mkdirs()) {
-			log.info("Can not create " + file.getAbsolutePath());
+			LOGGER.info("Can not create " + file.getAbsolutePath());
 			return null;
 		}
 		return file;
