@@ -1,4 +1,4 @@
-package com.publisher.test.service.implementation;
+package com.publisher.test;
 
 import java.io.File;
 import java.io.FileInputStream;
