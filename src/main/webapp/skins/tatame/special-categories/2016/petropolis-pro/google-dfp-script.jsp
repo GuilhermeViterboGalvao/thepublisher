@@ -10,7 +10,7 @@
 	});
 </script>
 <script type="text/javascript">
-	googletag.cmd.push(function(){googletag.display("background");});
+	//googletag.cmd.push(function(){googletag.display("background");});
 </script>
 
 <div id="background" class="hide"></div>
