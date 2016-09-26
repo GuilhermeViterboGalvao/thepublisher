@@ -1,4 +1,6 @@
-package com.publisher.test;
+package com.publisher.test.config;
+
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,31 +8,33 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Properties;
 
+import javax.servlet.ServletContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.web.context.ConfigurableWebApplicationContext;
 
-@WebAppConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
-public class AppTest {
+public class AppTestInitializer implements ApplicationContextInitializer<ConfigurableWebApplicationContext> {
+
+	protected Log LOGGER = LogFactory.getLog(AppTestInitializer.class);
 	
-	protected static Log LOGGER = LogFactory.getLog(AppTest.class);
+	private Properties properties = new Properties();
 	
-	private static Properties properties = new Properties();
+	private String runningContext = "guilherme";
 	
-	private static String runningContext = "guilherme";
+	private ServletContext context;
 	
-	static {
+	@Override
+	public void initialize(ConfigurableWebApplicationContext applicationContext) {
+		assertNotNull(applicationContext);
+		context = applicationContext.getServletContext();
+		assertNotNull(context);
 		tryLoadRunningContext();
-		loadSystemProperties();
 		loadDefaultFoldersProperties();
 	}
 	
-	private static void tryLoadRunningContext() {
+	private void tryLoadRunningContext() {
 		String myRunningContext = System.getProperty("running.context");
 		if (myRunningContext != null && !myRunningContext.isEmpty()) {
 			runningContext = myRunningContext;
@@ -40,17 +44,10 @@ public class AppTest {
 				runningContext = myRunningContext;
 			}
 		}
-	}
-	
-	private static void loadSystemProperties() {
-		System.setProperty("upload.files.dir", "/Users/Guilherme/publisher-data-files/upload-files");
-		System.setProperty("publisher.log.path", "/Users/Guilherme/publisher-data-files/logs");		
-		System.setProperty("photos.dir", "/Users/Guilherme/publisher-data-files/photos");
-		System.setProperty("temp.dir", "/Users/Guilherme/publisher-data-files/temp");
-		System.setProperty("running.context", runningContext);		
+		System.setProperty("running.context", runningContext);
 	}
 
-	private static void loadDefaultFoldersProperties() {
+	private void loadDefaultFoldersProperties() {
 		try {
 			properties.load(new FileInputStream("src/main/webapp/WEB-INF/config-files/default-folders.properties"));
 		} catch (IOException e) {
@@ -71,7 +68,8 @@ public class AppTest {
 				}
 			}
 		}
-		System.setProperty("home-folder", home.getAbsolutePath());        
+		System.setProperty("home-folder", home.getAbsolutePath());
+		context.setAttribute("home-folder", home.getAbsolutePath());
 		Iterator<Object> keyIterator = properties.keySet().iterator();		
 		while(keyIterator.hasNext()) {			
 			File dir = null;			
@@ -86,12 +84,13 @@ public class AppTest {
 				if (dir != null) {
 					LOGGER.info("Application " + key  + " folder: " + dir.getAbsolutePath());
 		    		System.setProperty(key, dir.getAbsolutePath());
+		    		context.setAttribute(key, dir.getAbsolutePath());
 		        }
 			}
 		}	
 	}
 	
-	private static File init(File file) {
+	private File init(File file) {
 		if (file.exists()) {
 			if (!file.isDirectory() || !file.canRead()) {
 				LOGGER.info("Can not use " + file.getAbsolutePath());
@@ -102,5 +101,5 @@ public class AppTest {
 			return null;
 		}
 		return file;
-	}
+	}	
 }

@@ -2,30 +2,188 @@ package com.publisher.test.service.implementation;
 
 import static org.junit.Assert.*;
 
+import java.util.Collection;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+
 import com.publisher.entity.Account;
 import com.publisher.service.AccountService;
+import com.publisher.test.config.AppTestInitializer;
+import com.publisher.utils.ResultList;
 
-public class TestAccountServiceImplementation {
+@WebAppConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(
+	locations = { "file:src/main/webapp/WEB-INF/spring/applicationContext.xml" },
+	initializers = { AppTestInitializer.class }
+)
+public class TestAccountServiceImplementation implements AccountService {
 
-	private TestAccountServiceImplementation() { }
+	private static final String PASSWORD = "!@#test123$%^";
 	
-	public static void doTheTests(AccountService accountService) {
+	@Autowired
+	private AccountService accountService;
+	
+	private Account account;
+	
+	private Account persistedAccount;
+	
+	@Before
+	public void init() {
 		assertTrue(accountService != null);
 		
-		String password = "test123";
-		Account account = new Account();
+		account = new Account();
 		account.setActive(true);
 		account.setEmail("test@junit.com");
-		account.setHash(accountService.hash(password));
+		account.setHash(hash(PASSWORD));
 		account.setName("Test JUnit");
 		account.setSecurityHole("admin");
-		accountService.persist(account);
+	}
+	
+	@Test
+	public void testIt() {		
+		persist(account);
 		
-		Account persistedAccount = accountService.getByEmail("test@junit.com");
+		persistedAccount = getByEmail("test@junit.com");
 		assertNotNull(persistedAccount);
 		
-		accountService.delete(persistedAccount);
+		persistedAccount.setName("Test JUnit");
+		update(persistedAccount);
+		
+		persistedAccount = get(persistedAccount.getId());
+		
+		persistedAccount = authenticate(persistedAccount.getEmail(), PASSWORD);
+		
+		search(persistedAccount.getName());
+		
+		search(persistedAccount.getName(), 0, 50);
+		
+		list();
+		
+		list(0,  50);
+		
+		list(0, 50, "name", "desc");
+	}
+	
+	@After
+	public void finish() {
+		delete(persistedAccount);
 		persistedAccount = accountService.getByEmail("test@junit.com");
 		assertNull(persistedAccount);
+	}
+
+	@Override
+	public Account get(Long id) {
+		assertNotNull(id);
+		Account account = accountService.get(id);
+		assertNotNull(account);
+		return account;
+	}
+
+	@Override
+	public void persist(Account entity) {
+		assertNotNull(entity);
+		accountService.persist(entity);	
+	}
+
+	@Override
+	public void update(Account entity) {
+		assertNotNull(entity);
+		accountService.update(entity);		
+	}
+
+	@Override
+	public void delete(Account entity) {
+		assertNotNull(entity);
+		accountService.delete(entity);		
+	}
+
+	@Override
+	public Collection<Account> list() {
+		Collection<Account> list = accountService.list();
+		assertNotNull(list);
+		return list;
+	}
+
+	@Override
+	public Collection<Account> search(String query) {
+		assertNotNull(query);
+		Collection<Account> search = accountService.search(query);
+		assertNotNull(search);
+		return search;
+	}
+
+	@Override
+	public long count() {
+		long count = accountService.count();
+		assertTrue(count >= 0);
+		return count;
+	}
+
+	@Override
+	public void indexAll() {
+		//accountService.indexAll();
+	}
+
+	@Override
+	public Account authenticate(String email, String password) {
+		assertNotNull(email);
+		assertNotNull(password);
+		Account account = accountService.authenticate(email, password);
+		assertNotNull(account);
+		return account;
+	}
+
+	@Override
+	public Account getByEmail(String email) {
+		assertNotNull(email);
+		Account account = accountService.getByEmail(email);
+		assertNotNull(account);
+		return account;
+	}
+
+	@Override
+	public Collection<Account> list(int page, int pageSize) {
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		Collection<Account> list = accountService.list(page, pageSize);
+		assertNotNull(list);
+		return list;
+	}
+
+	@Override
+	public Collection<Account> list(int page, int pageSize, String orderBy, String order) {
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(orderBy);
+		assertNotNull(order);		
+		Collection<Account> list = accountService.list(page, pageSize, orderBy, order);
+		assertNotNull(list);
+		return list;
+	}
+
+	@Override
+	public ResultList<Account> search(String query, int page, int pageSize) {
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(query);
+		ResultList<Account> search = accountService.search(query, page, pageSize);
+		assertNotNull(search);
+		return search;
+	}
+
+	@Override
+	public String hash(String password) {
+		assertNotNull(password);
+		password = accountService.hash(password);
+		assertNotNull(password);
+		return password;
 	}
 }

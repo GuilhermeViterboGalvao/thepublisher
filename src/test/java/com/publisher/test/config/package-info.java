@@ -5,4 +5,4 @@
  * @author Guilherme
  *
  */
-package com.publisher.test;
+package com.publisher.test.config;
