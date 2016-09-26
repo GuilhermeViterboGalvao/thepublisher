@@ -25,6 +25,9 @@
 				</li>
 				<li>
 					<a href="/tatame/jiu-jitsu/mundial-2016">Mundial 2016</a>
+				</li>
+				<li>
+					<a href="/tatame/jiu-jitsu/petropolis-pro">Petropolis Pro</a>
 				</li>			
 			</ul>
 		</li>					
