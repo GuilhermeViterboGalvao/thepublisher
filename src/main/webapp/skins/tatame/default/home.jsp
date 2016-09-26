@@ -16,8 +16,8 @@
 	</div>
 </div>
 
-<div class="ads-1024">
-	<div class="ads-728-90 box-shadow mobile-hidden" id="tatame_728x90_cob_cust"></div>
+<div class="ads-728">
+	<div class="box-shadow" id="tatame_728x90_cob_cust"></div>
 </div>
 	
 <p:tile xml="home/destaques"/>
@@ -34,8 +34,8 @@
 	</div>
 </div>	
 
-<div class="ads-1024">
-	<div id="tatame_728x90_home" class="ads-728-90 box-shadow mobile-hidden"></div>			
+<div class="ads-728">
+	<div class="box-shadow" id="tatame_728x90_home"></div>
 </div>
 
 <div class="box-1024 mobile-remove hide">
