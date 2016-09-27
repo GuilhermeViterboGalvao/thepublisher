@@ -7,63 +7,48 @@ import java.util.Collection;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.publisher.entity.Account;
 import com.publisher.service.AccountService;
-import com.publisher.test.config.AppTestInitializer;
 import com.publisher.utils.ResultList;
 
-@WebAppConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(
-	locations = { "file:src/main/webapp/WEB-INF/spring/applicationContext.xml" },
-	initializers = { AppTestInitializer.class }
-)
-public class TestAccountServiceImplementation implements AccountService {
+public class TestAccountServiceImplementation extends DefaultTest<Account> implements AccountService {
 
 	private static final String PASSWORD = "!@#test123$%^";
 	
 	@Autowired
 	private AccountService accountService;
 	
-	private Account account;
-	
-	private Account persistedAccount;
-	
 	@Before
 	public void init() {
-		assertTrue(accountService != null);
+		assertNotNull(accountService);
 		
-		account = new Account();
-		account.setActive(true);
-		account.setEmail("test@junit.com");
-		account.setHash(hash(PASSWORD));
-		account.setName("Test JUnit");
-		account.setSecurityHole("admin");
+		entity = new Account();
+		entity.setActive(true);
+		entity.setEmail("test@junit.com");
+		entity.setHash(hash(PASSWORD));
+		entity.setName("Test JUnit");
+		entity.setSecurityHole("admin");
 	}
 	
 	@Test
 	public void testIt() {		
-		persist(account);
+		persist(entity);
 		
-		persistedAccount = getByEmail("test@junit.com");
-		assertNotNull(persistedAccount);
+		persistedEntity = getByEmail("test@junit.com");
+		assertNotNull(persistedEntity);
 		
-		persistedAccount.setName("Test JUnit");
-		update(persistedAccount);
+		persistedEntity.setName("Test JUnit");
+		update(persistedEntity);
 		
-		persistedAccount = get(persistedAccount.getId());
+		persistedEntity = get(persistedEntity.getId());
 		
-		persistedAccount = authenticate(persistedAccount.getEmail(), PASSWORD);
+		persistedEntity = authenticate(persistedEntity.getEmail(), PASSWORD);
 		
-		search(persistedAccount.getName());
+		search(persistedEntity.getName());
 		
-		search(persistedAccount.getName(), 0, 50);
+		search(persistedEntity.getName(), 0, 50);
 		
 		list();
 		
@@ -74,9 +59,9 @@ public class TestAccountServiceImplementation implements AccountService {
 	
 	@After
 	public void finish() {
-		delete(persistedAccount);
-		persistedAccount = accountService.getByEmail("test@junit.com");
-		assertNull(persistedAccount);
+		delete(persistedEntity);
+		persistedEntity = accountService.getByEmail("test@junit.com");
+		assertNull(persistedEntity);
 	}
 
 	@Override
