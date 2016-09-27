@@ -16,7 +16,7 @@
 	</div>
 </div>
 
-<div class="ads-728">
+<div class="ads-728 mobile-hidden">
 	<div class="box-shadow" id="tatame_728x90_cob_cust"></div>
 </div>
 	
@@ -34,7 +34,7 @@
 	</div>
 </div>	
 
-<div class="ads-728">
+<div class="ads-728 mobile-hidden">
 	<div class="box-shadow" id="tatame_728x90_home"></div>
 </div>
 
