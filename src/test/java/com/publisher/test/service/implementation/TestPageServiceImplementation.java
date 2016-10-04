@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,7 +70,8 @@ public class TestPageServiceImplementation extends DefaultTest<Page> implements 
 		persistedEntity.setName("Skin Test for JUnit...");
 		update(persistedEntity);
 		
-		update(persistedEntity, entityPermanentLink);
+		Hibernate.initialize(persistedEntity.getPermanentLink());
+		update(persistedEntity, persistedEntity.getPermanentLink());
 		
 		count();
 		

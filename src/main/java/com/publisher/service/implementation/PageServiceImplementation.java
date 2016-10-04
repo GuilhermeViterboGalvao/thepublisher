@@ -154,7 +154,7 @@ public class PageServiceImplementation extends TransactionalService implements P
     	long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Page.class).get();
-        org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contentFile").createQuery();
+        org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name").createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Page.class);
         if (pageSize > 0) {
         	fullTextQuery.setMaxResults(pageSize);
