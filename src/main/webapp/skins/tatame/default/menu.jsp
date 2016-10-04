@@ -25,6 +25,9 @@
 				</li>
 				<li>
 					<a href="/tatame/jiu-jitsu/mundial-2016">Mundial 2016</a>
+				</li>
+				<li>
+					<a href="/tatame/jiu-jitsu/petropolis-pro">Petropolis Pro</a>
 				</li>			
 			</ul>
 		</li>					
@@ -32,7 +35,7 @@
 	<a href="/tatame/agenda" class="diary">AGENDA</a>
 	<a href="/tatame/colunas" class="columns">COLUNAS</a>
 	<a href="/tatame/videos" class="videos">VÍDEOS</a>
-	<a href="/clube/home" target="_blank" class="clube">CLUBE</a>
+<!-- 	<a href="/clube/home" target="_blank" class="clube">CLUBE</a> -->
 	<a href="http://www.tatameshop.com.br/" target="_blank" class="subscribe">ASSINE</a>
 	
 	<a href="https://versy.com/z/p12" target="_blank" class="icon">
@@ -41,7 +44,7 @@
 	<a href="https://www.facebook.com/Tatame/" target="_blank" class="icon">
 		<img  src="/skins/tatame/img/facebook-logo-button.png">
 	</a>
-	<a href="http://www.instagram.com/tatamemagazine/" target="_blank" class="icon">
+	<a href="https://www.instagram.com/tatameoficial/" target="_blank" class="icon">
 		<img  src="/skins/tatame/img/instagram-logo-button.png">
 	</a>
 	<a href="http://www.twitter.com/tatamemagazine" target="_blank" class="icon">
@@ -72,8 +75,12 @@
 			<option value="/tatame/jiu-jitsu/abu-dhabi-2016">Abu Dhabi Pro</option>
 			<option value="/tatame/agenda">AGENDA</option>
 			<option value="/tatame/colunas">COLUNAS</option>
-			<option value="/clube/home">CLUBE</option>
+<!-- 			<option value="/clube/home">CLUBE</option> -->
 			<option value="http://www.tatameshop.com.br/">ASSINE</option>
 		</select>	
 	</div>
+</div>
+
+<div class="ads-mobile">
+	<div id="tatame_mobile_728x227_ros"></div>
 </div>
