@@ -43,7 +43,20 @@
 								</New>
 							</Set>
 						</New>
-					</Item>					
+					</Item>
+					<Item>
+						<New class="org.eclipse.jetty.server.handler.ContextHandler">
+							<Set name="contextPath">/statics</Set>
+							<Set name="handler">
+								<New class="org.eclipse.jetty.server.handler.ResourceHandler">
+									<Set name="directoriesListed">true</Set>
+									<Set name="resourceBase">
+										<SystemProperty name="statics.dir" default="."/>
+									</Set>
+								</New>
+							</Set>
+						</New>
+					</Item>
 					<Item>
 						<New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection"/>
 					</Item>

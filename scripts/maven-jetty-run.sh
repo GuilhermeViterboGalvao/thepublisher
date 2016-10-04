@@ -19,19 +19,77 @@ fi
 ##################
 # Starting Jetty #
 ##################
-mavenCommand="mvn clean jetty:run-exploded"
+profile=$1
 
-jettyParams="-Djetty.port=8080"
+mavenCommand=""
+jettyParams=""
+appParams=""
+uploadFilesDir=""
+photosDir=""
+tempDir=""
+staticsDir=""
 
-appParams="-Dpublisher.log.path=/Users/Guilherme/publisher-data-files/logs -Drunning.context=guilherme -Dis.jetty.server=true"
+exec="true"
 
-uploadFilesDir="-Dupload.files.dir=/Users/Guilherme/publisher-data-files/upload-files"
+if [ "$profile" == "prd" ]; then
 
-photosDir="-Dphotos.dir=/Users/Guilherme/publisher-data-files/photos"
+	export JAVA_OPTS="$JAVA_OPTS -server -Xmx5120m -Xmn1280m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/tomcat/thepublisher/dumps"
+	mavenCommand="mvn clean jetty:run-exploded"
+	jettyParams="-Djetty.port=8080"
+	appParams="-Dpublisher.log.path=/u2/the-publisher-files/logs -Drunning.context=prd -Dis.jetty.server=true"
+	uploadFilesDir="-Dupload.files.dir=/u2/the-publisher-files/upload-files"
+	photosDir="-Dphotos.dir=/u2/the-publisher-files/photos"
+	tempDir="-Dtemp.dir=/u2/the-publisher-files/temp"
+	staticsDir="-Dstatics.dir=/u2/the-publisher-files/statics"
+	
+elif [ "$profile" == "hlg" ]; then
 
-tempDir="-Dtemp.dir=/Users/Guilherme/publisher-data-files/temp"
+	export JAVA_OPTS="$JAVA_OPTS -server -Xmx5120m -Xmn1280m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/tomcat/thepublisher/dumps"
+	mavenCommand="mvn clean jetty:run-exploded"
+	jettyParams="-Djetty.port=8080"
+	appParams="-Dpublisher.log.path=/u2/the-publisher-files/logs -Drunning.context=hlg -Dis.jetty.server=true"
+	uploadFilesDir="-Dupload.files.dir=/u2/the-publisher-files/upload-files"
+	photosDir="-Dphotos.dir=/u2/the-publisher-files/photos"
+	tempDir="-Dtemp.dir=/u2/the-publisher-files/temp"
+	staticsDir="-Dstatics.dir=/u2/the-publisher-files/statics"
+	
+elif [ "$profile" == "wladimir" ]; then
 
-nohup $mavenCommand $jettyParams $appParams $uploadFilesDir $photosDir $tempDir >> jetty-out.log 2>&1&
+	mavenCommand="mvn clean jetty:run-exploded"
+	jettyParams="-Djetty.port=8080"
+	appParams="-Dpublisher.log.path=/Users/Wlad/publisher-data-files/logs -Drunning.context=wladimir -Dis.jetty.server=true"
+	uploadFilesDir="-Dupload.files.dir=/Users/Wlad/publisher-data-files/upload-files"
+	photosDir="-Dphotos.dir=/Users/Wlad/publisher-data-files/photos"
+	tempDir="-Dtemp.dir=/Users/Wlad/publisher-data-files/temp"
+	staticsDir="-Dstatics.dir=/Users/Wlad/publisher-data-files/statics"
+	
+elif [ "$profile" == "guilherme" ]; then
+
+	mavenCommand="mvn clean jetty:run-exploded"
+	jettyParams="-Djetty.port=8080"
+	appParams="-Dpublisher.log.path=/Users/Guilherme/publisher-data-files/logs -Drunning.context=guilherme -Dis.jetty.server=true"
+	uploadFilesDir="-Dupload.files.dir=/Users/Guilherme/publisher-data-files/upload-files"
+	photosDir="-Dphotos.dir=/Users/Guilherme/publisher-data-files/photos"
+	tempDir="-Dtemp.dir=/Users/Guilherme/publisher-data-files/temp"
+	staticsDir="-Dstatics.dir=/Users/Guilherme/publisher-data-files/statics"
+	
+else
+
+	exec="false"
+	echo "***********************************************************"
+	echo "*                                                         *"
+	echo "*                         WARNING                         *"
+	echo "*                                                         *"
+	echo "*                                                         *"
+	echo "* The application need a profile to start Jetty Server... *"
+	echo "*                                                         *"
+	echo "***********************************************************"
+	
+fi
+
+if [ $exec ]; then
+	nohup $mavenCommand $jettyParams $appParams $uploadFilesDir $photosDir $tempDir $staticsDir >> jetty-out.log 2>&1&
+fi
 
 #######################
 # Setting PID on file #
