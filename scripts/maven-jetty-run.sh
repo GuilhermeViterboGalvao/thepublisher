@@ -102,7 +102,7 @@ fi
 #######################
 # Setting PID on file #
 #######################
-#if [ -f "jetty.pid" ]; then
-#	rm -f jetty.pid
-#fi
-#echo $! > jetty.pid
+if [ -f "jetty.pid" ]; then
+	rm -f jetty.pid
+fi
+echo $! > jetty.pid
