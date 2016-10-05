@@ -88,6 +88,7 @@ else
 fi
 
 if [ $exec ]; then
+	echo "nohup $mavenCommand $jettyParams $appParams $uploadFilesDir $photosDir $tempDir $staticsDir >> jetty-out.log 2>&1&"
 	nohup $mavenCommand $jettyParams $appParams $uploadFilesDir $photosDir $tempDir $staticsDir >> jetty-out.log 2>&1&
 fi
 
