@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
-<Configure id="thePublisherServer" class="org.eclipse.jetty.server.Server">
+<!-- 
+	Do not change the value of ID attribute of Configure TAG.
+	The value "Server" means you want change the default main server values of Jetty Server.
+-->
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
 	<Set name="handler">
 		<New id="Handlers" class="org.eclipse.jetty.server.handler.HandlerCollection">
 			<Set name="handlers">
