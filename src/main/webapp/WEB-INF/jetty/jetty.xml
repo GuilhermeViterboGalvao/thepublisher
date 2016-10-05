@@ -5,6 +5,12 @@
 	The value "Server" means you want change the default main server values of Jetty Server.
 -->
 <Configure id="Server" class="org.eclipse.jetty.server.Server">
+  	<Get name="ThreadPool">
+        <Set name="minThreads" type="int">100</Set>
+        <Set name="maxThreads" type="int">4000</Set>
+        <Set name="idleTimeout" type="int">4000</Set>
+        <Set name="detailedDump">false</Set>
+    </Get>    
 	<Set name="handler">
 		<New id="Handlers" class="org.eclipse.jetty.server.handler.HandlerCollection">
 			<Set name="handlers">
