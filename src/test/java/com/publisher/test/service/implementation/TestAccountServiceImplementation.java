@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.publisher.entity.Account;
 import com.publisher.service.AccountService;
+import com.publisher.test.config.DefaultTest;
 import com.publisher.utils.ResultList;
 
 public class TestAccountServiceImplementation extends DefaultTest<Account> implements AccountService {

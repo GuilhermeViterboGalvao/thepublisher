@@ -12,63 +12,65 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.publisher.entity.Page;
+import com.publisher.entity.Category;
 import com.publisher.entity.PermanentLink;
 import com.publisher.entity.Skin;
-import com.publisher.service.PageService;
+import com.publisher.service.CategoryService;
 import com.publisher.service.PermanentLinkService;
 import com.publisher.service.SkinService;
 import com.publisher.test.config.DefaultTest;
 import com.publisher.utils.ResultList;
 
-public class TestPageServiceImplementation extends DefaultTest<Page> implements PageService {
+public class TesteCategoryServiceImplementation extends DefaultTest<Category> implements CategoryService {
 
 	@Autowired
-	private PageService pageService;
+	private CategoryService categoryService; 
 	
 	@Autowired
 	private SkinService skinService;
 	
 	@Autowired
-	private PermanentLinkService permanentLinkService;
+	private PermanentLinkService permanentLinkService;	
 	
 	private Skin entitySkin;
 	
 	private PermanentLink entityPermanentLink;
 	
 	@Before
+	@Override
 	public void init() {
-		assertNotNull(pageService);
-		assertNotNull(skinService);
-		assertNotNull(permanentLinkService);
+		assertNotNull(categoryService);
 		
-		entity = new Page();
-		entity.setName("Page Teste for JUnit...");
-		entity.setContentFile("/skins/tatame/default/home.jsp");
+		entity = new Category();
+		entity.setFolder("");
+		entity.setName("Category Test for JUnit...");
+		entity.setTags("test junit category");
+		
+		entityPermanentLink = new PermanentLink();
+		entityPermanentLink = new PermanentLink();
+		entityPermanentLink.setCreated(new Date());
+		entityPermanentLink.setParam(1l);
+		entityPermanentLink.setUri("/category/test/junit");
+		entityPermanentLink.setType("category");		
+		entity.setPermanentLink(entityPermanentLink);
 		
 		entitySkin = new Skin();
 		entitySkin.setName("Skin Test for JUnit.");
 		entitySkin.setPath("/skins/tatame/default/layout.jsp");
 		entitySkin.setContentFolder("/skins/tatame/pages/");
-		skinService.persist(entitySkin);		
+		skinService.persist(entitySkin);
+		skinService.persist(entitySkin);
 		entity.setSkin(entitySkin);
-		
-		entityPermanentLink = new PermanentLink();
-		entityPermanentLink.setCreated(new Date());
-		entityPermanentLink.setParam(1l);
-		entityPermanentLink.setUri("/test/junit/home/tatame");
-		entityPermanentLink.setType("page");
-		//permanentLinkService.persist(entityPermanentLink);		
-		entity.setPermanentLink(entityPermanentLink);
 	}
 
 	@Test
+	@Override
 	public void testIt() {
 		persist(entity);
 		
 		persistedEntity = get(entity.getId());
 		
-		persistedEntity.setName("Skin Test for JUnit...");
+		persistedEntity.setName("Category Test for JUnit...");
 		update(persistedEntity);
 		
 		Hibernate.initialize(persistedEntity.getPermanentLink());
@@ -84,13 +86,14 @@ public class TestPageServiceImplementation extends DefaultTest<Page> implements 
 		
 		search("Test");
 		
-		search("Test", 0, 50);
+		search("Test", 0, 50);		
 	}
 
 	@After
+	@Override
 	public void finish() {
 		delete(persistedEntity);
-		persistedEntity = pageService.get(entity.getId());
+		persistedEntity = categoryService.get(entity.getId());
 		assertNull(persistedEntity);
 		
 		Long id = entityPermanentLink.getId();
@@ -99,108 +102,108 @@ public class TestPageServiceImplementation extends DefaultTest<Page> implements 
 		
 		id = entitySkin.getId();
 		skinService.delete(entitySkin);
-		assertNull(skinService.get(id));		
-	}
+		assertNull(skinService.get(id));
+	}	
 	
 	@Override
-	public Page get(Long id) {
+	public Category get(Long id) {
 		assertNotNull(id);
-		Page page = pageService.get(id);
-		assertNotNull(page);
-		return page;
+		Category category = categoryService.get(id);
+		assertNotNull(category);
+		return category;
 	}
 
 	@Override
-	public void persist(Page entity) {
+	public void persist(Category entity) {
 		assertNotNull(entity);
-		pageService.persist(entity);
+		categoryService.persist(entity);		
 	}
 
 	@Override
-	public void update(Page entity) {
+	public void update(Category entity) {
 		assertNotNull(entity);
-		pageService.update(entity);
+		categoryService.update(entity);
 	}
 
 	@Override
-	public void delete(Page entity) {
+	public void delete(Category entity) {
 		assertNotNull(entity);
-		pageService.delete(entity);
+		categoryService.delete(entity);
 	}
 
 	@Override
-	public Collection<Page> list() {
-		Collection<Page> list = pageService.list();
+	public Collection<Category> list() {
+		Collection<Category> list = categoryService.list();
 		assertNotNull(list);
 		return list;
 	}
 
 	@Override
-	public Collection<Page> search(String query) {
+	public Collection<Category> search(String query) {
 		assertNotNull(query);
 		assertTrue(!query.isEmpty());
-		Collection<Page> search = pageService.search(query);
-		assertNotNull(search);
-		return search;
+		Collection<Category> list = categoryService.search(query);
+		assertNotNull(list);
+		return list;
 	}
 
 	@Override
 	public long count() {
-		long total = pageService.count();
-		assertTrue(total >= 0);
-		return total;
+		Long qtd = categoryService.count();
+		assertTrue(qtd >= 0);
+		return qtd;
 	}
 
 	@Override
 	public void indexAll() {
-		//pageService.indexAll();
+		//categoryService.indexAll();
 	}
 
 	@Override
-	public List<Page> getByName(String name) {
+	public List<Category> getByName(String name) {
 		assertNotNull(name);
 		assertTrue(!name.isEmpty());
-		List<Page> list = pageService.getByName(name);
+		List<Category> list = categoryService.getByName(name);
 		assertNotNull(list);
 		return list;
 	}
 
 	@Override
-	public void update(Page page, PermanentLink oldPermanentLink) {
-		assertNotNull(page);
+	public void update(Category category, PermanentLink oldPermanentLink) {
+		assertNotNull(category);
 		assertNotNull(oldPermanentLink);
-		pageService.update(page, oldPermanentLink);
+		categoryService.update(category, oldPermanentLink);
 	}
 
 	@Override
-	public Collection<Page> list(int page, int pageSize) {
+	public Collection<Category> list(int page, int pageSize) {
 		assertTrue(page >= 0);
 		assertTrue(pageSize >= 0);
-		Collection<Page> list = pageService.list(page, pageSize);
+		Collection<Category> list = categoryService.list(page, pageSize);
 		assertNotNull(list);
 		return list;
 	}
 
 	@Override
-	public Collection<Page> list(int page, int pageSize, String orderBy, String order) {
+	public Collection<Category> list(int page, int pageSize, String orderBy, String order) {
 		assertTrue(page >= 0);
 		assertTrue(pageSize >= 0);
 		assertNotNull(orderBy);
 		assertTrue(!orderBy.isEmpty());
 		assertNotNull(order);
 		assertTrue(!order.isEmpty());
-		Collection<Page> list = pageService.list(page, pageSize, orderBy, order);
+		Collection<Category> list = categoryService.list(page, pageSize, orderBy, order);
 		assertNotNull(list);
 		return list;
 	}
 
 	@Override
-	public ResultList<Page> search(String query, int page, int pageSize) {
+	public ResultList<Category> search(String query, int page, int pageSize) {
 		assertNotNull(query);
-		assertTrue(!query.isEmpty());		
+		assertTrue(!query.isEmpty());
 		assertTrue(page >= 0);
 		assertTrue(pageSize >= 0);
-		ResultList<Page> search = pageService.search(query, page, pageSize);
+		ResultList<Category> search = categoryService.search(query, page, pageSize);
 		assertNotNull(search);
 		return search;
 	}

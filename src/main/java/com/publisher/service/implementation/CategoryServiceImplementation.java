@@ -49,7 +49,7 @@ public class CategoryServiceImplementation extends TransactionalService implemen
 	@Override
 	public void delete(Category entity) {
 		if (entity != null) {
-			entityManager.merge(entityManager.merge(entity));
+			entityManager.remove(entityManager.merge(entity));
 		}
 	}
 

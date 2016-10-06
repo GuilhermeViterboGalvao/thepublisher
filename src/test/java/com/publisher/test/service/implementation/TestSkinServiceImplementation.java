@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.publisher.entity.Skin;
 import com.publisher.service.SkinService;
+import com.publisher.test.config.DefaultTest;
 import com.publisher.utils.ResultList;
 
 public class TestSkinServiceImplementation extends DefaultTest<Skin> implements SkinService {
