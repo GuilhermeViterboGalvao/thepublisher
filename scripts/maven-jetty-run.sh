@@ -57,11 +57,11 @@ elif [ "$profile" == "wladimir" ]; then
 
 	mavenCommand="mvn clean jetty:run-exploded"
 	jettyParams="-Djetty.port=8080"
-	appParams="-Dpublisher.log.path=/Users/Wlad/publisher-data-files/logs -Drunning.context=wladimir -Dis.jetty.server=true"
-	uploadFilesDir="-Dupload.files.dir=/Users/Wlad/publisher-data-files/upload-files"
-	photosDir="-Dphotos.dir=/Users/Wlad/publisher-data-files/photos"
-	tempDir="-Dtemp.dir=/Users/Wlad/publisher-data-files/temp"
-	staticsDir="-Dstatics.dir=/Users/Wlad/publisher-data-files/statics"
+	appParams="-Dpublisher.log.path=/Users/Wlad/Documents/data/publisher-data-files/logs -Drunning.context=wladimir -Dis.jetty.server=true"
+	uploadFilesDir="-Dupload.files.dir=/Users/Wlad/Documents/data/publisher-data-files/upload-files"
+	photosDir="-Dphotos.dir=/Users/Wlad/Documents/data/publisher-data-files/photos"
+	tempDir="-Dtemp.dir=/Users/Wlad/Documents/data/publisher-data-files/temp"
+	staticsDir="-Dstatics.dir=/Users/Wlad/Documents/data/publisher-data-files/statics"
 	
 elif [ "$profile" == "guilherme" ]; then
 
