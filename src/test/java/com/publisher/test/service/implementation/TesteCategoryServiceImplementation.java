@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import org.hibernate.Hibernate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -73,7 +72,6 @@ public class TesteCategoryServiceImplementation extends DefaultTest<Category> im
 		persistedEntity.setName("Category Test for JUnit...");
 		update(persistedEntity);
 		
-		Hibernate.initialize(persistedEntity.getPermanentLink());
 		update(persistedEntity, persistedEntity.getPermanentLink());
 		
 		count();
@@ -86,7 +84,7 @@ public class TesteCategoryServiceImplementation extends DefaultTest<Category> im
 		
 		search("Test");
 		
-		search("Test", 0, 50);		
+		search("Test", 0, 50);
 	}
 
 	@After
