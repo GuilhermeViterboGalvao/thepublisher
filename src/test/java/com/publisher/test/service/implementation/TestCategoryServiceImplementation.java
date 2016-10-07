@@ -20,7 +20,7 @@ import com.publisher.service.SkinService;
 import com.publisher.test.config.DefaultTest;
 import com.publisher.utils.ResultList;
 
-public class TesteCategoryServiceImplementation extends DefaultTest<Category> implements CategoryService {
+public class TestCategoryServiceImplementation extends DefaultTest<Category> implements CategoryService {
 
 	@Autowired
 	private CategoryService categoryService; 
@@ -45,7 +45,6 @@ public class TesteCategoryServiceImplementation extends DefaultTest<Category> im
 		entity.setName("Category Test for JUnit...");
 		entity.setTags("test junit category");
 		
-		entityPermanentLink = new PermanentLink();
 		entityPermanentLink = new PermanentLink();
 		entityPermanentLink.setCreated(new Date());
 		entityPermanentLink.setParam(1l);

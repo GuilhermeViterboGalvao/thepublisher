@@ -35,6 +35,9 @@ public class PermanentLinkServiceImplementation extends TransactionalService imp
 	@Override
 	public void persist(PermanentLink entity) {
 		if (entity != null) {
+			if (entity.getUri() != null && !entity.getUri().isEmpty() && entity.getUri().startsWith("/")) {
+				entity.setUri(entity.getUri().substring(1));
+			}
 			entityManager.persist(entity);
 		}
 	}
@@ -42,6 +45,9 @@ public class PermanentLinkServiceImplementation extends TransactionalService imp
 	@Override
 	public void update(PermanentLink entity) {
 		if (entity != null) {
+			if (entity.getUri() != null && !entity.getUri().isEmpty() && entity.getUri().startsWith("/")) {
+				entity.setUri(entity.getUri().substring(1));
+			}			
 			entityManager.merge(entity);
 		}
 	}
@@ -150,7 +156,10 @@ public class PermanentLinkServiceImplementation extends TransactionalService imp
     		}
     		return (PermanentLink)element.getObjectValue();
     	}
-        Query query = entityManager.createQuery("from PermanentLink where uri=:uri").setParameter("uri", uri.substring(1));
+    	if (uri.startsWith("/")) {
+    		uri = uri.substring(1);
+    	}
+        Query query = entityManager.createQuery("from PermanentLink where uri=:uri").setParameter("uri", uri);
 		List<PermanentLink> result = query.getResultList();    	
         if (result == null || result.isEmpty()) {
         	link = null;

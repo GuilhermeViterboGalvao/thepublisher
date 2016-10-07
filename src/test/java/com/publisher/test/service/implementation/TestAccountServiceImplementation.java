@@ -8,6 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 
 import com.publisher.entity.Account;
 import com.publisher.service.AccountService;
@@ -15,7 +16,7 @@ import com.publisher.test.config.DefaultTest;
 import com.publisher.utils.ResultList;
 
 public class TestAccountServiceImplementation extends DefaultTest<Account> implements AccountService {
-
+	
 	private static final String PASSWORD = "!@#test123$%^";
 	
 	@Autowired
@@ -34,6 +35,7 @@ public class TestAccountServiceImplementation extends DefaultTest<Account> imple
 	}
 	
 	@Test
+	@Rollback(true)
 	public void testIt() {		
 		persist(entity);
 		
@@ -61,7 +63,7 @@ public class TestAccountServiceImplementation extends DefaultTest<Account> imple
 	@After
 	public void finish() {
 		delete(persistedEntity);
-		persistedEntity = accountService.getByEmail("test@junit.com");
+		persistedEntity = accountService.get(entity.getId());
 		assertNull(persistedEntity);
 	}
 
@@ -121,7 +123,9 @@ public class TestAccountServiceImplementation extends DefaultTest<Account> imple
 	@Override
 	public Account authenticate(String email, String password) {
 		assertNotNull(email);
+		assertTrue(!email.isEmpty());
 		assertNotNull(password);
+		assertTrue(!password.isEmpty());
 		Account account = accountService.authenticate(email, password);
 		assertNotNull(account);
 		return account;
