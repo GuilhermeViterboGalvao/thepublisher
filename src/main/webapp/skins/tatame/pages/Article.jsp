@@ -44,10 +44,10 @@
 		    <div class="box-300 margin-left-10">
 		    	<div id="tatame_300x100_ros" class="ads-300-100 box-shadow margin-bottom-10"></div>
 		    	<div id="tatame_300x250_ros" class="ads-300-250 box-shadow margin-bottom-10"></div>
-				<div class="black-belt-post-related box-shadow margin-bottom-10">
+				<div class="black-belt-post-related box-shadow">
 					<div class="dan">Notícias relacionadas</div>
 				</div>
-				<div class="related-posts box-shadow perfect-scroll">
+				<div class="related-posts box-shadow perfect-scroll margin-bottom-10">
 					<s:iterator value="getLast(4)" status="st">
 						<div class="related-item">
 							<a href="/${permanentLink.uri}" title="${title}">
