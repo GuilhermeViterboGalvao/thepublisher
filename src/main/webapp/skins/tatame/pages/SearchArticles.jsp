@@ -81,10 +81,10 @@
 					</div>	
 				</div>
 				<div class="box-300 margin-left-10">
-					<div id="tatame_300x100_ros" class="ads-300-100 box-shadow"></div>
-			    	<div id="tatame_300x250_ros" class="ads-300-250 box-shadow margin-top-10"></div>
-			    	<div class="box-300 box-shadow margin-top-10"><p:tile xml="home/revista"/></div>
-			    	<div id="tatame_300x600_ros" class="ads-300-600 box-shadow margin-top-10"></div>	
+					<div id="tatame_300x100_ros" class="ads-300-100 box-shadow margin-bottom-10"></div>
+			    	<div id="tatame_300x250_ros" class="ads-300-250 box-shadow margin-bottom-10"></div>
+			    	<div class="box-300 box-shadow margin-bottom-10"><p:tile xml="home/revista"/></div>
+			    	<div id="tatame_300x600_ros" class="ads-300-600 box-shadow margin-bottom-10"></div>	
 				</div>		
 			</div>		
 		</div>
