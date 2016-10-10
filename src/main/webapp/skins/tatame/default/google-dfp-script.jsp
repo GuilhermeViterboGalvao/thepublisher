@@ -33,6 +33,7 @@
 								
 				googletag.pubads().setTargeting("pageType", "home");
 				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
 				googletag.enableServices();
 			});
 		}else{
@@ -41,6 +42,7 @@
 								
 				googletag.pubads().setTargeting("pageType", "home");
 				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
 				googletag.enableServices();
 			});
 		}
@@ -85,6 +87,7 @@
 					googletag.pubads().setTargeting("pageType", "search");
 				</s:else>			
 				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
 				googletag.enableServices();
 			});
 		}else{
@@ -101,6 +104,7 @@
 					googletag.pubads().setTargeting("pageType", "search");
 				</s:else>			
 				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
 				googletag.enableServices();
 			});
 		}
