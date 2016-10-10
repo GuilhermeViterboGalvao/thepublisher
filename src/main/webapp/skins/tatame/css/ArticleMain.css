@@ -35,9 +35,9 @@ div.content div.credits { width: 714px; float: left; position: relative; backgro
 div.content div.credits div.info { float: left; width: 591px; padding: 5px 0 5px 5px; border-right: 3px solid #a2393c; }
 div.content div.credits div.info p { color: #fff; font-size: 13px; padding: 1px 0; }
 div.content div.credits div.info p a { text-decoration: none; font-weight: bold; color: #fff; font-size: 15px; }
-div.content div.credits div.social-plugins { float: right; padding: 2.8px 0 0 2px; }
+div.content div.credits div.social-plugins { float: right; padding: 4.8px 0 0 2px; }
 div.content div.credits div.social-plugins > iframe { float: left; height: 20px; margin-right: 5px; width: 55px; }
-div.content div.credits div.social-plugins > div { float: left; height: 20px; width: 113px; }
+div.content div.credits div.social-plugins > div { float: left; height: 33px; width: 111px; }
 
 div.content div.text { float: left; margin: 15px 0 0 2px; width: 714px; font-family: Open Sans,sans-serif; color: #5d5c5c; font-size: 14px; line-height: 20px; }
 div.content div.text p { margin-bottom:15px; max-width: 708px; word-wrap: break-word; }
