@@ -17,7 +17,7 @@
 </div>
 
 <div class="ads-728 mobile-hidden">
-	<div id="tatame_728x90_cob_cust" class="box-shadow" ></div>
+<!-- 	<div id="tatame_728x90_cob_cust" class="box-shadow" ></div> -->
 </div>
 	
 <p:tile xml="home/destaques"/>
