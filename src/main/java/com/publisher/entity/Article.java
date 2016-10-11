@@ -260,5 +260,5 @@ public class Article implements Serializable {
     @Override
     public String toString() {
         return "com.publisher.entity.Article#" + String.valueOf(id);
-    }	
+    }
 }
