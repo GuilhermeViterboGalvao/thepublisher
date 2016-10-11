@@ -33,6 +33,7 @@
 			
 			googletag.pubads().setTargeting("event", "petropolis");
 			googletag.pubads().enableSingleRequest();
+			googletag.pubads().collapseEmptyDivs();
 			googletag.enableServices();
 		});
 	}else{
@@ -51,6 +52,7 @@
 			
 			googletag.pubads().setTargeting("event", "petropolis");
 			googletag.pubads().enableSingleRequest();
+			googletag.pubads().collapseEmptyDivs();
 			googletag.enableServices();
 		});
 	}

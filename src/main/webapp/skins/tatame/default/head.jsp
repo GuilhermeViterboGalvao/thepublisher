@@ -42,5 +42,5 @@
 	<link rel="stylesheet" href="/skins/tatame/css/Category.css?7" type="text/css"/>
 </s:elseif>
 <s:elseif test="articles != null">
-	<link rel="stylesheet" href="/skins/tatame/css/Search.css?3" type="text/css"/>
+	<link rel="stylesheet" href="/skins/tatame/css/Search.css?7" type="text/css"/>
 </s:elseif>
