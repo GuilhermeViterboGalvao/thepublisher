@@ -24,26 +24,26 @@ import com.publisher.utils.ResultList;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 
-public class ArticleServiceImplementation extends TransactionalService implements ArticleService {
+public class ArticleServiceImplementation extends AbstractServiceImplementation<Article> implements ArticleService {
 
 	private static Log log = LogFactory.getLog(ArticleServiceImplementation.class);
-	
+
 	@Override
-	public Article get(Long id) {
-		return id != null ? entityManager.find(Article.class, id) : null;
+	public Class<Article> getServiceClass() {
+		return Article.class;
 	}
 
 	@Override
 	public void persist(Article entity) {
 		if (entity != null) {
 			entityManager.persist(entity);
-	        if (entity.getPermanentLink() != null) {
-	        	entityManager.flush();
-	        	entity.getPermanentLink().setParam(entity.getId());
-	        	entity.setCreated(new Date());
-	        	entityManager.merge(entity.getPermanentLink());
-	        	entityManager.flush();
-	        }	
+			if (entity.getPermanentLink() != null) {
+				entityManager.flush();
+				entity.getPermanentLink().setParam(entity.getId());
+				entity.setCreated(new Date());
+				entityManager.merge(entity.getPermanentLink());
+				entityManager.flush();
+			}	
 		}
 	}
 
@@ -56,59 +56,11 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	}
 
 	@Override
-	public void delete(Article entity) {
-		if (entity != null) {
-			entityManager.remove(entityManager.merge(entity));
-		}
-	}	
-
-	@Override
-	public Collection<Article> list() {
-		return list(0, 0);
-	}
-
-	@Override
-	public Collection<Article> search(String query) {
-		return search(query, 0, 0).getResult();
-	}
-
-	@Override
-	public long count() {
-		return count(null, null);
-	}
-	
-	@Override
-	@SuppressWarnings("unchecked")
-	public void indexAll() {
-        try {
-            Query query = entityManager.createQuery("select max(a.id) from Article a");
-            long total = (Long) query.getSingleResult();
-            FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-            ft.purgeAll(Article.class);
-            for (long i = 0; i < total / 100 + 1; i++) {
-                query = ft.createQuery("select a from Article a where a.id>=? and a.id<=? order by a.id");
-                query.setParameter(1, i * 100 + 1);
-                query.setParameter(2, (i + 1) * 100);
-                List<Article> list = query.getResultList();
-                for (Article article : list) {                    
-                    ft.index(article);
-                    log.info(article.getId() + ": " + article.getTitle());
-                }
-                ft.flushToIndexes();
-                ft.clear();
-            }
-        } catch (Exception e) {
-        	log.error(e);
-            e.printStackTrace();
-        }
-	}
-	
-	@Override
 	public void update(Article entity, PermanentLink oldPermanentLink) {
 		entityManager.merge(entity);
 		cleanCache(oldPermanentLink);
 	}
-	
+
 	private void cleanCache(PermanentLink permanentLink) {
 		if (permanentLink != null && permanentLink.getUri() != null) {
 			try {
@@ -131,94 +83,89 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	public List<Article> get(Category category, int page, int pageSize, Date start, Date end, Boolean publishedOnly) {
 		return get(category, page, pageSize, start, end, publishedOnly, null, null);
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Article> get(Category category, int page, int pageSize, Date start, Date end, Boolean publishedOnly, String orderBy, String order) {
-        Set<Category> categories = new HashSet<Category>();
-        if (category != null) {
-            categories.add(category);
-            addChilds(categories, category, 0, 3);
-            for (Category c : category.getChilds()) {
-                categories.add(c);
-            }
-        }
-        StringBuilder sb = new StringBuilder();
-        boolean where = false;
-        sb.append("select a from Article a");
-        if (categories.size() > 0) {
-            where = true;
-            sb.append(" where a.category in ( ");
-            for (int i = 1; i <= categories.size(); i++) {
-                sb.append("?");
-                if (i != categories.size()) {
-                    sb.append(", ");
-                } else {
-                    sb.append(" )");
-                }
-            }
-        }
-        if (start != null) {
-            if (where) {
-                sb.append(" and ");
-            } else {
-                sb.append(" where ");
-                where = true;
-            }
-            sb.append("a.publishedAt >= ?");
-        }
-        if (end != null) {
-            if (where) {
-                sb.append(" and ");
-            } else {
-                sb.append(" where ");
-                where = true;
-            }
-            sb.append("a.publishedAt <= ?");
-        }
-        if (publishedOnly != null && publishedOnly) {
-            if (where) {
-                sb.append(" and ");
-            } else {
-                sb.append(" where ");
-                where = true;
-            }
-            sb.append("a.published = true");
-        }
-        sb.append(" order by ");
+		Set<Category> categories = new HashSet<Category>();
+		if (category != null) {
+			categories.add(category);
+			addChilds(categories, category, 0, 3);
+			for (Category c : category.getChilds()) {
+				categories.add(c);
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		boolean where = false;
+		sb.append("select a from Article a");
+		if (categories.size() > 0) {
+			where = true;
+			sb.append(" where a.category in ( ");
+			for (int i = 1; i <= categories.size(); i++) {
+				sb.append("?");
+				if (i != categories.size()) {
+					sb.append(", ");
+				} else {
+					sb.append(" )");
+				}
+			}
+		}
+		if (start != null) {
+			if (where) {
+				sb.append(" and ");
+			} else {
+				sb.append(" where ");
+				where = true;
+			}
+			sb.append("a.publishedAt >= ?");
+		}
+		if (end != null) {
+			if (where) {
+				sb.append(" and ");
+			} else {
+				sb.append(" where ");
+				where = true;
+			}
+			sb.append("a.publishedAt <= ?");
+		}
+		if (publishedOnly != null && publishedOnly) {
+			if (where) {
+				sb.append(" and ");
+			} else {
+				sb.append(" where ");
+				where = true;
+			}
+			sb.append("a.published = true");
+		}
+		sb.append(" order by ");
 		if (orderBy != null && !orderBy.equals("")
 				&& order != null && !order.equals("")) {
 			sb.append("	a." + orderBy + " " + order);	
 		} else {
 			sb.append("	a.publishedAt desc");	
 		}     
-        Query query = entityManager.createQuery(sb.toString());
-        int i = 1;
-        for (Category c : categories) {
-            query.setParameter(i, c);
-            i++;
-        }
-        if (start != null) {
-            query.setParameter(i, start);
-            i++;
-        }
-        if (end != null) {
-            query.setParameter(i, end);
-            i++;
-        }
+		Query query = entityManager.createQuery(sb.toString());
+		int i = 1;
+		for (Category c : categories) {
+			query.setParameter(i, c);
+			i++;
+		}
+		if (start != null) {
+			query.setParameter(i, start);
+			i++;
+		}
+		if (end != null) {
+			query.setParameter(i, end);
+			i++;
+		}
 		if (pageSize > 0) {
 			query.setMaxResults(pageSize);
 		}
 		if (page > 0 && pageSize > 0) {
 			query.setFirstResult((page - 1) * pageSize);
 		}
-        query.setHint("org.hibernate.cacheable", true);
-        return query.getResultList();
-	}
-
-	@Override
-	public Collection<Article> list(int page, int pageSize) {
-		return list(null, page, pageSize);
+		query.setHint("org.hibernate.cacheable", true);
+		return query.getResultList();
 	}
 
 	@Override
@@ -240,7 +187,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	public Collection<Article> list(Boolean published, Category category, int page, int pageSize, Date publishedUntil, Boolean orderByDate) {
 		return list(published, category, page, pageSize, publishedUntil, orderByDate != null && orderByDate ? "publishedAt" : null, "desc");
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public Collection<Article> list(Boolean published, Category category, int page, int pageSize, Date publishedUntil, String orderBy, String order) {
@@ -292,11 +239,6 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	}
 
 	@Override
-	public ResultList<Article> search(String query, int page, int pageSize) {
-		return search(query, page, pageSize, null);
-	}
-
-	@Override
 	public ResultList<Article> search(String query, int page, int pageSize, Boolean published) {
 		return search(query, page, pageSize, published, null);
 	}
@@ -305,53 +247,53 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	public ResultList<Article> search(String query, int page, int pageSize, Boolean published, Date publishedUntil) {
 		return search(query, page, pageSize, published, publishedUntil, null);
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public ResultList<Article> search(String query, int page, int pageSize, Boolean published, Date publishedUntil, String categoryName) {
-        long t = System.currentTimeMillis();
-    	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
+		long t = System.currentTimeMillis();
+		FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Article.class).get();				
 		BooleanJunction<?> junction = HibernateSearchUtils.createQuery(query, qb, "title", "header", "note", "tags", "createdBy.name");
 		if (categoryName != null && !categoryName.isEmpty()) {
 			junction = junction.must(
-				qb.phrase().onField("category.name").sentence(categoryName).createQuery()
-			);
+					qb.phrase().onField("category.name").sentence(categoryName).createQuery()
+					);
 		}
 		if (publishedUntil != null) {						
 			junction = junction.must(
-				qb.range().onField("publishedAt").from(
-					DateTools.round(0l, DateTools.Resolution.HOUR)
-				).to(
-					DateTools.round(publishedUntil.getTime(), DateTools.Resolution.HOUR)
-				).excludeLimit().createQuery()
-			);
+					qb.range().onField("publishedAt").from(
+							DateTools.round(0l, DateTools.Resolution.HOUR)
+							).to(
+									DateTools.round(publishedUntil.getTime(), DateTools.Resolution.HOUR)
+									).excludeLimit().createQuery()
+					);
 		}		
 		org.apache.lucene.search.Query luceneQuery = junction.createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Article.class);
-        if (published != null && published) {
-        	fullTextQuery.enableFullTextFilter("published").setParameter("isPublished", true);
-        }
-        fullTextQuery.setSort(
-        	new Sort(
-        		new SortField("publishedAt", SortField.Type.LONG, true)
-        	)
-        );
-        if (pageSize > 0) {
-        	fullTextQuery.setMaxResults(pageSize);
-        }
-        if (page > 0 && pageSize > 0) {
-        	fullTextQuery.setFirstResult((page - 1) * pageSize);        	
-        }
-        fullTextQuery.setHint("org.hibernate.cacheable", true);
-        ResultList<Article> result = new ResultList<Article>();                    
-        result.setPage(page);
-        result.setPageSize(pageSize);
-        result.setResult(fullTextQuery.getResultList());
-        result.setResultSize(fullTextQuery.getResultSize());
-        result.setTimeElapsed((int)(System.currentTimeMillis() - t));
-        log.info("ARTICLE SEARCH=[" + luceneQuery.toString() + "] - TimeElapsed=" + result.getTimeElapsed());        
-        return result;
+		FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Article.class);
+		if (published != null && published) {
+			fullTextQuery.enableFullTextFilter("published").setParameter("isPublished", true);
+		}
+		fullTextQuery.setSort(
+				new Sort(
+						new SortField("publishedAt", SortField.Type.LONG, true)
+						)
+				);
+		if (pageSize > 0) {
+			fullTextQuery.setMaxResults(pageSize);
+		}
+		if (page > 0 && pageSize > 0) {
+			fullTextQuery.setFirstResult((page - 1) * pageSize);        	
+		}
+		fullTextQuery.setHint("org.hibernate.cacheable", true);
+		ResultList<Article> result = new ResultList<Article>();                    
+		result.setPage(page);
+		result.setPageSize(pageSize);
+		result.setResult(fullTextQuery.getResultList());
+		result.setResultSize(fullTextQuery.getResultSize());
+		result.setTimeElapsed((int)(System.currentTimeMillis() - t));
+		log.info("ARTICLE SEARCH=[" + luceneQuery.toString() + "] - TimeElapsed=" + result.getTimeElapsed());        
+		return result;
 	}
 
 	@Override
@@ -376,81 +318,81 @@ public class ArticleServiceImplementation extends TransactionalService implement
 
 	@Override
 	public long count(Category category, Date start, Date end, Boolean publishedOnly) {
-        Set<Category> categories = new HashSet<Category>();
-        if (category != null) {
-            categories.add(category);
-            addChilds(categories, category, 0, 3);
-            for (Category c : category.getChilds()) {
-                categories.add(c);
-            }
-        }
-        StringBuilder sb = new StringBuilder();
-        boolean where = false;
-        sb.append("select count(a) from Article a");
-        if (categories.size() > 0) {
-            where = true;
-            sb.append(" where a.category in ( ");
-            for (int i = 1; i <= categories.size(); i++) {
-                sb.append("?");
-                if (i != categories.size()) {
-                    sb.append(", ");
-                } else {
-                    sb.append(" )");
-                }
-            }
-        }
-        if (start != null) {
-            if (where) {
-                sb.append(" and ");
-            } else {
-                sb.append(" where ");
-                where = true;
-            }
-            sb.append("a.publishedAt>=?");
-        }
-        if (end != null) {
-            if (where) {
-                sb.append(" and ");
-            } else {
-                sb.append(" where ");
-                where = true;
-            }
-            sb.append("a.publishedAt<=?");
-        }
-        if (publishedOnly != null && publishedOnly) {
-            if (where) {
-                sb.append(" and ");
-            } else {
-                sb.append(" where ");
-                where = true;
-            }
-            sb.append("a.published<=true");
-        }
-        Query query = entityManager.createQuery(sb.toString());
-        int i = 1;
-        for (Category c : categories) {
-            query.setParameter(i, c);
-            i++;
-        }
-        if (start != null) {
-            query.setParameter(i, start);
-            i++;
-        }
-        if (end != null) {
-            query.setParameter(i, end);
-            i++;
-        }
-        query.setHint("org.hibernate.cacheable", true);
-        return (Long) query.getSingleResult();
+		Set<Category> categories = new HashSet<Category>();
+		if (category != null) {
+			categories.add(category);
+			addChilds(categories, category, 0, 3);
+			for (Category c : category.getChilds()) {
+				categories.add(c);
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		boolean where = false;
+		sb.append("select count(a) from Article a");
+		if (categories.size() > 0) {
+			where = true;
+			sb.append(" where a.category in ( ");
+			for (int i = 1; i <= categories.size(); i++) {
+				sb.append("?");
+				if (i != categories.size()) {
+					sb.append(", ");
+				} else {
+					sb.append(" )");
+				}
+			}
+		}
+		if (start != null) {
+			if (where) {
+				sb.append(" and ");
+			} else {
+				sb.append(" where ");
+				where = true;
+			}
+			sb.append("a.publishedAt>=?");
+		}
+		if (end != null) {
+			if (where) {
+				sb.append(" and ");
+			} else {
+				sb.append(" where ");
+				where = true;
+			}
+			sb.append("a.publishedAt<=?");
+		}
+		if (publishedOnly != null && publishedOnly) {
+			if (where) {
+				sb.append(" and ");
+			} else {
+				sb.append(" where ");
+				where = true;
+			}
+			sb.append("a.published<=true");
+		}
+		Query query = entityManager.createQuery(sb.toString());
+		int i = 1;
+		for (Category c : categories) {
+			query.setParameter(i, c);
+			i++;
+		}
+		if (start != null) {
+			query.setParameter(i, start);
+			i++;
+		}
+		if (end != null) {
+			query.setParameter(i, end);
+			i++;
+		}
+		query.setHint("org.hibernate.cacheable", true);
+		return (Long) query.getSingleResult();
 	}
-	
-   private void addChilds(Set<Category> categories, Category category, int counter, int max) {
-    	counter++;
-    	for(Category currentCategory : category.getChilds()) {
-    		categories.add(currentCategory);
-    		if (counter < max) {
-    			addChilds(categories, currentCategory, counter, max);
-    		}
-    	}
-    }
+
+	private void addChilds(Set<Category> categories, Category category, int counter, int max) {
+		counter++;
+		for(Category currentCategory : category.getChilds()) {
+			categories.add(currentCategory);
+			if (counter < max) {
+				addChilds(categories, currentCategory, counter, max);
+			}
+		}
+	}
 }

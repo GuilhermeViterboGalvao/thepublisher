@@ -16,6 +16,8 @@ public interface Service<T> {
 	
 	Collection<T> list();
 	
+	Collection<T> list(int page, int pageSize, String orderBy, String order);
+	
 	Collection<T> search(String query);
 	
 	ResultList<T> search(String query, int page, int pageSize);
