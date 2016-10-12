@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="manager-tatame" namespace="/manager/tatame" extends="manager">		
+		<action name="liveStats-*" class="br.com.tatame.manager.LiveStatsAction" method="{1}">
+			<result type="tiles">liveStats-list</result>
+			<result name="input" type="tiles">liveStats-input</result>
+			<result name="redirect" type="redirectAction">liveStats-list</result>
+		</action>					     		
+	</package>
+</struts>

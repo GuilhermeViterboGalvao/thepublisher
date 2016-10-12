@@ -4,7 +4,8 @@
 	<constant name="struts.devMode" value="false"/>
 	<!-- CONTROLER -->
 	<include file="com/publisher/manager/manager.xml"/>
-	<include file="br/com/clubetatame/manager/manager.xml"/>	
+	<include file="br/com/clubetatame/manager/manager.xml"/>
+	<include file="br/com/tatame/manager/manager.xml"/>		
 	<!-- VIEW -->
 	<include file="com/publisher/view/view.xml"/>
 	<include file="br/com/clubetatame/view/view.xml"/>

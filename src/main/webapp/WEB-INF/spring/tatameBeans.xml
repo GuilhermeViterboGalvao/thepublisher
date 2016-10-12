@@ -9,15 +9,6 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-	
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
-	<!-- Just for Threads. If you will use this service, remember to close all entityManager. -->
-	<beans:bean id="entityManagerFactoryService" class="com.publisher.service.implementation.EntityManagerFactoryServiceImplementation"/>	
-
-	<beans:import resource="dataSourceBeans.xml"/>
-	<beans:import resource="thePublisherBeans.xml"/>
-	<beans:import resource="clubeTatameBeans.xml"/>
-	<beans:import resource="tatameBeans.xml"/>
-	
+		
+	<beans:bean id="liveStatsService" class="br.com.tatame.service.implementation.LiveStatsServiceImplementation"/>		
 </beans:beans>

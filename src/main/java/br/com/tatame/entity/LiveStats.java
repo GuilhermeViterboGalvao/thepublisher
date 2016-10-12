@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Cache;
@@ -32,7 +33,7 @@ import com.publisher.entity.search.PublishedFilter;
 @Entity
 @Indexed
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@FullTextFilterDef(name = "published", impl = PublishedFilter.class)
+@FullTextFilterDef(name = "liveStatsPublished", impl = PublishedFilter.class)
 public class LiveStats implements Serializable {
 
     private static final long serialVersionUID = 358789591798823523L;
@@ -51,10 +52,11 @@ public class LiveStats implements Serializable {
     @Field
     private String tags;
 
+    @Lob
     private String code;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Skin template;
+    private Skin skin;
 
     @SortableField
     @DateBridge(resolution = Resolution.DAY)
@@ -124,12 +126,12 @@ public class LiveStats implements Serializable {
         this.code = code;
     }
 
-    public Skin getTemplate() {
-        return template;
+    public Skin getSkin() {
+        return skin;
     }
 
-    public void setTemplate(Skin template) {
-        this.template = template;
+    public void setSkin(Skin skin) {
+        this.skin = skin;
     }
 
     public Date getPublishedAt() {

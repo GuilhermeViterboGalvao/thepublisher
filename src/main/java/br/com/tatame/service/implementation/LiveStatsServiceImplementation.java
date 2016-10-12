@@ -10,5 +10,5 @@ public class LiveStatsServiceImplementation extends AbstractServiceImplementatio
 	@Override
 	public Class<LiveStats> getServiceClass() {
 		return LiveStats.class;
-	}
+	}	
 }

@@ -37,14 +37,19 @@
 			<li><a href="/manager/page-edit">Nova capa</a></li>
 		</s:if>
 		<li><a href="/manager/page-list">Listar</a></li>
-	</ul>	
+	</ul>
+	<h6 class="ym-vtitle">Eventos (LiveStats)</h6>
+	<ul>
+		<li><a href="/manager/tatame/liveStats-edit">Novo evento</a></li>
+		<li><a href="/manager/tatame/liveStats-list">Listar</a></li>
+	</ul>
 	<h6 class="ym-vtitle">Usuários</h6>
 	<ul>
 		<s:if test="isAdmin()">
 			<li><a href="/manager/account-edit">Cadastrar</a></li>
 		</s:if>
 		<li><a href="/manager/account-list">Listar</a></li>
-	</ul>	
+	</ul>
 	<h6 class="ym-vtitle">Outros</h6>
 	<ul>
 		<s:if test="isAdmin()">
