@@ -3,10 +3,8 @@
 <s:if test="published">
 	<div class="content">
 		<div class="info">
-			<div class="poll">
-			</div>
-			<div class="live-chat">
-			</div>			
+			<div class="poll"></div>
+			<div class="live-chat"></div>			
 		</div>
 		<div class="live-stats">
 			<s:property value="code" escapeHtml="false"/>
