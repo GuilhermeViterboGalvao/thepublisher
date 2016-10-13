@@ -41,6 +41,9 @@
 <s:elseif test="model != null && model instanceof com.publisher.entity.Category">
 	<link rel="stylesheet" href="/skins/tatame/css/Category.css?7" type="text/css"/>
 </s:elseif>
+<s:elseif test="model != null && model instanceof br.com.tatame.entity.LiveStats">
+	<link rel="stylesheet" href="/skins/tatame/css/LiveStats.css" type="text/css"/>
+</s:elseif>
 <s:elseif test="articles != null">
 	<link rel="stylesheet" href="/skins/tatame/css/Search.css?7" type="text/css"/>
 </s:elseif>

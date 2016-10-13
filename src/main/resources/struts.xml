@@ -11,4 +11,5 @@
 	<include file="br/com/clubetatame/view/view.xml"/>
 	<include file="br/com/clubetatame/view/member/member.xml"/>
 	<include file="br/com/clubetatame/view/gym/gym.xml"/>
+	<include file="br/com/tatame/view/view.xml"/>
 </struts>
