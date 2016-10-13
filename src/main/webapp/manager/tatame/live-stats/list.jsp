@@ -33,15 +33,10 @@
 					<s:property value="id"/>
 				</td>				
 				<td>
-					<s:property value="name"/>
+					<s:property value="eventName"/>
 				</td>
 				<td class="td">
-					<s:if test="isAdmin()">
-						<a href="liveStats-edit?id=<s:property value="id"/>">Editar</a>
-					</s:if>
-					<s:else>
-						<a href="liveStats-edit?id=<s:property value="id"/>">Ver dados</a>
-					</s:else>
+					<a href="liveStats-edit?id=<s:property value="id"/>">Editar</a>
 				</td>
 			</tr>
 		</s:iterator>

@@ -52,7 +52,8 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			this.description = entity.getDescription();
 			this.forumEnabled = entity.isForumEnabled();
 			if (entity.getSkin() != null) {
-				this.skinId = entity.getSkin().getId(); 	
+				this.skinId = entity.getSkin().getId();
+				this.skinName = entity.getSkin().getName();
 			}
 			if (entity.getPermanentLink() != null) {
 				this.permanentLink = entity.getPermanentLink().getUri();
@@ -294,7 +295,7 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	}
 
 	public Date getPublishedAt() {
-		return publishedAt;
+		return publishedAt == null ? new Date() : publishedAt;
 	}
 
 	public void setPublishedAt(Date publishedAt) {
