@@ -37,6 +37,15 @@
 		<s:else>
 			<p:autocomplete name="skinId" url="/manager/ac-skin" />
 		</s:else>
+		
+		<label for="pollName">Enquete</label>
+		<s:hidden name="pollName"/>
+		<s:if test="pollName != null && !pollName.equals('')">
+			<p:autocomplete name="pollId" display="pollName" url="/manager/tatame/ac-poll" />
+		</s:if>
+		<s:else>
+			<p:autocomplete name="pollId" url="/manager/tatame/ac-poll" />
+		</s:else>
 
 		<label for="publishedAt">Data de publicação:</label>
 		<s:textfield name="publishedAt" value="%{getText('date.format',{publishedAt})}" cssClass="publishedAt"/>

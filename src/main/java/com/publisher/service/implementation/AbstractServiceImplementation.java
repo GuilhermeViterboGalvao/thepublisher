@@ -94,7 +94,7 @@ public abstract class AbstractServiceImplementation<T> extends TransactionalServ
             if (entityFields != null && entityFields.length > 0) {
             	List<String> fields = new ArrayList<String>();
             	for (Field entityField : entityFields) {
-            		if (entityField.isAnnotationPresent(org.hibernate.search.annotations.Field.class)) {
+            		if (entityField.isAnnotationPresent(org.hibernate.search.annotations.Field.class) && entityField.getType().isAssignableFrom(String.class)) {
             			fields.add(entityField.getName());	
             		}            		
 				}            	

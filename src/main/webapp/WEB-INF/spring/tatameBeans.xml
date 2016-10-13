@@ -11,4 +11,5 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 		
 	<beans:bean id="liveStatsService" class="br.com.tatame.service.implementation.LiveStatsServiceImplementation"/>		
+	<beans:bean id="pollService" 	  class="br.com.tatame.service.implementation.PollServiceImplementation"/>
 </beans:beans>

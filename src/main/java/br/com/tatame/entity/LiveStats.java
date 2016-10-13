@@ -52,11 +52,14 @@ public class LiveStats implements Serializable {
     @Field
     private String tags;
 
-    @Lob
+ 
     private String code;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Skin skin;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Poll poll;
 
     @SortableField
     @DateBridge(resolution = Resolution.DAY)
@@ -134,7 +137,15 @@ public class LiveStats implements Serializable {
         this.skin = skin;
     }
 
-    public Date getPublishedAt() {
+    public Poll getPoll() {
+		return poll;
+	}
+
+	public void setPoll(Poll poll) {
+		this.poll = poll;
+	}
+
+	public Date getPublishedAt() {
         return publishedAt;
     }
 

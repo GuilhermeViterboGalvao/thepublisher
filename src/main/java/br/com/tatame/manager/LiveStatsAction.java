@@ -11,7 +11,9 @@ import com.publisher.service.SkinService;
 import com.publisher.utils.ResultList;
 
 import br.com.tatame.entity.LiveStats;
+import br.com.tatame.entity.Poll;
 import br.com.tatame.service.LiveStatsService;
+import br.com.tatame.service.PollService;
 
 public class LiveStatsAction extends AbstractAction<LiveStats> {
 
@@ -35,6 +37,12 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 		this.skinService = skinService;
 	}
 	
+	private PollService pollService;
+	
+	public void setPollService(PollService pollService) {
+		this.pollService = pollService;
+	}
+	
 	@Override
 	protected void indexAll() {
 		liveStatsService.indexAll();		
@@ -54,6 +62,10 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			if (entity.getSkin() != null) {
 				this.skinId = entity.getSkin().getId();
 				this.skinName = entity.getSkin().getName();
+			}
+			if (entity.getPoll() != null) {
+				this.pollId = entity.getPoll().getId();
+				this.pollQuestion = entity.getPoll().getQuestion();
 			}
 			if (entity.getPermanentLink() != null) {
 				this.permanentLink = entity.getPermanentLink().getUri();
@@ -81,6 +93,9 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			}			
 			if (skinId > 0) {
 				entity.setSkin(skinService.get(skinId));	
+			}
+			if (pollId > 0) {
+				entity.setPoll(pollService.get(pollId));	
 			}
 			if (permanentLink != null && permanentLink.length() > 0 && (entity.getPermanentLink() == null || !permanentLink.equals(entity.getPermanentLink().getUri()))) {
 				newPermanentLink = new PermanentLink();
@@ -146,6 +161,9 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 		if (skinId != 0 && skinService.get(skinId) == null) {
 			addFieldError("templateId", "Você deve definir um template padrão.");
 		}
+		if (pollId != 0 && pollService.get(pollId) == null) {
+			addFieldError("enqueteId", "Você deve definir uma enquete padrão.");
+		}
 		if (publishedAt == null) {
 			addFieldError("publishedAt", "Você deve entrar com a data de publicação.");
 		}
@@ -178,6 +196,13 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 				skinName = skin.getName();
 			}
 		}
+		
+		if (pollId > 0) {
+			Poll poll = pollService.get(pollId);
+			if (poll != null && poll.getQuestion() != null && !poll.getQuestion().equals("")) {
+				pollQuestion = poll.getQuestion();
+			}
+		}
 	}
 	
 	//LiveStatsAction properties
@@ -191,6 +216,8 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	private boolean orderly = true;
 	
 	private String skinName;
+	
+	private String pollQuestion;
 
 	//POJO
 	
@@ -205,6 +232,8 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	private String code;
 	
 	private long skinId;
+	
+	private long pollId;
 	
 	private Date publishedAt;
 	
@@ -293,6 +322,14 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	public void setSkinId(long skinId) {
 		this.skinId = skinId;
 	}
+	
+	public long getPollId() {
+		return pollId;
+	}
+
+	public void setPollId(long pollId) {
+		this.pollId = pollId;
+	}
 
 	public Date getPublishedAt() {
 		return publishedAt == null ? new Date() : publishedAt;
@@ -328,5 +365,9 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	
 	public String getSkinName() {
 		return skinName;
+	}
+	
+	public String getPollQuestion() {
+		return pollQuestion;
 	}
 }
