@@ -10,7 +10,7 @@ var LiveStats = {
 			var progressBar = $(this);
 			var votes = progressBar.data("votes");
 			var width = progressBar.width();
-			if (votes == 0) {
+			if (votes <= 2) {
 				progressBar.animate({
 					width: 2
 				}, 1000);
@@ -76,7 +76,11 @@ var LiveStats = {
 	
 	updateVotes: function(alternativeId) {
 		var divAlternative = $("#alternative-" + alternativeId);
-		var votes = Number(divAlternative.find("#votes").data("votes")) + 1;
+		var votes = Number(divAlternative.find("#votes").data("votes"));
+		if (votes < 2) {
+		 	votes = 2;
+		}
+		votes += 1;
 		var text =  divAlternative.find("#text").data("text");
 		var pText = divAlternative.find("p.text");
 		pText.html(text + " " + votes + " votos.");
