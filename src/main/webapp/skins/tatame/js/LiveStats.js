@@ -55,21 +55,31 @@ var LiveStats = {
 					alert("Você precisa selecionar uma opção\nantes de clicar no botão \"Votar\".");
 					return;
 				}
+				var result = null;
 				$.ajax({
 					url : "/poll-vote?pollId=" + pollId + "&alternativeId=" + alternativeId,
 					async: false,
 					cache : false,
 					success : function(data) {
-						var result = eval(data);
-						if (result && result.voted) {
-							alert("Voto realizado com sucesso.");
-						} else {
-							alert("Você já votou nessa enquete.");
-						}
+						result = eval(data);
 					}
 				});
+				if (result && result.voted) {
+					LiveStats.updateVotes(alternativeId);
+					alert("Voto realizado com sucesso.");					
+				} else {
+					alert("Você já votou nessa enquete.");
+				}				
 			});
 		});
+	},
+	
+	updateVotes: function(alternativeId) {
+		var divAlternative = $("#alternative-" + alternativeId);
+		var votes = Number(divAlternative.find("#votes").data("votes")) + 1;
+		var text =  divAlternative.find("#text").data("text");
+		var pText = divAlternative.find("p.text");
+		pText.html(text + " " + votes + " votos.");
 	}
 };
 LiveStats.init();

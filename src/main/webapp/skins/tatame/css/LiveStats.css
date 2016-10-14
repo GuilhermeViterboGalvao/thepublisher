@@ -15,7 +15,7 @@ div.content div.info div.polls div.poll div.alternatives { float: left; height: 
 div.content div.info div.polls div.poll div.alternatives div.alternative { float: left; height: auto; width: 490px; margin: 0 0 10px 0; }
 div.content div.info div.polls div.poll div.alternatives div.alternative input[type="radio"] { float: left; width: 15px; margin: 5px 2px; }
 div.content div.info div.polls div.poll div.alternatives div.alternative p.text { float: left; height: auto; width: 470px; font-size: 16px; font-weight: bold; color: #3a3a3a; line-height: 24px; }
-div.content div.info div.polls div.poll div.alternatives div.alternative p.progress-bar { float: left; height: 5px; width: 490px; background-color: #ff9e00; }
+div.content div.info div.polls div.poll div.alternatives div.alternative p.progress-bar { float: left; height: 5px; width: 490px; background-color: #ff9e00; border-radius: 10px; }
 div.content div.info div.polls button { float: left; height: auto; width: 70px; padding: 4px; font-size: 16px; font-weight: bold; color: white; background-color: #393939; border: none; position: absolute; left: 420px; top: 0px; cursor: pointer; }
 
 div.content div.info div.live-chat { float: left; min-height: 500px; height: auto; width: 500px; margin: 0 0 30px 12px; }

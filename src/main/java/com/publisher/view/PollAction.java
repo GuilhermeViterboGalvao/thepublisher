@@ -46,7 +46,7 @@ public class PollAction extends ActionSupport implements ServletRequestAware {
 					}
 				}
 			}
-			String key = request.getRemoteAddr() + "_" + request.getHeader("user-agent") + "_" + pollId;
+			String key = getKey();
 			CacheManager.getInstance().getCache("userPollVote").put(new Element(key, request.getRemoteAddr()));
 			pollService.update(poll);
 			result = new Result(true);
@@ -57,8 +57,12 @@ public class PollAction extends ActionSupport implements ServletRequestAware {
 	}
 	
 	public boolean userHasAlreadyVoted(){
-		String key = request.getRemoteAddr() + "_" + request.getHeader("user-agent") + "_" + pollId;
+		String key = getKey();
 		return CacheManager.getInstance().getCache("userPollVote").get(key) != null;  
+	}
+	
+	public String getKey() {
+		return "[" + request.getRemoteAddr() + "]-[" + request.getHeader("user-agent") + "]-[" + pollId + "]";
 	}
 	
 	//POJO

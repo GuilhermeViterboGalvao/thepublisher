@@ -14,8 +14,10 @@
 						<p class="question"><s:property value="poll.question"/></p>
 						<div class="alternatives">
 							<s:iterator value="poll.alternatives" status="st">
-								<div class="alternative" id="<s:property value="#st.count"/>">
-									<input type="hidden" data-votes="<s:property value="votes"/>" id="radio-<s:property value="id"/>"/>
+								<div class="alternative" id="alternative-<s:property value="id"/>">
+									<input type="hidden" data-id="<s:property value="votes"/>" id="alternativeId"/>
+									<input type="hidden" data-votes="<s:property value="votes"/>" id="votes"/>
+									<input type="hidden" data-text="<s:property value="text"/>" id="text"/>
 									<input type="radio" class="alternative-radio" id="<s:property value="id"/>"/>
 									<p class="text"><s:property value="text"/> <s:property value="votes"/> votos.</p>
 									<p class="progress-bar" data-votes="<s:property value="votes"/>"></p>
