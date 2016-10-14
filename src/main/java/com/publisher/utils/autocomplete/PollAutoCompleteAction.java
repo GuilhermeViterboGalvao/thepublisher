@@ -1,15 +1,13 @@
-package br.com.tatame.utils.autocomplete;
+package com.publisher.utils.autocomplete;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import com.publisher.entity.Poll;
 import com.publisher.service.PollService;
-import com.publisher.utils.autocomplete.AutoCompleteAction;
-import com.publisher.utils.autocomplete.LabelValue;
 
-public class PollAutoCompleteAction extends AutoCompleteAction{
-	
+public class PollAutoCompleteAction extends AutoCompleteAction {
+
 	private PollService pollService;
 	
 	public void setPollService(PollService pollService){
