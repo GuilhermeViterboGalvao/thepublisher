@@ -31,7 +31,7 @@
 				
 		<label for="skinName">Template</label>
 		<s:hidden name="skinName"/>
-		<s:if test="skinName != null && !skinName.equals('')">
+		<s:if test="skinName != null && !skinName.isEmpty()">
 			<p:autocomplete name="skinId" display="skinName" url="/manager/ac-skin" />
 		</s:if>
 		<s:else>
@@ -40,11 +40,11 @@
 		
 		<label for="pollName">Enquete</label>
 		<s:hidden name="pollName"/>
-		<s:if test="pollName != null && !pollName.equals('')">
-			<p:autocomplete name="pollId" display="pollName" url="/manager/tatame/ac-poll" />
+		<s:if test="pollName != null && !pollName.isEmpty()">
+			<p:autocomplete name="pollId" display="pollQuestion" url="/manager/ac-poll" />
 		</s:if>
 		<s:else>
-			<p:autocomplete name="pollId" url="/manager/tatame/ac-poll" />
+			<p:autocomplete name="pollId" url="/manager/ac-poll" />
 		</s:else>
 
 		<label for="publishedAt">Data de publicação:</label>
@@ -63,6 +63,14 @@
 		<div class="ym-fbox-button">			
 			<s:submit value="Enviar" align="left"/>
 		</div>
+		
+		<s:if test="createdBy != null">		
+			<p style="margin: 10px 0px">Criado por <s:property value="createdBy" /> em <s:property value="created"/></p>			
+		</s:if>
+				
+		<s:if test="lastModifiedBy != null">		
+			<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy" /> em <s:property value="lastModified"/></p>			
+		</s:if>
 	</div>	
 </s:form>
 <script type="text/javascript">

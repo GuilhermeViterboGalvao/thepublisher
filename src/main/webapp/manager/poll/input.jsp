@@ -47,8 +47,7 @@
 		</s:if>
 		<s:else>
 			<div id="alternatives" class="ym-fbox-text"></div>
-		</s:else>	
-	
+		</s:else>
 	
 		<div class="ym-fbox-text ym-error">
 			<s:fielderror cssStyle="color: red;"/>
@@ -57,10 +56,16 @@
 		<div class="ym-fbox-button">			
 			<s:submit value="Enviar" align="left"/>
 		</div>
+		
+		<s:if test="createdBy != null">		
+			<p style="margin: 10px 0px">Criado por <s:property value="createdBy" /> em <s:property value="created"/></p>			
+		</s:if>
+				
+		<s:if test="lastModifiedBy != null">		
+			<p style="margin: 10px 0px">Modificado por <s:property value="lastModifiedBy" /> em <s:property value="lastModified"/></p>			
+		</s:if>
 	</div>	
 </s:form>
-
-
 <script type="text/javascript">
 	var i = 0;
 	

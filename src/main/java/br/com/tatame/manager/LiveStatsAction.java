@@ -162,7 +162,7 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			addFieldError("templateId", "Você deve definir um template padrão.");
 		}
 		if (pollId != 0 && pollService.get(pollId) == null) {
-			addFieldError("enqueteId", "Você deve definir uma enquete padrão.");
+			addFieldError("pollId", "Você deve definir uma enquete padrão.");
 		}
 		if (publishedAt == null) {
 			addFieldError("publishedAt", "Você deve entrar com a data de publicação.");
@@ -192,14 +192,13 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 		//an template, the action can save the state of the page.
 		if (skinId > 0) {
 			Skin skin = skinService.get(skinId);
-			if (skin != null && skin.getName() != null && !skin.getName().equals("")) {
+			if (skin != null && skin.getName() != null && !skin.getName().isEmpty()) {
 				skinName = skin.getName();
 			}
-		}
-		
+		}		
 		if (pollId > 0) {
 			Poll poll = pollService.get(pollId);
-			if (poll != null && poll.getQuestion() != null && !poll.getQuestion().equals("")) {
+			if (poll != null && poll.getQuestion() != null && !poll.getQuestion().isEmpty()) {
 				pollQuestion = poll.getQuestion();
 			}
 		}
@@ -231,9 +230,9 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	
 	private String code;
 	
-	private long skinId;
+	private long skinId = 0;
 	
-	private long pollId;
+	private long pollId = 0;
 	
 	private Date publishedAt;
 	

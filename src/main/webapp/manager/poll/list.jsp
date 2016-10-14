@@ -27,13 +27,13 @@
 				<a href="poll-list?orderBy=id&orderly=<s:property value="!orderly"/>">id</a>
 			</th>
 			<th>
-				<a href="poll-list?orderBy=question&orderly=<s:property value="!orderly"/>">Pergunta</a>
+				<a href="poll-list?orderBy=question&orderly=<s:property value="!orderly"/>">pergunta</a>
 			</th>	
 			<th>
-				<a href="poll-list?orderBy=publishedAt&orderly=<s:property value="!orderly"/>">Data</a>
+				<a href="poll-list?orderBy=publishedAt&orderly=<s:property value="!orderly"/>">data</a>
 			</th>		
 			<th>
-				<a href="poll-list?orderBy=published&orderly=<s:property value="!orderly"/>">Publicado</a>
+				<a href="poll-list?orderBy=published&orderly=<s:property value="!orderly"/>">publicado</a>
 			</th>
 			<th></th>
 			<th></th>

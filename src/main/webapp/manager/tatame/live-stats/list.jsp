@@ -23,6 +23,12 @@
 			<th>
 				<a href="liveStats-list?orderBy=name&orderly=<s:property value="!orderly"/>">nome</a>
 			</th>
+			<th>
+				<a href="liveStats-list?orderBy=publishedAt&orderly=<s:property value="!orderly"/>">data</a>
+			</th>
+			<th>
+				<a href="liveStats-list?orderBy=published&orderly=<s:property value="!orderly"/>">publicado</a>
+			</th>			
 			<th></th>
 		</tr>
 	</thead>
@@ -35,6 +41,12 @@
 				<td>
 					<s:property value="eventName"/>
 				</td>
+				<td>
+					<s:property value="%{getText('date.format',{publishedAt})}"/>
+				</td>								
+				<td>
+					<s:if test="published">Sim</s:if><s:else>Não</s:else>
+				</td>				
 				<td class="td">
 					<a href="liveStats-edit?id=<s:property value="id"/>">Editar</a>
 				</td>
