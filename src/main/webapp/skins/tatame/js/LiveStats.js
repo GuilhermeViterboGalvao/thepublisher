@@ -23,10 +23,17 @@ var LiveStats = {
 	},
 	
 	addEventClickToRadios: function() {
-		$("input[type='radio']").each(function() {
+		$(".alternative-radio").each(function() {
 			var radio = $(this);
 			radio.click(function() {
-				
+				var radio = $(this);
+				var divAlternatives = radio.parent().parent();
+				divAlternatives.find(".alternative-radio").each(function() {
+					var currentRadio = $(this);
+					if (currentRadio.attr("id") != radio.attr("id") && currentRadio.is(":checked")) {
+						currentRadio.prop("checked", false);
+					}
+				});
 			});
 		});
 	},
@@ -35,7 +42,32 @@ var LiveStats = {
 		$(".btnVote").each(function() {
 			var btnVote = $(this);
 			btnVote.click(function() {
-				
+				var poll = $(this).parent();
+				var pollId = poll.find("#pollId").val();
+				var alternativeId = 0;
+				poll.find(".alternative-radio").each(function() {
+					var radio = $(this);
+					if (radio.is(":checked")) {
+						alternativeId = radio.attr("id");
+					}
+				});
+				if (alternativeId == 0) {
+					alert("Você precisa selecionar uma opção\nantes de clicar no botão \"Votar\".");
+					return;
+				}
+				$.ajax({
+					url : "/poll-vote?pollId=" + pollId + "&alternativeId=" + alternativeId,
+					async: false,
+					cache : false,
+					success : function(data) {
+						var result = eval(data);
+						if (result && result.voted) {
+							alert("Voto realizado com sucesso.");
+						} else {
+							alert("Você já votou nessa enquete.");
+						}
+					}
+				});
 			});
 		});
 	}
