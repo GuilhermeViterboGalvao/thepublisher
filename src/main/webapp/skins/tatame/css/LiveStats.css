@@ -29,8 +29,20 @@ div.content div.live-stats-fb-comments { float: left; min-height: 200px; height:
 
 	div.content { float: left; height: auto; width: 100%; }
 	div.content div.info { float: left; height: auto; width: 100%; }
-	div.content div.info div.polls { float: left; height: auto; width: 48%; margin: 0 1% 5% 0; }
-	div.content div.info div.live-chat { float: left; height: auto; width: 48%; margin: 0 0 5% 1%; }
+	div.content div.info div.polls { float: left; min-height: 0; height: auto; width: 100%; margin: 0; }
+	div.content div.info div.polls div.title { float: left; height: auto; width: 100%; position: relative; }
+	div.content div.info div.polls div.title p.text { float: left; height: auto; width: auto; font-size: 1.3em; text-transform: uppercase; font-weight: bold; color: #ff0105; line-height: normal; margin: 0 0 1% 0; }
+	div.content div.info div.polls div.title p.line { float: left; width: 100%; position: relative; left: 00px; top: 0px; height: 3px; background-color: #ff0105; }	
+	div.content div.info div.polls div.poll { float: left; height: auto; width: 100%; border-bottom: 3px solid #dbdbdb; position: relative; margin: 5% 0 0 0; }
+	div.content div.info div.polls div.poll p.question { float: left; height: auto; width: 100%; font-size: 1.1em; color: #3a3a3a; font-weight: bold; line-height: normal; }
+	div.content div.info div.polls div.poll div.alternatives { float: left; height: auto; width: 100%; margin: 10px 0 0 0; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative { float: left; height: auto; width: 100%; margin: 0 0 10px 0; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative input[type="radio"] { float: left; width: 8%; margin: 1% 0 0 0; padding: 0; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative p.text { float: left; height: auto; width: 92%; font-size: 0.9em; font-weight: bold; color: #3a3a3a; line-height: normal; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative p.progress-bar { float: left; height: 5px; width: 100%; background-color: #ff9e00; border-radius: 10px; margin: 2% 0 0 0; }	
+	div.content div.info div.polls button { float: left; height: auto; width: 100%; padding: 4px; font-size: 16px; font-weight: bold; color: white; background-color: #393939; border: none; position: relative; left: 0; top: 0; cursor: pointer; margin: 0 0 2% 0; }		
+	
+	div.content div.info div.live-chat { float: left; height: auto; width: 100%; margin: 0; }
 	div.content div.live-stats { float: left; height: auto; width: 100%; }
 	div.content div.live-stats > iframe { float: left; max-height: 1200px; width: 100%; }
 	div.content div.live-stats-fb-comments { float: left; min-height: 200px; height: auto; width: 100%; }
