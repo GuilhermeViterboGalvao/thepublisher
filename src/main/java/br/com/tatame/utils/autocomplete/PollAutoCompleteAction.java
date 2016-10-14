@@ -3,12 +3,10 @@ package br.com.tatame.utils.autocomplete;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
+import com.publisher.entity.Poll;
+import com.publisher.service.PollService;
 import com.publisher.utils.autocomplete.AutoCompleteAction;
 import com.publisher.utils.autocomplete.LabelValue;
-
-import br.com.tatame.entity.Poll;
-import br.com.tatame.service.PollService;
 
 public class PollAutoCompleteAction extends AutoCompleteAction{
 	

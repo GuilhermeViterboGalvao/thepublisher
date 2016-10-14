@@ -1,31 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="manager-tatame" namespace="/manager/tatame" extends="manager">	
-		
+	<package name="manager-tatame" namespace="/manager/tatame" extends="manager">
 		<action name="liveStats-*" class="br.com.tatame.manager.LiveStatsAction" method="{1}">
 			<result type="tiles">liveStats-list</result>
 			<result name="input" type="tiles">liveStats-input</result>
 			<result name="redirect" type="redirectAction">liveStats-list</result>
-		</action>	
-		
-		<action name="poll-*" class="br.com.tatame.manager.PollAction" method="{1}">
-			<result type="tiles">poll-list</result>
-			<result name="input" type="tiles">poll-input</result>
-			<result name="redirect" type="redirectAction">poll-list</result>
-		</action>
-		
-		<action name="ac-poll" class="br.com.tatame.utils.autocomplete.PollAutoCompleteAction">
-			<result name="login" type="httpheader">
-				<param name="error">401</param>
-			</result>
-			<result type="json">
-				<param name="excludeNullProperties">true</param>
-				<param name="callbackParameter">callback</param>
-				<param name="noCache">true</param>
-				<param name="root">result</param>
-				<param name="enableGZIP">true</param>
-			</result>
-		</action>			     		
+		</action>     		
 	</package>
 </struts>

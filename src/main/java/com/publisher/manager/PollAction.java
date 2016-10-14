@@ -1,15 +1,13 @@
-package br.com.tatame.manager;
+package com.publisher.manager;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import com.publisher.manager.AbstractAction;
+import com.publisher.entity.Alternative;
+import com.publisher.entity.Poll;
+import com.publisher.service.PollService;
 import com.publisher.utils.ResultList;
-
-import br.com.tatame.entity.Alternative;
-import br.com.tatame.entity.Poll;
-import br.com.tatame.service.PollService;
 
 public class PollAction extends AbstractAction<Poll> {
 

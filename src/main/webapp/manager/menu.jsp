@@ -42,7 +42,12 @@
 	<ul>
 		<li><a href="/manager/tatame/liveStats-edit">Novo evento</a></li>
 		<li><a href="/manager/tatame/liveStats-list">Listar</a></li>
-	</ul>
+	</ul>	
+	<h6 class="ym-vtitle">Enquetes</h6>
+	<ul>
+		<li><a href="/manager/poll-edit">Nova enquete</a></li>
+		<li><a href="/manager/poll-list">Listar</a></li>
+	</ul>	
 	<h6 class="ym-vtitle">Usuários</h6>
 	<ul>
 		<s:if test="isAdmin()">

@@ -4,16 +4,16 @@ import java.util.Collection;
 import java.util.Date;
 
 import com.publisher.entity.PermanentLink;
+import com.publisher.entity.Poll;
 import com.publisher.entity.Skin;
 import com.publisher.manager.AbstractAction;
 import com.publisher.service.PermanentLinkService;
+import com.publisher.service.PollService;
 import com.publisher.service.SkinService;
 import com.publisher.utils.ResultList;
 
 import br.com.tatame.entity.LiveStats;
-import br.com.tatame.entity.Poll;
 import br.com.tatame.service.LiveStatsService;
-import br.com.tatame.service.PollService;
 
 public class LiveStatsAction extends AbstractAction<LiveStats> {
 

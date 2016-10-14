@@ -76,4 +76,10 @@
     <definition name="indexall-form" extends="manager-layout">
         <put-attribute name="content" value="/manager/indexall/form.jsp"/>
     </definition>
+    <definition name="poll-list" extends="manager-layout">
+        <put-attribute name="content" value="/manager/poll/list.jsp"/>
+    </definition>
+    <definition name="poll-input" extends="manager-layout">
+        <put-attribute name="content" value="/manager/poll/input.jsp"/>
+    </definition>    
 </tiles-definitions>

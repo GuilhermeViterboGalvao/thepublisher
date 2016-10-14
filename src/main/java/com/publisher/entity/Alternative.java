@@ -1,4 +1,4 @@
-package br.com.tatame.entity;
+package com.publisher.entity;
 
 import java.io.Serializable;
 

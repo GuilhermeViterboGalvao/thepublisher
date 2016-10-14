@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Cache;
@@ -27,6 +26,7 @@ import org.hibernate.search.annotations.Store;
 
 import com.publisher.entity.Account;
 import com.publisher.entity.PermanentLink;
+import com.publisher.entity.Poll;
 import com.publisher.entity.Skin;
 import com.publisher.entity.search.PublishedFilter;
 
@@ -52,7 +52,6 @@ public class LiveStats implements Serializable {
     @Field
     private String tags;
 
- 
     private String code;
 
     @ManyToOne(fetch = FetchType.LAZY)

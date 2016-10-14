@@ -7,11 +7,4 @@
     <definition name="liveStats-input" extends="manager-layout">
         <put-attribute name="content" value="/manager/tatame/live-stats/input.jsp"/>
     </definition>
-    
-    <definition name="poll-list" extends="manager-layout">
-        <put-attribute name="content" value="/manager/tatame/poll/list.jsp"/>
-    </definition>
-    <definition name="poll-input" extends="manager-layout">
-        <put-attribute name="content" value="/manager/tatame/poll/input.jsp"/>
-    </definition>
 </tiles-definitions>

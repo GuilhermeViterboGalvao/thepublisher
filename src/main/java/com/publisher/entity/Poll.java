@@ -1,4 +1,4 @@
-package br.com.tatame.entity;
+package com.publisher.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -26,8 +26,6 @@ import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
-
-import com.publisher.entity.Account;
 
 @Entity
 @Indexed
