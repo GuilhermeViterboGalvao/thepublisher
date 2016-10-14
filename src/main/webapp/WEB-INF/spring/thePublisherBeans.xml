@@ -23,5 +23,6 @@
 	<beans:bean id="pageService" class="com.publisher.service.implementation.PageServiceImplementation"/>
 	<beans:bean id="permanentLinkService" class="com.publisher.service.implementation.PermanentLinkServiceImplementation"/>
 	<beans:bean id="photoService" class="com.publisher.service.implementation.PhotoServiceImplementation"/>
-	<beans:bean id="skinService" class="com.publisher.service.implementation.SkinServiceImplementation"/>		
+	<beans:bean id="skinService" class="com.publisher.service.implementation.SkinServiceImplementation"/>
+	<beans:bean id="pollService" class="com.publisher.service.implementation.PollServiceImplementation"/>		
 </beans:beans>
