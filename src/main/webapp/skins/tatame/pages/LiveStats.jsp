@@ -29,7 +29,7 @@
 				</s:if>
 			</div>
 			<div class="live-chat box-shadow">
-				<a class="twitter-timeline" href="https://twitter.com/tatamemagazine" height="500" width="490">Tweets by @tatamemagazine</a>			
+				<a class="twitter-timeline" href="https://twitter.com/<s:property value="twitter"/>" height="500" width="490">Tweets by @<s:property value="twitter"/></a>			
 			</div>			
 		</div>
 		<div class="live-stats">

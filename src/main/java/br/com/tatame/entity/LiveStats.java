@@ -48,6 +48,10 @@ public class LiveStats implements Serializable {
 
     @Field
     private String description;
+    
+    private String twitter;
+    
+    private String adsZone;
 
     @Field
     private String tags;
@@ -112,7 +116,23 @@ public class LiveStats implements Serializable {
         this.description = description;
     }
 
-    public String getTags() {
+    public String getTwitter() {
+		return twitter;
+	}
+
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
+	}
+
+	public String getAdsZone() {
+		return adsZone;
+	}
+
+	public void setAdsZone(String adsZone) {
+		this.adsZone = adsZone;
+	}
+
+	public String getTags() {
         return tags;
     }
 

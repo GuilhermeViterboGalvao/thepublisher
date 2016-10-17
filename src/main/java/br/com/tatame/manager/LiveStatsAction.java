@@ -54,11 +54,14 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			this.id = entity.getId();
 			this.tags = entity.getTags();
 			this.code = entity.getCode();
+			this.twitter = entity.getTwitter();
+			this.adsZone = entity.getAdsZone();
 			this.published = entity.isPublished();
 			this.eventName = entity.getEventName();
 			this.publishedAt = entity.getPublishedAt();
 			this.description = entity.getDescription();
 			this.forumEnabled = entity.isForumEnabled();
+			
 			if (entity.getSkin() != null) {
 				this.skinId = entity.getSkin().getId();
 				this.skinName = entity.getSkin().getName();
@@ -80,7 +83,9 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			entity.setCode(code);
 			entity.setPublished(published);
 			entity.setEventName(eventName);
-			entity.setDescription(description);			
+			entity.setDescription(description);	
+			entity.setTwitter(twitter);
+			entity.setAdsZone(adsZone);
 			entity.setPublishedAt(publishedAt);
 			entity.setLastModified(new Date());
 			entity.setLastModifiedBy(getAccount());
@@ -226,6 +231,10 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	
 	private String description;
 	
+	private String twitter;
+	
+	private String adsZone;
+	
 	private String tags;
 	
 	private String code;
@@ -296,6 +305,22 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getTwitter() {
+		return twitter;
+	}
+
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
+	}
+
+	public String getAdsZone() {
+		return adsZone;
+	}
+
+	public void setAdsZone(String adsZone) {
+		this.adsZone = adsZone;
 	}
 
 	public String getTags() {

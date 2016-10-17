@@ -24,6 +24,12 @@
 
 		<label for="code">Código LiveStats</label>
 		<s:textarea name="code" rows="5"/>
+		
+		<label for="twitter">Twitter</label>
+		<s:textfield name="twitter"/>
+		
+		<label for="adsZone">Zona de anúncio</label>
+		<s:textfield name="adsZone"/>
 
 		<label for="permanentLink">Link Permanent:</label>
 		<s:hidden id="link" name="link" value="%{permanentLink}"/>
