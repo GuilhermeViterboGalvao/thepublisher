@@ -118,7 +118,9 @@
     </cache>
     <cache
         name="userPollVote"
-        maxElementsInMemory="100"        
+        maxElementsInMemory="100"
+        timeToLiveSeconds="600"        
+        timeToIdleSeconds="600"
         overflowToDisk="false"
         eternal="true"
         memoryStoreEvictionPolicy="LFU">      
