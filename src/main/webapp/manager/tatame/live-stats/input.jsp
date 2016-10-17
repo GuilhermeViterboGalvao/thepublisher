@@ -39,8 +39,8 @@
 		</s:else>
 		
 		<label for="pollName">Enquete</label>
-		<s:hidden name="pollName"/>
-		<s:if test="pollName != null && !pollName.isEmpty()">
+		<s:hidden name="pollQuestion"/>
+		<s:if test="pollQuestion != null && !pollQuestion.isEmpty()">
 			<p:autocomplete name="pollId" display="pollQuestion" url="/manager/ac-poll" />
 		</s:if>
 		<s:else>

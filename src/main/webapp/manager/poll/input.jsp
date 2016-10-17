@@ -36,7 +36,7 @@
 			<div id="alternatives" class="ym-fbox-text" style="background-color: rgb(191, 191, 191);">
 				<s:iterator value="alternatives" status="st">
 					<div id="alternative<s:property value="#st.count"/>" class="ym-fbox-text">
-						<label for="alternative"><s:property value="#st.count"/>-)alternativa:</label>
+						<label for="alternative"><s:property value="#st.count"/>-) alternativa:</label>
 						<s:hidden name="alternatives[%{#st.count - 1}].id" value="%{id}"/>
 						<s:hidden name="alternatives[%{#st.count - 1}].votes" value="%{votes}"/>
 						<s:textfield name="alternatives[%{#st.count - 1}].text" value="%{text}"/>
@@ -77,6 +77,26 @@
 		}
 	}
 	
+	function changeParameterNodes(element, position){
+		for (var i = 0; i < element.childNodes.length; i++) {
+			if (element.childNodes[i].tagName == "INPUT") {
+				
+				var name = element.childNodes[i].name;
+				element.childNodes[i].name = name.split("[")[0] + "[" + position + "]" +  name.split("]")[1];
+				
+				var id = element.childNodes[i].id;
+				
+				if(id != ""){
+					element.childNodes[i].id = id.split("alternatives_")[0] + "alternatives_" + position + "__" +  id.split("__")[1];
+				}
+			}else if (element.childNodes[i].tagName == "A") {
+				var delFunction = element.childNodes[i].href;
+				
+				element.childNodes[i].href = delFunction.split("(")[0] + "(" + (position+1) + ")";
+			}
+		}
+	}
+	
 	function del(id){	
 		$('#alternative'+id).remove();
 		i--;
@@ -86,6 +106,9 @@
 		    for (var count = 0; count < i; count++) {
 		    	removeTextNodes($('#alternatives').children()[count]);
 		    	$('#alternatives').children()[count].firstChild.innerHTML = (count + 1) + "-) alternativa: ";
+		    	$('#alternatives').children()[count].id = "alternative" + (count + 1);
+		    	
+		    	changeParameterNodes($('#alternatives').children()[count], count);
 		    }
 		}
 	}
