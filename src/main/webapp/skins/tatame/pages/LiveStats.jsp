@@ -29,8 +29,10 @@
 				</s:if>
 			</div>
 			<div class="live-chat box-shadow">
-				<a class="twitter-timeline" href="https://twitter.com/<s:property value="twitter"/>" height="500" width="490">Tweets by @<s:property value="twitter"/></a>			
-			</div>			
+				<a class="twitter-timeline" href="https://twitter.com/<s:property value="twitter"/>" height="400" width="580">Tweets by @<s:property value="twitter"/></a>			
+			</div>	
+			
+			<div id="tatame_live_stats" class="ads"></div>		
 		</div>
 		<div class="live-stats">
 			<s:property value="code" escapeHtml="false"/>
