@@ -87,3 +87,19 @@ var LiveStats = {
 	}
 };
 LiveStats.init();
+
+$(window).load(function(){ 
+	var width = window.document.body.offsetWidth || window.screen.width;
+	if (width && width > 800) {
+		var pollsH = $(".info .polls").height();
+		var ads = $(".info .ads");
+		
+		var difference = 0;
+		
+		if (ads.css('display') != "none"){
+			difference = ads.height() + 20;
+		}
+		
+		$(".live-chat iframe").css("height", (pollsH - difference) + "px");
+	}
+});
