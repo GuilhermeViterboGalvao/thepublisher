@@ -72,7 +72,7 @@
 	<script type="text/javascript">
 		if (windowWidth > 800) {
 			googletag.cmd.push(function() {
-				googletag.defineSlot("/13554095/<s:property value='adsZone'/>",  [300, 100],  "tatame_live_stats").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/<s:property value='adsZone'/>",  [[300, 100], [300, 250], [580,200]],  "tatame_live_stats").addService(googletag.pubads());
 								
 				googletag.pubads().setTargeting("pageType", "liveStats");
 				googletag.pubads().enableSingleRequest();

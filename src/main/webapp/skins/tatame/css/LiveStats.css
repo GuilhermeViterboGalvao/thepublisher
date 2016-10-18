@@ -5,7 +5,7 @@ div.live-stats-info p { float: left; height: auto; width: 1000px; margin: 12px; 
 
 div.content { float: left; height: auto; width: 1024px; }
 div.content div.info { float: left; height: auto; width: 1024px; margin-bottom: 30px; }
-div.content div.info div.polls { float: left; min-height: 620px; height: auto; width: 420px; margin: 0 12px 0 0; }
+div.content div.info div.polls { float: left; min-height: 620px; height: auto; width: 420px; margin: 0 24px 0 0; }
 div.content div.info div.polls div.title { float: left; height: auto; width: 410px; position: relative; }
 div.content div.info div.polls div.title p.text { float: left; height: auto; width: 100px; font-size: 20px; text-transform: uppercase; font-weight: bold; color: #ff0105; line-height: 60px; }
 div.content div.info div.polls div.title p.line { float: left; width: 310px; position: absolute; left: 100px; top: 29px; height: 3px; background-color: #ff0105; }
@@ -18,12 +18,13 @@ div.content div.info div.polls div.poll div.alternatives div.alternative p.text 
 div.content div.info div.polls div.poll div.alternatives div.alternative p.progress-bar { float: left; height: 5px; width: 410px; background-color: #ff9e00; border-radius: 10px; }
 div.content div.info div.polls button { float: left; height: auto; width: 70px; padding: 4px; font-size: 16px; font-weight: bold; color: white; background-color: #393939; border: none; position: absolute; left: 340px; top: 0px; cursor: pointer; }
 
-div.content div.info div.live-chat { float: left; min-height: 400px; height: auto; width: 580px; margin: 0 0 0 12px; }
+div.content div.info div.live-chat { float: left; min-height: 400px; height: auto; width: 580px; margin: 0; }
 div.content div.live-stats { float: left; height: auto; width: 1024px; }
 div.content div.live-stats > iframe { float: left; max-height: 1200px; width: 1024px; }
 div.content div.live-stats-fb-comments { float: left; min-height: 200px; height: auto; width: 1024px; }
 
-div.content div.info .ads { display: table; margin: 0 auto; padding: 20px 0 0; }
+div.content div.info .ads { display: table; margin: 0 auto; padding: 20px 0 0; max-width: 580px; }
+div.content div.info .ads > div { box-shadow: 3px 3px 3px #777; }
 
 @media screen and (max-width: 800px) {
 	div.live-stats-info { float: left; height: auto; width: 100%; }
