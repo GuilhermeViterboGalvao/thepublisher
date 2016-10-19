@@ -5,8 +5,4 @@ import com.publisher.service.PollService;
 
 public class PollServiceImplementation extends AbstractServiceImplementation<Poll> implements PollService {
 
-	@Override
-	public Class<Poll> getServiceClass() {
-		return Poll.class;
-	}
 }

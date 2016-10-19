@@ -14,11 +14,6 @@ public class AccountServiceImplementation extends AbstractServiceImplementation<
 	private static Log log = LogFactory.getLog(AccountServiceImplementation.class);
 	
 	@Override
-	public Class<Account> getServiceClass() {
-		return Account.class;
-	}
-	
-	@Override
 	@SuppressWarnings("unchecked")
 	public Account authenticate(String email, String password) {
         Account account = null;

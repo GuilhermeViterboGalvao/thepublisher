@@ -24,11 +24,6 @@ public class MemberServiceImplementation extends AbstractServiceImplementation<M
 	private static Log log = LogFactory.getLog(MemberServiceImplementation.class);
 
 	@Override
-	public Class<Member> getServiceClass() {
-		return Member.class;
-	}
-
-	@Override
 	@SuppressWarnings("unchecked")
 	public Member authenticate(String email, String password) {
 		Member member = null;

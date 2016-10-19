@@ -15,11 +15,6 @@ public class PageServiceImplementation extends AbstractServiceImplementation<Pag
 	private static Log log = LogFactory.getLog(PageServiceImplementation.class);
 
 	@Override
-	public Class<Page> getServiceClass() {
-		return Page.class;
-	}
-
-	@Override
 	public void persist(Page entity) {
 		if (entity != null) {
 			entityManager.persist(entity);

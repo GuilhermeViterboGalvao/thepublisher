@@ -24,11 +24,6 @@ public class EventServiceImplementation extends AbstractServiceImplementation<Ev
 	private static Log log = LogFactory.getLog(EventServiceImplementation.class);
 
 	@Override
-	public Class<Event> getServiceClass() {
-		return Event.class;
-	}
-
-	@Override
 	public void update(Event entity, PermanentLink oldPermanentLink) {
 		entityManager.merge(entity);
 		cleanCache(oldPermanentLink);

@@ -8,11 +8,6 @@ import br.com.clubetatame.entity.Product;
 import br.com.clubetatame.service.ProductService;
 
 public class ProductServiceImplementation extends AbstractServiceImplementation<Product> implements ProductService {
-	
-	@Override
-	public Class<Product> getServiceClass() {
-		return Product.class;
-	}
 
 	@Override
 	@SuppressWarnings("unchecked")

@@ -18,11 +18,6 @@ public class PermanentLinkServiceImplementation extends AbstractServiceImplement
 
 	private static Log log = LogFactory.getLog(PermanentLinkServiceImplementation.class);
 
-	@Override
-	public Class<PermanentLink> getServiceClass() {
-		return PermanentLink.class;
-	}
-
 	private static Object notPermanent = new Object();
 
 	@Override

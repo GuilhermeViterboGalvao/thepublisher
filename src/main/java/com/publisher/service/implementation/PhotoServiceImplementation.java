@@ -22,11 +22,6 @@ public class PhotoServiceImplementation extends AbstractServiceImplementation<Ph
 
 	private static Log log = LogFactory.getLog(PhotoServiceImplementation.class);
 
-	@Override
-	public Class<Photo> getServiceClass() {
-		return Photo.class;
-	}
-
 	private File imageFolder;
 
 	private File imageTempFolder;

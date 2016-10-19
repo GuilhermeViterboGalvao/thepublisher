@@ -29,11 +29,6 @@ public class ArticleServiceImplementation extends AbstractServiceImplementation<
 	private static Log log = LogFactory.getLog(ArticleServiceImplementation.class);
 
 	@Override
-	public Class<Article> getServiceClass() {
-		return Article.class;
-	}
-
-	@Override
 	public void persist(Article entity) {
 		if (entity != null) {
 			entityManager.persist(entity);

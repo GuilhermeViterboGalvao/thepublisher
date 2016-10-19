@@ -21,11 +21,6 @@ public class CompanyServiceImplementation extends AbstractServiceImplementation<
 	private static Log log = LogFactory.getLog(CompanyServiceImplementation.class);
 
 	@Override
-	public Class<Company> getServiceClass() {
-		return Company.class;
-	}
-
-	@Override
 	public Collection<Company> list(Boolean active) {
 		return list(active, 0, 0);
 	}

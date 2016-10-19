@@ -28,11 +28,6 @@ public class GymServiceImplementation extends AbstractServiceImplementation<Gym>
 	private static Log log = LogFactory.getLog(GymServiceImplementation.class);
 
 	@Override
-	public Class<Gym> getServiceClass() {
-		return Gym.class;
-	}
-
-	@Override
 	public void persist(Gym entity) {
 		if (entity != null) {
 			entityManager.persist(entity);

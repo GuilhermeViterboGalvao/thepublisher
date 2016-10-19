@@ -15,11 +15,6 @@ public class CategoryServiceImplementation extends AbstractServiceImplementation
 	private static Log log = LogFactory.getLog(CategoryServiceImplementation.class);
 
 	@Override
-	public Class<Category> getServiceClass() {
-		return Category.class;
-	}
-
-	@Override
 	public void persist(Category entity) {
 		if (entity != null) {
 			entityManager.persist(entity);

@@ -8,11 +8,6 @@ import br.com.tatame.entity.LiveStats;
 import br.com.tatame.service.LiveStatsService;
 
 public class LiveStatsServiceImplementation extends AbstractServiceImplementation<LiveStats> implements LiveStatsService {
-
-	@Override
-	public Class<LiveStats> getServiceClass() {
-		return LiveStats.class;
-	}
 	
 	@Override
 	public void persist(LiveStats entity) {
