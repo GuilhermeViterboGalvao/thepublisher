@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,10 +32,10 @@ public class TestCategoryServiceImplementation extends DefaultTest<Category> imp
 	private Skin entitySkin;
 	
 	private PermanentLink entityPermanentLink;
-	
-	@Before
+
+	@Test
 	@Override
-	public void init() {
+	public void testIt() {
 		assertNotNull(categoryService);
 		
 		entity = new Category();
@@ -58,12 +56,8 @@ public class TestCategoryServiceImplementation extends DefaultTest<Category> imp
 		entitySkin.setContentFolder("/skins/tatame/pages/");
 		skinService.persist(entitySkin);
 		skinService.persist(entitySkin);
-		entity.setSkin(entitySkin);
-	}
-
-	@Test
-	@Override
-	public void testIt() {
+		entity.setSkin(entitySkin);		
+		
 		persist(entity);
 		
 		persistedEntity = get(entity.getId());
@@ -84,11 +78,7 @@ public class TestCategoryServiceImplementation extends DefaultTest<Category> imp
 		search("Test");
 		
 		search("Test", 0, 50);
-	}
-
-	@After
-	@Override
-	public void finish() {
+		
 		delete(persistedEntity);
 		persistedEntity = categoryService.get(entity.getId());
 		assertNull(persistedEntity);
@@ -99,8 +89,8 @@ public class TestCategoryServiceImplementation extends DefaultTest<Category> imp
 		
 		id = entitySkin.getId();
 		skinService.delete(entitySkin);
-		assertNull(skinService.get(id));
-	}	
+		assertNull(skinService.get(id));		
+	}
 	
 	@Override
 	public Category get(Long id) {

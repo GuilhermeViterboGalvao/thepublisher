@@ -6,8 +6,6 @@ import java.io.File;
 import java.util.Collection;
 import java.util.Date;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,10 +25,10 @@ public class TestPhotoServiceImplementation extends DefaultTest<Photo> implement
 	private AccountService accountService;
 	
 	private Account entityAccount;
-	
-	@Before
+
+	@Test
 	@Override
-	public void init() {
+	public void testIt() {
 		assertNotNull(photoService);
 		
 		entity = new Photo();
@@ -58,11 +56,7 @@ public class TestPhotoServiceImplementation extends DefaultTest<Photo> implement
 		entity.setTags("test photo junit");
 		entity.setVerticalCenter(0.5f);
 		entity.setWidth(300);
-	}
-
-	@Test
-	@Override
-	public void testIt() {
+		
 		persist(entity);
 		
 		persistedEntity = get(entity.getId());
@@ -95,11 +89,7 @@ public class TestPhotoServiceImplementation extends DefaultTest<Photo> implement
 		//removePictureFromUploadFolder(id, dir);
 		//removePictureFromUploadTempFolder(id);
 		//removePictureFromUploadTempFolder(id, dir);
-	}
-
-	@After
-	@Override
-	public void finish() {
+		
 		delete(persistedEntity);
 		persistedEntity = photoService.get(entity.getId());
 		assertNull(persistedEntity);

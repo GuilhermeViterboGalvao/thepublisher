@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,9 +32,9 @@ public class TestPageServiceImplementation extends DefaultTest<Page> implements 
 	private Skin entitySkin;
 	
 	private PermanentLink entityPermanentLink;
-	
-	@Before
-	public void init() {
+
+	@Test
+	public void testIt() {
 		assertNotNull(pageService);
 		assertNotNull(skinService);
 		assertNotNull(permanentLinkService);
@@ -59,10 +57,7 @@ public class TestPageServiceImplementation extends DefaultTest<Page> implements 
 		entityPermanentLink.setType("page");
 		//permanentLinkService.persist(entityPermanentLink);		
 		entity.setPermanentLink(entityPermanentLink);
-	}
-
-	@Test
-	public void testIt() {
+		
 		persist(entity);
 		
 		persistedEntity = get(entity.getId());
@@ -83,10 +78,7 @@ public class TestPageServiceImplementation extends DefaultTest<Page> implements 
 		search("Test");
 		
 		search("Test", 0, 50);
-	}
-
-	@After
-	public void finish() {
+		
 		delete(persistedEntity);
 		persistedEntity = pageService.get(entity.getId());
 		assertNull(persistedEntity);
@@ -97,7 +89,7 @@ public class TestPageServiceImplementation extends DefaultTest<Page> implements 
 		
 		id = entitySkin.getId();
 		skinService.delete(entitySkin);
-		assertNull(skinService.get(id));		
+		assertNull(skinService.get(id));
 	}
 	
 	@Override

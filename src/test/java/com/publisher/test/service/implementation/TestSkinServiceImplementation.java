@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.Collection;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,19 +16,16 @@ public class TestSkinServiceImplementation extends DefaultTest<Skin> implements 
 
 	@Autowired
 	private SkinService skinService;
-	
-	@Before
-	public void init() {
+
+	@Test
+	public void testIt() {
 		assertNotNull(skinService);
 		
 		entity = new Skin();
 		entity.setName("Skin Test for JUnit.");
 		entity.setPath("/skins/tatame/default/layout.jsp");
 		entity.setContentFolder("/skins/tatame/pages/");
-	}
-
-	@Test
-	public void testIt() {
+		
 		persist(entity);
 		
 		persistedEntity = get(entity.getId());
@@ -49,10 +44,7 @@ public class TestSkinServiceImplementation extends DefaultTest<Skin> implements 
 		search("Test");
 		
 		search("Test", 0, 50);
-	}
-
-	@After
-	public void finish() {
+		
 		delete(persistedEntity);
 		persistedEntity = skinService.get(entity.getId());
 		assertNull(persistedEntity);

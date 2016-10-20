@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.apache.struts2.dispatcher.mapper.ActionMapping;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,10 +20,10 @@ public class TestPermanentLinkServiceImplementation extends DefaultTest<Permanen
 	private PermanentLinkService permanentLinkService;
 	
 	private PermanentLink newPermanentLink;
-	
-	@Before
+
+	@Test
 	@Override
-	public void init() {
+	public void testIt() {
 		assertNotNull(permanentLinkService);
 		
 		entity = new PermanentLink();
@@ -33,11 +31,7 @@ public class TestPermanentLinkServiceImplementation extends DefaultTest<Permanen
 		entity.setParam(1l);
 		entity.setUri("/category/test/junit");
 		entity.setType("category");
-	}
-
-	@Test
-	@Override
-	public void testIt() {
+		
 		persist(entity);		
 		
 		get(entity.getUri());
@@ -68,11 +62,7 @@ public class TestPermanentLinkServiceImplementation extends DefaultTest<Permanen
 		search("category");
 		
 		search("category", 0, 50);
-	}
-
-	@After
-	@Override
-	public void finish() {
+		
 		delete(persistedEntity);
 		persistedEntity = permanentLinkService.get(entity.getId());
 		assertNull(persistedEntity);
@@ -81,7 +71,7 @@ public class TestPermanentLinkServiceImplementation extends DefaultTest<Permanen
 		delete(newPermanentLink);
 		newPermanentLink = permanentLinkService.get(id);
 		assertNull(newPermanentLink);
-	}	
+	}
 	
 	@Override
 	public PermanentLink get(Long id) {

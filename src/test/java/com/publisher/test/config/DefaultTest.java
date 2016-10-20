@@ -21,9 +21,5 @@ public abstract class DefaultTest<T> {
 	
 	protected T persistedEntity;
 	
-	public abstract void init();
-	
 	public abstract void testIt();
-	
-	public abstract void finish();
 }

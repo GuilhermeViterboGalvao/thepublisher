@@ -5,10 +5,8 @@ import static org.junit.Assert.*;
 import java.util.Collection;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import com.publisher.entity.Account;
 import com.publisher.service.AccountService;
@@ -22,8 +20,8 @@ public class TestAccountServiceImplementation extends DefaultTest<Account> imple
 	@Autowired
 	private AccountService accountService;
 	
-	@Before
-	public void init() {
+	@Test
+	public void testIt() {
 		assertNotNull(accountService);
 		
 		entity = new Account();
@@ -31,12 +29,8 @@ public class TestAccountServiceImplementation extends DefaultTest<Account> imple
 		entity.setEmail("test@junit.com");
 		entity.setHash(hash(PASSWORD));
 		entity.setName("Test JUnit");
-		entity.setSecurityHole("admin");
-	}
-	
-	@Test
-	@Rollback(true)
-	public void testIt() {		
+		entity.setSecurityHole("admin");		
+		
 		persist(entity);
 		
 		persistedEntity = getByEmail("test@junit.com");
@@ -58,13 +52,15 @@ public class TestAccountServiceImplementation extends DefaultTest<Account> imple
 		list(0,  50);
 		
 		list(0, 50, "name", "desc");
+		
+		delete(persistedEntity);
+		persistedEntity = accountService.get(entity.getId());
+		assertNull(persistedEntity);
 	}
 	
 	@After
 	public void finish() {
-		delete(persistedEntity);
-		persistedEntity = accountService.get(entity.getId());
-		assertNull(persistedEntity);
+
 	}
 
 	@Override
