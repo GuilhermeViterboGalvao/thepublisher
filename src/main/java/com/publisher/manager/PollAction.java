@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.publisher.entity.Alternative;
 import com.publisher.entity.Poll;
+import com.publisher.service.PhotoService;
 import com.publisher.service.PollService;
 import com.publisher.utils.ResultList;
 
@@ -17,6 +18,12 @@ public class PollAction extends AbstractAction<Poll> {
 	
 	public void setPollService(PollService pollService) {
 		this.pollService = pollService;
+	}
+	
+	private PhotoService photoService;
+	
+	public void setPhotoService(PhotoService photoService) {
+		this.photoService = photoService;
 	}
 	
 	@Override
@@ -32,18 +39,29 @@ public class PollAction extends AbstractAction<Poll> {
 			this.alternatives = entity.getAlternatives();
 			this.publishedAt = entity.getPublishedAt();
 			this.published = entity.isPublished();
+			
+			try { 
+				photoId = entity.getPhoto().getId();
+				photoDescription = entity.getPhoto().getDescription();
+				if (entity.getPhoto().getCredits() != null && !entity.getPhoto().getCredits().isEmpty()) {
+					photoDescription = entity.getPhoto().getCredits();
+				}
+			} catch (Exception e) {}
 		}
 	}
 
 	@Override
 	protected Poll updateObject(Poll entity) {
 		if (entity != null) {
+			entity.setPhoto(photoService.get(photoId));
+			
 			entity.setQuestion(question);
 			entity.setAlternatives(alternatives);
 			entity.setPublishedAt(publishedAt);
 			entity.setPublished(published);
 			entity.setLastModified(new Date());
 			entity.setLastModifiedBy(getAccount());
+			
 			if (entity.getCreated() == null) {
 				entity.setCreated(new Date());	
 			}
@@ -111,6 +129,10 @@ public class PollAction extends AbstractAction<Poll> {
 	
 	private List<Alternative> alternatives;
 	
+	private long photoId;
+	
+	private String photoDescription;
+	
 	private Date publishedAt;
 	
 	private boolean published;
@@ -138,6 +160,14 @@ public class PollAction extends AbstractAction<Poll> {
 
 	public void setAlternatives(List<Alternative> alternatives) {
 		this.alternatives = alternatives;
+	}
+	
+	public long getPhotoId() {
+		return photoId;
+	}
+
+	public void setPhotoId(long photoId) {
+		this.photoId = photoId;
 	}
 	
 	public Date getPublishedAt() {
@@ -170,5 +200,9 @@ public class PollAction extends AbstractAction<Poll> {
 
 	public void setOrderly(boolean orderly) {
 		this.orderly = orderly;
+	}
+	
+	public String getPhotoDescription() {
+		return photoDescription;
 	}
 }

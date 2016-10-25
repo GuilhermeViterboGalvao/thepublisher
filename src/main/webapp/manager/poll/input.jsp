@@ -15,6 +15,19 @@
 	<s:hidden name="id"/>
 	<s:fielderror cssStyle="color: red;"/>
 	<div class="ym-fbox-text">
+		<p:photoselector 
+			name="photoId" 
+			cssStyle="float: left;"
+			display="'/img/'+photoId+'_150x100.jpg'"
+			url="/manager/ac-photo"
+			imagePattern="/img/[value]_150x100.jpg"
+			minLength="5" 
+			delay="500" 
+			pageSize="60" 
+			showToolTip="true"
+			initialUrl="/manager/ac-photo"
+			loadingImage="/manager/img/loader.gif" 
+		/>
 
 		<label for="question">Pergunta</label>
 		<s:textfield name="question"/>

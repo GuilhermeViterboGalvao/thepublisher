@@ -4,13 +4,19 @@
 	<div class="content">
 		<div class="info">			
 			<div class="polls box-shadow">
+				<s:if test="poll != null && poll.photo != null">
+					<img class="photo" alt="<s:property value="poll.photo.description"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="poll.photo.id"/>_420x200.jpg"/>
+				</s:if>
+			
 				<div class="title">
 					<p class="text">Enquete</p>
 					<p class="line"></p>
 				</div>
+				
 				<s:if test="poll != null">
 					<div class="poll">						
 						<input type="hidden" id="pollId" value="<s:property value="poll.id"/>"/>
+						
 						<p class="question"><s:property value="poll.question"/></p>
 						<div class="alternatives">
 							<s:iterator value="poll.alternatives" status="st">

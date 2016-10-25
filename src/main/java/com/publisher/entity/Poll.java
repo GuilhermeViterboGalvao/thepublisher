@@ -47,6 +47,9 @@ public class Poll implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Alternative> alternatives;
 	
+	@ManyToOne(fetch = FetchType.LAZY)	
+	private Photo photo;
+	
 	@SortableField
     @DateBridge(resolution = Resolution.DAY)
     @Field(index = Index.YES, store = Store.YES)
@@ -93,6 +96,14 @@ public class Poll implements Serializable {
 
 	public void setAlternatives(List<Alternative> alternatives) {
 		this.alternatives = alternatives;
+	}
+
+	public Photo getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(Photo photo) {
+		this.photo = photo;
 	}
 
 	public Date getPublishedAt() {
