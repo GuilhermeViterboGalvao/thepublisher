@@ -3,10 +3,12 @@ package br.com.tatame.manager;
 import java.util.Collection;
 import java.util.Date;
 
+import com.publisher.entity.Category;
 import com.publisher.entity.PermanentLink;
 import com.publisher.entity.Poll;
 import com.publisher.entity.Skin;
 import com.publisher.manager.AbstractAction;
+import com.publisher.service.CategoryService;
 import com.publisher.service.PermanentLinkService;
 import com.publisher.service.PollService;
 import com.publisher.service.SkinService;
@@ -43,6 +45,12 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 		this.pollService = pollService;
 	}
 	
+	private CategoryService categoryService;
+	
+	public void setCategoryService(CategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+	
 	@Override
 	protected void indexAll() {
 		liveStatsService.indexAll();		
@@ -69,6 +77,10 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			if (entity.getPoll() != null) {
 				this.pollId = entity.getPoll().getId();
 				this.pollQuestion = entity.getPoll().getQuestion();
+			}
+			if (entity.getCategory() != null) {
+				this.categoryId = entity.getCategory().getId();
+				this.categoryName = entity.getCategory().getName();
 			}
 			if (entity.getPermanentLink() != null) {
 				this.permanentLink = entity.getPermanentLink().getUri();
@@ -101,6 +113,9 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 			}
 			if (pollId > 0) {
 				entity.setPoll(pollService.get(pollId));	
+			}
+			if (categoryId > 0) {
+				entity.setCategory(categoryService.get(categoryId));	
 			}
 			if (permanentLink != null && permanentLink.length() > 0 && (entity.getPermanentLink() == null || !permanentLink.equals(entity.getPermanentLink().getUri()))) {
 				newPermanentLink = new PermanentLink();
@@ -207,6 +222,12 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 				pollQuestion = poll.getQuestion();
 			}
 		}
+		if (categoryId > 0) {
+			Category category = categoryService.get(categoryId);
+			if (category != null && category.getName() != null && !category.getName().isEmpty()) {
+				categoryName = category.getName();
+			}
+		}
 	}
 	
 	//LiveStatsAction properties
@@ -222,6 +243,8 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	private String skinName;
 	
 	private String pollQuestion;
+	
+	private String categoryName;
 
 	//POJO
 	
@@ -242,6 +265,8 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	private long skinId = 0;
 	
 	private long pollId = 0;
+	
+	private long categoryId = 0;
 	
 	private Date publishedAt;
 	
@@ -355,6 +380,14 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 		this.pollId = pollId;
 	}
 
+	public long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(long categoryId) {
+		this.categoryId = categoryId;
+	}
+
 	public Date getPublishedAt() {
 		return publishedAt == null ? new Date() : publishedAt;
 	}
@@ -393,5 +426,9 @@ public class LiveStatsAction extends AbstractAction<LiveStats> {
 	
 	public String getPollQuestion() {
 		return pollQuestion;
+	}
+	
+	public String getCategoryName(){
+		return categoryName;
 	}
 }

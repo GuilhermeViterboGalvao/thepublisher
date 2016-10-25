@@ -29,7 +29,12 @@
 				</s:if>
 			</div>
 			<div class="live-chat box-shadow">
-				<a class="twitter-timeline" href="https://twitter.com/<s:property value="twitter"/>" height="400" width="580">Tweets by @<s:property value="twitter"/></a>			
+				<s:if test="twitter != null && !twitter.isEmpty()">
+					<a class="twitter-timeline" href="https://twitter.com/<s:property value="twitter"/>" height="400" width="580">Tweets by @<s:property value="twitter"/></a>			
+				</s:if>
+				<s:else>
+					<a class="twitter-timeline" href="https://twitter.com/tatamemagazine" height="400" width="580">Tweets by @tatamemagazine</a>			
+				</s:else>
 			</div>	
 			
 			<div id="tatame_live_stats" class="ads"></div>		
@@ -37,6 +42,50 @@
 		<div class="live-stats">
 			<s:property value="code" escapeHtml="false"/>
 		</div>
+		
+		<s:if test="articles != null">
+			<div class="box-1024 padding-15">
+				<div class="title-news">
+					<p class="text">News</p>
+					<p class="line"></p>
+				</div>
+				<div class="box-714">
+					<div class="articles">					
+					    <s:iterator value="articles">	    	
+					    	<s:if test="photo && photo.id > 0">
+						    	<div class="article box-shadow">
+						    		<a href="/${permanentLink.uri}">
+										<img alt="<s:property value="header"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>_270x190.jpg"/>
+						    		</a>
+						    		<div class="info">
+							    		<p class="title">
+							    			<a href="/${permanentLink.uri}"><s:property value="title"/></a>
+							    		</p>
+							    		<p class="author">
+							    			<a href="/${permanentLink.uri}">
+							    				<span><s:property value="createdBy.name"/> <s:date name="publishedAt" format="dd/MM/yyyy"/></span>
+							    			</a>
+							    		</p>
+							    		<p class="note">
+							    			<a href="/${permanentLink.uri}"><s:property value="note"/></a>
+							    		</p>
+						    		</div>
+						    		
+						    	</div>
+					    	</s:if>	    	
+					    </s:iterator>	
+					</div>
+				</div>
+				<div class="box-300 margin-left-10">
+			    	<div id="tatame_300x600_ros" class="ads-300-600 box-shadow margin-bottom-10"></div>	
+				</div>	
+			</div>
+			
+			<div class="category-link">
+				<a href="/${categoryLink.uri}" >Leia mais notícias</a>
+			</div>
+		</s:if>
+		
 		<s:if test="forumEnabled">
 			<div class="fb-comments live-stats-fb-comments" data-href="http://www.tatame.com.br/${permanentLink.uri}" data-num-posts="4" data-width="100%"></div>
 		</s:if>

@@ -23,6 +23,24 @@ div.content div.live-stats { float: left; height: auto; width: 1024px; }
 div.content div.live-stats > iframe { float: left; max-height: 1200px; width: 1024px; }
 div.content div.live-stats-fb-comments { float: left; min-height: 200px; height: auto; width: 1024px; }
 
+div.content div.title-news { float: left; height: auto; width: 1024px; position: relative; }
+div.content div.title-news p.text { float: left; height: auto; width: 73px; font-size: 22px; text-transform: uppercase; font-weight: bold; color: #000; line-height: 70px; }
+div.content div.title-news p.line { float: left; width: 950px; position: absolute; left: 73px; top: 35px; height: 3px; background-color: #ff0105; }
+
+div.content div.articles { float:left; width: 714px; position: relative; }
+div.content div.articles div.article { float:left; width: 714px; position: relative; margin-bottom: 14.5px; background-color: #f6f6f6; }
+div.content div.articles div.article img { float:left; position:relative; width: 270px; }
+div.content div.articles div.article div.info { float: left; position: relative; width: 434px; height: 180px; padding: 10px 0 0 10px; margin: 0; }
+div.content div.articles div.article div.info p { color: #fff; overflow:hidden; width: 428px; }
+div.content div.articles div.article div.info p a { color: #000; text-decoration: none; }
+div.content div.articles div.article div.info p.title { text-overflow: ellipsis; font-size: 23px; line-height: 26px; font-weight: bold; font-family: fgDemi,sans-serif; text-transform: uppercase; height: 76px;}
+div.content div.articles div.article div.info p.author { float: left; font-size: 14px; padding: 5px 0; font-weight: bold; height: 30px; }
+div.content div.articles div.article div.info p.author span {  border-bottom: 3px solid #a2393c; }
+div.content div.articles div.article div.info p.note { height: 54px; font-size: 15px; }
+
+div.content div.category-link { width: 100%;  margin:  15px 0 50px; float: left; position: relative; }
+div.content div.category-link a { color:#000; font-size: 1em; font-weight: bold; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid #000; }
+
 div.content div.info .ads { display: table; margin: 0 auto; padding: 20px 0 0; max-width: 580px; }
 div.content div.info .ads > div { box-shadow: 3px 3px 3px #777; }
 
@@ -51,4 +69,23 @@ div.content div.info .ads > div { box-shadow: 3px 3px 3px #777; }
 	div.content div.live-stats { float: left; height: auto; width: 100%; }
 	div.content div.live-stats > iframe { float: left; max-height: 1200px; width: 100%; }
 	div.content div.live-stats-fb-comments { float: left; min-height: 200px; height: auto; width: 100%; }
+	
+	div.content div.title-news { float: left; height: auto; width: 100%; position: relative; margin-bottom: 2%; }
+	div.content div.title-news p.text { float: left; height: auto; width: auto; font-size: 1.3em; line-height: normal; margin: 0 0 1% 0; }
+	div.content div.title-news p.line { float: left; width: 100%; position: relative; left: 00px; top: 0px; height: 3px; }	
+	
+	div.content div.articles,
+	div.content div.articles div.article,
+	div.content div.articles div.article > a,
+	div.content div.articles div.article > a > img,
+	div.content div.articles div.article div.info,
+	div.content div.articles div.article div.info p.title,
+	div.content div.articles div.article div.info p.author,
+	div.content div.articles div.article div.info p.note { width: 100%; height: auto; }
+	div.content div.articles div.article { margin: 0 0 2.5% 0; }
+	div.content div.articles div.article div.info { padding: 0; }
+	div.content div.articles div.article div.info p.title,
+	div.content div.articles div.article div.info p.author,
+	div.content div.articles div.article div.info p.note { width: 96%; height: auto; padding: 2%; font-size: 1em; line-height: 1.25em; max-height: none; }
+	div.content div.articles div.article div.info p.author span { border: none; }	
 }

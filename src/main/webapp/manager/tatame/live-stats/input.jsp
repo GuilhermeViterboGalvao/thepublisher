@@ -52,6 +52,15 @@
 		<s:else>
 			<p:autocomplete name="pollId" url="/manager/ac-poll" />
 		</s:else>
+		
+		<label class="categoryName">Categoria dos destaques:</label>
+		<s:hidden name="categoryName"/>			
+		<s:if test="categoryName.equals('')">
+			<p:autocomplete name="categoryId" display="-vazio-" url="/manager/ac-category" initial="[{label:'Tatame',value: 1}]" />			
+		</s:if>
+		<s:else>
+			<p:autocomplete name="categoryId" display="%{categoryName}" url="/manager/ac-category" initial="[{label:'Tatame',value: 1}]"/>			
+		</s:else>
 
 		<label for="publishedAt">Data de publicação:</label>
 		<s:textfield name="publishedAt" value="%{getText('date.format',{publishedAt})}" cssClass="publishedAt"/>

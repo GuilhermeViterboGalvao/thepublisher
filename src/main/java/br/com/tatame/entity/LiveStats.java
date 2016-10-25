@@ -25,6 +25,7 @@ import org.hibernate.search.annotations.SortableField;
 import org.hibernate.search.annotations.Store;
 
 import com.publisher.entity.Account;
+import com.publisher.entity.Category;
 import com.publisher.entity.PermanentLink;
 import com.publisher.entity.Poll;
 import com.publisher.entity.Skin;
@@ -63,6 +64,9 @@ public class LiveStats implements Serializable {
     
     @ManyToOne(fetch = FetchType.LAZY)
     private Poll poll;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Category category;
 
     @SortableField
     @DateBridge(resolution = Resolution.DAY)
@@ -162,6 +166,14 @@ public class LiveStats implements Serializable {
 
 	public void setPoll(Poll poll) {
 		this.poll = poll;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Date getPublishedAt() {
