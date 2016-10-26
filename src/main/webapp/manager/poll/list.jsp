@@ -171,13 +171,13 @@
 		<s:iterator value="list" status="i">
 			{
 				id: <s:property value="id"/>,
-				date: '<s:property value="date.toString()"/>',
-				question: '<s:property value="escapeToJson(question)" escape="false"/>',
+				date: '<s:property value="publishedAt.toString()"/>',
+				question: '<s:property value="question" escape="false"/>',
 				alternatives: [
 					<s:iterator value="alternatives" status="j">
 						{
 							id: <s:property value="id"/>,
-							text: '<s:property value="escapeToJson(text)" escape="false"/>',
+							text: '<s:property value="text" escape="false"/>',
 							votes: <s:if test="votes != null"><s:property value="votes"/></s:if><s:else>0</s:else> 
 						}<s:if test="#j.index < (alternatives.size() - 1)">,</s:if>
 					</s:iterator>
