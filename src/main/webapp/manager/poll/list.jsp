@@ -149,8 +149,8 @@
 		var options = {
 			title : poll.question,
 			backgroundColor : "white",
-			height: 400,
-			width: 1200
+			height: 348,
+			width: 684
 		};
 		
 		var chart = new google.visualization.PieChart($('#statistics').empty()[0]);
@@ -158,12 +158,12 @@
 		chart.draw(dataTable, options);
 		
 		$('#statistics').dialog({
-			height: 370,
-			maxHeight: 370,
-			minHeight: 370,
-			width: 720,
-			maxWidth: 720,
-			minWidth: 720
+			height: 400,
+			maxHeight: 400,
+			minHeight: 400,
+			width: 700,
+			maxWidth: 700,
+			minWidth: 700
 		});		
 	};
 
