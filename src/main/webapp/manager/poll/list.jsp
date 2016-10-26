@@ -40,7 +40,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<s:iterator value="list">
+		<s:iterator value="list" status="i">
 			<tr>
 				<td>
 					<s:property value="id"/>
