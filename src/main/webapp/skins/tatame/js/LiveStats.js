@@ -6,17 +6,27 @@ var LiveStats = {
 	},
 	
 	renderProgressBar: function() {
+		var highestVote = 0;
+		var maxWidth = $($(".progress-bar")[0]).width();
+		console.log(maxWidth);
 		$(".progress-bar").each(function() {
 			var progressBar = $(this);
-			var votes = progressBar.data("votes");
-			var width = progressBar.width();
-			if (votes <= 2) {
+			var vote = Number(progressBar.data("votes"));
+			if (vote > highestVote) {
+				highestVote = vote;
+			}
+		});
+		$(".progress-bar").each(function() {
+			var progressBar = $(this);
+			var votes = Number(progressBar.data("votes"));
+			var width = Number((maxWidth * votes) / highestVote).toFixed(0);
+			if (width < 5) {
 				progressBar.animate({
-					width: 2
+					width: 5
 				}, 1000);
-			} else if (votes < width ) {
+			} else {
 				progressBar.animate({
-					width: votes
+					width: width
 				}, 500);
 			}
 		});
