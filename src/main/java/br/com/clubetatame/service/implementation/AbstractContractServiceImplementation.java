@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Query;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.lucene.search.Sort;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
@@ -149,14 +150,21 @@ public abstract class AbstractContractServiceImplementation<E> extends Transacti
 		this.searchFields = searchFields;
 	}
 	
+	public ResultList<E> search(String query, int page, int pageSize) {
+		return search(query, page, pageSize, null);
+	}
+	
 	@Override
 	@SuppressWarnings("unchecked")
-	public ResultList<E> search(String query, int page, int pageSize) {
+	public ResultList<E> search(String query, int page, int pageSize, Sort sort) {
         long t = System.currentTimeMillis();
     	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(genericClass).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, searchFields).createQuery();
         FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, genericClass);
+        
+        if(sort != null) fullTextQuery.setSort(sort);
+        
         if (pageSize > 0) {
         	fullTextQuery.setMaxResults(pageSize);
         }

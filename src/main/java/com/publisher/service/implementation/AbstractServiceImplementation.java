@@ -11,6 +11,7 @@ import javax.persistence.Query;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.lucene.search.Sort;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
@@ -90,10 +91,14 @@ public abstract class AbstractServiceImplementation<T> extends TransactionalServ
 	public Collection<T> search(String query) {
 		return search(query, 0, 0).getResult();
 	}
+	
+	public ResultList<T> search(String query, int page, int pageSize){
+		return search(query, page, pageSize, null);
+	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public ResultList<T> search(String query, int page, int pageSize) {
+	public ResultList<T> search(String query, int page, int pageSize, Sort sort) {
 		long t = System.currentTimeMillis();
 		ResultList<T> result = null;
 		if (getEntityClass().isAnnotationPresent(org.hibernate.search.annotations.Indexed.class)) {
@@ -108,7 +113,10 @@ public abstract class AbstractServiceImplementation<T> extends TransactionalServ
 				FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 				org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(getEntityClass()).get();
 				org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, fields.toArray(new String[fields.size()])).createQuery();
-				FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, getEntityClass());        
+				FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, getEntityClass());
+				
+				if(sort != null) fullTextQuery.setSort(sort);
+				
 				fullTextQuery.setHint("org.hibernate.cacheable", true);
 				result = new ResultList<T>();
 				result.setResult(fullTextQuery.getResultList());

@@ -3,6 +3,9 @@ package com.publisher.utils.autocomplete;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
+
 import com.publisher.entity.Article;
 import com.publisher.service.ArticleService;
 import com.publisher.utils.ResultList;
@@ -22,7 +25,7 @@ public class ArticleAutoCompleteAction extends AutoCompleteAction {
 			result = new ResultList<Article>();
 			result.setResult(articleService.list(getPage(), getPagesize()));
 		} else {
-			result = articleService.search(getTerm(), getPage(), getPagesize());
+			result = articleService.search(getTerm(), getPage(), getPagesize(), new Sort(new SortField("publishedAt", SortField.Type.LONG, true)));
 		}
 		Collection<LabelValue> collection = new ArrayList<LabelValue>();
 		String label = "";
