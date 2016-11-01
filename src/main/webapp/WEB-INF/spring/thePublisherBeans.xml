@@ -24,5 +24,6 @@
 	<beans:bean id="permanentLinkService" class="com.publisher.service.implementation.PermanentLinkServiceImplementation"/>
 	<beans:bean id="photoService" class="com.publisher.service.implementation.PhotoServiceImplementation"/>
 	<beans:bean id="skinService" class="com.publisher.service.implementation.SkinServiceImplementation"/>
-	<beans:bean id="pollService" class="com.publisher.service.implementation.PollServiceImplementation"/>		
+	<beans:bean id="pollService" class="com.publisher.service.implementation.PollServiceImplementation"/>	
+	<beans:bean id="authTokenService" class="com.publisher.service.implementation.AuthTokenServiceImplementation"/>	
 </beans:beans>

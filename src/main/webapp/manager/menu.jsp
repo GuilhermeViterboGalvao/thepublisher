@@ -59,6 +59,7 @@
 	<ul>
 		<s:if test="isAdmin()">
 			<li><a href="/manager/indexAllFacade-execute">Indexar entidades do sistema</a></li>
+			<li><a href="/manager/authToken-list">Tokens</a></li>
 		</s:if>
 		<li><a href="/manager/logout">Sair</a></li>
 	</ul>	

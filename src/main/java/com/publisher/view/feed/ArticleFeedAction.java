@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Article;
 import com.publisher.entity.Category;
 import com.publisher.service.ArticleService;
+import com.publisher.service.AuthTokenService;
 import com.publisher.service.CategoryService;
 
 public class ArticleFeedAction extends ActionSupport {
@@ -27,39 +28,53 @@ public class ArticleFeedAction extends ActionSupport {
 		this.categoryService = categoryService;
 	}
 	
+	private AuthTokenService authTokenService;
+	
+	public void setAuthTokenService(AuthTokenService authTokenService) {
+		this.authTokenService = authTokenService;
+	}
+	
 	@Override
 	public String execute() throws Exception {
+		
+		
+		
 		Category category = null;
 		Article article = null;
 		if (articleId > 0) {
 			article = articleService.get(articleId);
-		}		
-		if(categoryId > 0) {
-			category = categoryService.get(categoryId);
-		}
-		Collection<Article> articles = null;
-		if (article != null && article.getPublishedAt() != null && category != null && query != null && !query.isEmpty()) {
-			articles = articleService.search(query, currentPage, pageSize, true, article.getPublishedAt(), category.getName()).getResult();
-		} else if (category != null && query != null && !query.isEmpty()) {
-			articles = articleService.search(query, currentPage, pageSize, true, new Date(), category.getName()).getResult();
-		} else if (query != null && !query.isEmpty()) {
-			articles = articleService.search(query, currentPage, pageSize, true, new Date(), null).getResult();
-		} else if (article != null && article.getPublishedAt() != null && category != null) {
-			articles = articleService.get(category, currentPage, pageSize, null, article.getPublishedAt(), true);
-		} else if (category != null) {
-			articles = articleService.get(category, currentPage, pageSize, null, new Date(), true);
-		} else {
-			articles = articleService.get(null, currentPage, pageSize, null, new Date(), true);
-		}
-		result = new ArrayList<Result>(articles.size());
-		for (Article a : articles) {
-			if (article != null && !article.getId().equals(a.getId())) {
-				result.add(new Result(a));	
-			} else if (article == null)  {
-				result.add(new Result(a));
+			
+			result = new ArrayList<Result>(1);
+			result.add(new Result(article));
+		} else {	
+			if(categoryId > 0) {
+				category = categoryService.get(categoryId);
 			}
-		}		
+			
+			Collection<Article> articles = null;
+			if (query != null && !query.isEmpty()) {
+				articles = articleService.search(query, currentPage, pageSize, true, null, category != null ? category.getName() : null).getResult();
+			}else  {
+				articles = articleService.get(category != null ? category : null, currentPage, pageSize, null, null, true);
+			}
+
+			result = new ArrayList<Result>(articles.size());
+			for (Article a : articles) {
+				result.add(new Result(a));	
+			}
+		}
+		
 		return SUCCESS;
+	}
+	
+	private boolean authentication(){
+		boolean result = false;
+		
+		if(token != null && !token.isEmpty()){
+			//AuthToken authToken = 
+		}
+		
+		return result;
 	}
 	
 	//Action properties
@@ -88,13 +103,13 @@ public class ArticleFeedAction extends ActionSupport {
 		this.currentPage = currentPage;
 	}
 	
-	private int pageSize = 30;
+	private String token;
 	
-	public void setPageSize(int pageSize) {
-		if (pageSize <= 30) {
-			this.pageSize = pageSize;	
-		}
+	public void setToken(String token) {
+		this.token = token;
 	}
+	
+	private int pageSize = 30;
 	
 	private List<Result> result;
 	
