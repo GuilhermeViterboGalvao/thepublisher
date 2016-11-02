@@ -85,7 +85,7 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 	private boolean authentication(){
 		boolean result = false;
 		
-		System.out.println("IP-" + request.getRemoteAddr().toString());
+		System.out.println("IP-" + getClientIpAddr());
 		try {
 			System.out.println("DNS-" + new URL(request.getRequestURL().toString()).getHost());
 		} catch (MalformedURLException e1) { }
@@ -127,6 +127,26 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 		}
 		return result;
 	}
+	
+	public String getClientIpAddr() {  
+        String ip = request.getHeader("X-Forwarded-For");  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = request.getHeader("Proxy-Client-IP");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = request.getHeader("WL-Proxy-Client-IP");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = request.getHeader("HTTP_CLIENT_IP");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");  
+        }  
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
+            ip = request.getRemoteAddr();  
+        }  
+        return ip;  
+    } 
 	
 	//Action properties
 	
