@@ -86,9 +86,9 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 		boolean result = false;
 		
 		System.out.println("IP-" + getClientIpAddr());
-		try {
-			System.out.println("DNS-" + new URL(request.getRequestURL().toString()).getHost());
-		} catch (MalformedURLException e1) { }
+
+		System.out.println("DNS-" + request.getServerName());
+
 		
 		if(token != null && !token.isEmpty()){
 			AuthToken authToken = authTokenService.get(token, true);
