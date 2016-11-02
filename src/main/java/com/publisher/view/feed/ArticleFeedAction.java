@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -91,7 +92,7 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 		
 		System.out.println("IP-" + getClientIpAddr());
 
-		System.out.println("DNS-" + getClientHostName());
+		getClientHostName();
 
 		
 		if(token != null && !token.isEmpty()){
@@ -152,24 +153,23 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
         return ip;  
     } 
 	
-	public String getClientHostName(){
-		String hostName = null;
-		Enumeration<NetworkInterface> interfaces = null;
+	public void getClientHostName(){
+		System.out.println("DNS1-" + request.getHeader("VIA"));
+		System.out.println("DNS2-" + request.getServerName());
+		System.out.println("DNS3-" + request.getRemoteHost());
 		try {
-			interfaces = NetworkInterface.getNetworkInterfaces();
-		} catch (SocketException e) { }
+			System.out.println("DNS4-" + InetAddress.getByName(request.getRemoteAddr()));
+		} catch (UnknownHostException e) {}
 		
-		while (interfaces != null && interfaces.hasMoreElements()) {
-			NetworkInterface nic = interfaces.nextElement();
-			Enumeration<InetAddress> addresses = nic.getInetAddresses();
-			while (hostName == null && addresses.hasMoreElements()) {
-				InetAddress address = addresses.nextElement();
-				if (!address.isLoopbackAddress()) {
-					hostName = address.getHostName();
-				}
-			}
-		}
-		return hostName;
+		try {
+			System.out.println("DNS5-" + new URL(request.getRequestURL().toString()).getHost());
+		} catch (MalformedURLException e) { }
+		
+		try {
+			System.out.println("DNS6-" + InetAddress.getLocalHost());
+		} catch (UnknownHostException e) { }
+		
+		
 	}
 	
 	//Action properties
