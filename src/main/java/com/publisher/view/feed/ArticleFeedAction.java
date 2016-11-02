@@ -1,5 +1,6 @@
 package com.publisher.view.feed;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.NetworkInterface;
@@ -154,12 +155,12 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
     } 
 	
 	public void getClientHostName(){
-		System.out.println("DNS1-" + request.getHeader("VIA"));
-		System.out.println("DNS2-" + request.getServerName());
-		System.out.println("DNS3-" + request.getRemoteHost());
-		try {
-			System.out.println("DNS4-" + InetAddress.getByName(request.getRemoteAddr()));
-		} catch (UnknownHostException e) {}
+		//System.out.println("DNS1-" + request.getHeader("VIA")); REPROVADO
+		//System.out.println("DNS2-" + request.getServerName());
+		//System.out.println("DNS3-" + request.getRemoteHost()); REPROVADO
+
+		//System.out.println("DNS4-" + InetAddress.getByName(request.getRemoteAddr())); REPROVADO
+
 		
 		try {
 			System.out.println("DNS5-" + new URL(request.getRequestURL().toString()).getHost());
@@ -169,6 +170,15 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 			System.out.println("DNS6-" + InetAddress.getLocalHost());
 		} catch (UnknownHostException e) { }
 		
+		System.out.println("DNS7-" + request.getHeader("x-forwarded-proto"));
+		
+		System.out.println("DNS8-" + request.getScheme());
+		
+		System.out.println("DNS9-" + request.getRequestURL());
+		
+		try {
+			System.out.println("DNS10-" + Inet4Address.getByName(getClientIpAddr()).getHostName());
+		} catch (UnknownHostException e) { }
 		
 	}
 	
