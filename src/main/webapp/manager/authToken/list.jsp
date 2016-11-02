@@ -26,7 +26,6 @@
 				<a href="account-list?orderBy=name&orderly=<s:property value="!orderly"/>">Descrição</a>
 			</th>
 			<th></th>
-			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -41,9 +40,6 @@
 					</td>
 					<td>
 						<a href="authToken-edit?id=<s:property value="id"/>">Editar</a>
-					</td>
-					<td>
-						<a href="authToken-delete?id=<s:property value="id"/>">Excluir</a>
 					</td>
 				</tr>
 			</s:iterator>
