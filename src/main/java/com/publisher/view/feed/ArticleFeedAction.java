@@ -1,18 +1,27 @@
 package com.publisher.view.feed;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.interceptor.ServletRequestAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Article;
+import com.publisher.entity.AuthToken;
 import com.publisher.entity.Category;
 import com.publisher.service.ArticleService;
 import com.publisher.service.AuthTokenService;
 import com.publisher.service.CategoryService;
 
-public class ArticleFeedAction extends ActionSupport {
+public class ArticleFeedAction extends ActionSupport implements ServletRequestAware{
 
 	private static final long serialVersionUID = -8359317767745664083L;
 	
@@ -34,10 +43,16 @@ public class ArticleFeedAction extends ActionSupport {
 		this.authTokenService = authTokenService;
 	}
 	
+	private HttpServletRequest request;
+	
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+	
 	@Override
 	public String execute() throws Exception {
 		
-		
+		if(!authentication()) return SUCCESS;
 		
 		Category category = null;
 		Article article = null;
@@ -71,9 +86,40 @@ public class ArticleFeedAction extends ActionSupport {
 		boolean result = false;
 		
 		if(token != null && !token.isEmpty()){
-			//AuthToken authToken = 
+			AuthToken authToken = authTokenService.get(token, true);
+			
+			if(authToken != null){
+				result = true;
+				String ips = authToken.getIPs();
+				
+				if(ips != null && !ips.isEmpty()){
+					String remoteIp = request.getRemoteAddr().toString();
+					if(ips.contains(",")){
+						String[] ip = ips.replace(" ", "").split(",");
+						result = (StringUtils.indexOfAny(remoteIp, ip) > -1);
+					}else{
+						result = ips.trim().equals(remoteIp);
+					}
+				}
+				String dnss = authToken.getDNSs();
+				
+				if(dnss != null && !dnss.isEmpty()){
+					String remoteDNS = null;
+					try {
+						remoteDNS = new URL(request.getRequestURL().toString()).getHost();
+					} catch (MalformedURLException e) { }
+					
+					if(remoteDNS != null && !remoteDNS.isEmpty()){
+						if(dnss.contains(",")){
+							String[] dns = dnss.replace(" ", "").split(",");
+							result = (StringUtils.indexOfAny(remoteDNS, dns) > -1);
+						}else{
+							result = dnss.trim().equals(remoteDNS);
+						}
+					}
+				}
+			}	
 		}
-		
 		return result;
 	}
 	

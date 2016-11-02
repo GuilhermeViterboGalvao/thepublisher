@@ -41,7 +41,7 @@ public class AuthTokenAction extends AbstractAction<AuthToken> {
 			entity.setDescription(description);
 			entity.setActive(active);
 			
-			if(this.token == null || this.token.isEmpty()){
+			if(entity.getToken() == null || entity.getToken().isEmpty()){
 				entity.setToken(authTokenService.generateToken());
 			}
 		}

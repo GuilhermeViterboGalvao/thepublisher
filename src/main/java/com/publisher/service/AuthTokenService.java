@@ -9,4 +9,6 @@ import net.bull.javamelody.MonitoredWithSpring;
 public interface AuthTokenService extends Service<AuthToken> {
 
 	String generateToken();
+	
+	AuthToken get(String token, Boolean active);
 }

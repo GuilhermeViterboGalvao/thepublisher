@@ -5,6 +5,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.Date;
 
+import javax.persistence.Query;
+
 import com.publisher.entity.AuthToken;
 import com.publisher.service.AuthTokenService;
 
@@ -23,5 +25,31 @@ public class AuthTokenServiceImplementation extends AbstractServiceImplementatio
             e.printStackTrace();
         }
         return hash;
+	}
+	
+	@Override
+	public AuthToken get(String token, Boolean active){
+		if(token == null || token.isEmpty()) return null;
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("select a from AuthToken a where token=:token");
+		
+		if(active != null){
+			sb.append(" and a.active=:active");
+		}
+		
+		Query query = entityManager.createQuery(sb.toString());
+		query.setParameter("token", token);
+		
+		if(active != null){
+			query.setParameter("active", active);
+		}
+		
+		query.setHint("org.hibernate.cacheable", true);
+		try{ 
+			return (AuthToken) query.getResultList().get(0); 
+		} catch(Exception e){ 
+			return null; 
+		}
 	}
 }
