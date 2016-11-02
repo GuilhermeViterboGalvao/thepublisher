@@ -91,7 +91,7 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 		
 		System.out.println("IP-" + getClientIpAddr());
 
-		System.out.println("DNS-" + request.getServerName());
+		System.out.println("DNS-" + getClientHostName());
 
 		
 		if(token != null && !token.isEmpty()){
