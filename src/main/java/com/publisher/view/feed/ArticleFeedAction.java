@@ -1,5 +1,7 @@
 package com.publisher.view.feed;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -84,7 +86,9 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 		boolean result = false;
 		
 		System.out.println("IP-" + request.getRemoteAddr().toString());
-		System.out.println("DNS-" + request.getRemoteHost());
+		try {
+			System.out.println("DNS-" + new URL(request.getRequestURL().toString()).getHost());
+		} catch (MalformedURLException e1) { }
 		
 		if(token != null && !token.isEmpty()){
 			AuthToken authToken = authTokenService.get(token, true);
@@ -105,12 +109,18 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 				String dnss = authToken.getDNSs();
 				
 				if(dnss != null && !dnss.isEmpty()){
-					String remoteDNS = request.getRemoteHost();
-					if(dnss.contains(",")){
-						String[] dns = dnss.replace(" ", "").split(",");
-						result = (StringUtils.indexOfAny(remoteDNS, dns) > -1);
-					}else{
-						result = dnss.trim().equals(remoteDNS);
+					String remoteDNS = null;
+					try {
+						remoteDNS = new URL(request.getRequestURL().toString()).getHost();
+					} catch (MalformedURLException e) { }
+					
+					if(remoteDNS != null && !remoteDNS.isEmpty()){
+						if(dnss.contains(",")){
+							String[] dns = dnss.replace(" ", "").split(",");
+							result = (StringUtils.indexOfAny(remoteDNS, dns) > -1);
+						}else{
+							result = dnss.trim().equals(remoteDNS);
+						}
 					}
 				}
 			}	
