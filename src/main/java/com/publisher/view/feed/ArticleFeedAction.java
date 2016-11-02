@@ -1,11 +1,15 @@
 package com.publisher.view.feed;
 
+import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -147,6 +151,26 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
         }  
         return ip;  
     } 
+	
+	public String getClientHostName(){
+		String hostName = null;
+		Enumeration<NetworkInterface> interfaces = null;
+		try {
+			interfaces = NetworkInterface.getNetworkInterfaces();
+		} catch (SocketException e) { }
+		
+		while (interfaces != null && interfaces.hasMoreElements()) {
+			NetworkInterface nic = interfaces.nextElement();
+			Enumeration<InetAddress> addresses = nic.getInetAddresses();
+			while (hostName == null && addresses.hasMoreElements()) {
+				InetAddress address = addresses.nextElement();
+				if (!address.isLoopbackAddress()) {
+					hostName = address.getHostName();
+				}
+			}
+		}
+		return hostName;
+	}
 	
 	//Action properties
 	
