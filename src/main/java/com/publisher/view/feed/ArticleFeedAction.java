@@ -83,6 +83,9 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 	private boolean authentication(){
 		boolean result = false;
 		
+		System.out.println("IP-" + request.getRemoteAddr().toString());
+		System.out.println("DNS-" + request.getRemoteHost());
+		
 		if(token != null && !token.isEmpty()){
 			AuthToken authToken = authTokenService.get(token, true);
 			
