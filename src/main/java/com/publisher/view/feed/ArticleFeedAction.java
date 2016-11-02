@@ -1,17 +1,10 @@
 package com.publisher.view.feed;
 
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.MalformedURLException;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.URL;
-import java.net.UnknownHostException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -90,12 +83,7 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 	
 	private boolean authentication(){
 		boolean result = false;
-		
-		System.out.println("IP-" + getClientIpAddr());
 
-		getClientHostName();
-
-		
 		if(token != null && !token.isEmpty()){
 			AuthToken authToken = authTokenService.get(token, true);
 			
@@ -104,7 +92,7 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 				String ips = authToken.getIPs();
 				
 				if(ips != null && !ips.isEmpty()){
-					String remoteIp = request.getRemoteAddr().toString();
+					String remoteIp = getClientIpAddr();
 					if(ips.contains(",")){
 						String[] ip = ips.replace(" ", "").split(",");
 						result = (StringUtils.indexOfAny(remoteIp, ip) > -1);
@@ -112,23 +100,23 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 						result = ips.trim().equals(remoteIp);
 					}
 				}
-				String dnss = authToken.getDNSs();
-				
-				if(dnss != null && !dnss.isEmpty()){
-					String remoteDNS = null;
-					try {
-						remoteDNS = new URL(request.getRequestURL().toString()).getHost();
-					} catch (MalformedURLException e) { }
-					
-					if(remoteDNS != null && !remoteDNS.isEmpty()){
-						if(dnss.contains(",")){
-							String[] dns = dnss.replace(" ", "").split(",");
-							result = (StringUtils.indexOfAny(remoteDNS, dns) > -1);
-						}else{
-							result = dnss.trim().equals(remoteDNS);
-						}
-					}
-				}
+//				String dnss = authToken.getDNSs();
+//				
+//				if(dnss != null && !dnss.isEmpty()){
+//					String remoteDNS = null;
+//					try {
+//						remoteDNS = new URL(request.getRequestURL().toString()).getHost();
+//					} catch (MalformedURLException e) { }
+//					
+//					if(remoteDNS != null && !remoteDNS.isEmpty()){
+//						if(dnss.contains(",")){
+//							String[] dns = dnss.replace(" ", "").split(",");
+//							result = (StringUtils.indexOfAny(remoteDNS, dns) > -1);
+//						}else{
+//							result = dnss.trim().equals(remoteDNS);
+//						}
+//					}
+//				}
 			}	
 		}
 		return result;
@@ -155,30 +143,30 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
     } 
 	
 	public void getClientHostName(){
-		//System.out.println("DNS1-" + request.getHeader("VIA")); REPROVADO
+		//System.out.println("DNS1-" + request.getHeader("VIA")); 
 		//System.out.println("DNS2-" + request.getServerName());
-		//System.out.println("DNS3-" + request.getRemoteHost()); REPROVADO
+		//System.out.println("DNS3-" + request.getRemoteHost()); 
 
-		//System.out.println("DNS4-" + InetAddress.getByName(request.getRemoteAddr())); REPROVADO
+		//System.out.println("DNS4-" + InetAddress.getByName(request.getRemoteAddr())); 
 
-		
-		try {
-			System.out.println("DNS5-" + new URL(request.getRequestURL().toString()).getHost());
-		} catch (MalformedURLException e) { }
-		
-		try {
-			System.out.println("DNS6-" + InetAddress.getLocalHost());
-		} catch (UnknownHostException e) { }
-		
-		System.out.println("DNS7-" + request.getHeader("x-forwarded-proto"));
-		
-		System.out.println("DNS8-" + request.getScheme());
-		
-		System.out.println("DNS9-" + request.getRequestURL());
-		
-		try {
-			System.out.println("DNS10-" + Inet4Address.getByName(getClientIpAddr()).getHostName());
-		} catch (UnknownHostException e) { }
+//		
+//		try {
+//			System.out.println("DNS5-" + new URL(request.getRequestURL().toString()).getHost());
+//		} catch (MalformedURLException e) { }
+//		
+//		try {
+//			System.out.println("DNS6-" + InetAddress.getLocalHost());
+//		} catch (UnknownHostException e) { }
+//		
+//		System.out.println("DNS7-" + request.getHeader("x-forwarded-proto"));
+//		
+//		System.out.println("DNS8-" + request.getScheme());
+//		
+//		System.out.println("DNS9-" + request.getRequestURL());
+//		
+//		try {
+//			System.out.println("DNS10-" + Inet4Address.getByName(getClientIpAddr()));
+//		} catch (UnknownHostException e) { }
 		
 	}
 	
@@ -208,13 +196,19 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 		this.currentPage = currentPage;
 	}
 	
+	private int pageSize = 30;
+	
+	public void setPageSize(int pageSize){
+		if(pageSize > 0 && pageSize <= 30){
+			this.pageSize = pageSize;
+		}
+	}
+	
 	private String token;
 	
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
-	private int pageSize = 30;
 	
 	private List<Result> result;
 	
