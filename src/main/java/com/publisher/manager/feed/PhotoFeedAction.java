@@ -1,6 +1,10 @@
 package com.publisher.manager.feed;
 
 import java.util.Collection;
+
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Account;
 import com.publisher.entity.Photo;
@@ -41,7 +45,7 @@ public class PhotoFeedAction extends ActionSupport implements AccountAware {
 	@Override
 	public String execute() throws Exception {
 		if (query != null && !query.isEmpty()) {
-            ResultList<Photo> list = photoService.search(query, currentPage, pageSize);
+            ResultList<Photo> list = photoService.search(query, currentPage, pageSize, new Sort(new SortField("date", SortField.Type.LONG, true)));
             pages = (int) Math.floor(1f * list.getResultSize() / pageSize) + 1;
             photos = list.getResult();			
 		} else {

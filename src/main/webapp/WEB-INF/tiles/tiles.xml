@@ -81,5 +81,11 @@
     </definition>
     <definition name="poll-input" extends="manager-layout">
         <put-attribute name="content" value="/manager/poll/input.jsp"/>
-    </definition>    
+    </definition>  
+    <definition name="authToken-list" extends="manager-layout">
+        <put-attribute name="content" value="/manager/authToken/list.jsp"/>
+    </definition>
+    <definition name="authToken-input" extends="manager-layout">
+        <put-attribute name="content" value="/manager/authToken/input.jsp"/>
+    </definition>     
 </tiles-definitions>

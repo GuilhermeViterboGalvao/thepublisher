@@ -4,6 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Account;
 import com.publisher.entity.Article;
@@ -40,7 +44,7 @@ public class ArticleFeedAction extends ActionSupport implements AccountAware {
     		}
     	}
         if (query != null && !query.isEmpty()) {
-            ResultList<Article> list = category != null ? articleService.search(query, currentPage, pageSize, null, null, category.getTags()) : articleService.search(query, currentPage, pageSize);
+            ResultList<Article> list = category != null ? articleService.search(query, currentPage, pageSize, null, null, category.getTags()) : articleService.search(query, currentPage, pageSize, new Sort(new SortField("publishedAt", SortField.Type.LONG, true)));
             pages = (int) Math.floor(1f * list.getResultSize() / pageSize) + 1;
             collecion = list.getResult();
         } else {

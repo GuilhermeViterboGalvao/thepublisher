@@ -4,6 +4,9 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import com.publisher.entity.Account;
 import com.publisher.entity.Article;
@@ -248,11 +251,11 @@ public class ArticleAction extends AbstractAction<Article> implements ServletReq
 				result = articleService.search(getSearch(), getCurrentPage(), getPageSize(), null, null, category.getName());
 				setPages((int)Math.floor(1f * result.getResultSize() / getPageSize()) + 1);				
 			} else {
-				result = articleService.search(getSearch(), getCurrentPage(), getPageSize());
+				result = articleService.search(getSearch(), getCurrentPage(), getPageSize(), new Sort(new SortField("publishedAt", SortField.Type.LONG, true)));
 				setPages((int)Math.floor(1f * result.getResultSize() / getPageSize()) + 1);				
 			}
 		} else {
-			result = articleService.search(getSearch(), getCurrentPage(), getPageSize());
+			result = articleService.search(getSearch(), getCurrentPage(), getPageSize(), new Sort(new SortField("publishedAt", SortField.Type.LONG, true)));
 			setPages((int)Math.floor(1f * result.getResultSize() / getPageSize()) + 1);
 		}
 		return result != null ? result.getResult() : null;

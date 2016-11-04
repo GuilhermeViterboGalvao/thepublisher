@@ -233,6 +233,11 @@
 				<param name="root">result</param>
 				<param name="enableGZIP">true</param>
 			</result>
-		</action>							     		
+		</action>
+		<action name="authToken-*" class="com.publisher.manager.AuthTokenAction" method="{1}">
+			<result type="tiles">authToken-list</result>
+			<result name="input" type="tiles">authToken-input</result>
+			<result name="redirect" type="redirectAction">authToken-list</result>
+		</action>					     		
 	</package>
 </struts>

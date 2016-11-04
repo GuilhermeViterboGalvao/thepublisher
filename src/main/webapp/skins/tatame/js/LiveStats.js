@@ -19,15 +19,21 @@ var LiveStats = {
 		$(".progress-bar").each(function() {
 			var progressBar = $(this);
 			var votes = Number(progressBar.data("votes"));
-			var width = Number((maxWidth * votes) / highestVote).toFixed(0);
-			if (width < 5) {
-				progressBar.animate({
-					width: 5
-				}, 1000);
+			if (votes > 0) {
+				var width = Number((maxWidth * votes) / highestVote).toFixed(0);
+				if (width < 5) {
+					progressBar.animate({
+						width: 5
+					}, 1000);
+				} else {
+					progressBar.animate({
+						width: width
+					}, 500);
+				}	
 			} else {
 				progressBar.animate({
-					width: width
-				}, 500);
+					width: 5
+				}, 1000);				
 			}
 		});
 	},
@@ -87,9 +93,6 @@ var LiveStats = {
 	updateVotes: function(alternativeId) {
 		var divAlternative = $("#alternative-" + alternativeId);
 		var votes = Number(divAlternative.find("#votes").data("votes"));
-		if (votes < 2) {
-		 	votes = 2;
-		}
 		votes += 1;
 		var text =  divAlternative.find("#text").data("text");
 		var pText = divAlternative.find("p.text");
