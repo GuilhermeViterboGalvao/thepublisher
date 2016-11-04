@@ -77,5 +77,13 @@
 				<param name="enableGZIP">true</param>
 			</result>
         </action>
+        
+		<action name="do-the-test" class="com.publisher.view.TestAction">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+        </action>		
 	</package>
 </struts>
