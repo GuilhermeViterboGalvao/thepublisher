@@ -6,24 +6,203 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.publisher.entity.Account;
 import com.publisher.entity.Article;
 import com.publisher.entity.Category;
 import com.publisher.entity.PermanentLink;
+import com.publisher.entity.Photo;
+import com.publisher.entity.Skin;
+import com.publisher.service.AccountService;
 import com.publisher.service.ArticleService;
+import com.publisher.service.CategoryService;
+import com.publisher.service.PermanentLinkService;
+import com.publisher.service.PhotoService;
+import com.publisher.service.SkinService;
 import com.publisher.test.config.DefaultTest;
 import com.publisher.utils.ResultList;
 
 public class TestArticleServiceImplementation extends DefaultTest<Article> implements ArticleService {
 
+	private static final String PASSWORD = "!@#test123$%^";
+	
 	@Autowired
 	private ArticleService articleService;
 	
-	@Override
+	@Autowired
+	private SkinService skinService;
+	
+	@Autowired
+	private AccountService accountService;
+	
+	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
+	private PhotoService photoService;
+	
+	@Autowired
+	private PermanentLinkService permanentLinkService;
+	
+	private Category entityCategory;
+	
+	private PermanentLink entityCategoryPermanentLink;
+	
+	private Skin entitySkin;
+	
+	private Account entityAccount;
+	
+	private Photo entityPhoto;
+	
+	private PermanentLink entityArticlePermanentLink;
+	
+	@Test
 	public void testIt() {
 		assertNotNull(articleService);
+				
+		entitySkin = new Skin();
+		entitySkin.setName("Skin Test for JUnit.");
+		entitySkin.setPath("/skins/tatame/default/layout.jsp");
+		entitySkin.setContentFolder("/skins/tatame/pages/");
+		skinService.persist(entitySkin);
+
+		entityCategoryPermanentLink = new PermanentLink();
+		entityCategoryPermanentLink.setCreated(new Date());
+		entityCategoryPermanentLink.setParam(1l);
+		entityCategoryPermanentLink.setUri("/category/test/junit");
+		entityCategoryPermanentLink.setType("category");
 		
+		entityCategory = new Category();
+		entityCategory.setFolder("");
+		entityCategory.setName("Category Test for JUnit...");
+		entityCategory.setTags("test junit category");
+		entityCategory.setPermanentLink(entityCategoryPermanentLink);
+		entityCategory.setSkin(entitySkin);
+		categoryService.persist(entityCategory);
+		
+		entityAccount = new Account();
+		entityAccount.setActive(true);
+		entityAccount.setEmail("test@junit.com");
+		entityAccount.setHash(hash(PASSWORD));
+		entityAccount.setName("Test JUnit");
+		entityAccount.setSecurityHole("admin");
+		accountService.persist(entityAccount);
+		
+		entityPhoto = new Photo();
+		entityPhoto.setCreated(new Date());
+		entityPhoto.setCredits("Test Photo for JUnit...");
+		entityPhoto.setDate(new Date());
+		entityPhoto.setDescription("Test Photo for JUnit...");
+		entityPhoto.setEvent(false);
+		entityPhoto.setGym(false);
+		entityPhoto.setHeight(250);
+		entityPhoto.setHorizontalCenter(0.5f);
+		entityPhoto.setLastModified(new Date());
+		entityPhoto.setLastModifiedBy(entityAccount);
+		entityPhoto.setPublished(true);
+		entityPhoto.setTags("test photo junit");
+		entityPhoto.setVerticalCenter(0.5f);
+		entityPhoto.setWidth(300);
+		photoService.persist(entityPhoto);
+		
+		entityArticlePermanentLink = new PermanentLink();
+		entityArticlePermanentLink.setCreated(new Date());
+		entityArticlePermanentLink.setParam(1l);
+		entityArticlePermanentLink.setUri("/article/test/junit");
+		entityArticlePermanentLink.setType("article");
+		
+		entity = new Article();
+		entity.setCategory(entityCategory);
+		entity.setContent("<p>Teste de matéria JUnit.</p>");
+		entity.setCreated(new Date());
+		entity.setCreatedBy(entityAccount);
+		entity.setForumEnabled(true);
+		entity.setHeader("Teste matéria JUnit...");
+		entity.setLastModified(new Date());
+		entity.setLastModifiedBy(entityAccount);
+		entity.setNote("Teste matéria JUnit...");
+		entity.setPublished(true);
+		entity.setPublishedAt(new Date());
+		entity.setTitle("Teste matéria JUnit...");
+		entity.setViews(1000000l);
+		entity.setPhoto(entityPhoto);
+		entity.setPermanentLink(entityArticlePermanentLink);
+		persist(entity);
+		
+		persistedEntity = get(entity.getId());
+		
+		persistedEntity.setTitle("Teste matéria JUnit 2...");
+		update(persistedEntity);
+		
+		count();
+		
+		count(true);
+		
+		count(entityCategory);
+		
+		count(new Date(), new Date());
+		
+		count(entityCategory, new Date(), new Date());
+		
+		count(entityCategory, new Date(), new Date(), true);
+		
+		list();
+		
+		list(0, 10);
+		
+		list(true, 0, 10);
+		
+		list(true, 0, 10, new Date());
+		
+		list(true, entityCategory, 0, 10, new Date());
+		
+		list(true, entityCategory, 0, 10, new Date(), true);
+		
+		list(true, entityCategory, 0, 10, new Date(), "title", "desc");
+		
+		get(0, 10, new Date(), new Date(), true);
+		
+		get(entityCategory, 0, 10, new Date(), new Date(), true);
+		
+		get(entityCategory, 0, 10, new Date(), new Date(), true, "title", "desc");
+		
+		search("Teste");
+		
+		search("Teste", 0, 10);
+		
+		search("Teste", 0, 10, true);
+		
+		search("Teste", 0, 10, true, new Date(), "Category Test for JUnit...");
+		
+		delete(persistedEntity);
+		persistedEntity = articleService.get(entity.getId());
+		assertNull(persistedEntity);
+		
+		Long id = entityAccount.getId();
+		accountService.delete(entityAccount);
+		assertNull(accountService.get(id));
+		
+		id = entityArticlePermanentLink.getId();
+		permanentLinkService.delete(entityArticlePermanentLink);
+		assertNull(permanentLinkService.get(id));
+		
+		id = entityCategory.getId();
+		categoryService.delete(entityCategory);
+		assertNull(categoryService.get(id));
+		
+		id = entityCategoryPermanentLink.getId();
+		permanentLinkService.delete(entityCategoryPermanentLink);
+		assertNull(permanentLinkService.get(id));
+		
+		id = entityPhoto.getId();
+		photoService.delete(entityPhoto);
+		assertNull(photoService.get(id));
+		
+		id = entitySkin.getId();
+		skinService.delete(entitySkin);
+		assertNull(skinService.get(id));
 	}
 	
 	@Override
@@ -154,8 +333,8 @@ public class TestArticleServiceImplementation extends DefaultTest<Article> imple
 	public ResultList<Article> search(String query, int page, int pageSize) {
 		assertNotNull(query);
 		assertTrue(!query.isEmpty());
-		assertTrue(page > 0);
-		assertTrue(pageSize > 0);
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
 		ResultList<Article> search = articleService.search(query, page, pageSize);
 		assertNotNull(search);
 		return search;
@@ -165,8 +344,8 @@ public class TestArticleServiceImplementation extends DefaultTest<Article> imple
 	public ResultList<Article> search(String query, int page, int pageSize, Boolean published) {
 		assertNotNull(query);
 		assertTrue(!query.isEmpty());
-		assertTrue(page > 0);
-		assertTrue(pageSize > 0);
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
 		assertNotNull(published);
 		ResultList<Article> search = articleService.search(query, page, pageSize, published);
 		assertNotNull(search);
@@ -177,8 +356,8 @@ public class TestArticleServiceImplementation extends DefaultTest<Article> imple
 	public ResultList<Article> search(String query, int page, int pageSize, Boolean published, Date publishedUntil) {
 		assertNotNull(query);
 		assertTrue(!query.isEmpty());
-		assertTrue(page > 0);
-		assertTrue(pageSize > 0);
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
 		assertNotNull(published);
 		assertNotNull(publishedUntil);
 		ResultList<Article> search = articleService.search(query, page, pageSize, published, publishedUntil);
@@ -190,8 +369,8 @@ public class TestArticleServiceImplementation extends DefaultTest<Article> imple
 	public ResultList<Article> search(String query, int page, int pageSize, Boolean published, Date publishedUntil, String categoryName) {
 		assertNotNull(query);
 		assertTrue(!query.isEmpty());
-		assertTrue(page > 0);
-		assertTrue(pageSize > 0);
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
 		assertNotNull(published);
 		assertNotNull(publishedUntil);
 		assertNotNull(categoryName);
@@ -245,5 +424,12 @@ public class TestArticleServiceImplementation extends DefaultTest<Article> imple
 		long count = articleService.count(category, start, end, publishedOnly);
 		assertTrue(count >= 0);
 		return count;
+	}
+	
+	public String hash(String password) {
+		assertNotNull(password);
+		password = accountService.hash(password);
+		assertNotNull(password);
+		return password;
 	}
 }
