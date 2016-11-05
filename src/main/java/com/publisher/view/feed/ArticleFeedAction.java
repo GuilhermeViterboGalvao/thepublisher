@@ -19,6 +19,7 @@ import com.publisher.entity.Category;
 import com.publisher.service.ArticleService;
 import com.publisher.service.AuthTokenService;
 import com.publisher.service.CategoryService;
+import com.publisher.utils.IPUtils;
 
 public class ArticleFeedAction extends ActionSupport implements ServletRequestAware{
 
@@ -92,7 +93,7 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 				String ips = authToken.getIPs();
 				
 				if(ips != null && !ips.isEmpty()){
-					String remoteIp = getClientIpAddr();
+					String remoteIp = IPUtils.getClientIP(request);
 					if(ips.contains(",")){
 						String[] ip = ips.replace(" ", "").split(",");
 						result = (StringUtils.indexOfAny(remoteIp, ip) > -1);
@@ -100,74 +101,9 @@ public class ArticleFeedAction extends ActionSupport implements ServletRequestAw
 						result = ips.trim().equals(remoteIp);
 					}
 				}
-//				String dnss = authToken.getDNSs();
-//				
-//				if(dnss != null && !dnss.isEmpty()){
-//					String remoteDNS = null;
-//					try {
-//						remoteDNS = new URL(request.getRequestURL().toString()).getHost();
-//					} catch (MalformedURLException e) { }
-//					
-//					if(remoteDNS != null && !remoteDNS.isEmpty()){
-//						if(dnss.contains(",")){
-//							String[] dns = dnss.replace(" ", "").split(",");
-//							result = (StringUtils.indexOfAny(remoteDNS, dns) > -1);
-//						}else{
-//							result = dnss.trim().equals(remoteDNS);
-//						}
-//					}
-//				}
 			}	
 		}
 		return result;
-	}
-	
-	public String getClientIpAddr() {  
-        String ip = request.getHeader("X-Forwarded-For");  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("Proxy-Client-IP");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("WL-Proxy-Client-IP");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("HTTP_CLIENT_IP");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getRemoteAddr();  
-        }  
-        return ip;  
-    } 
-	
-	public void getClientHostName(){
-		//System.out.println("DNS1-" + request.getHeader("VIA")); 
-		//System.out.println("DNS2-" + request.getServerName());
-		//System.out.println("DNS3-" + request.getRemoteHost()); 
-
-		//System.out.println("DNS4-" + InetAddress.getByName(request.getRemoteAddr())); 
-
-//		
-//		try {
-//			System.out.println("DNS5-" + new URL(request.getRequestURL().toString()).getHost());
-//		} catch (MalformedURLException e) { }
-//		
-//		try {
-//			System.out.println("DNS6-" + InetAddress.getLocalHost());
-//		} catch (UnknownHostException e) { }
-//		
-//		System.out.println("DNS7-" + request.getHeader("x-forwarded-proto"));
-//		
-//		System.out.println("DNS8-" + request.getScheme());
-//		
-//		System.out.println("DNS9-" + request.getRequestURL());
-//		
-//		try {
-//			System.out.println("DNS10-" + Inet4Address.getByName(getClientIpAddr()));
-//		} catch (UnknownHostException e) { }
-		
 	}
 	
 	//Action properties

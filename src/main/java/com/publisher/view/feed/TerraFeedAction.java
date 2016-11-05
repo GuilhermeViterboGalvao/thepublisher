@@ -12,6 +12,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Article;
 import com.publisher.service.ArticleService;
+import com.publisher.utils.IPUtils;
 
 public class TerraFeedAction extends ActionSupport implements ServletRequestAware {
 
@@ -34,7 +35,7 @@ public class TerraFeedAction extends ActionSupport implements ServletRequestAwar
 	
 	@Override
 	public String execute() throws Exception {
-		String ipRequested = request.getRemoteAddr();
+		String ipRequested = IPUtils.getClientIP(request);
 		boolean executeAction = false;
 		if (debug) {
 			executeAction = true;

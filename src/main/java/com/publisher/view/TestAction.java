@@ -25,7 +25,7 @@ public class TestAction extends ActionSupport implements ServletRequestAware {
 	
 	@Override
 	public String execute() throws Exception {
-		result = IPUtils.getIP(request);
+		result = IPUtils.getHeaders(request);
 		return SUCCESS;
 	}
 }

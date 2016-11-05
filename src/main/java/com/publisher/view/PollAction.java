@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Alternative;
 import com.publisher.entity.Poll;
 import com.publisher.service.PollService;
+import com.publisher.utils.IPUtils;
 
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
@@ -47,7 +48,7 @@ public class PollAction extends ActionSupport implements ServletRequestAware {
 				}
 			}
 			String key = getKey();
-			CacheManager.getInstance().getCache("userPollVote").put(new Element(key, request.getRemoteAddr()));
+			CacheManager.getInstance().getCache("userPollVote").put(new Element(key, getClientIP(request)));
 			pollService.update(poll);
 			result = new Result(true);
 		} else {
@@ -62,7 +63,11 @@ public class PollAction extends ActionSupport implements ServletRequestAware {
 	}
 	
 	public String getKey() {
-		return "[" + request.getRemoteAddr() + "]-[" + request.getHeader("user-agent") + "]-[" + pollId + "]";
+		return "[" + getClientIP(request) + "]-[" + request.getHeader("user-agent") + "]-[" + pollId + "]";
+	}
+	
+	public String getClientIP(HttpServletRequest request) {
+		return IPUtils.getClientIP(request);
 	}
 	
 	//POJO
