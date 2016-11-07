@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.Date;
 
+import org.apache.lucene.search.Sort;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -200,6 +201,19 @@ public class TestPhotoServiceImplementation extends DefaultTest<Photo> implement
 		assertNotNull(list);
 		return list;
 	}
+	
+	@Override
+	public Collection<Photo> list(int page, int pageSize, String orderBy, String order) {
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(orderBy);
+		assertTrue(!orderBy.isEmpty());
+		assertNotNull(order);
+		assertTrue(!order.isEmpty());
+		Collection<Photo> list = photoService.list(page, pageSize, orderBy, order);
+		assertNotNull(list);
+		return list;
+	}
 
 	@Override
 	public ResultList<Photo> search(String query, int page, int pageSize) {
@@ -208,6 +222,18 @@ public class TestPhotoServiceImplementation extends DefaultTest<Photo> implement
 		assertTrue(page >= 0);
 		assertTrue(pageSize >= 0);
 		ResultList<Photo> search = photoService.search(query, page, pageSize);
+		assertNotNull(search);
+		return search;
+	}
+	
+	@Override
+	public ResultList<Photo> search(String query, int page, int pageSize, Sort sort) {
+		assertNotNull(query);
+		assertTrue(!query.isEmpty());
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(sort);
+		ResultList<Photo> search = photoService.search(query, page, pageSize, sort);
 		assertNotNull(search);
 		return search;
 	}

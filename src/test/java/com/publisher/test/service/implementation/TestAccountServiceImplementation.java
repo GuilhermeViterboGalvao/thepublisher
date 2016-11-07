@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Collection;
 
+import org.apache.lucene.search.Sort;
 import org.junit.After;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -161,6 +162,18 @@ public class TestAccountServiceImplementation extends DefaultTest<Account> imple
 		assertTrue(pageSize >= 0);
 		assertNotNull(query);
 		ResultList<Account> search = accountService.search(query, page, pageSize);
+		assertNotNull(search);
+		return search;
+	}
+	
+	@Override
+	public ResultList<Account> search(String query, int page, int pageSize, Sort sort) {
+		assertNotNull(query);
+		assertTrue(!query.isEmpty());
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(sort);
+		ResultList<Account> search = accountService.search(query, page, pageSize, sort);
 		assertNotNull(search);
 		return search;
 	}

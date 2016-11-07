@@ -24,14 +24,9 @@ import com.publisher.utils.ResultList;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 
-public class ArticleServiceImplementation extends TransactionalService implements ArticleService {
+public class ArticleServiceImplementation extends AbstractServiceImplementation<Article> implements ArticleService {
 
 	private static Log log = LogFactory.getLog(ArticleServiceImplementation.class);
-
-	@Override
-	public Article get(Long id) {
-		return id != null ? entityManager.find(Article.class, id) : null;
-	}
 
 	@Override
 	public void persist(Article entity) {
@@ -54,13 +49,6 @@ public class ArticleServiceImplementation extends TransactionalService implement
 			cleanCache(entity.getPermanentLink());
 		}
 	}
-
-	@Override
-	public void delete(Article entity) {
-		if (entity != null) {
-			entityManager.remove(entityManager.merge(entity));
-		}
-	}	
 
 	@Override
 	public Collection<Article> list() {
@@ -142,7 +130,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 			if (category.getChilds() != null) {
 				for (Category c : category.getChilds()) {
 					categories.add(c);
-				}	
+				}
 			}
 		}
 		StringBuilder sb = new StringBuilder();
@@ -219,11 +207,6 @@ public class ArticleServiceImplementation extends TransactionalService implement
 	}
 
 	@Override
-	public Collection<Article> list(int page, int pageSize) {
-		return list(null, page, pageSize);
-	}
-
-	@Override
 	public Collection<Article> list(Boolean published, int page, int pageSize) {
 		return list(published, page, pageSize, null);
 	}
@@ -291,11 +274,6 @@ public class ArticleServiceImplementation extends TransactionalService implement
 		}
 		query.setHint("org.hibernate.cacheable", true);
 		return query.getResultList();
-	}
-
-	@Override
-	public ResultList<Article> search(String query, int page, int pageSize) {
-		return search(query, page, pageSize, null);
 	}
 
 	@Override
@@ -385,7 +363,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 			if (category.getChilds() != null) {
 				for (Category c : category.getChilds()) {
 					categories.add(c);
-				}	
+				}
 			}
 		}
 		StringBuilder sb = new StringBuilder();
@@ -456,7 +434,7 @@ public class ArticleServiceImplementation extends TransactionalService implement
 				if (counter < max) {
 					addChilds(categories, currentCategory, counter, max);
 				}
-			}   
+			}
 		}
 	}
 }

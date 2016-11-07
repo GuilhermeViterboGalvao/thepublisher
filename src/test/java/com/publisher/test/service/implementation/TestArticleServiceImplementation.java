@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.lucene.search.Sort;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -300,6 +301,13 @@ public class TestArticleServiceImplementation extends DefaultTest<Article> imple
 		assertNotNull(list);
 		return list;
 	}
+	
+	@Override
+	public Collection<Article> list(int page, int pageSize, String orderBy, String order) {
+		Collection<Article> list = articleService.list(page, pageSize, orderBy, order);
+		assertNotNull(list);
+		return list;
+	}
 
 	@Override
 	public Collection<Article> list(Boolean published, int page, int pageSize, Date publishedUntil) {
@@ -336,6 +344,18 @@ public class TestArticleServiceImplementation extends DefaultTest<Article> imple
 		assertTrue(page >= 0);
 		assertTrue(pageSize >= 0);
 		ResultList<Article> search = articleService.search(query, page, pageSize);
+		assertNotNull(search);
+		return search;
+	}
+	
+	@Override
+	public ResultList<Article> search(String query, int page, int pageSize, Sort sort) {
+		assertNotNull(query);
+		assertTrue(!query.isEmpty());
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(sort);
+		ResultList<Article> search = articleService.search(query, page, pageSize, sort);
 		assertNotNull(search);
 		return search;
 	}

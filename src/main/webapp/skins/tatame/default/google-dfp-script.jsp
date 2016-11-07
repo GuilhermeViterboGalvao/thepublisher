@@ -67,6 +67,30 @@
 		}
 	</script>
 </s:if>
+
+<s:elseif test="model != null && model instanceof br.com.tatame.entity.LiveStats && adsZone != null && !adsZone.isEmpty()">
+	<script type="text/javascript">
+		if (windowWidth > 800) {
+			googletag.cmd.push(function() {
+				googletag.defineSlot("/13554095/<s:property value='adsZone'/>",  [[300, 100], [580,200]],  "tatame_live_stats").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_970x250_Ros", 			 [970, 250], 			   "tatame_970x250_ros").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x600_ros", 			 [300, 600], 			   "tatame_300x600_ros").addService(googletag.pubads());		
+				
+				googletag.pubads().setTargeting("pageType", "liveStats");
+				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
+				googletag.enableServices();
+			});
+		}
+	</script>
+	<script type="text/javascript">
+		if (windowWidth > 800) {
+			googletag.cmd.push(function(){googletag.display("tatame_live_stats");});
+			googletag.cmd.push(function(){googletag.display("tatame_970x250_ros");});
+			googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
+		}
+	</script>
+</s:elseif>
 <s:else>
 	<script type="text/javascript">
 		if (windowWidth > 800) {

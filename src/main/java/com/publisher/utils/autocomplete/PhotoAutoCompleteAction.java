@@ -3,6 +3,9 @@ package com.publisher.utils.autocomplete;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
+
 import com.publisher.entity.Photo;
 import com.publisher.service.PhotoService;
 import com.publisher.utils.ResultList;
@@ -21,7 +24,7 @@ public class PhotoAutoCompleteAction extends AutoCompleteAction {
 		if (getTerm() == null) {			
 			result.setResult(photoService.list(getPage(), getPagesize()));
 		} else {
-			result = photoService.search(addWildcards(getTerm()), getPage(), getPagesize());
+			result = photoService.search(addWildcards(getTerm()), getPage(), getPagesize(), new Sort(new SortField("date", SortField.Type.LONG, true)));
 		}
 		Collection<Photo> photos = result.getResult();
 		Collection<LabelValue> collection = new ArrayList<LabelValue>();

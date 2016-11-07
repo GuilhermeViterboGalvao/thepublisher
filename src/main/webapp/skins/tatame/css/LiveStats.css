@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+
+div.live-stats-info { float: left; height: auto; width: 1024px; }
+div.live-stats-info p { float: left; height: auto; width: 1000px; margin: 12px; }
+
+div.content { float: left; height: auto; width: 1024px; }
+div.content div.info { float: left; height: auto; width: 1024px; margin-bottom: 30px; }
+div.content div.info div.polls { float: left; min-height: 620px; height: auto; width: 420px; margin: 0 24px 0 0; }
+div.content div.info div.polls img.photo { margin: 0 auto; display: table; }
+div.content div.info div.polls div.title { float: left; height: auto; width: 410px; position: relative; }
+div.content div.info div.polls div.title p.text { float: left; height: auto; width: 92px; font-size: 18px; text-transform: uppercase; font-weight: bold; color: #ff0105; line-height: 60px; }
+div.content div.info div.polls div.title p.line { float: left; width: 318px; position: absolute; left: 92px; top: 30px; height: 3px; background-color: #ff0105; }
+div.content div.info div.polls div.poll { float: left; height: auto; width: 410px; border-bottom: 3px solid #dbdbdb; position: relative; }
+div.content div.info div.polls div.poll p.question { float: left; height: auto; width: 410px; font-size: 18px; color: #3a3a3a; font-weight: bold; line-height: 26px; }
+div.content div.info div.polls div.poll div.alternatives { float: left; height: auto; width: 410px; margin: 10px 0 0 0; }
+div.content div.info div.polls div.poll div.alternatives div.alternative { float: left; height: auto; width: 410px; margin: 0 0 10px 0; }
+div.content div.info div.polls div.poll div.alternatives div.alternative input[type="radio"] { float: left; width: 15px; margin: 5px 2px; }
+div.content div.info div.polls div.poll div.alternatives div.alternative p.text { float: left; height: auto; width: 390px; font-size: 16px; font-weight: bold; color: #3a3a3a; line-height: 24px; }
+div.content div.info div.polls div.poll div.alternatives div.alternative p.progress-bar { float: left; height: 5px; width: 410px; background-color: #ff9e00; border-radius: 10px; }
+div.content div.info div.polls button { float: left; height: auto; width: 70px; padding: 4px; font-size: 16px; font-weight: bold; color: white; background-color: #393939; border: none; position: absolute; left: 340px; top: 0px; cursor: pointer; }
+
+div.content div.info div.live-chat { float: left; min-height: 400px; height: auto; width: 580px; margin: 0; }
+div.content div.live-stats { float: left; height: auto; width: 1024px; }
+div.content div.live-stats > iframe { float: left; max-height: 1200px; width: 1024px; }
+div.content div.live-stats-fb-comments { float: left; min-height: 200px; height: auto; width: 1024px; }
+
+div.content div.title-news { float: left; height: auto; width: 1024px; position: relative; }
+div.content div.title-news p.text { float: left; height: auto; width: 73px; font-size: 22px; text-transform: uppercase; font-weight: bold; color: #000; line-height: 70px; }
+div.content div.title-news p.line { float: left; width: 950px; position: absolute; left: 73px; top: 35px; height: 3px; background-color: #ff0105; }
+
+div.content div.articles { float:left; width: 714px; position: relative; }
+div.content div.articles div.article { float:left; width: 714px; position: relative; margin-bottom: 14.5px; background-color: #f6f6f6; }
+div.content div.articles div.article img { float:left; position:relative; width: 270px; }
+div.content div.articles div.article div.info { float: left; position: relative; width: 434px; height: 180px; padding: 10px 0 0 10px; margin: 0; }
+div.content div.articles div.article div.info p { color: #fff; overflow:hidden; width: 428px; }
+div.content div.articles div.article div.info p a { color: #000; text-decoration: none; }
+div.content div.articles div.article div.info p.title { text-overflow: ellipsis; font-size: 23px; line-height: 26px; font-weight: bold; font-family: fgDemi,sans-serif; text-transform: uppercase; height: 76px;}
+div.content div.articles div.article div.info p.author { float: left; font-size: 14px; padding: 5px 0; font-weight: bold; height: 30px; }
+div.content div.articles div.article div.info p.author span {  border-bottom: 3px solid #a2393c; }
+div.content div.articles div.article div.info p.note { height: 54px; font-size: 15px; }
+
+div.content div.category-link { width: 100%;  margin:  15px 0 50px; float: left; position: relative; }
+div.content div.category-link a { color:#000; font-size: 1em; font-weight: bold; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid #000; }
+
+div.content div.info .ads { display: table; margin: 0 auto; padding: 20px 0 0; max-width: 580px; }
+div.content div.info .ads > div { box-shadow: 3px 3px 3px #777; }
+
+@media screen and (max-width: 800px) {
+	div.live-stats-info { float: left; height: auto; width: 100%; }
+	div.live-stats-info p { float: left; height: auto; width: 98%; margin: 1%; }
+	
+	div.content div.info .ads { display: none; }
+
+	div.content { float: left; height: auto; width: 100%; }
+	div.content div.info { float: left; height: auto; width: 100%; }
+	div.content div.info div.polls { float: left; min-height: 0; height: auto; width: 100%; margin: 0; }
+	div.content div.info div.polls img.photo { width: 100%; height: auto;  }
+	div.content div.info div.polls div.title { float: left; height: auto; width: 100%; position: relative; }
+	div.content div.info div.polls div.title p.text { float: left; height: auto; width: auto; font-size: 1.3em; text-transform: uppercase; font-weight: bold; color: #ff0105; line-height: normal; margin: 2% 0 1% 0; }
+	div.content div.info div.polls div.title p.line { float: left; width: 100%; position: relative; left: 00px; top: 0px; height: 3px; background-color: #ff0105; }	
+	div.content div.info div.polls div.poll { float: left; height: auto; width: 100%; border-bottom: 3px solid #dbdbdb; position: relative; margin: 5% 0 0 0; }
+	div.content div.info div.polls div.poll p.question { float: left; height: auto; width: 100%; font-size: 1.1em; color: #3a3a3a; font-weight: bold; line-height: normal; }
+	div.content div.info div.polls div.poll div.alternatives { float: left; height: auto; width: 100%; margin: 10px 0 0 0; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative { float: left; height: auto; width: 100%; margin: 0 0 10px 0; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative input[type="radio"] { float: left; width: 8%; margin: 1% 0 0 0; padding: 0; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative p.text { float: left; height: auto; width: 92%; font-size: 0.9em; font-weight: bold; color: #3a3a3a; line-height: normal; }
+	div.content div.info div.polls div.poll div.alternatives div.alternative p.progress-bar { float: left; height: 5px; width: 100%; background-color: #ff9e00; border-radius: 10px; margin: 2% 0 0 0; }	
+	div.content div.info div.polls button { float: left; height: auto; width: 100%; padding: 4px; font-size: 16px; font-weight: bold; color: white; background-color: #393939; border: none; position: relative; left: 0; top: 0; cursor: pointer; margin: 0 0 2% 0; }		
+	
+	div.content div.info div.live-chat { float: left; height: auto; width: 100%; margin: 0; }
+	div.content div.live-stats { float: left; height: auto; width: 100%; }
+	div.content div.live-stats > iframe { float: left; max-height: 1200px; width: 100%; }
+	div.content div.live-stats-fb-comments { float: left; min-height: 200px; height: auto; width: 100%; }
+	
+	div.content div.title-news { float: left; height: auto; width: 100%; position: relative; margin-bottom: 2%; }
+	div.content div.title-news p.text { float: left; height: auto; width: auto; font-size: 1.3em; line-height: normal; margin: 0 0 1% 0; }
+	div.content div.title-news p.line { float: left; width: 100%; position: relative; left: 00px; top: 0px; height: 3px; }	
+	
+	div.content div.articles,
+	div.content div.articles div.article,
+	div.content div.articles div.article > a,
+	div.content div.articles div.article > a > img,
+	div.content div.articles div.article div.info,
+	div.content div.articles div.article div.info p.title,
+	div.content div.articles div.article div.info p.author,
+	div.content div.articles div.article div.info p.note { width: 100%; height: auto; }
+	div.content div.articles div.article { margin: 0 0 2.5% 0; }
+	div.content div.articles div.article div.info { padding: 0; }
+	div.content div.articles div.article div.info p.title,
+	div.content div.articles div.article div.info p.author,
+	div.content div.articles div.article div.info p.note { width: 96%; height: auto; padding: 2%; font-size: 1em; line-height: 1.25em; max-height: none; }
+	div.content div.articles div.article div.info p.author span { border: none; }	
+	
+	div.content div.category-link { margin: 2% 0 8%; }
+	div.content div.category-link a {margin: 0 auto; display:table; font-size: 1.1em;}
+}

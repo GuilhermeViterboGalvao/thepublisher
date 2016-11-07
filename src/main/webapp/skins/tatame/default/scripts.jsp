@@ -7,12 +7,31 @@
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 	<script type="text/javascript" src="/skins/tatame/js/Home.js?15"></script>
 </s:if>
-<s:if test="model != null && model instanceof com.publisher.entity.Article">
+<s:elseif test="model != null && model instanceof com.publisher.entity.Article">
 	<script type="text/javascript" src="/skins/tatame/js/Article.js"></script>
 	<s:if test="model instanceof com.publisher.entity.PhotoGallery">
 		<script type="text/javascript" src="/skins/tatame/js/PhotoGallery.js"></script>
 	</s:if>
-</s:if>
+</s:elseif>
+<s:elseif test="model != null && model instanceof br.com.tatame.entity.LiveStats">
+	<script type="text/javascript" src="/skins/tatame/js/LiveStats.js"></script>
+	<script type="text/javascript">
+		window.twttr = (function(d, s, id) {
+  			var js, fjs = d.getElementsByTagName(s)[0],
+    		t = window.twttr || {};
+  			if (d.getElementById(id)) return t;
+  			js = d.createElement(s);
+  			js.id = id;
+  			js.src = "https://platform.twitter.com/widgets.js";
+  			fjs.parentNode.insertBefore(js, fjs);
+  			t._e = [];
+  			t.ready = function(f) {
+				t._e.push(f);
+  			};
+  		return t;
+		}(document, "script", "twitter-wjs"));
+	</script>	
+</s:elseif>
 <!-- FB Rmkt – MMA 2x2 -->
 <script type="text/javascript">
 	(function() {

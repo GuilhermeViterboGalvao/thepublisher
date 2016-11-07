@@ -71,6 +71,22 @@
 			<interceptor-ref name="defaultStack"/>
 		    <result type="tiles">default</result>
 		    <result name="input" type="tiles">default</result>
-		</action> 		       			
+		</action>
+		
+		<action name="poll-vote" class="com.publisher.view.PollAction">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+        </action>
+        
+		<action name="do-the-test" class="com.publisher.view.TestAction">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="root">result</param>
+				<param name="enableGZIP">true</param>
+			</result>
+        </action>		
 	</package>
 </struts>

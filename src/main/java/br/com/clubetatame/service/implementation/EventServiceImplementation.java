@@ -1,6 +1,5 @@
 package br.com.clubetatame.service.implementation;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
@@ -11,7 +10,7 @@ import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
 
 import com.publisher.entity.PermanentLink;
-import com.publisher.service.implementation.TransactionalService;
+import com.publisher.service.implementation.AbstractServiceImplementation;
 import com.publisher.utils.HibernateSearchUtils;
 import com.publisher.utils.ResultList;
 import br.com.clubetatame.entity.Company;
@@ -20,35 +19,10 @@ import br.com.clubetatame.service.EventService;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 
-public class EventServiceImplementation extends TransactionalService implements EventService {
+public class EventServiceImplementation extends AbstractServiceImplementation<Event> implements EventService {
 
 	private static Log log = LogFactory.getLog(EventServiceImplementation.class);
-	
-	@Override
-	public Event get(Long id) {
-		return id != null ? entityManager.find(Event.class, id) : null;
-	}
 
-	@Override
-	public void persist(Event entity) {
-		if (entity != null) {
-			entityManager.persist(entity);
-			if(entity.getPermanentLink() != null){
-				entityManager.flush();
-				entity.getPermanentLink().setParam(entity.getId());
-				entityManager.merge(entity.getPermanentLink());
-				entityManager.flush();
-			}
-		}
-	}
-
-	@Override
-	public void update(Event entity) {
-		if (entity != null) {
-			entityManager.merge(entity);
-		}
-	}
-	
 	@Override
 	public void update(Event entity, PermanentLink oldPermanentLink) {
 		entityManager.merge(entity);
@@ -56,83 +30,33 @@ public class EventServiceImplementation extends TransactionalService implements 
 	}
 
 	@Override
-	public void delete(Event entity) {
-		if (entity != null) {
-			entityManager.remove(entity);
-		}
-	}
-
-	@Override
-	public Collection<Event> search(String query) {
-		return search(query, 0, 0).getResult();
-	}
-	
-	@Override
-	public ResultList<Event> search(String query, int page, int pageSize) {
-		return search(query, page, pageSize, null);
-	}
-	
-	@Override
 	@SuppressWarnings("unchecked")	
 	public ResultList<Event> search(String query, int page, int pageSize, Boolean isActive) {
-        long t = System.currentTimeMillis();
-    	FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
+		long t = System.currentTimeMillis();
+		FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
 		org.hibernate.search.query.dsl.QueryBuilder qb = ft.getSearchFactory().buildQueryBuilder().forEntity(Event.class).get();
 		org.apache.lucene.search.Query luceneQuery = HibernateSearchUtils.createQuery(query, qb, "name", "contact", "state", "city", "address").createQuery();
-        FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Event.class);
-        if (pageSize > 0) {
-        	fullTextQuery.setMaxResults(pageSize);
-        }
-        if (page > 0 && pageSize > 0) {        	
-        	fullTextQuery.setFirstResult((page - 1) * pageSize);			
+		FullTextQuery fullTextQuery = ft.createFullTextQuery(luceneQuery, Event.class);
+		if (pageSize > 0) {
+			fullTextQuery.setMaxResults(pageSize);
+		}
+		if (page > 0 && pageSize > 0) {        	
+			fullTextQuery.setFirstResult((page - 1) * pageSize);			
 		}        
-        if (isActive != null) {
-        	fullTextQuery.enableFullTextFilter("activeEvent").setParameter("isActive", isActive);
-        }        
-        fullTextQuery.setHint("org.hibernate.cacheable", true);
-        ResultList<Event> result = new ResultList<Event>();
-        result.setResult(fullTextQuery.getResultList());
-        result.setResultSize(fullTextQuery.getResultSize());
-        result.setTimeElapsed((int)(System.currentTimeMillis() - t));
-        result.setPage(page);
-        result.setPageSize(pageSize);
-        log.info("EVENT SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
-        return result;		
+		if (isActive != null) {
+			fullTextQuery.enableFullTextFilter("activeEvent").setParameter("isActive", isActive);
+		}        
+		fullTextQuery.setHint("org.hibernate.cacheable", true);
+		ResultList<Event> result = new ResultList<Event>();
+		result.setResult(fullTextQuery.getResultList());
+		result.setResultSize(fullTextQuery.getResultSize());
+		result.setTimeElapsed((int)(System.currentTimeMillis() - t));
+		result.setPage(page);
+		result.setPageSize(pageSize);
+		log.info("EVENT SEARCH=[" + luceneQuery + "] - TimeElapsed=" + result.getTimeElapsed());
+		return result;		
 	}
-
-	@Override
-	public long count() {
-        Query query = entityManager.createQuery("select count(e) from Event e");
-        return query != null ? (Long)query.getSingleResult() : 0;
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	public void indexAll() {
-        try {
-            Query query = entityManager.createQuery("select max(e.id) from Event e");
-            long total = (Long)query.getSingleResult();
-            FullTextEntityManager ft = Search.getFullTextEntityManager(entityManager);
-            ft.purgeAll(Event.class);
-            for (long i = 0; i < total / 100 + 1; i++) {
-                query = ft.createQuery("select e from Event e where e.id>=? and e.id<=? order by e.id");
-                query.setParameter(1, i * 100 + 1);
-                query.setParameter(2, (i + 1) * 100);
-				List<Event> list = query.getResultList();
-                for (Event event : list) {                	
-                    ft.index(event);
-                    log.info(event.getId() + ": " + event.getName());
-                }
-                ft.flushToIndexes();
-                ft.clear();
-            }
-        } catch (Exception e) {
-        	log.error(e);
-            e.printStackTrace();
-        }
-	}
-
-	@Override
+	
 	public List<Event> list() {
 		return list(null);
 	}
@@ -146,7 +70,7 @@ public class EventServiceImplementation extends TransactionalService implements 
 	public List<Event> list(Boolean isActive, int page, int pageSize) {
 		return list(isActive, page, pageSize, null, null);
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Event> list(Boolean isActive, int page, int pageSize, String orderBy, String order) {
@@ -161,17 +85,17 @@ public class EventServiceImplementation extends TransactionalService implements 
 		} else {
 			sql.append("e.id desc");
 		}
-        Query query = entityManager.createQuery(sql.toString());
-        if (isActive != null) {
-        	query.setParameter("isActive", isActive);
-        }
-        if (pageSize > 0) {
-        	query.setMaxResults(pageSize);	
-        }
-        if (pageSize > 0 && page > 0) {
-        	query.setFirstResult((page - 1) * pageSize);
-        }        
-        return query.getResultList();		
+		Query query = entityManager.createQuery(sql.toString());
+		if (isActive != null) {
+			query.setParameter("isActive", isActive);
+		}
+		if (pageSize > 0) {
+			query.setMaxResults(pageSize);	
+		}
+		if (pageSize > 0 && page > 0) {
+			query.setFirstResult((page - 1) * pageSize);
+		}        
+		return query.getResultList();		
 	}
 	@Override
 	public List<Event> listByCompany(Company company) {
@@ -187,7 +111,7 @@ public class EventServiceImplementation extends TransactionalService implements 
 	public List<Event> listByCompany(Company company, Boolean isActive, int page, int pageSize) {
 		return listByCompany(company, isActive, page, pageSize, null, null);
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Event> listByCompany(Company company, Boolean isActive, int page, int pageSize, String orderBy, String order) {
@@ -207,20 +131,20 @@ public class EventServiceImplementation extends TransactionalService implements 
 		} else {
 			sql.append("e.id desc");
 		}		
-        Query query = entityManager.createQuery(sql.toString());
-        if (company != null) {
-        	query.setParameter("company", company);
-        }        
-        if (isActive != null) {
-        	query.setParameter("isActive", isActive);
-        }
-        if (pageSize > 0) {
-        	query.setMaxResults(pageSize);	
-        }
-        if (pageSize > 0 && page > 0) {
-        	query.setFirstResult((page - 1) * pageSize);
-        }        
-        return query.getResultList();
+		Query query = entityManager.createQuery(sql.toString());
+		if (company != null) {
+			query.setParameter("company", company);
+		}        
+		if (isActive != null) {
+			query.setParameter("isActive", isActive);
+		}
+		if (pageSize > 0) {
+			query.setMaxResults(pageSize);	
+		}
+		if (pageSize > 0 && page > 0) {
+			query.setFirstResult((page - 1) * pageSize);
+		}        
+		return query.getResultList();
 	}
 
 	@Override
@@ -242,7 +166,7 @@ public class EventServiceImplementation extends TransactionalService implements 
 	public List<Event> listByDate(Date start, Date end, Boolean isActive, int page, int pageSize) {
 		return listByDate(start, end, isActive, page, pageSize, null, null);
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Event> listByDate(Date start, Date end, Boolean isActive, int page, int pageSize, String orderBy, String order) {
@@ -267,23 +191,23 @@ public class EventServiceImplementation extends TransactionalService implements 
 		} else {
 			sql.append("e.id desc");
 		}		
-        Query query = entityManager.createQuery(sql.toString());
-        if (start != null) {
-        	query.setParameter("start", start);
-        }
-        if (end != null) {
-        	query.setParameter("end", end);
-        }                
-        if (isActive != null) {
-        	query.setParameter("isActive", isActive);
-        }
-        if (pageSize > 0) {
-        	query.setMaxResults(pageSize);	
-        }
-        if (pageSize > 0 && page > 0) {
-        	query.setFirstResult((page - 1) * pageSize);
-        }        
-        return query.getResultList();
+		Query query = entityManager.createQuery(sql.toString());
+		if (start != null) {
+			query.setParameter("start", start);
+		}
+		if (end != null) {
+			query.setParameter("end", end);
+		}                
+		if (isActive != null) {
+			query.setParameter("isActive", isActive);
+		}
+		if (pageSize > 0) {
+			query.setMaxResults(pageSize);	
+		}
+		if (pageSize > 0 && page > 0) {
+			query.setFirstResult((page - 1) * pageSize);
+		}        
+		return query.getResultList();
 	}	
 
 	@Override
@@ -357,7 +281,7 @@ public class EventServiceImplementation extends TransactionalService implements 
 		}
 		return (Long)query.getSingleResult();
 	}
-	
+
 	private void cleanCache(PermanentLink permanentLink) {
 		if (permanentLink != null && permanentLink.getUri() != null) {
 			try {

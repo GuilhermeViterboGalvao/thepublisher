@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Collection;
 import java.util.Date;
 
+import org.apache.lucene.search.Sort;
 import org.apache.struts2.dispatcher.mapper.ActionMapping;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +106,19 @@ public class TestPermanentLinkServiceImplementation extends DefaultTest<Permanen
 		assertNotNull(list);
 		return list;
 	}
+	
+	@Override
+	public Collection<PermanentLink> list(int page, int pageSize, String orderBy, String order) {
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(orderBy);
+		assertTrue(!orderBy.isEmpty());
+		assertNotNull(order);
+		assertTrue(!order.isEmpty());
+		Collection<PermanentLink> list = permanentLinkService.list(page, pageSize, orderBy, order);
+		assertNotNull(list);
+		return list;
+	}
 
 	@Override
 	public Collection<PermanentLink> search(String query) {
@@ -123,6 +137,19 @@ public class TestPermanentLinkServiceImplementation extends DefaultTest<Permanen
 		assertTrue(page >= 0);
 		assertTrue(pageSize >= 0);
 		ResultList<PermanentLink> search = permanentLinkService.search(query, page, pageSize);
+		//TODO
+		//assertNotNull(search);
+		return search;
+	}
+	
+	@Override
+	public ResultList<PermanentLink> search(String query, int page, int pageSize, Sort sort) {
+		assertNotNull(query);
+		assertTrue(!query.isEmpty());
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(sort);
+		ResultList<PermanentLink> search = permanentLinkService.search(query, page, pageSize, sort);
 		//TODO
 		//assertNotNull(search);
 		return search;

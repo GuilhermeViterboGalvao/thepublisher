@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Collection;
 
+import org.apache.lucene.search.Sort;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -133,6 +134,18 @@ public class TestSkinServiceImplementation extends DefaultTest<Skin> implements 
 		assertNotNull(query);
 		assertTrue(!query.isEmpty());
 		ResultList<Skin> search = skinService.search(query, page, pageSize);
+		assertNotNull(search);
+		return search;
+	}
+
+	@Override
+	public ResultList<Skin> search(String query, int page, int pageSize, Sort sort) {
+		assertTrue(page >= 0);
+		assertTrue(pageSize >= 0);
+		assertNotNull(query);
+		assertTrue(!query.isEmpty());
+		assertNotNull(sort);
+		ResultList<Skin> search = skinService.search(query, page, pageSize, sort);
 		assertNotNull(search);
 		return search;
 	}
