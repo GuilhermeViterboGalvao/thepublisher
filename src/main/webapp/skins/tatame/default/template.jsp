@@ -12,7 +12,6 @@
 	<body>
 		<script type="text/javascript">var windowWidth = document.body.offsetWidth || screen.width;</script>	
 		<div class="page">
-			<jsp:include page="/skins/tatame/default/terra-counter-head.jsp"/>
 			<div id="fb-root"></div>
 			<script type="text/javascript">
 				(function(d, s, id) {
