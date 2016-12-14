@@ -13,7 +13,7 @@
 				<div class="first-article box-shadow">
 					<s:if test="articles.get(0).photo != null">
 						<a href="/${articles.get(0).permanentLink.uri}">
-							<img alt="<s:property value="articles.get(0).header"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="articles.get(0).photo.id"/>_714x452.jpg"/>
+							<img alt="<s:property value="articles.get(0).header"/>" src="/img/<s:property value="articles.get(0).photo.id"/>_714x452.jpg"/>
 						</a>
 					</s:if>
 					<div class="info">
@@ -39,7 +39,7 @@
 				    	<s:if test="photo && photo.id > 0">
 					    	<div class="article box-shadow">
 					    		<a href="/${permanentLink.uri}">
-									<img alt="<s:property value="header"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>_270x190.jpg"/>
+									<img alt="<s:property value="header"/>" src="/img/<s:property value="photo.id"/>_270x190.jpg"/>
 					    		</a>
 					    		<div class="info">
 						    		<p class="title">

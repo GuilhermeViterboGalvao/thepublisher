@@ -51,7 +51,7 @@
 					<s:iterator value="getLast(4)" status="st">
 						<div class="related-item">
 							<a href="/${permanentLink.uri}" title="${title}">
-								<img alt="${photoId}" src="http://cdn-tatame.trrsf.com/img/${photo.id}_270x180.jpg" />
+								<img alt="${photoId}" src="/img/${photo.id}_270x180.jpg" />
 							</a>
 							<div class="info">	
 								<div class="title">

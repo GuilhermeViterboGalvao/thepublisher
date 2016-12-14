@@ -83,7 +83,7 @@ $(function() {
 							$("<a>").attr("href", article.link).append(
 								$("<img>").attr({
 									"alt": article.photoId,
-									"src": "http://cdn-tatame.trrsf.com/img/" + article.photoId + "_300x180.jpg"
+									"src": "/img/" + article.photoId + "_300x180.jpg"
 								})								
 							)
 						).append(

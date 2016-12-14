@@ -12,7 +12,7 @@
 			<url>http://www.tatame.com.br/<s:property value="permanentLink.uri" escapeXml="true"/></url>
 			<body><s:property value="content" escapeXml="true"/></body>
 			<pubdate><s:property value="publishedAt.getTime() / 1000"/></pubdate>
-			<thumburl>http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>.jpg</thumburl>
+			<thumburl>/img/<s:property value="photo.id"/>.jpg</thumburl>
 		</result>
 	</s:iterator>
 </resultset>

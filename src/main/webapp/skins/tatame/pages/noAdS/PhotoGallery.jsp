@@ -26,7 +26,7 @@
     		<s:if test="photos != null && photos.size() > 0">
 			    <div class="bigphotoholder">
 			        <div class="holder">
-			        	<img class="bigphoto" src="http://cdn-tatame.trrsf.com/img/<s:property value="photos[0].photo.id"/>_714x452.jpg" alt="<s:property value="photos[0].description"/>"/>
+			        	<img class="bigphoto" src="/img/<s:property value="photos[0].photo.id"/>_714x452.jpg" alt="<s:property value="photos[0].description"/>"/>
 			        </div>
 			        <div class="transparent"></div>
 			        <div class="bigphotonote"><s:property value="photos[0].description"/></div>
@@ -45,7 +45,7 @@
 			        <div class="photoholder">
 			            <s:iterator value="photos" status="st">
 			                <a class="<s:if test="#st.count>6">hide</s:if><s:else>show</s:else>" id="<s:property value="photo.id"/>_714x452" href="javascript:void(0);">
-			                	<img src="http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>_101x75.jpg" alt="<s:property value="description"/>"/>
+			                	<img src="/img/<s:property value="photo.id"/>_101x75.jpg" alt="<s:property value="description"/>"/>
 			                </a>
 			            </s:iterator>
 			        </div>

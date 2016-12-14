@@ -5,7 +5,7 @@
 		<div class="info">			
 			<div class="polls box-shadow">
 				<s:if test="poll != null && poll.photo != null">
-					<img class="photo" alt="<s:property value="poll.photo.description"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="poll.photo.id"/>_420x200.jpg"/>
+					<img class="photo" alt="<s:property value="poll.photo.description"/>" src="/img/<s:property value="poll.photo.id"/>_420x200.jpg"/>
 				</s:if>
 			
 				<div class="title">
@@ -61,7 +61,7 @@
 					    	<s:if test="photo && photo.id > 0">
 						    	<div class="article box-shadow">
 						    		<a href="/${permanentLink.uri}">
-										<img alt="<s:property value="header"/>" src="http://cdn-tatame.trrsf.com/img/<s:property value="photo.id"/>_270x190.jpg"/>
+										<img alt="<s:property value="header"/>" src="/img/<s:property value="photo.id"/>_270x190.jpg"/>
 						    		</a>
 						    		<div class="info">
 							    		<p class="title">

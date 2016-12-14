@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-/target/
-/.settings/
-<<<<<<< HEAD
-/.classpath
-/.project
-=======
-/.project
-/.classpath
->>>>>>> refs/heads/master
-=======
 **/target
 **/classes
 ########## Project Files ##########
@@ -22,4 +11,3 @@
 .metadata
 ########## MAC OS ##########
 **.DS_Store
->>>>>>> refs/heads/LayoutResponsivo
