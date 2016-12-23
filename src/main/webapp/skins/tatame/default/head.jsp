@@ -15,15 +15,15 @@
 	<jsp:include page="/skins/tatame/default/meta-tags.jsp"/>
 </s:else>
 <s:if test="photo != null">
-	<meta content="http://cdn-tatame.trrsf.com/img/${photo.id}_210x140.jpg" name="og:image" title="${photo.description}"/>	
+	<meta content="/img/${photo.id}_210x140.jpg" name="og:image" title="${photo.description}"/>
 	<meta property="og:description" content="<s:property value='note'/>"/>
 	<meta property="og:title" content="<s:property value='title'/>" />
-	<meta property="og:image" content="http://cdn-tatame.trrsf.com/img/<s:property value='photo.id'/>_670x418.jpg"/>
+	<meta property="og:image" content="/img/<s:property value='photo.id'/>_670x418.jpg"/>
 	<meta property="og:url" content="http://www.tatame.com.br/<s:property value='permanentLink.uri'/>"/>		
-	<link href="http://cdn-tatame.trrsf.com/img/${photo.id}_210x140.jpg" rel="image_src" title="${photo.description}"/>
+	<link href="/img/${photo.id}_210x140.jpg" rel="image_src" title="${photo.description}"/>
 </s:if>
 <link href="/frameworks/jquery/plugins/perfect-scrollbar.min.css" rel="stylesheet" type="text/css"/>
-<link rel="shortcut icon" href="http://cdn-tatame.trrsf.com/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>
+<link rel="shortcut icon" href="/skins/tatame/img/favicon_16x16-ok.png" type="image/x-icon"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Metrophobic" type="text/css"/>
 <link rel="stylesheet" href="/skins/tatame/css/main.css?7" type="text/css"/>
 <s:if test="model != null && model instanceof com.publisher.entity.Article">

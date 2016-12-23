@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="menu box-shadow">
 	<a href="/" class="logo">
-		<img alt="Tatame" src="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png">
+		<img alt="Tatame" src="/skins/tatame/img/tatame_white.png">
 	</a>
 	<ul class="categories">
 		<li>
@@ -58,7 +58,7 @@
 </div>
 <div class="menu-mobile">
 	<a href="/" class="logo">
-		<img alt="Tatame" src="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png">
+		<img alt="Tatame" src="/skins/tatame/img/tatame_white.png">
 	</a>
 	<div class="search">
 		<form action="/search" method="get">

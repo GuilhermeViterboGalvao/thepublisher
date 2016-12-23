@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="logo">
-	<img alt="tatame_white.png" src="http://cdn-tatame.trrsf.com/skins/tatame/img/tatame_white.png"/>
+	<img alt="tatame_white.png" src="/skins/tatame/img/tatame_white.png"/>
 </div>	
 <div class="pages">
 	<div class="title">PÁGINAS</div>

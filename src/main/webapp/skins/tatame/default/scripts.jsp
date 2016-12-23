@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <script type="text/javascript">terra_stats_metrics();</script>
-<script type="text/javascript" src="http://cdn-tatame.trrsf.com/skins/tatame/js/jquery-1.7.2-min.js"></script>
+<script type="text/javascript" src="/skins/tatame/js/jquery-1.7.2-min.js"></script>
 <script type="text/javascript" src="/frameworks/jquery/plugins/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/skins/tatame/js/main.js?2"></script>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">

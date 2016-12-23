@@ -5,7 +5,7 @@ $(function() {
 		if (src.indexOf("../") == 0) {
 			src = src.replace("../", "/");	
 		} else if (src.indexOf("img/") == 0) {
-			src = src.replace("img/", "http://cdn-tatame.trrsf.com/img/");
+			src = src.replace("img/", "/img/");
 		}
 		img.attr("src", src);
 	});
