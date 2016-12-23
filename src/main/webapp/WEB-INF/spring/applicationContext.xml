@@ -18,5 +18,6 @@
 	<beans:import resource="dataSourceBeans.xml"/>
 	<beans:import resource="thePublisherBeans.xml"/>
 	<beans:import resource="clubeTatameBeans.xml"/>
+	<beans:import resource="tatameBeans.xml"/>
 	
 </beans:beans>

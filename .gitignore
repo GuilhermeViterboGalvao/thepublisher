@@ -1,20 +1,10 @@
-<<<<<<< HEAD
-/target/
-/.settings/
-<<<<<<< HEAD
-/.classpath
-/.project
-=======
-/.project
-/.classpath
->>>>>>> refs/heads/master
-=======
 **/target
 **/classes
 ########## Project Files ##########
 **default-folders.properties
 ########## InteliJ IDEA ##########
 **.iml
+.idea
 ########## Eclipse IDEA ##########
 .settings
 .classpath
@@ -22,4 +12,6 @@
 .metadata
 ########## MAC OS ##########
 **.DS_Store
->>>>>>> refs/heads/LayoutResponsivo
+########## Other Files ##########
+jetty-out.log
+jetty.pid

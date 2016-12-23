@@ -3,6 +3,10 @@ package com.publisher.manager;
 import java.io.File;
 import java.util.Collection;
 import java.util.Date;
+
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
+
 import com.publisher.entity.Photo;
 import com.publisher.service.PhotoService;
 import com.publisher.utils.ResultList;
@@ -90,7 +94,7 @@ public class PhotoAction extends AbstractAction<Photo> {
 
 	@Override
 	protected Collection<Photo> generateSearch() {
-		ResultList<Photo> result = photoService.search(getSearch(), getCurrentPage(), getPageSize());
+		ResultList<Photo> result = photoService.search(getSearch(), getCurrentPage(), getPageSize(), new Sort(new SortField("date", SortField.Type.LONG, true)));
         setPages((int)Math.floor(1f * result.getResultSize() / getPageSize()) + 1);
 		return result.getResult();
 	}

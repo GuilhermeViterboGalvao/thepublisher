@@ -4,27 +4,25 @@
 	var googletag = googletag || {};
 	googletag.cmd = googletag.cmd || [];
 	(function() {
-		if (windowWidth > 800) {
-			var gads = document.createElement("script");
-			gads.async = true;
-			gads.type = "text/javascript";
-			var useSSL = "https:" == document.location.protocol;
-			gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
-			var node = document.getElementsByTagName("script")[0];
-			node.parentNode.insertBefore(gads, node);			
-		}
+		var gads = document.createElement("script");
+		gads.async = true;
+		gads.type = "text/javascript";
+		var useSSL = "https:" == document.location.protocol;
+		gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+		var node = document.getElementsByTagName("script")[0];
+		node.parentNode.insertBefore(gads, node);			
 	})();
 </script>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 	<script type="text/javascript">
 		if (windowWidth > 800) {
 			googletag.cmd.push(function() {
-				googletag.defineSlot("/13554095/Tatame_300x100_Prime1_Home", [300, 100],  "tatame_300x100_prime1_home").addService(googletag.pubads());
-				googletag.defineSlot("/13554095/Tatame_300x100_Prime2_Home", [300, 100],  "tatame_300x100_prime2_home").addService(googletag.pubads());
-				googletag.defineSlot("/13554095/Tatame_300x100_Prime3_Home", [300, 100],  "tatame_300x100_prime3_home").addService(googletag.pubads());
-				googletag.defineSlot("/13554095/Tatame_728x90_Home", 		 [728, 90],   "tatame_728x90_home").addService(googletag.pubads());
-				googletag.defineSlot("/13554095/Tatame_1680x912_Home", 		 [1680, 912], "tatame_1680x912_home").addService(googletag.pubads());
-				//googletag.defineSlot("/13554095/Tatame_728x90_Cob_Cust_Home", [728, 90], "tatame_728x90_cob_cust").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x100_Prime1_Home",  [300, 100],  "tatame_300x100_prime1_home").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x100_Prime2_Home",  [300, 100],  "tatame_300x100_prime2_home").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x100_Prime3_Home",  [300, 100],  "tatame_300x100_prime3_home").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_728x90_Home", 		  [728, 90],   "tatame_728x90_home").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_1680x912_Home", 		  [1680, 912], "tatame_1680x912_home").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_728x90_Cob_Cust_Home", [728, 90],   "tatame_728x90_cob_cust").addService(googletag.pubads());
 				
 				googletag.defineSlot("/13554095/Tatame_970x250_Ros", [970, 250], "tatame_970x250_ros").addService(googletag.pubads());
 				googletag.defineSlot("/13554095/Tatame_300x100_ros", [300, 100], "tatame_300x100_ros").addService(googletag.pubads());
@@ -35,6 +33,16 @@
 								
 				googletag.pubads().setTargeting("pageType", "home");
 				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
+				googletag.enableServices();
+			});
+		}else{
+			googletag.cmd.push(function() {
+				googletag.defineSlot("/13554095/Tatame_Mobile_728x227_Ros", [728, 227],  "tatame_mobile_728x227_ros").addService(googletag.pubads());
+								
+				googletag.pubads().setTargeting("pageType", "home");
+				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
 				googletag.enableServices();
 			});
 		}
@@ -53,10 +61,36 @@
 			googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
 			googletag.cmd.push(function(){googletag.display("tatame_728x90_ros");});
 			googletag.cmd.push(function(){googletag.display("tatame_codigo_ros");});
-			//googletag.cmd.push(function(){googletag.display("tatame_728x90_cob_cust");});
+			googletag.cmd.push(function(){googletag.display("tatame_728x90_cob_cust");});
+		}else{
+			googletag.cmd.push(function(){googletag.display("tatame_mobile_728x227_ros");});
 		}
 	</script>
 </s:if>
+
+<s:elseif test="model != null && model instanceof br.com.tatame.entity.LiveStats && adsZone != null && !adsZone.isEmpty()">
+	<script type="text/javascript">
+		if (windowWidth > 800) {
+			googletag.cmd.push(function() {
+				googletag.defineSlot("/13554095/<s:property value='adsZone'/>",  [[300, 100], [580,200]],  "tatame_live_stats").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_970x250_Ros", 			 [970, 250], 			   "tatame_970x250_ros").addService(googletag.pubads());
+				googletag.defineSlot("/13554095/Tatame_300x600_ros", 			 [300, 600], 			   "tatame_300x600_ros").addService(googletag.pubads());		
+				
+				googletag.pubads().setTargeting("pageType", "liveStats");
+				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
+				googletag.enableServices();
+			});
+		}
+	</script>
+	<script type="text/javascript">
+		if (windowWidth > 800) {
+			googletag.cmd.push(function(){googletag.display("tatame_live_stats");});
+			googletag.cmd.push(function(){googletag.display("tatame_970x250_ros");});
+			googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
+		}
+	</script>
+</s:elseif>
 <s:else>
 	<script type="text/javascript">
 		if (windowWidth > 800) {
@@ -77,6 +111,24 @@
 					googletag.pubads().setTargeting("pageType", "search");
 				</s:else>			
 				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
+				googletag.enableServices();
+			});
+		}else{
+			googletag.cmd.push(function() {
+				googletag.defineSlot("/13554095/Tatame_Mobile_728x227_Ros", [728, 227],  "tatame_mobile_728x227_ros").addService(googletag.pubads());
+								
+				<s:if test="model != null && model instanceof com.publisher.entity.Article">
+					googletag.pubads().setTargeting("pageType", "article");
+				</s:if>
+				<s:elseif test="model != null && model instanceof com.publisher.entity.Category">
+					googletag.pubads().setTargeting("pageType", "category");
+				</s:elseif>
+				<s:else>
+					googletag.pubads().setTargeting("pageType", "search");
+				</s:else>			
+				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
 				googletag.enableServices();
 			});
 		}
@@ -89,6 +141,8 @@
 			googletag.cmd.push(function(){googletag.display("tatame_300x600_ros");});
 			googletag.cmd.push(function(){googletag.display("tatame_1680x912_ros");});
 			googletag.cmd.push(function(){googletag.display("tatame_codigo_ros");});
+		}else{
+			googletag.cmd.push(function(){googletag.display("tatame_mobile_728x227_ros");});
 		}
 	</script>
 </s:else>

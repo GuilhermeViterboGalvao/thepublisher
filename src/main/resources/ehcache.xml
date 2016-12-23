@@ -115,5 +115,13 @@
         overflowToDisk="false"
         eternal="false"
         memoryStoreEvictionPolicy="LFU">   
-    </cache>          
+    </cache>
+    <cache
+        name="userPollVote"
+        maxElementsInMemory="100"
+        timeToLiveSeconds="600"
+        overflowToDisk="false"
+        eternal="true"
+        memoryStoreEvictionPolicy="LFU">      
+    </cache>              
 </ehcache>
