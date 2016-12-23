@@ -1,9 +1,11 @@
+########## Default files ##########
 **/target
 **/classes
 ########## Project Files ##########
 **default-folders.properties
 ########## InteliJ IDEA ##########
 **.iml
+.idea
 ########## Eclipse IDEA ##########
 .settings
 .classpath
@@ -11,3 +13,5 @@
 .metadata
 ########## MAC OS ##########
 **.DS_Store
+########## Log files ##########
+jetty-out.log
