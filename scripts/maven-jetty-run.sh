@@ -47,7 +47,7 @@ elif [ "$profile" == "hlg" ]; then
 	export JAVA_OPTS="$JAVA_OPTS -server -Xmx5120m -Xmn1280m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/tomcat/thepublisher/dumps"
 	mavenCommand="mvn clean jetty:run-exploded"
 	jettyParams="-Djetty.port=8080"
-	appParams="-Dpublisher-log-path=/home/tomcat/thepublisher/thepublisher-logs -Drunning-context=hlg -Dis-jetty-server=true"
+	appParams="-Dpublisher-log-path=/home/tomcat/thepublisher/thepublisher-files/logs -Drunning-context=hlg -Dis-jetty-server=true"
 	uploadFilesDir="-Dupload.files.dir=/home/tomcat/thepublisher/thepublisher-files/upload-files"
 	photosDir="-Dphotos.dir=/home/tomcat/thepublisher/thepublisher-files/photos"
 	tempDir="-Dtemp.dir=/home/tomcat/thepublisher/thepublisher-files/temp"
