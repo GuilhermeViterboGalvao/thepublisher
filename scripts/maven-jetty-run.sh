@@ -47,11 +47,11 @@ elif [ "$profile" == "hlg" ]; then
 	export JAVA_OPTS="$JAVA_OPTS -server -Xmx5120m -Xmn1280m -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/tomcat/thepublisher/dumps"
 	mavenCommand="mvn clean jetty:run-exploded"
 	jettyParams="-Djetty.port=8080"
-	appParams="-Dpublisher-log-path=/u2/the-publisher-files/logs -Drunning-context=hlg -Dis-jetty-server=true"
-	uploadFilesDir="-Dupload.files.dir=/u2/the-publisher-files/upload-files"
-	photosDir="-Dphotos.dir=/u2/the-publisher-files/photos"
-	tempDir="-Dtemp.dir=/u2/the-publisher-files/temp"
-	staticsDir="-Dstatics.dir=/u2/the-publisher-files/statics"
+	appParams="-Dpublisher-log-path=/home/tomcat/thepublisher/thepublisher-logs -Drunning-context=hlg -Dis-jetty-server=true"
+	uploadFilesDir="-Dupload.files.dir=/home/tomcat/thepublisher/thepublisher-files/upload-files"
+	photosDir="-Dphotos.dir=/home/tomcat/thepublisher/thepublisher-files/photos"
+	tempDir="-Dtemp.dir=/home/tomcat/thepublisher/thepublisher-files/temp"
+	staticsDir="-Dstatics.dir=/home/tomcat/thepublisher/thepublisher-files/statics"
 	
 elif [ "$profile" == "wladimir" ]; then
 
@@ -86,7 +86,6 @@ else
 	echo "*                                                         *"
 	echo "* ./maven-jetty-run.sh guilherme                          *"
 	echo "* ./maven-jetty-run.sh wladimir                           *"
-	echo "* ./maven-jetty-run.sh local                              *"
 	echo "* ./maven-jetty-run.sh hlg                                *"
 	echo "* ./maven-jetty-run.sh prd                                *"
 	echo "*                                                         *"
