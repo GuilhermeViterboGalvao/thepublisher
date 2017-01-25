@@ -12,10 +12,10 @@
 </div>
 <div class="address">
 	<div class="title">EDITORA TATAME</div>
-	<p>Av. Almirante Barroso, 6 sala 1004</p>
-	<p>Centro – Rio de Janeiro</p>
-	<p>Cep 20031-000</p>
-	<p>Tel: +55 (21) 2233-7755 ou 2516-8595</p>
+	<p>Rua do Carmo, 57 - 10&#186; andar</p>
+	<p>Centro - Rio de Janeiro - RJ</p>
+	<p>Cep 20011-020</p>
+	<p>Tel: +55 (21) 3129-8031</p>
 </div>
 <s:if test="model != null && model instanceof com.publisher.entity.Page && model.id == 1">
 	<div id="tatame_1680x912_home"></div>
