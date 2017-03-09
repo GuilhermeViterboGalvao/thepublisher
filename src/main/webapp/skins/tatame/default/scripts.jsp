@@ -64,4 +64,24 @@
 	<img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=641946129239872&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
+
+<!-- clever-advertising -->
+<script data-cfasync="false" type="text/javascript">
+	(function (document, window) {
+		var c = document.createElement("script");
+		c.type = "text/javascript";
+		c.async = !0;
+		c.src = "//clevernt.com/scripts/950ea1a08a58973364012f75afc20a7c.min.js?20170309=" + Math.floor((new Date).getTime());
+		var a = !1;
+		try {
+		    a = parent.document.getElementsByTagName("script")[0] || document.getElementsByTagName("script")[0];
+		} catch (e) {
+		    a = !1;
+		}
+		a || ( a = document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]);
+		a.parentNode.insertBefore(c, a);
+	})(document, window);
+</script>
+<!-- clever-advertising -->
+
 <jsp:include page="/skins/tatame/default/google-analytics-script.jsp"/>
