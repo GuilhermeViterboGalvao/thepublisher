@@ -76,6 +76,16 @@
 					<stopKey>stop-thepublisher-server</stopKey>
 					<stopWait>10</stopWait>
 					<jettyXml>${project.basedir}/src/main/webapp/WEB-INF/jetty/jetty.xml</jettyXml>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>running-context</name>
+                            <value>dev</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>publisher-log-path</name>
+                            <value>${project.basedir}</value>
+                        </systemProperty>
+                    </systemProperties>
 				</configuration>
 			</plugin>
 		</plugins>
