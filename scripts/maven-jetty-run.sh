@@ -53,25 +53,11 @@ elif [ "$profile" == "hlg" ]; then
 	tempDir="-Dtemp.dir=/home/tomcat/thepublisher/thepublisher-files/temp"
 	staticsDir="-Dstatics.dir=/home/tomcat/thepublisher/thepublisher-files/statics"
 	
-elif [ "$profile" == "wladimir" ]; then
+elif [ "$profile" == "dev" ]; then
 
 	mavenCommand="mvn clean jetty:run-exploded"
 	jettyParams="-Djetty.port=8080"
-	appParams="-Dpublisher-log-path=/Users/Wlad/Documents/data/publisher-data-files/logs -Drunning-context=wladimir -Dis-jetty-server=true"
-	uploadFilesDir="-Dupload.files.dir=/Users/Wlad/Documents/data/publisher-data-files/upload-files"
-	photosDir="-Dphotos.dir=/Users/Wlad/Documents/data/publisher-data-files/photos"
-	tempDir="-Dtemp.dir=/Users/Wlad/Documents/data/publisher-data-files/temp"
-	staticsDir="-Dstatics.dir=/Users/Wlad/Documents/data/publisher-data-files/statics"
-	
-elif [ "$profile" == "guilherme" ]; then
-
-	mavenCommand="mvn clean jetty:run-exploded"
-	jettyParams="-Djetty.port=8080"
-	appParams="-Dpublisher-log-path=/Users/Guilherme/publisher-data-files/logs -Drunning-context=guilherme -Dis-jetty-server=true"
-	uploadFilesDir="-Dupload.files.dir=/Users/Guilherme/publisher-data-files/upload-files"
-	photosDir="-Dphotos.dir=/Users/Guilherme/publisher-data-files/photos"
-	tempDir="-Dtemp.dir=/Users/Guilherme/publisher-data-files/temp"
-	staticsDir="-Dstatics.dir=/Users/Guilherme/publisher-data-files/statics"
+	appParams="-Drunning-context=dev -Dis-jetty-server=true"
 	
 else
 
@@ -84,8 +70,7 @@ else
 	echo "*                                                         *"
 	echo "* Usage:                                                  *"
 	echo "*                                                         *"
-	echo "* ./maven-jetty-run.sh guilherme                          *"
-	echo "* ./maven-jetty-run.sh wladimir                           *"
+	echo "* ./maven-jetty-run.sh dev                                *"
 	echo "* ./maven-jetty-run.sh hlg                                *"
 	echo "* ./maven-jetty-run.sh prd                                *"
 	echo "*                                                         *"

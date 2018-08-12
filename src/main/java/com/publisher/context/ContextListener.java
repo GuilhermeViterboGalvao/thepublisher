@@ -20,7 +20,7 @@ public class ContextListener implements ServletContextListener {
 
 	private static Log log = LogFactory.getLog(ContextListener.class);
 	
-	private String runningContext;
+	protected String runningContext;
 	
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
@@ -34,19 +34,19 @@ public class ContextListener implements ServletContextListener {
         ViewsListener.start(event.getServletContext());
 	}
 	
-	private String getRunningContext() {
+	protected String getRunningContext() {
 		String myRunningContext = System.getProperty("running-context");
 		if (myRunningContext == null || myRunningContext.isEmpty()) {
 			myRunningContext = System.getenv("running-context");
 			if (myRunningContext == null || myRunningContext.isEmpty()) {				
-				myRunningContext = "local";
+				myRunningContext = "dev";
 				System.setProperty("running-context", myRunningContext);
 			}
 		}
 		return myRunningContext;
 	}
-	
-	private void readAndExport(ServletContext context) throws FileNotFoundException, IOException {
+
+    protected void readAndExport(ServletContext context) throws IOException {
 		Properties properties = new Properties();
 		String realPath = context.getRealPath(File.separator);
 		realPath = !realPath.endsWith(File.separator)   ? realPath + File.separator : realPath;
@@ -76,7 +76,7 @@ public class ContextListener implements ServletContextListener {
 			if (key.contains(runningContext)) {				
 				String path = properties.getProperty(key);
 				key = key.replace(runningContext + ".", "");
-				File file = new File(path);	
+				File file = new File(path);
 				if (path != null && !path.isEmpty() && !path.startsWith(File.separator) && !file.isFile()) {
 					dir = init(new File(home, path));
 				}
@@ -88,8 +88,8 @@ public class ContextListener implements ServletContextListener {
 			}
 		}
 	}
-	
-	private File init(File file) {
+
+    protected File init(File file) {
 		if (file.exists()) {
 			if (!file.isDirectory() || !file.canRead()) {
 				log.info("Can not use " + file.getAbsolutePath());
