@@ -11,6 +11,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -20,21 +21,27 @@ public class ContextListener implements ServletContextListener {
 
 	private static Log log = LogFactory.getLog(ContextListener.class);
 	
-	protected String runningContext;
+	private String runningContext;
 	
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		runningContext = getRunningContext();
-        try { 
-        	readAndExport(event.getServletContext()); 
-        } catch (Exception e) {
-        	log.error(e);
-        	e.printStackTrace();
-        }
-        ViewsListener.start(event.getServletContext());
+	    initContext(event.getServletContext());
 	}
-	
-	protected String getRunningContext() {
+
+	protected void initContext(ServletContext servletContext) {
+        runningContext = getRunningContext();
+        try {
+            readAndExport(servletContext);
+            copyFilesToDataFolder(servletContext);
+        } catch (Exception e) {
+            log.error(e);
+            e.printStackTrace();
+        } finally {
+            ViewsListener.start(servletContext);
+        }
+    }
+
+    private String getRunningContext() {
 		String myRunningContext = System.getProperty("running-context");
 		if (myRunningContext == null || myRunningContext.isEmpty()) {
 			myRunningContext = System.getenv("running-context");
@@ -46,11 +53,9 @@ public class ContextListener implements ServletContextListener {
 		return myRunningContext;
 	}
 
-    protected void readAndExport(ServletContext context) throws IOException {
+    private void readAndExport(ServletContext context) throws IOException {
 		Properties properties = new Properties();
-		String realPath = context.getRealPath(File.separator);
-		realPath = !realPath.endsWith(File.separator)   ? realPath + File.separator : realPath;
-		realPath = !realPath.startsWith(File.separator) ? File.separator + realPath : realPath;
+		String realPath = getRealPath(context.getRealPath(File.separator));
 		properties.load(new FileInputStream(realPath + "WEB-INF/config-files/default-folders.properties"));		
 		File home = null;		
 		String property = System.getProperty("home-folder");		
@@ -89,7 +94,28 @@ public class ContextListener implements ServletContextListener {
 		}
 	}
 
-    protected File init(File file) {
+	private String getRealPath(String realPath) {
+        realPath = !realPath.endsWith(File.separator)   ? realPath + File.separator : realPath;
+        realPath = !realPath.startsWith(File.separator) ? File.separator + realPath : realPath;
+        return realPath;
+    }
+
+    private void copyFilesToDataFolder(ServletContext context) {
+        String dataPath = System.getProperty("data-folder");
+        File dataDir = new File(dataPath);
+        if (dataDir.exists() && dataDir.listFiles().length <= 0) {
+            String realPath = getRealPath(context.getRealPath(File.separator));
+            File dataDirFiles = new File(realPath, "xml/data");
+            try {
+                FileUtils.copyDirectory(dataDirFiles, dataDir);
+            } catch (IOException e) {
+                log.error(e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private File init(File file) {
 		if (file.exists()) {
 			if (!file.isDirectory() || !file.canRead()) {
 				log.info("Can not use " + file.getAbsolutePath());
