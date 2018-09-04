@@ -16,4 +16,4 @@
 jetty-out.log
 jetty-out.out
 jetty.pid
-publisher.log
+publisher.log*
