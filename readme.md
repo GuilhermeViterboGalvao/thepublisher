@@ -46,7 +46,8 @@ mysql> create database thepublisher;
 mysql> use thepublisher;
 ```
 ```shell
-mysql> grant all privileges on thepublisher.* to thepublisher@localhost identified by 'thepublisher';
+mysql> create user thepublisher@localhost identified by 'thepublisher';
+mysql> grant all privileges on thepublisher.* to thepublisher@localhost;
 ```
 
 #### Configurando o ImageMagick
