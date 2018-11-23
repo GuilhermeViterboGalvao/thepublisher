@@ -6,7 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,8 +18,8 @@ import com.publisher.utils.IPUtils;
 public class TerraFeedAction extends ActionSupport implements ServletRequestAware {
 
 	private static final long serialVersionUID = -2116914199777614564L;
-	
-	private static final Logger log = Logger.getLogger(TerraFeedAction.class);
+
+	protected static Log log = LogFactory.getLog(TerraFeedAction.class);
 
 	private ArticleService articleService;
 	

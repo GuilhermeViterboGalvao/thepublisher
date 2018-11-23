@@ -1,6 +1,7 @@
 package br.com.clubetatame.manager;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Account;
 import br.com.clubetatame.service.CompanyContractService;
@@ -15,8 +16,8 @@ import br.com.clubetatame.service.ProductService;
 public class IndexAllFacade extends ActionSupport implements AccountAware {
 
 	private static final long serialVersionUID = 4360826367610393246L;
-	
-	protected static Logger log = Logger.getLogger(IndexAllFacade.class);
+
+	protected static Log log = LogFactory.getLog(IndexAllFacade.class);
 
 	private CompanyService companyService;
 

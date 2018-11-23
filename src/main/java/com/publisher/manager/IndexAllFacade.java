@@ -1,6 +1,7 @@
 package com.publisher.manager;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import com.opensymphony.xwork2.ActionSupport;
 import com.publisher.entity.Account;
 import com.publisher.service.AccountService;
@@ -14,8 +15,8 @@ import com.publisher.service.SkinService;
 public class IndexAllFacade extends ActionSupport implements AccountAware {
 
 	private static final long serialVersionUID = -193803987154138591L;
-	
-	protected static Logger log = Logger.getLogger(IndexAllFacade.class);
+
+	protected static Log log = LogFactory.getLog(IndexAllFacade.class);
 	
 	private AccountService accountService;
 

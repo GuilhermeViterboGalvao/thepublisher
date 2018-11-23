@@ -4,7 +4,8 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,7 +15,7 @@ public abstract class AbstractAction<T> extends ActionSupport implements Account
 
 	private static final long serialVersionUID = -7860719390991822454L;
 
-	protected static Logger log = Logger.getLogger(AbstractAction.class);
+	protected static Log log = LogFactory.getLog(AbstractAction.class);
 	
 	private int currentPage = 1;
 	
